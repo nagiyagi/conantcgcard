@@ -722,6 +722,11 @@ select.btn {
   margin-bottom: 10px;
 }
 
+#sync-status[data-kind="loading"] { color: var(--accent); }
+#sync-status[data-kind="success"] { color: #58d068; }
+#sync-status[data-kind="error"]   { color: #e85a5a; }
+#sync-btn:disabled { opacity: 0.6; cursor: wait; }
+
 /* ===== Form (modal create/edit) ===== */
 .form-group { margin-bottom: 14px; }
 .form-group label {
@@ -935,6 +940,8 @@ const state = {
   // detail context
   activeCollection: null,
   activeDeck: null,
+  // last sync info from meta store
+  lastSync: null,
 };
 
 /* ===== Card data normalization & display ===== */
@@ -950,6 +957,137 @@ function cardImageUrl(card) {
   if (card.imageUrl) return card.imageUrl;
   if (card.imageId) return `https://www.takaratomy.co.jp/products/conan-cardgame/storage/card/${card.imageId}.jpg`;
   return null;
+}
+
+/* ===== conan-tcg-app.com live sync =====
+ * Mirrors tools/convert_conantcg_app.py — keep them in sync if the source
+ * schema changes. Names stay Japanese; effect text concatenates the source's
+ * separate ability fields with their built-in 【...】 labels intact.
+ */
+const CONAN_TCG_APP_API = 'https://conan-tcg-app.com/api/card_list';
+
+const SRC_TYPE_MAP  = { 'パートナー':'Partner', 'キャラ':'Character', 'イベント':'Event', '事件':'Case' };
+const SRC_COLOR_MAP = { '青':'blue', '緑':'green', '白':'white', '赤':'red', '黄':'yellow', '黒':'black' };
+
+function srcDeriveSet(cardNum) {
+  if (!cardNum) return null;
+  const s = String(cardNum).trim();
+  if (s.includes('-')) {
+    const i = s.lastIndexOf('-');
+    const head = s.slice(0, i), tail = s.slice(i + 1);
+    if (/^\d+$/.test(tail)) return head;
+  }
+  return s.replace(/\d+$/, '') || s;
+}
+
+function srcCombineAbilities(src) {
+  const parts = [];
+  for (const k of ['disguise', 'cut_in', 'hirameki', 'feature', 'difficulty_txt']) {
+    const v = src[k];
+    if (v && String(v).trim()) parts.push(String(v).trim());
+  }
+  return parts.join('\n\n');
+}
+
+function srcSplitFeatures(s) {
+  if (!s) return [];
+  if (Array.isArray(s)) return s.map(t => String(t).trim()).filter(Boolean);
+  return String(s).split(/[,、/／]/).map(t => t.trim()).filter(Boolean);
+}
+
+function srcToInt(v) {
+  if (v == null || v === '') return null;
+  if (typeof v === 'number') return Math.trunc(v);
+  const m = String(v).match(/-?\d+/);
+  return m ? parseInt(m[0], 10) : null;
+}
+
+function convertConanTcgAppCard(src) {
+  const nameJa = (src.name || '').trim();
+  return {
+    id:          src.card_num || src.card_id,
+    name:        nameJa,
+    nameJa:      nameJa,
+    kana:        src.kana || null,
+    type:        SRC_TYPE_MAP[src.type] || src.type || null,
+    color:       SRC_COLOR_MAP[src.color] || src.color || null,
+    rarity:      src.rarity || null,
+    level:       srcToInt(src.cost),
+    ap:          srcToInt(src.ap),
+    lp:          srcToInt(src.lp),
+    set:         srcDeriveSet(src.card_num),
+    features:    srcSplitFeatures(src.category),
+    effect:      srcCombineAbilities(src),
+    effectJa:    srcCombineAbilities(src),
+    illustrator: src.illustrator || null,
+    imageUrl:    src.img_url || null,
+    direction:   src.direction || null,
+    isKira:      !!src.is_kira,
+  };
+}
+
+function extractApiRecords(data) {
+  if (Array.isArray(data)) return data;
+  if (data && typeof data === 'object') {
+    for (const k of ['cards', 'data', 'items', 'results', 'list', 'records', 'card_list']) {
+      if (Array.isArray(data[k])) return data[k];
+    }
+    for (const v of Object.values(data)) {
+      if (Array.isArray(v) && v.length && v[0] && typeof v[0] === 'object' && 'card_num' in v[0]) return v;
+    }
+  }
+  return [];
+}
+
+async function updateFromConanTcgApp(statusEl) {
+  const setStatus = (msg, kind) => {
+    if (!statusEl) return;
+    statusEl.textContent = msg;
+    statusEl.dataset.kind = kind || '';
+  };
+
+  setStatus('Fetching from conan-tcg-app.com…', 'loading');
+  try {
+    const res = await fetch(CONAN_TCG_APP_API, { method: 'GET', cache: 'no-store' });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const raw = await res.json();
+    const records = extractApiRecords(raw);
+    if (!records.length) throw new Error('no card records found in response');
+
+    const cards = [];
+    const seen = new Set();
+    for (const src of records) {
+      if (!src || typeof src !== 'object') continue;
+      const card = convertConanTcgAppCard(src);
+      if (!card.id || seen.has(card.id)) continue;
+      seen.add(card.id);
+      cards.push(card);
+    }
+    cards.sort((a, b) => (a.set || '').localeCompare(b.set || '') || (a.id || '').localeCompare(b.id || ''));
+
+    await dbClear(STORES.cards);
+    await dbBulkPut(STORES.cards, cards);
+    const ts = Date.now();
+    await dbPut(STORES.meta, { lastUpdate: ts, count: cards.length, source: 'conan-tcg-app.com' }, 'sync');
+    await refreshState();
+    setStatus(`Updated ${cards.length} cards · ${formatSyncTime(ts)}`, 'success');
+    toast(`Updated ${cards.length} cards`);
+    render();
+  } catch (e) {
+    console.error('Live update failed:', e);
+    const msg = String(e.message || e);
+    let hint = '';
+    if (msg.includes('Failed to fetch') || msg.includes('CORS') || msg.includes('NetworkError')) {
+      hint = ' — likely a CORS block. Use the file import below as a fallback.';
+    }
+    setStatus(`Update failed: ${msg}${hint}`, 'error');
+  }
+}
+
+function formatSyncTime(ts) {
+  if (!ts) return 'never';
+  const d = new Date(ts);
+  return d.toLocaleString();
 }
 
 /* ===== Initial bootstrapping ===== */
@@ -977,6 +1115,7 @@ async function refreshState() {
   state.cards = await dbGetAll(STORES.cards);
   state.collections = await dbGetAll(STORES.collections);
   state.decks = await dbGetAll(STORES.decks);
+  state.lastSync = await dbGet(STORES.meta, 'sync');
   $('#tab-count-cards').textContent = state.cards.length;
   $('#tab-count-coll').textContent = state.collections.length;
   $('#tab-count-decks').textContent = state.decks.length;
@@ -1596,7 +1735,20 @@ function exportDeck(deck) {
 
 /* ===== Settings view (import/export/manage) ===== */
 function renderSettingsView() {
+  const sync = state.lastSync || {};
   $('#main').innerHTML = `
+    <div class="settings-section">
+      <h3>Live Update</h3>
+      <p>Pull the latest card data directly from <a href="https://conan-tcg-app.com" target="_blank" rel="noopener">conan-tcg-app.com</a>. This replaces the current card database (collections and decks are kept).</p>
+      <div class="settings-row">
+        <button class="btn primary" id="sync-btn">Update from conan-tcg-app.com</button>
+      </div>
+      <p style="margin-top:10px; font-family: var(--font-mono); font-size: 11px; color: var(--ink-faint);">
+        Last sync: <span id="sync-status">${sync.lastUpdate ? `${formatSyncTime(sync.lastUpdate)} · ${sync.count || '?'} cards` : 'never'}</span>
+      </p>
+      <p style="margin-top:8px; font-size: 12px; color: var(--ink-faint);">Card data sourced from <a href="https://conan-tcg-app.com" target="_blank" rel="noopener">conan-tcg-app.com</a> by <a href="https://x.com/will_conan_tcg" target="_blank" rel="noopener">@will_conan_tcg</a>. Consider supporting development at <a href="https://will-app.fanbox.cc" target="_blank" rel="noopener">FANBOX</a>.</p>
+    </div>
+
     <div class="settings-section">
       <h3>Card Database</h3>
       <p>Import or replace the card database. Expected format: JSON array of card objects (see <code>data/cards.json</code> for shape).</p>
@@ -1640,6 +1792,21 @@ function renderSettingsView() {
   $('#import-cards').addEventListener('change', e => importCardsFile(e.target.files[0]));
   $('#export-cards-btn').addEventListener('click', () => downloadJson(state.cards, 'conan-cards.json'));
   $('#reset-cards-btn').addEventListener('click', resetCards);
+
+  $('#sync-btn').addEventListener('click', async () => {
+    const btn = $('#sync-btn');
+    const status = $('#sync-status');
+    btn.disabled = true;
+    btn.textContent = 'Updating…';
+    try {
+      await updateFromConanTcgApp(status);
+      const sync = await dbGet(STORES.meta, 'sync');
+      state.lastSync = sync || null;
+    } finally {
+      btn.disabled = false;
+      btn.textContent = 'Update from conan-tcg-app.com';
+    }
+  });
 
   $('#export-all-btn').addEventListener('click', exportBackup);
   $('#import-all-btn').addEventListener('click', () => $('#import-all').click());
