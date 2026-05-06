@@ -3,7 +3,7 @@
  * - Runtime-caches card images (cache-first, opaque OK) from laststand.co.th
  * - Network-first for resync API; falls back to cache for offline browsing
  */
-const VERSION = 'conan-tcg-v3';
+const VERSION = 'conan-tcg-v5';
 const SHELL_CACHE = `${VERSION}-shell`;
 const IMAGE_CACHE = `${VERSION}-images`;
 const RUNTIME_CACHE = `${VERSION}-runtime`;

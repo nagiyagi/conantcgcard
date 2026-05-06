@@ -254,6 +254,61 @@ input,textarea{font:inherit}
   margin-bottom:14px;
 }
 
+/* English ability block — sits below the Thai original */
+.ability-block.en{
+  background:var(--surface-2);border:1px solid var(--gold-soft);
+}
+.ability-block.en .label{color:var(--gold)}
+
+/* LLM provider settings */
+.llm-row{display:flex;flex-direction:column;gap:6px;margin-bottom:12px}
+.llm-row label{
+  font-family:var(--mono);font-size:10px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--ink-faded);
+}
+.llm-row select, .llm-row input{
+  width:100%;padding:9px 11px;
+  font-family:var(--sans);font-size:13px;
+  background:var(--bg);color:var(--ink);
+  border:1px solid var(--border-strong);
+  appearance:none;-webkit-appearance:none;
+  border-radius:0;
+}
+.llm-row input[type="password"], .llm-row input[type="text"]{
+  font-family:var(--mono);font-size:12px;letter-spacing:.05em;
+}
+.llm-row select:focus, .llm-row input:focus{
+  outline:none;border-color:var(--gold);
+}
+.llm-key-wrap{display:flex;gap:6px}
+.llm-key-wrap input{flex:1;min-width:0}
+.llm-key-toggle{
+  width:38px;flex-shrink:0;
+  background:var(--surface-2);border:1px solid var(--border-strong);
+  color:var(--ink-dim);cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+}
+.llm-key-toggle:hover{color:var(--gold)}
+.llm-status{
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.05em;
+  margin-top:4px;display:flex;align-items:center;gap:6px;
+  color:var(--ink-faded);
+}
+.llm-status .dot{
+  width:7px;height:7px;border-radius:50%;
+  background:var(--ink-faded);flex-shrink:0;
+}
+.llm-status.ok .dot{background:var(--gold)}
+.llm-status.err .dot{background:var(--crimson)}
+.llm-actions{display:flex;gap:8px;margin-top:6px}
+.llm-actions .btn{flex:1}
+.llm-warn{
+  font-family:var(--sans);font-size:11.5px;line-height:1.45;
+  color:var(--ink-faded);background:var(--bg);
+  border-left:2px solid var(--gold-soft);
+  padding:8px 12px;margin:10px 0;
+}
+
 /* ============ GRID ============ */
 .case-file{position:relative;z-index:2;padding:8px 12px 110px}
 .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
@@ -582,6 +637,10 @@ input,textarea{font:inherit}
         <span class="label">Ability</span>
         <div id="modalAbilityText"></div>
       </div>
+      <div id="modalAbilityEn" class="ability-block en" style="display:none">
+        <span class="label">Ability · English</span>
+        <div id="modalAbilityEnText"></div>
+      </div>
       <div id="modalAbilityEmpty" class="ability-empty">No detail available — fetch card details to see name, ability, and stats.</div>
 
       <div class="modal-actions">
@@ -607,19 +666,62 @@ input,textarea{font:inherit}
       </button>
       <hr>
       <h3 style="font-size:16px">Fetch card details</h3>
-      <p>Pull each card's name, code, type, rarity, colors, and ability text. Roughly 300+ small requests through the same proxies — usually 30–90 seconds. Cached locally afterwards. Details: <span class="muted" id="detailsStatus">none yet</span>.</p>
+      <p>Pull each card's name, code, type, rarity, colors, and ability text. Roughly 300+ small requests through the same proxies. Cached locally afterwards. Details: <span class="muted" id="detailsStatus">none yet</span>.</p>
+      <div class="llm-row">
+        <label for="concurrencySelect">Throttle <span style="color:var(--ink-faded);text-transform:none;letter-spacing:0;font-family:var(--sans)">— how many cards to fetch at once. Lower = slower but more reliable when proxies rate-limit.</span></label>
+        <select id="concurrencySelect">
+          <option value="1">1 — slowest, most reliable (~3 minutes)</option>
+          <option value="2" selected>2 — balanced (~90 seconds)</option>
+          <option value="3">3 — faster (~60 seconds)</option>
+          <option value="4">4 — fastest, may get rate-limited</option>
+        </select>
+      </div>
       <button class="btn" id="fetchDetailsBtn">Fetch all details</button>
       <div class="warm-progress" id="detailsProgress">
         <span id="detailsTxt">Fetching… 0 / 0</span>
         <div class="bar"><div id="detailsBar"></div></div>
       </div>
       <hr>
-      <h3 style="font-size:16px">Translate names to English</h3>
-      <p>The app already aliases ~150 Detective Conan characters and traits via a built-in dictionary, so common searches like <span class="kbd">Conan</span>, <span class="kbd">Detective</span>, <span class="kbd">Black Organization</span> work out of the box. For everything else — one-off NPCs, locations, set names — this runs each Thai name through the free <a href="https://mymemory.translated.net" target="_blank" rel="noopener" style="color:var(--gold)">MyMemory</a> translator. Cached locally; one-time cost. Status: <span class="muted" id="translateStatus">never</span>.</p>
+      <h3 style="font-size:16px">Translate names to English (free tier)</h3>
+      <p>The app already aliases ~150 Detective Conan characters and traits via a built-in dictionary, so common searches like <span class="kbd">Conan</span>, <span class="kbd">Detective</span>, <span class="kbd">Black Organization</span> work out of the box. For everything else, this runs each Thai name through the free <a href="https://mymemory.translated.net" target="_blank" rel="noopener" style="color:var(--gold)">MyMemory</a> translator. Names only. Status: <span class="muted" id="translateStatus">never</span>.</p>
       <button class="btn" id="translateBtn">Translate remaining names</button>
       <div class="warm-progress" id="translateProgress">
         <span id="translateTxt">Translating… 0 / 0</span>
         <div class="bar"><div id="translateBar"></div></div>
+      </div>
+      <hr>
+      <h3 style="font-size:16px">LLM translation (paid · best quality)</h3>
+      <p>Bring your own API key from Anthropic, OpenAI, or Google. Translates the <em>full</em> card details — name, traits, ability text (with HTML preserved), and origin. Batched 5 cards per request; estimated cost for the full ~312-card set is <strong>~$0.30–0.50 with Claude Haiku 4.5</strong> (or roughly 2–3× that with Sonnet, OpenAI, or Gemini Pro).</p>
+      <div class="llm-row">
+        <label for="llmProvider">Provider</label>
+        <select id="llmProvider">
+          <option value="anthropic">Anthropic Claude</option>
+          <option value="openai">OpenAI</option>
+          <option value="google">Google Gemini</option>
+        </select>
+      </div>
+      <div class="llm-row">
+        <label for="llmModel">Model</label>
+        <select id="llmModel"></select>
+      </div>
+      <div class="llm-row">
+        <label for="llmKey">API Key <span style="color:var(--ink-faded);text-transform:none;letter-spacing:0;font-family:var(--sans)">— stored locally only</span></label>
+        <div class="llm-key-wrap">
+          <input type="password" id="llmKey" placeholder="sk-ant-… or sk-… or AIza…" autocomplete="off" spellcheck="false">
+          <button class="llm-key-toggle" id="llmKeyToggle" type="button" aria-label="Show key">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+          </button>
+        </div>
+        <div class="llm-status" id="llmStatus"><span class="dot"></span><span id="llmStatusText">Not configured</span></div>
+      </div>
+      <div class="llm-warn">⚠ Your API key is saved in your browser's local storage. It's only sent to the provider you select — never to the source site, never to any other server. Anyone with access to this device can read it from DevTools → Application → Local Storage. Don't enable on a shared device. Revoke the key if you suspect leakage.</div>
+      <div class="llm-actions">
+        <button class="btn" id="llmTestBtn">Save & Test</button>
+        <button class="btn btn-primary" id="llmTranslateBtn" disabled>Translate full details</button>
+      </div>
+      <div class="warm-progress" id="llmProgress">
+        <span id="llmProgressTxt">Translating… 0 / 0</span>
+        <div class="bar"><div id="llmBar"></div></div>
       </div>
       <hr>
       <h3 style="font-size:16px">Cache images for offline</h3>
@@ -683,6 +785,12 @@ const LS_OWNED = 'conan.owned.v1';        // {id: 1}
 const LS_LAST_SYNC = 'conan.lastSync.v1'; // ISO date
 const LS_LAST_DETAIL = 'conan.lastDetail.v1'; // ISO date of last detail fetch
 const LS_LAST_TRANSLATE = 'conan.lastTranslate.v1'; // ISO date of last online translate
+const LS_LAST_LLM = 'conan.lastLlm.v1'; // ISO date of last LLM translate
+const LS_LLM_PROVIDER = 'conan.llm.provider.v1';
+const LS_LLM_KEY = 'conan.llm.key.v1';
+const LS_LLM_MODEL = 'conan.llm.model.v1';
+const LS_LLM_OK = 'conan.llm.ok.v1'; // last successful test timestamp
+const LS_CONCURRENCY = 'conan.concurrency.v1'; // 1..4
 const LS_DISMISS_INSTALL = 'conan.dismissInstall.v1';
 
 // ---------- State ----------
@@ -876,6 +984,12 @@ function saveOwned() {
 // ---------- Helpers ----------
 function imgUrl(card) { return IMG_BASE + card.h + '.webp'; }
 
+function getConcurrency() {
+  const raw = parseInt(localStorage.getItem(LS_CONCURRENCY) || '2', 10);
+  if (!Number.isFinite(raw)) return 2;
+  return Math.min(4, Math.max(1, raw));
+}
+
 function formatDate(iso) {
   if (!iso) return 'never';
   const d = new Date(iso);
@@ -930,11 +1044,19 @@ function buildSearchHaystack(c) {
   }
   if (c.traitsEn) parts.push(c.traitsEn);
   if (c.origin)   parts.push(c.origin);
+  if (c.originEn) parts.push(c.originEn);
+  // Strip HTML from ability before searching so the user types plain words
+  if (c.abilityEn) parts.push(stripHtml(c.abilityEn));
   parts.push(String(c.id));
   if (c.h)        parts.push(c.h);
   const h = parts.join(' \u241F ').toLowerCase();
   HAYSTACK_CACHE.set(c.id, h);
   return h;
+}
+
+function stripHtml(s) {
+  if (!s) return '';
+  return String(s).replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
 }
 
 function invalidateHaystacks() {
@@ -1038,8 +1160,8 @@ function openCard(id) {
 
   // Name + code (graceful when details missing)
   $('#modalName').textContent = card.name || (card.code || `Card № ${card.id}`);
-  // English name from cached server translation OR dictionary
-  const enName = card.nameEn || (card.name ? translateThai(card.name) : null);
+  // English alias line — only if NOT translated (so we don't show "EN: Edogawa Conan" under "Edogawa Conan")
+  const enName = !card.translated && (card.nameEn || (card.name ? translateThai(card.name) : null));
   const enEl = $('#modalNameEn');
   if (enName && enName !== card.name) {
     enEl.textContent = enName;
@@ -1089,16 +1211,22 @@ function openCard(id) {
   const traitsEl = $('#modalStatTraits');
   if (card.traits && card.traits.trim()) {
     traitsEl.style.display = '';
-    const enTraits = card.traitsEn || translateThai(card.traits);
-    $('#modalTraits').textContent = enTraits && enTraits !== card.traits
-      ? `${card.traits}  ·  ${enTraits}`
-      : card.traits;
+    if (card.translated) {
+      // Already English — show as-is
+      $('#modalTraits').textContent = card.traits;
+    } else {
+      const enTraits = card.traitsEn || translateThai(card.traits);
+      $('#modalTraits').textContent = enTraits && enTraits !== card.traits
+        ? `${card.traits}  ·  ${enTraits}`
+        : card.traits;
+    }
   } else {
     traitsEl.style.display = 'none';
   }
 
   // Ability text — render the HTML the source provides (sanitized lightly)
   const abilityWrap = $('#modalAbility');
+  const abilityEnWrap = $('#modalAbilityEn');
   const abilityEmpty = $('#modalAbilityEmpty');
   if (card.ability && card.ability.trim()) {
     abilityWrap.style.display = '';
@@ -1107,8 +1235,16 @@ function openCard(id) {
   } else {
     abilityWrap.style.display = 'none';
     abilityEmpty.style.display = card.detailFetchedAt || card.code ? 'none' : '';
-    // (If we have code but no ability, still treat as fetched — some cards have empty ability)
     if (card.code) abilityEmpty.style.display = 'none';
+  }
+  // Show the secondary English ability block ONLY when we have a separate abilityEn
+  // and the card hasn't been destructively translated. Once translated, `ability`
+  // itself is English and the secondary block would just duplicate it.
+  if (!card.translated && card.abilityEn && card.abilityEn.trim()) {
+    abilityEnWrap.style.display = '';
+    $('#modalAbilityEnText').innerHTML = sanitizeAbilityHtml(card.abilityEn);
+  } else {
+    abilityEnWrap.style.display = 'none';
   }
 
   refreshModalStatus();
@@ -1189,6 +1325,8 @@ function openSettings() {
   $('#lastSyncTxt').textContent = formatDate(localStorage.getItem(LS_LAST_SYNC));
   refreshDetailsStatus();
   refreshTranslateStatus();
+  loadLlmFormFromStorage();
+  $('#concurrencySelect').value = String(getConcurrency());
   settingsModal.classList.add('open');
   document.body.style.overflow = 'hidden';
 }
@@ -1334,19 +1472,36 @@ function parseCardDetail(text) {
 
 async function fetchOneDetail(id) {
   const url = DETAIL_URL(id);
-  // 1) Direct
-  try {
-    const r = await fetch(url, { credentials: 'omit' });
-    if (r.ok) return await r.text();
-  } catch {}
-  // 2) Proxies
-  for (const wrap of CORS_PROXIES) {
-    try {
-      const r = await fetch(wrap(url));
-      if (r.ok) return await r.text();
-    } catch {}
+  const attempts = [
+    { label: 'direct', fetcher: () => fetch(url, { credentials: 'omit' }) },
+    ...CORS_PROXIES.map((wrap, i) => ({
+      label: 'proxy' + (i + 1),
+      fetcher: () => fetch(wrap(url)),
+    })),
+  ];
+  // Each attempt gets one retry-on-429 with backoff
+  let lastErr = null;
+  for (const att of attempts) {
+    for (let retry = 0; retry < 2; retry++) {
+      try {
+        const r = await att.fetcher();
+        if (r.ok) return await r.text();
+        if (r.status === 429) {
+          // Rate-limited — back off proportional to retry count, then try once more
+          const backoffMs = 1000 + retry * 1500 + Math.random() * 500;
+          await new Promise(res => setTimeout(res, backoffMs));
+          continue;
+        }
+        // Non-429 error: try the next proxy
+        lastErr = `${att.label}: HTTP ${r.status}`;
+        break;
+      } catch (e) {
+        lastErr = `${att.label}: ${e.message}`;
+        break;
+      }
+    }
   }
-  throw new Error('All fetch attempts failed for ' + id);
+  throw new Error('All fetch attempts failed for ' + id + (lastErr ? ` (${lastErr})` : ''));
 }
 
 async function fetchCardDetails(onProgress) {
@@ -1355,6 +1510,8 @@ async function fetchCardDetails(onProgress) {
   const allFetched = CARDS.every(c => c.code);
   const needIdxs = [];
   CARDS.forEach((c, i) => {
+    // Skip cards the user has already translated — re-fetch would overwrite English with Thai
+    if (c.translated) return;
     if (!allFetched && !c.code) needIdxs.push(i);
     else if (allFetched) needIdxs.push(i);
   });
@@ -1365,7 +1522,10 @@ async function fetchCardDetails(onProgress) {
   }
 
   let done = 0, ok = 0, failed = 0;
-  const CONCURRENCY = 4;
+  const CONCURRENCY = getConcurrency();
+  // When using low concurrency (1 or 2), add a small pacing delay between starts
+  // so we don't slam the same proxy in tight succession.
+  const PACING_MS = CONCURRENCY <= 1 ? 250 : CONCURRENCY <= 2 ? 120 : 0;
   let cursor = 0;
   // Persist progress periodically so a closed tab doesn't lose work
   let lastSave = 0;
@@ -1398,6 +1558,7 @@ async function fetchCardDetails(onProgress) {
       done++;
       persist();
       if (onProgress) onProgress({ done, total, ok, failed, complete: false });
+      if (PACING_MS) await new Promise(res => setTimeout(res, PACING_MS));
     }
   }
   const pool = Math.min(CONCURRENCY, total);
@@ -1496,6 +1657,268 @@ async function translateNamesOnline(onProgress) {
   invalidateHaystacks();
   saveCards(CARDS);
   localStorage.setItem(LS_LAST_TRANSLATE, new Date().toISOString());
+  if (onProgress) onProgress({ done, total, ok, failed, complete: true });
+  return { done, total, ok, failed };
+}
+
+// ---------- LLM-based full-detail translation ----------
+// Bring-your-own-key. Calls Anthropic / OpenAI / Google directly from the browser
+// and translates name + traits + ability (HTML preserved) + origin in batches.
+const LLM_PROVIDERS = {
+  anthropic: {
+    name: 'Anthropic Claude',
+    keyHint: 'sk-ant-…',
+    keyConsole: 'console.anthropic.com → Settings → API Keys',
+    models: [
+      { id: 'claude-haiku-4-5-20251001', label: 'Haiku 4.5  ·  $1 / $5 per 1M  ·  fastest, cheapest' },
+      { id: 'claude-sonnet-4-6',         label: 'Sonnet 4.6  ·  $3 / $15 per 1M  ·  balanced' },
+      { id: 'claude-opus-4-7',           label: 'Opus 4.7  ·  $5 / $25 per 1M  ·  highest quality' },
+    ],
+    default: 'claude-haiku-4-5-20251001',
+    async call(key, model, prompt) {
+      const r = await fetch('https://api.anthropic.com/v1/messages', {
+        method: 'POST',
+        headers: {
+          'x-api-key': key,
+          'anthropic-version': '2023-06-01',
+          'anthropic-dangerous-direct-browser-access': 'true',
+          'content-type': 'application/json',
+        },
+        body: JSON.stringify({
+          model,
+          max_tokens: 4096,
+          messages: [{ role: 'user', content: prompt }],
+        }),
+      });
+      if (!r.ok) {
+        const err = await r.text().catch(() => '');
+        throw new Error(`Anthropic ${r.status}: ${err.slice(0, 200)}`);
+      }
+      const data = await r.json();
+      const block = (data.content || []).find(b => b.type === 'text');
+      return block ? block.text : '';
+    },
+  },
+  openai: {
+    name: 'OpenAI',
+    keyHint: 'sk-…',
+    keyConsole: 'platform.openai.com → API Keys',
+    models: [
+      { id: 'gpt-4o-mini', label: 'gpt-4o-mini  ·  cheapest' },
+      { id: 'gpt-4o',      label: 'gpt-4o  ·  balanced' },
+      { id: 'gpt-4-turbo', label: 'gpt-4-turbo  ·  legacy' },
+    ],
+    default: 'gpt-4o-mini',
+    async call(key, model, prompt) {
+      const r = await fetch('https://api.openai.com/v1/chat/completions', {
+        method: 'POST',
+        headers: {
+          'Authorization': 'Bearer ' + key,
+          'content-type': 'application/json',
+        },
+        body: JSON.stringify({
+          model,
+          max_tokens: 4096,
+          messages: [{ role: 'user', content: prompt }],
+        }),
+      });
+      if (!r.ok) {
+        const err = await r.text().catch(() => '');
+        throw new Error(`OpenAI ${r.status}: ${err.slice(0, 200)}`);
+      }
+      const data = await r.json();
+      return data.choices?.[0]?.message?.content || '';
+    },
+  },
+  google: {
+    name: 'Google Gemini',
+    keyHint: 'AIza…',
+    keyConsole: 'aistudio.google.com → Get API key',
+    models: [
+      { id: 'gemini-2.0-flash', label: 'Gemini 2.0 Flash  ·  fastest' },
+      { id: 'gemini-1.5-pro',   label: 'Gemini 1.5 Pro  ·  highest quality' },
+    ],
+    default: 'gemini-2.0-flash',
+    async call(key, model, prompt) {
+      const r = await fetch(
+        `https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(model)}:generateContent?key=${encodeURIComponent(key)}`,
+        {
+          method: 'POST',
+          headers: { 'content-type': 'application/json' },
+          body: JSON.stringify({
+            contents: [{ parts: [{ text: prompt }] }],
+            generationConfig: { maxOutputTokens: 4096 },
+          }),
+        }
+      );
+      if (!r.ok) {
+        const err = await r.text().catch(() => '');
+        throw new Error(`Gemini ${r.status}: ${err.slice(0, 200)}`);
+      }
+      const data = await r.json();
+      return data.candidates?.[0]?.content?.parts?.[0]?.text || '';
+    },
+  },
+};
+
+let llmAbort = false;
+
+function loadLlmConfig() {
+  return {
+    provider: localStorage.getItem(LS_LLM_PROVIDER) || 'anthropic',
+    key: localStorage.getItem(LS_LLM_KEY) || '',
+    model: localStorage.getItem(LS_LLM_MODEL) || '',
+    okAt: localStorage.getItem(LS_LLM_OK) || '',
+  };
+}
+
+function saveLlmConfig({ provider, key, model }) {
+  if (provider) localStorage.setItem(LS_LLM_PROVIDER, provider);
+  if (typeof key === 'string') {
+    if (key) localStorage.setItem(LS_LLM_KEY, key);
+    else localStorage.removeItem(LS_LLM_KEY);
+  }
+  if (model) localStorage.setItem(LS_LLM_MODEL, model);
+}
+
+function buildBatchPrompt(batch) {
+  // batch: array of { id, name, traits, ability, origin }
+  // Ask the model to return JSON keyed by id
+  const input = {};
+  for (const c of batch) {
+    input[c.id] = {
+      name: c.name || '',
+      traits: c.traits || '',
+      ability: c.ability || '',
+      origin: c.origin || '',
+    };
+  }
+  return `You are translating Detective Conan TCG (trading card game) text from Thai to English.
+
+Rules:
+- Use natural English TCG terminology that would be familiar to card-game players.
+- Preserve all HTML tags exactly. The ability text uses two important tags:
+  - <span class="cc-info-sys">…</span> — Thai game-system phrase. Translate the Thai INSIDE the span to its standard English equivalent. Common ones: "ช่วงไขคดี" → "Investigation Phase", "ปิดคดี" → "Close Case", "แอสซิสต์" → "Assist", "ช่วงไขคดี" → "Investigation Phase".
+  - <span class="cc-info-sleep">…</span> — sleep state indicator. Translate the Thai INSIDE the span. Common: "สลีป↓" → "Sleep↓", "สแตนดบาย" → "Standby".
+- Keep <br> tags exactly where they appear.
+- Character names use the standard romaji (Edogawa Conan, Kudo Shinichi, Mori Ran, Hattori Heiji, Kaito Kid, Akai Shuichi, Amuro Toru, Haibara Ai, Professor Agasa, etc.).
+- For "origin" — set names like "CT-D02 Heiji Hattori" already have the English part; keep them as-is. If only Thai, translate the descriptive part.
+- If a field is empty in the input, use "" in the output.
+
+Return ONLY a JSON object — no markdown fences, no prose explanation. The output must use the exact same numeric keys as the input.
+
+Input:
+${JSON.stringify(input, null, 2)}
+
+Output (JSON, same keys, English values for name/traits/ability/origin):`;
+}
+
+function parseBatchResponse(text, batchIds) {
+  // Strip code fences if the model added them despite instructions
+  let s = text.trim();
+  if (s.startsWith('```')) {
+    s = s.replace(/^```(?:json)?\s*/i, '').replace(/```\s*$/, '').trim();
+  }
+  // Find first { and last } to be tolerant of leading/trailing prose
+  const start = s.indexOf('{');
+  const end = s.lastIndexOf('}');
+  if (start < 0 || end < 0) throw new Error('No JSON object in response');
+  const json = s.slice(start, end + 1);
+  const parsed = JSON.parse(json);
+  // Normalize keys to strings (in case of numeric keys)
+  const out = {};
+  for (const id of batchIds) {
+    const k = String(id);
+    if (parsed[k] && typeof parsed[k] === 'object') out[id] = parsed[k];
+  }
+  return out;
+}
+
+async function llmTest() {
+  const cfg = loadLlmConfig();
+  const provider = LLM_PROVIDERS[cfg.provider];
+  if (!provider) throw new Error('Unknown provider');
+  if (!cfg.key) throw new Error('No API key set');
+  const model = cfg.model || provider.default;
+  const reply = await provider.call(cfg.key, model, 'Reply with only the single word: ok');
+  if (!reply || !/ok/i.test(reply)) throw new Error('Unexpected reply: ' + reply.slice(0, 80));
+  localStorage.setItem(LS_LLM_OK, new Date().toISOString());
+  return { model, reply: reply.trim() };
+}
+
+async function translateAllWithLLM(onProgress) {
+  llmAbort = false;
+  const cfg = loadLlmConfig();
+  const provider = LLM_PROVIDERS[cfg.provider];
+  if (!provider) throw new Error('No provider configured');
+  if (!cfg.key) throw new Error('No API key set');
+  const model = cfg.model || provider.default;
+
+  // Pick cards that haven't been translated yet AND have detail data to translate.
+  // Once `translated: true` is set, we skip the card on subsequent runs (and during re-fetch).
+  const targets = CARDS.filter(c => c.code && !c.translated && (
+    c.name || c.traits || c.ability || c.origin
+  ));
+  const total = targets.length;
+  if (!total) {
+    if (onProgress) onProgress({ done: 0, total: 0, ok: 0, failed: 0, complete: true });
+    return { done: 0, total: 0, ok: 0, failed: 0 };
+  }
+
+  const BATCH_SIZE = 5;
+  let done = 0, ok = 0, failed = 0;
+  let lastSave = 0;
+  const persist = () => {
+    if (Date.now() - lastSave > 2000) {
+      saveCards(CARDS);
+      lastSave = Date.now();
+    }
+  };
+
+  for (let i = 0; i < targets.length && !llmAbort; i += BATCH_SIZE) {
+    const batch = targets.slice(i, i + BATCH_SIZE);
+    try {
+      const prompt = buildBatchPrompt(batch);
+      const reply = await provider.call(cfg.key, model, prompt);
+      const parsed = parseBatchResponse(reply, batch.map(c => c.id));
+      for (const c of batch) {
+        const t = parsed[c.id];
+        if (t) {
+          // DESTRUCTIVE: overwrite Thai fields with English. Mark the card so future
+          // re-fetches don't clobber the translation. Also clear any *En aliases left
+          // over from prior MyMemory passes, since they're now redundant.
+          if (t.name)    c.name = t.name;
+          if (t.traits)  c.traits = t.traits;
+          if (t.ability) c.ability = t.ability;
+          if (t.origin)  c.origin = t.origin;
+          delete c.nameEn;
+          delete c.traitsEn;
+          delete c.abilityEn;
+          delete c.originEn;
+          c.translated = true;
+          ok++;
+        } else {
+          failed++;
+        }
+        done++;
+      }
+    } catch (e) {
+      // Whole batch failed
+      console.error('LLM batch error:', e);
+      failed += batch.length;
+      done += batch.length;
+      // If it's an auth error, stop early — no point hammering
+      if (/401|403/.test(e.message)) {
+        if (onProgress) onProgress({ done, total, ok, failed, complete: true, error: e.message });
+        throw e;
+      }
+    }
+    persist();
+    if (onProgress) onProgress({ done, total, ok, failed, complete: false });
+  }
+  invalidateHaystacks();
+  saveCards(CARDS);
+  if (ok > 0) localStorage.setItem(LS_LAST_LLM, new Date().toISOString());
   if (onProgress) onProgress({ done, total, ok, failed, complete: true });
   return { done, total, ok, failed };
 }
@@ -1697,6 +2120,11 @@ $('#exportBtn').addEventListener('click', exportData);
 $('#importBtn').addEventListener('click', importData);
 $('#resetBtn').addEventListener('click', reset);
 
+$('#concurrencySelect').addEventListener('change', () => {
+  const v = parseInt($('#concurrencySelect').value, 10);
+  localStorage.setItem(LS_CONCURRENCY, String(v));
+});
+
 // Detail fetch button
 $('#fetchDetailsBtn').addEventListener('click', async () => {
   const btn = $('#fetchDetailsBtn');
@@ -1766,6 +2194,136 @@ $('#translateBtn').addEventListener('click', async () => {
     renderGrid();
   } catch (e) {
     showToast('Translation failed: ' + e.message, 'error', 4000);
+  } finally {
+    btn.disabled = false;
+  }
+});
+
+// ---------- LLM settings wiring ----------
+function refreshLlmModelOptions(providerId) {
+  const provider = LLM_PROVIDERS[providerId];
+  const sel = $('#llmModel');
+  sel.innerHTML = '';
+  for (const m of provider.models) {
+    const opt = document.createElement('option');
+    opt.value = m.id;
+    opt.textContent = m.label;
+    sel.appendChild(opt);
+  }
+  // Restore saved or default
+  const saved = localStorage.getItem(LS_LLM_MODEL);
+  if (saved && provider.models.some(m => m.id === saved)) sel.value = saved;
+  else sel.value = provider.default;
+  // Update placeholder
+  $('#llmKey').placeholder = provider.keyHint;
+}
+
+function refreshLlmStatus() {
+  const cfg = loadLlmConfig();
+  const el = $('#llmStatus');
+  const txt = $('#llmStatusText');
+  el.classList.remove('ok', 'err');
+  if (!cfg.key) {
+    txt.textContent = 'Not configured';
+  } else if (cfg.okAt) {
+    el.classList.add('ok');
+    txt.textContent = `Connected · last verified ${formatDate(cfg.okAt)}`;
+  } else {
+    txt.textContent = 'Key set — tap Save & Test to verify';
+  }
+  $('#llmTranslateBtn').disabled = !cfg.key;
+  // Update translate button label with count of cards still needing translation
+  const remaining = CARDS.filter(c => c.code && !c.translated && (
+    c.name || c.traits || c.ability || c.origin
+  )).length;
+  if (remaining === 0) {
+    $('#llmTranslateBtn').textContent = 'Nothing to translate';
+    $('#llmTranslateBtn').disabled = true;
+  } else {
+    $('#llmTranslateBtn').textContent = `Translate full details (${remaining} cards)`;
+  }
+}
+
+function loadLlmFormFromStorage() {
+  const cfg = loadLlmConfig();
+  $('#llmProvider').value = cfg.provider;
+  refreshLlmModelOptions(cfg.provider);
+  if (cfg.key) $('#llmKey').value = cfg.key;
+  refreshLlmStatus();
+}
+
+$('#llmProvider').addEventListener('change', () => {
+  const p = $('#llmProvider').value;
+  refreshLlmModelOptions(p);
+  // Switching providers invalidates the previous test result
+  localStorage.removeItem(LS_LLM_OK);
+  refreshLlmStatus();
+});
+
+$('#llmKeyToggle').addEventListener('click', () => {
+  const inp = $('#llmKey');
+  inp.type = inp.type === 'password' ? 'text' : 'password';
+});
+
+$('#llmTestBtn').addEventListener('click', async () => {
+  const provider = $('#llmProvider').value;
+  const key = $('#llmKey').value.trim();
+  const model = $('#llmModel').value;
+  if (!key) { showToast('Enter an API key first', 'error'); return; }
+  saveLlmConfig({ provider, key, model });
+  const btn = $('#llmTestBtn');
+  btn.disabled = true;
+  const oldText = btn.textContent;
+  btn.textContent = 'Testing…';
+  $('#llmStatus').classList.remove('ok', 'err');
+  $('#llmStatusText').textContent = 'Sending test message…';
+  try {
+    const result = await llmTest();
+    showToast(`Connected — ${result.model} replied "${result.reply}"`, 'info', 3500);
+    refreshLlmStatus();
+  } catch (e) {
+    $('#llmStatus').classList.add('err');
+    $('#llmStatusText').textContent = e.message.slice(0, 80);
+    showToast('Test failed: ' + e.message.slice(0, 100), 'error', 5000);
+  } finally {
+    btn.disabled = false;
+    btn.textContent = oldText;
+  }
+});
+
+$('#llmTranslateBtn').addEventListener('click', async () => {
+  const btn = $('#llmTranslateBtn');
+  const wp = $('#llmProgress');
+  const wt = $('#llmProgressTxt');
+  const wb = $('#llmBar');
+  btn.disabled = true;
+  wp.classList.add('visible');
+  wt.textContent = 'Starting…';
+  wb.style.width = '0%';
+  showToast('LLM translating full details…', 'info', 4000);
+  try {
+    const result = await translateAllWithLLM(({ done, total, ok, failed, complete }) => {
+      const pct = total ? Math.round((done / total) * 100) : 0;
+      wt.textContent = `${complete ? 'Done' : 'Translating'}… ${done} / ${total}` +
+        (failed > 0 ? ` · ${failed} failed` : '');
+      wb.style.width = pct + '%';
+    });
+    if (result.total === 0) {
+      showToast('Everything is already translated', 'info', 3000);
+    } else {
+      showToast(
+        result.ok > 0
+          ? `Translated ${result.ok}${result.failed ? `, ${result.failed} failed` : ''}`
+          : 'All batches failed — check key + model',
+        result.ok > 0 ? 'info' : 'error',
+        4000
+      );
+    }
+    refreshLlmStatus();
+    refreshTranslateStatus();
+    renderGrid();
+  } catch (e) {
+    showToast('LLM translation failed: ' + e.message.slice(0, 100), 'error', 5000);
   } finally {
     btn.disabled = false;
   }
