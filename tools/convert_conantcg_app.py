@@ -32,73 +32,6 @@ import sys
 from pathlib import Path
 
 
-# Known character name romanizations. Falls back to Japanese for everyone else.
-ROMAJI = {
-    "江戸川コナン":     "Conan Edogawa",
-    "工藤新一":         "Shinichi Kudo",
-    "毛利蘭":           "Ran Mouri",
-    "毛利小五郎":       "Kogoro Mouri",
-    "服部平次":         "Heiji Hattori",
-    "遠山和葉":         "Kazuha Toyama",
-    "怪盗キッド":       "Kaito Kid",
-    "黒羽快斗":         "Kaito Kuroba",
-    "中森青子":         "Aoko Nakamori",
-    "赤井秀一":         "Shuichi Akai",
-    "世良真純":         "Masumi Sera",
-    "安室透":           "Toru Amuro",
-    "降谷零":           "Rei Furuya",
-    "灰原哀":           "Ai Haibara",
-    "宮野志保":         "Shiho Miyano",
-    "阿笠博士":         "Hiroshi Agasa",
-    "ジン":             "Gin",
-    "ウォッカ":         "Vodka",
-    "ベルモット":       "Vermouth",
-    "工藤優作":         "Yusaku Kudo",
-    "工藤有希子":       "Yukiko Kudo",
-    "吉田歩美":         "Ayumi Yoshida",
-    "小嶋元太":         "Genta Kojima",
-    "円谷光彦":         "Mitsuhiko Tsuburaya",
-    "鈴木園子":         "Sonoko Suzuki",
-    "目暮十三":         "Juzo Megure",
-    "高木渉":           "Wataru Takagi",
-    "佐藤美和子":       "Miwako Sato",
-    "白鳥任三郎":       "Ninzaburo Shiratori",
-    "千葉和伸":         "Kazunobu Chiba",
-    "山村ミサオ":       "Misao Yamamura",
-    "大和敢助":         "Kansuke Yamato",
-    "上原由衣":         "Yui Uehara",
-    "諸伏景光":         "Hiromitsu Morofushi",
-    "諸伏高明":         "Takaaki Morofushi",
-    "松田陣平":         "Jinpei Matsuda",
-    "萩原研二":         "Kenji Hagiwara",
-    "伊達航":           "Wataru Date",
-    "ジョディ・スターリング": "Jodie Starling",
-    "ジェイムズ・ブラック": "James Black",
-    "アンドレ・キャメル": "Andre Camel",
-    "本堂瑛祐":         "Eisuke Hondou",
-    "本堂瑛海":         "Hidemi Hondou",
-    "水無怜奈":         "Rena Mizunashi",
-    "キャンティ":       "Chianti",
-    "コルン":           "Korn",
-    "キール":           "Kir",
-    "ライ":             "Rye",
-    "バーボン":         "Bourbon",
-    "スコッチ":         "Scotch",
-    "ピスコ":           "Pisco",
-    "テキーラ":         "Tequila",
-    "シェリー":         "Sherry",
-    "宮本由美":         "Yumi Miyamoto",
-    "新出智明":         "Tomoaki Araide",
-    "森谷帝二":         "Teiji Moriya",
-    "沖矢昴":           "Subaru Okiya",
-    "羽田秀吉":         "Shukichi Haneda",
-    "宮本伊織":         "Iori Muga",
-    "脇田兼則":         "Kanenori Wakita",
-    "毛利英理":         "Eri Kisaki",
-    "妃英理":           "Eri Kisaki",
-    "工藤新一(高校生)": "Shinichi Kudo (High School)",
-}
-
 TYPE_MAP = {
     "パートナー":  "Partner",
     "キャラ":      "Character",
@@ -178,11 +111,10 @@ def to_int(v):
 def convert_card(src):
     """Map one source card dict to our PWA's schema."""
     name_ja = (src.get("name") or "").strip()
-    name_en = ROMAJI.get(name_ja, name_ja)
 
     return {
         "id":          src.get("card_num") or src.get("card_id"),
-        "name":        name_en,
+        "name":        name_ja,
         "nameJa":      name_ja,
         "kana":        src.get("kana"),
         "type":        TYPE_MAP.get(src.get("type", ""), src.get("type")),
@@ -298,9 +230,6 @@ def main():
     print("\nCards per set:")
     for s, n in sorted(set_counts.items()):
         print(f"  {s:12} {n:>5}")
-    translated = sum(1 for c in converted if c["name"] != c["nameJa"])
-    print(f"\nNames romanized: {translated} / {len(converted)} "
-          f"(rest kept Japanese — extend ROMAJI dict in this script to add more)")
 
 
 if __name__ == "__main__":
