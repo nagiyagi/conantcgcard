@@ -997,8 +997,11 @@ function srcToInt(v) {
 function convertConanTcgAppCard(src) {
   const nameJa = (src.name || '').trim();
   return {
-    id:          src.card_id || src.card_num,
-    cardNum:     src.card_num || null,
+    // `id` is the printed card number (unique per printing — parallels/foils
+    // get their own entry). `cardId` is the source's logical identifier and
+    // is shared across reprints of the same card.
+    id:          src.card_num || src.card_id,
+    cardId:      src.card_id || null,
     name:        nameJa,
     nameJa:      nameJa,
     kana:        src.kana || null,
@@ -1048,12 +1051,10 @@ async function updateFromConanTcgApp(statusEl) {
     if (!records.length) throw new Error('no card records found in response');
 
     const cards = [];
-    const seen = new Set();
     for (const src of records) {
       if (!src || typeof src !== 'object') continue;
       const card = convertConanTcgAppCard(src);
-      if (!card.id || seen.has(card.id)) continue;
-      seen.add(card.id);
+      if (!card.id) continue;
       cards.push(card);
     }
     cards.sort((a, b) => (a.set || '').localeCompare(b.set || '') || (a.id || '').localeCompare(b.id || ''));
@@ -1127,7 +1128,7 @@ function setView(v) {
 function filterCards(cards, f) {
   const q = (f.q || '').trim().toLowerCase();
   return cards.filter(c => {
-    if (q && !(`${c.name||''} ${c.nameJa||''} ${c.kana||''} ${c.id||''} ${c.cardNum||''} ${c.effect||''}`.toLowerCase().includes(q))) return false;
+    if (q && !(`${c.name||''} ${c.nameJa||''} ${c.kana||''} ${c.id||''} ${c.cardId||''} ${c.effect||''}`.toLowerCase().includes(q))) return false;
     if (f.color && (c.color || '').toLowerCase() !== f.color) return false;
     if (f.type && c.type !== f.type) return false;
     if (f.rarity && c.rarity !== f.rarity) return false;
@@ -1835,6 +1836,15 @@ function renderSettingsView() {
     </div>
 
     <div class="settings-section">
+      <h3>Storage</h3>
+      <p>Your collections, decks, and card data live in this browser's storage on this device. Use Backup &amp; Restore (below) to move data between devices.</p>
+      <p id="storage-status" style="font-family: var(--font-mono); font-size: 11px; color: var(--ink-faint); margin-top: 8px;">Checking…</p>
+      <div class="settings-row">
+        <button class="btn" id="request-persist-btn">Request persistent storage</button>
+      </div>
+    </div>
+
+    <div class="settings-section">
       <h3>Backup &amp; Restore</h3>
       <p>Export everything (cards + collections + decks) to a single JSON file for backup, or to move to another device.</p>
       <div class="settings-row">
@@ -1884,6 +1894,30 @@ function renderSettingsView() {
   $('#export-all-btn').addEventListener('click', exportBackup);
   $('#import-all-btn').addEventListener('click', () => $('#import-all').click());
   $('#import-all').addEventListener('change', e => importBackup(e.target.files[0]));
+
+  // Storage status panel
+  const renderStorageStatus = async () => {
+    const el = $('#storage-status');
+    if (!el) return;
+    const status = await getStorageStatus();
+    if (!status) { el.textContent = 'Storage API not available in this browser.'; return; }
+    const parts = [];
+    parts.push(`Persistent: ${status.persisted === true ? 'yes (data is protected from eviction)' : status.persisted === false ? 'no (browser may evict under pressure)' : 'unknown'}`);
+    if (status.estimate && status.estimate.usage != null && status.estimate.quota != null) {
+      const usedMb = (status.estimate.usage / 1024 / 1024).toFixed(2);
+      const quotaMb = (status.estimate.quota / 1024 / 1024).toFixed(0);
+      parts.push(`Used: ${usedMb} MB of ${quotaMb} MB available`);
+    }
+    el.innerHTML = parts.join('<br>');
+  };
+  renderStorageStatus();
+  $('#request-persist-btn').addEventListener('click', async () => {
+    const granted = await requestPersistentStorage();
+    if (granted === true) toast('Persistent storage granted');
+    else if (granted === false) toast('Browser declined the request');
+    else toast('Storage API not available');
+    renderStorageStatus();
+  });
 
   $('#clear-coll').addEventListener('click', async () => {
     if (!confirm('Delete ALL collections?')) return;
@@ -2049,12 +2083,42 @@ if ('serviceWorker' in navigator) {
 /* ===== Wire up tabs ===== */
 $$('.tab').forEach(t => t.addEventListener('click', () => setView(t.dataset.view)));
 
+/* ===== Persistent storage =====
+ * Without this, browsers (especially Safari on iOS) may evict our IndexedDB
+ * data under storage pressure or after long inactivity. Requesting persist
+ * upgrades the storage to "best-effort survives eviction" status.
+ * Most browsers auto-grant this once a PWA is installed.
+ */
+async function requestPersistentStorage() {
+  if (!navigator.storage || !navigator.storage.persist) return null;
+  try {
+    if (await navigator.storage.persisted()) return true;
+    return await navigator.storage.persist();
+  } catch (e) {
+    console.warn('Persistent storage request failed:', e);
+    return null;
+  }
+}
+
+async function getStorageStatus() {
+  if (!navigator.storage) return null;
+  try {
+    const persisted = navigator.storage.persisted ? await navigator.storage.persisted() : null;
+    const estimate = navigator.storage.estimate ? await navigator.storage.estimate() : null;
+    return { persisted, estimate };
+  } catch (e) {
+    return null;
+  }
+}
+
 /* ===== Boot ===== */
 (async () => {
   await openDB();
   await loadInitialData();
   await refreshState();
   render();
+  // Fire-and-forget: ask the browser to keep our data safe from eviction.
+  requestPersistentStorage();
 })();
 </script>
 
