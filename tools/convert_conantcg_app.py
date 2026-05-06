@@ -49,29 +49,6 @@ COLOR_MAP = {
 }
 
 
-def derive_set(card_num):
-    """
-    Extract a set code from card_num.
-
-    Examples:
-        "PR287"        -> "PR"
-        "P01-001"      -> "P01"
-        "CT-P01-001"   -> "CT-P01"
-        "D11-040"      -> "D11"
-    """
-    if not card_num:
-        return None
-    s = str(card_num).strip()
-    # If hyphenated and the last segment is digits, the set is everything before.
-    if "-" in s:
-        head, tail = s.rsplit("-", 1)
-        if tail.isdigit():
-            return head
-    # Otherwise, strip trailing digits to get the alphabetic prefix.
-    stripped = re.sub(r"\d+$", "", s)
-    return stripped or s
-
-
 def combine_abilities(src):
     """
     The source splits abilities into separate fields. We concatenate them with
@@ -113,7 +90,8 @@ def convert_card(src):
     name_ja = (src.get("name") or "").strip()
 
     return {
-        "id":          src.get("card_num") or src.get("card_id"),
+        "id":          src.get("card_id") or src.get("card_num"),
+        "cardNum":     src.get("card_num"),
         "name":        name_ja,
         "nameJa":      name_ja,
         "kana":        src.get("kana"),
@@ -123,7 +101,7 @@ def convert_card(src):
         "level":       to_int(src.get("cost")),
         "ap":          to_int(src.get("ap")),
         "lp":          to_int(src.get("lp")),
-        "set":         derive_set(src.get("card_num", "")),
+        "set":         src.get("package"),
         "features":    normalize_features(src.get("category")),
         "effect":      combine_abilities(src),
         "effectJa":    combine_abilities(src),
