@@ -385,7 +385,12 @@ select.btn {
   box-shadow: 0 2px 6px rgba(0,0,0,0.3);
 }
 
-/* ===== Modal (card detail) ===== */
+/* ===== Modal (card detail) =====
+ * Mobile (< 640px): full-screen modal with internal scroll. Avoids the
+ * awkward "modal taller than viewport" scenario where the page peeks
+ * through and the backdrop gets scrolled mid-content.
+ * Desktop (>= 640px): centered overlay with rounded corners.
+ */
 .modal-backdrop {
   position: fixed;
   inset: 0;
@@ -393,28 +398,44 @@ select.btn {
   backdrop-filter: blur(4px);
   z-index: 100;
   display: none;
-  align-items: flex-start;
-  justify-content: center;
-  padding: 20px;
-  overflow-y: auto;
 }
 .modal-backdrop.open { display: flex; }
 .modal {
   background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  max-width: 720px;
   width: 100%;
-  margin: 20px auto;
+  height: 100vh;
+  height: 100dvh; /* dynamic viewport unit handles mobile browser chrome */
+  margin: 0;
+  border: none;
+  border-radius: 0;
   position: relative;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
   animation: modalIn 0.25s ease;
+}
+@media (min-width: 640px) {
+  .modal-backdrop {
+    align-items: flex-start;
+    justify-content: center;
+    padding: 20px;
+    overflow-y: auto;
+  }
+  .modal {
+    max-width: 720px;
+    height: auto;
+    margin: 20px auto;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow-y: visible;
+  }
 }
 @keyframes modalIn {
   from { opacity: 0; transform: translateY(12px); }
   to { opacity: 1; transform: translateY(0); }
 }
 .modal .close {
-  position: absolute;
+  position: fixed;
   top: 12px; right: 12px;
   width: 36px; height: 36px;
   border-radius: 50%;
@@ -425,6 +446,11 @@ select.btn {
   font-size: 20px;
   color: var(--ink-soft);
   z-index: 2;
+}
+@media (min-width: 640px) {
+  /* On desktop the modal is a centered overlay with no internal scroll —
+     position the close button relative to the modal, not the viewport. */
+  .modal .close { position: absolute; }
 }
 .modal .close:hover { color: var(--ink); background: var(--bg-soft); }
 .modal-body {
