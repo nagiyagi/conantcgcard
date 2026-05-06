@@ -741,6 +741,56 @@ select.btn {
 #sync-status[data-kind="error"]   { color: #e85a5a; }
 #sync-btn:disabled { opacity: 0.6; cursor: wait; }
 
+/* ===== Multi-select batch bar & selection states ===== */
+.batch-bar {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: var(--bg-elev);
+  border: 1px solid var(--accent);
+  border-radius: 4px;
+  padding: 10px 14px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+.batch-count {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  color: var(--accent);
+  margin-right: auto;
+  text-transform: uppercase;
+}
+.card.selectable { outline: 2px solid transparent; outline-offset: 2px; }
+.card.selected   { outline-color: var(--accent); border-color: var(--accent); }
+.card.selectable:hover { transform: none; }
+.card .select-check {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: rgba(13, 17, 23, 0.85);
+  border: 2px solid var(--ink-faint);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: bold;
+  color: transparent;
+  z-index: 2;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+.card.selected .select-check {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--bg);
+}
+
 /* ===== Form (modal create/edit) ===== */
 .form-group { margin-bottom: 14px; }
 .form-group label {
@@ -954,6 +1004,9 @@ const state = {
   collectionFilters: {
     q: '', color: '', type: '', rarity: '', set: '',
   },
+  sort: 'default',
+  selectMode: false,
+  selection: new Set(),
   // detail context
   activeCollection: null,
   activeDeck: null,
@@ -1135,6 +1188,11 @@ function setView(v) {
   $$('.tab').forEach(t => t.classList.toggle('active', t.dataset.view === v));
   state.activeCollection = null;
   state.activeDeck = null;
+  // Selection mode is Cards-tab-only — leaving the tab cancels it.
+  if (v !== 'cards') {
+    state.selectMode = false;
+    state.selection.clear();
+  }
   render();
 }
 
@@ -1163,6 +1221,32 @@ function anyFilterActive(f) {
   return !!(f.q || f.color || f.type || f.rarity || f.set);
 }
 
+const NUMERIC_COLLATOR = { numeric: true, sensitivity: 'base' };
+
+function sortCards(cards, sortKey) {
+  const arr = [...cards];
+  const cmp = (a, b) => {
+    switch (sortKey) {
+      case 'cardId':
+        return String(a.cardId || '').localeCompare(String(b.cardId || ''), undefined, NUMERIC_COLLATOR);
+      case 'id':
+        return String(a.id || '').localeCompare(String(b.id || ''), undefined, NUMERIC_COLLATOR);
+      case 'name':
+        return String(a.nameJa || a.name || '').localeCompare(String(b.nameJa || b.name || ''));
+      case 'level-asc':  return (a.level ?? 99) - (b.level ?? 99);
+      case 'level-desc': return (b.level ?? -1) - (a.level ?? -1);
+      case 'ap-asc':     return (a.ap ?? 99999) - (b.ap ?? 99999);
+      case 'ap-desc':    return (b.ap ?? -1) - (a.ap ?? -1);
+      default: // 'default' = set then id
+        return (
+          String(a.set || '').localeCompare(String(b.set || '')) ||
+          String(a.id || '').localeCompare(String(b.id || ''), undefined, NUMERIC_COLLATOR)
+        );
+    }
+  };
+  return arr.sort(cmp);
+}
+
 /* ===== Renderers ===== */
 function render() {
   if (state.view === 'cards') renderCardsView();
@@ -1179,10 +1263,14 @@ function renderCardImg(card, opts={}) {
   return html`<div class="card-img-placeholder"><div class="id-text">${card.id}</div>${(card.name||'').toUpperCase()}</div>`;
 }
 
-function renderCardTile(card, qty=null) {
+function renderCardTile(card, qty=null, opts={}) {
   const colorCls = colorClass(card.color);
+  const selectable = !!opts.selectMode;
+  const selected = selectable && state.selection.has(card.id);
+  const cls = `card${selectable ? ' selectable' : ''}${selected ? ' selected' : ''}`;
   return html`
-    <div class="card" data-card-id="${card.id}">
+    <div class="${cls}" data-card-id="${card.id}">
+      ${selectable ? raw('<div class="select-check">✓</div>') : ''}
       ${qty ? raw(`<div class="card-qty-badge">×${qty}</div>`) : ''}
       <div class="card-img-wrap">${raw(renderCardImg(card))}</div>
       <div class="card-info">
@@ -1202,6 +1290,17 @@ function renderCardsView() {
   const types = [...new Set(state.cards.map(c => c.type).filter(Boolean))];
   const rarities = [...new Set(state.cards.map(c => c.rarity).filter(Boolean))];
 
+  const sortOptions = [
+    ['default',    'Sort: Set, then ID'],
+    ['id',         'Sort: Card Number'],
+    ['cardId',     'Sort: Card ID'],
+    ['name',       'Sort: Name'],
+    ['level-asc',  'Sort: Level (low → high)'],
+    ['level-desc', 'Sort: Level (high → low)'],
+    ['ap-asc',     'Sort: AP (low → high)'],
+    ['ap-desc',    'Sort: AP (high → low)'],
+  ];
+
   $('#main').innerHTML = `
     <div class="toolbar">
       <div class="search-box">
@@ -1219,6 +1318,10 @@ function renderCardsView() {
         <option value="">All Rarities</option>
         ${rarities.map(r => `<option value="${r}" ${state.filters.rarity===r?'selected':''}>${r}</option>`).join('')}
       </select>
+      <select class="btn" id="sort-by">
+        ${sortOptions.map(([v,l]) => `<option value="${v}" ${state.sort===v?'selected':''}>${l}</option>`).join('')}
+      </select>
+      <button class="btn ${state.selectMode?'primary':''}" id="toggle-select">${state.selectMode?'Done':'Select'}</button>
     </div>
     <div class="filter-row">
       <div class="filter-group">
@@ -1227,6 +1330,7 @@ function renderCardsView() {
         ${state.filters.color ? `<button class="chip" data-color="">clear</button>` : ''}
       </div>
     </div>
+    <div id="batch-bar-slot"></div>
     <div class="result-count" id="result-count"></div>
     <div id="card-grid-container"></div>
   `;
@@ -1236,6 +1340,12 @@ function renderCardsView() {
   $('#filter-set').addEventListener('change', e => { state.filters.set = e.target.value; renderCardsList(); });
   $('#filter-type').addEventListener('change', e => { state.filters.type = e.target.value; renderCardsList(); });
   $('#filter-rarity').addEventListener('change', e => { state.filters.rarity = e.target.value; renderCardsList(); });
+  $('#sort-by').addEventListener('change', e => { state.sort = e.target.value; renderCardsList(); });
+  $('#toggle-select').addEventListener('click', () => {
+    state.selectMode = !state.selectMode;
+    if (!state.selectMode) state.selection.clear();
+    renderCardsView();
+  });
   $$('.chip[data-color]').forEach(b => b.addEventListener('click', () => {
     state.filters.color = b.dataset.color;
     renderCardsView(); // re-render to update active state
@@ -1244,9 +1354,35 @@ function renderCardsView() {
   renderCardsList();
 }
 
+function renderBatchBar() {
+  const slot = $('#batch-bar-slot');
+  if (!slot) return;
+  if (!state.selectMode) { slot.innerHTML = ''; return; }
+  const n = state.selection.size;
+  slot.innerHTML = `
+    <div class="batch-bar">
+      <span class="batch-count">${n} selected</span>
+      <button class="btn ghost" id="select-all">Select all visible</button>
+      <button class="btn ghost" id="clear-selection" ${n === 0 ? 'disabled' : ''}>Clear</button>
+      <button class="btn primary" id="batch-add" ${n === 0 ? 'disabled' : ''}>Add to Collection</button>
+    </div>
+  `;
+  $('#select-all').addEventListener('click', () => {
+    const visible = sortCards(applyFilters(state.cards), state.sort);
+    visible.forEach(c => state.selection.add(c.id));
+    renderCardsList();
+  });
+  $('#clear-selection').addEventListener('click', () => {
+    state.selection.clear();
+    renderCardsList();
+  });
+  $('#batch-add').addEventListener('click', openBatchAddModal);
+}
+
 function renderCardsList() {
-  const filtered = applyFilters(state.cards);
+  const filtered = sortCards(applyFilters(state.cards), state.sort);
   $('#result-count').textContent = `${filtered.length} of ${state.cards.length} cards`;
+  renderBatchBar();
   const container = $('#card-grid-container');
 
   if (filtered.length === 0) {
@@ -1254,9 +1390,21 @@ function renderCardsList() {
     return;
   }
 
-  container.innerHTML = `<div class="card-grid">${filtered.map(c => renderCardTile(c)).join('')}</div>`;
+  const opts = { selectMode: state.selectMode };
+  container.innerHTML = `<div class="card-grid">${filtered.map(c => renderCardTile(c, null, opts)).join('')}</div>`;
   $$('.card[data-card-id]', container).forEach(el => {
-    el.addEventListener('click', () => openCardModal(el.dataset.cardId));
+    el.addEventListener('click', () => {
+      const cardId = el.dataset.cardId;
+      if (state.selectMode) {
+        if (state.selection.has(cardId)) state.selection.delete(cardId);
+        else state.selection.add(cardId);
+        el.classList.toggle('selected');
+        // Update batch bar count without re-rendering the whole grid
+        renderBatchBar();
+      } else {
+        openCardModal(cardId);
+      }
+    });
   });
 }
 
@@ -1391,6 +1539,36 @@ function promptAddToCollection(card) {
     await dbPut(STORES.collections, coll);
     await refreshState();
     toast(`Added ×${q} to ${coll.name}`);
+  });
+}
+
+function openBatchAddModal() {
+  const ids = Array.from(state.selection);
+  if (ids.length === 0) return;
+  if (state.collections.length === 0) {
+    toast('Create a collection first');
+    setView('collections');
+    return;
+  }
+  const opts = state.collections.map(c => `<option value="${c.id}">${c.name}</option>`).join('');
+  openFormModal(`Add ${ids.length} card${ids.length === 1 ? '' : 's'} to collection`, [
+    { name: 'collId', label: 'Collection', selectHtml: opts },
+    { name: 'qty', label: 'Quantity per card', type: 'number', value: '1' },
+  ], async (data) => {
+    const coll = await dbGet(STORES.collections, data.collId);
+    if (!coll) return;
+    coll.cards = coll.cards || {};
+    const q = Math.max(1, parseInt(data.qty || '1'));
+    for (const cardId of ids) {
+      coll.cards[cardId] = (coll.cards[cardId] || 0) + q;
+    }
+    await dbPut(STORES.collections, coll);
+    // Exit select mode after a successful batch add.
+    state.selectMode = false;
+    state.selection.clear();
+    await refreshState();
+    toast(`Added ${ids.length} card${ids.length === 1 ? '' : 's'} (×${q} each) to ${coll.name}`);
+    render();
   });
 }
 
