@@ -547,6 +547,66 @@ select.btn {
   flex-wrap: wrap;
 }
 
+/* ===== Card ownership indicators ===== */
+/* Pip badges that appear in the card-info row on tiles */
+.card-ownership-row {
+  display: flex;
+  gap: 4px;
+  margin-top: 5px;
+}
+.ownership-pip {
+  font-size: 9px;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 1px 5px;
+  border-radius: 2px;
+  line-height: 1.6;
+}
+.ownership-pip.coll { background: var(--accent); color: #fff; }
+.ownership-pip.deck { background: #1a3a2a; color: #6dba8a; border: 1px solid #2d5c3e; }
+
+/* Membership section inside card detail modal */
+.membership-section {
+  margin: 14px 0 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.membership-group { display: flex; flex-direction: column; gap: 5px; }
+.membership-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+.membership-pills { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 2px; }
+.membership-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 9px;
+  border-radius: 4px;
+  font-size: 12px;
+}
+.membership-pill.coll {
+  background: rgba(229, 57, 53, 0.12);
+  border: 1px solid rgba(229, 57, 53, 0.3);
+  color: var(--ink);
+}
+.membership-pill.deck {
+  background: rgba(109, 186, 138, 0.1);
+  border: 1px solid rgba(109, 186, 138, 0.3);
+  color: var(--ink);
+}
+.membership-pill .pill-qty {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--ink-faint);
+}
+
 /* ===== Empty / loading states ===== */
 .empty {
   text-align: center;
@@ -1007,6 +1067,7 @@ const html = (strings, ...values) => {
   return s;
 };
 const raw = (s) => ({ __raw: s });
+const escHtml = (s) => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 
 function toast(msg) {
   const stack = $('#toasts');
@@ -1294,6 +1355,16 @@ function renderCardTile(card, qty=null, opts={}) {
   const selectable = !!opts.selectMode;
   const selected = selectable && state.selection.has(card.id);
   const cls = `card${selectable ? ' selectable' : ''}${selected ? ' selected' : ''}`;
+
+  // Ownership pips — only shown in the main card grid (when maps are passed in)
+  const collQty = opts.collOwnership ? (opts.collOwnership[card.id] || 0) : 0;
+  const deckQty = opts.deckOwnership ? (opts.deckOwnership[card.id] || 0) : 0;
+  const ownershipRow = (collQty || deckQty) ? raw(`
+    <div class="card-ownership-row">
+      ${collQty ? `<span class="ownership-pip coll">×${collQty}</span>` : ''}
+      ${deckQty ? `<span class="ownership-pip deck">DECK</span>` : ''}
+    </div>`) : '';
+
   return html`
     <div class="${cls}" data-card-id="${card.id}">
       ${selectable ? raw('<div class="select-check">✓</div>') : ''}
@@ -1306,6 +1377,7 @@ function renderCardTile(card, qty=null, opts={}) {
           <span>${card.rarity || '—'}</span>
           ${card.level ? raw(`<span>· Lv ${card.level}</span>`) : ''}
         </div>
+        ${ownershipRow}
       </div>
     </div>
   `;
@@ -1416,7 +1488,20 @@ function renderCardsList() {
     return;
   }
 
-  const opts = { selectMode: state.selectMode };
+  // Pre-build ownership lookup maps (O(n) once, O(1) per tile)
+  const collOwnership = {};
+  for (const coll of state.collections) {
+    for (const [id, qty] of Object.entries(coll.cards || {})) {
+      collOwnership[id] = (collOwnership[id] || 0) + qty;
+    }
+  }
+  const deckOwnership = {};
+  for (const deck of state.decks) {
+    for (const [id, qty] of Object.entries(deck.cards || {})) {
+      deckOwnership[id] = (deckOwnership[id] || 0) + qty;
+    }
+  }
+  const opts = { selectMode: state.selectMode, collOwnership, deckOwnership };
   container.innerHTML = `<div class="card-grid">${filtered.map(c => renderCardTile(c, null, opts)).join('')}</div>`;
   $$('.card[data-card-id]', container).forEach(el => {
     el.addEventListener('click', () => {
@@ -1425,7 +1510,6 @@ function renderCardsList() {
         if (state.selection.has(cardId)) state.selection.delete(cardId);
         else state.selection.add(cardId);
         el.classList.toggle('selected');
-        // Update batch bar count without re-rendering the whole grid
         renderBatchBar();
       } else {
         openCardModal(cardId);
@@ -1442,6 +1526,7 @@ function openCardModal(cardId) {
   const colorCls = colorClass(card.color);
   const attrs = [
     ['ID', card.id],
+    ['Card ID', card.cardId || '—'],
     ['Type', card.type || '—'],
     ['Rarity', card.rarity || '—'],
     ['Color', card.color ? `<span class="color-dot ${colorCls}"></span> ${card.color}` : '—'],
@@ -1452,6 +1537,40 @@ function openCardModal(cardId) {
     ['Features', (card.features || []).join(', ') || '—'],
     ['Illustrator', card.illustrator || '—'],
   ];
+
+  // Compute which collections and decks contain this card
+  const collMembership = state.collections
+    .filter(c => c.cards && c.cards[card.id])
+    .map(c => ({ name: c.name, qty: c.cards[card.id] }));
+  const deckMembership = state.decks
+    .filter(d => d.cards && d.cards[card.id])
+    .map(d => ({ name: d.name, qty: d.cards[card.id] }));
+
+  const membershipHtml = (collMembership.length || deckMembership.length) ? `
+    <div class="membership-section">
+      ${collMembership.length ? `
+        <div class="membership-group">
+          <span class="membership-label">In Collections</span>
+          <div class="membership-pills">
+            ${collMembership.map(c => `
+              <span class="membership-pill coll">
+                ${escHtml(c.name)}
+                <span class="pill-qty">×${c.qty}</span>
+              </span>`).join('')}
+          </div>
+        </div>` : ''}
+      ${deckMembership.length ? `
+        <div class="membership-group">
+          <span class="membership-label">In Decks</span>
+          <div class="membership-pills">
+            ${deckMembership.map(d => `
+              <span class="membership-pill deck">
+                ${escHtml(d.name)}
+                <span class="pill-qty">×${d.qty}</span>
+              </span>`).join('')}
+          </div>
+        </div>` : ''}
+    </div>` : '';
 
   const modal = document.createElement('div');
   modal.className = 'modal-backdrop open';
@@ -1471,6 +1590,7 @@ function openCardModal(cardId) {
               </div>`).join('')}
           </div>
           ${card.effect ? `<div class="effect">${card.effect}</div>` : ''}
+          ${membershipHtml}
           <div class="modal-actions">
             <button class="btn primary" id="add-to-coll">+ Add to Collection</button>
             <button class="btn" id="add-to-deck">+ Add to Deck</button>
