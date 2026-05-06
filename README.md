@@ -29,37 +29,6 @@ A mobile-first PWA for browsing, searching, and tracking your Detective Conan TC
 | `favicon-32.png` | Browser tab icon |
 | `cards.json` | Standalone seed data (also embedded in `index.html`) |
 
-## Hosting (pick one)
-
-The PWA needs to be served over HTTPS (or `localhost`) for the service worker, install prompt, and offline cache to work. `file://` won't enable those features.
-
-### Option 1 — GitHub Pages (free, recommended)
-
-1. Create a new public repo (e.g. `conan-tcg`).
-2. Upload all the files in this bundle to the repo root.
-3. Settings → Pages → Source: `main` branch, `/ (root)`.
-4. Wait ~1 minute, then open `https://<your-username>.github.io/conan-tcg/`.
-5. On your phone: open in Chrome (Android) or Safari (iOS) → install/Add to Home Screen.
-
-### Option 2 — Netlify Drop (free, drag-and-drop)
-
-1. Visit [app.netlify.com/drop](https://app.netlify.com/drop).
-2. Drag the entire folder onto the page.
-3. Open the URL it gives you on your phone, install.
-
-### Option 3 — Cloudflare Pages
-
-Similar to Netlify; create a project, upload, deploy.
-
-### Option 4 — Local network (one-off testing)
-
-```bash
-cd path/to/conan-tcg
-python3 -m http.server 8080
-```
-
-Then on your phone, on the same Wi-Fi, visit `http://<your-laptop-ip>:8080/`. **Note:** service workers and install prompts require HTTPS, so this is only good for quick UI testing — not for true offline use.
-
 ## Installing on your phone
 
 **Android / Chrome:** the app shows an Install banner after a few visits, or use the browser menu → "Install app".
