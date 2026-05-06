@@ -1,6 +1,6 @@
 # Case File · Conan TCG Tracker
 
-A personal, offline-first PWA for tracking your Detective Conan TCG card collection and building decks.
+A personal, offline-first PWA for tracking Detective Conan TCG card collection and building decks.
 
 > **Status:** Working PWA shell with 30 sample cards. Data acquisition is the part you'll need to choose a path on — see [Getting full card data](#getting-full-card-data).
 
@@ -14,24 +14,6 @@ A personal, offline-first PWA for tracking your Detective Conan TCG card collect
 - **Backup/restore** — export everything to a single JSON file
 - **No accounts, no tracking, no servers** — all data lives in your browser's IndexedDB
 
-## File layout
-
-```
-conan-tracker/
-├── index.html          # The whole app (HTML + CSS + JS embedded)
-├── sw.js               # Service worker (offline support)
-├── manifest.json       # PWA manifest
-├── icons/              # App icons
-│   ├── icon.svg
-│   ├── icon-192.png
-│   ├── icon-512.png
-│   └── icon-maskable-512.png
-├── data/
-│   └── cards.json      # Card database (currently 30 sample cards)
-└── tools/
-    ├── scraper.py      # Optional: fetch all cards from official site
-    └── gen_icons.py    # Regenerate icons from scratch
-```
 
 ## Running it
 
@@ -66,11 +48,11 @@ The Takara Tomy site has 2,000+ cards but lazy-loads them and presents them in J
 Two community projects have already done the hard work of cataloging and translating cards:
 
 - **[saitho/conantcg-english](https://github.com/saitho/conantcg-english)** — open-source, fan-translated. Powers [conan-tcg.net](https://conan-tcg.net).
-- **[conancards.com](https://conancards.com)** — AI-translated, has a deck builder.
-
+- **[Conan TCG App](https://conan-tcg-app.com)** - open-source.
+- **[LastStand Conan TCG List](https://laststand.co.th/conan_cards)** - open-source, fan-translated Thai version.
 If you go this route: clone or fork their data, transform it into the schema this PWA expects (see "Card schema" below), drop the result at `data/cards.json`, and you're done.
 
-**Please attribute properly** if you use community data. Both projects are explicit about being fan resources.
+**Please attribute properly** if you use community data. All projects are explicit about being fan resources.
 
 ### Path B: Run the bundled scraper
 
@@ -111,7 +93,6 @@ Each card in `data/cards.json` is an object with these fields. Only `id` is stri
 ```jsonc
 {
   "id": "CT-P01-001",              // Required, unique
-  "name": "Conan Edogawa",         // English display name
   "nameJa": "江戸川コナン",         // Japanese name (for search)
   "type": "Partner",               // Partner | Character | Event | Case
   "color": "blue",                 // blue|green|white|red|yellow|black
