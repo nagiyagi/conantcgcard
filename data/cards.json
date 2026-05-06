@@ -1,7 +1,7 @@
 [
   {
     "id": "B01001",
-    "name": "Conan Edogawa",
+    "name": "江戸川コナン",
     "nameJa": "江戸川コナン",
     "kana": "えどがわこなん",
     "type": "Partner",
@@ -21,7 +21,7 @@
   },
   {
     "id": "B01002",
-    "name": "Shinichi Kudo",
+    "name": "工藤新一",
     "nameJa": "工藤新一",
     "kana": "くどうしんいち",
     "type": "Partner",
@@ -41,7 +41,7 @@
   },
   {
     "id": "B01003",
-    "name": "Ai Haibara",
+    "name": "灰原哀",
     "nameJa": "灰原哀",
     "kana": "はいばらあい",
     "type": "Partner",
@@ -61,7 +61,7 @@
   },
   {
     "id": "B01004",
-    "name": "Kogoro Mouri",
+    "name": "毛利小五郎",
     "nameJa": "毛利小五郎",
     "kana": "もうりこごろう",
     "type": "Partner",
@@ -81,7 +81,7 @@
   },
   {
     "id": "B01005",
-    "name": "Conan Edogawa",
+    "name": "江戸川コナン",
     "nameJa": "江戸川コナン",
     "kana": "えどがわこなん",
     "type": "Character",
@@ -105,7 +105,7 @@
   },
   {
     "id": "B01006",
-    "name": "Ai Haibara",
+    "name": "灰原哀",
     "nameJa": "灰原哀",
     "kana": "はいばらあい",
     "type": "Character",
@@ -128,7 +128,7 @@
   },
   {
     "id": "B01007",
-    "name": "Ran Mouri",
+    "name": "毛利蘭",
     "nameJa": "毛利蘭",
     "kana": "もうりらん",
     "type": "Character",
@@ -152,7 +152,7 @@
   },
   {
     "id": "B01008",
-    "name": "Conan Edogawa",
+    "name": "江戸川コナン",
     "nameJa": "江戸川コナン",
     "kana": "えどがわこなん",
     "type": "Character",
@@ -176,7 +176,7 @@
   },
   {
     "id": "B01009",
-    "name": "Shinichi Kudo",
+    "name": "工藤新一",
     "nameJa": "工藤新一",
     "kana": "くどうしんいち",
     "type": "Character",
@@ -199,7 +199,7 @@
   },
   {
     "id": "B01010",
-    "name": "Kogoro Mouri",
+    "name": "毛利小五郎",
     "nameJa": "毛利小五郎",
     "kana": "もうりこごろう",
     "type": "Character",
@@ -222,7 +222,7 @@
   },
   {
     "id": "B01011",
-    "name": "Conan Edogawa",
+    "name": "江戸川コナン",
     "nameJa": "江戸川コナン",
     "kana": "えどがわこなん",
     "type": "Character",
@@ -246,7 +246,7 @@
   },
   {
     "id": "B01012",
-    "name": "Hiroshi Agasa",
+    "name": "阿笠博士",
     "nameJa": "阿笠博士",
     "kana": "あがさひろし",
     "type": "Character",
@@ -268,7 +268,7 @@
   },
   {
     "id": "B01013",
-    "name": "Eri Kisaki",
+    "name": "妃英理",
     "nameJa": "妃英理",
     "kana": "きさきえり",
     "type": "Character",
@@ -290,7 +290,7 @@
   },
   {
     "id": "B01014",
-    "name": "Genta Kojima",
+    "name": "小嶋元太",
     "nameJa": "小嶋元太",
     "kana": "こじまげんた",
     "type": "Character",
@@ -312,7 +312,7 @@
   },
   {
     "id": "B01015",
-    "name": "Mitsuhiko Tsuburaya",
+    "name": "円谷光彦",
     "nameJa": "円谷光彦",
     "kana": "つぶらやみつひこ",
     "type": "Character",
@@ -334,7 +334,7 @@
   },
   {
     "id": "B01016",
-    "name": "Ai Haibara",
+    "name": "灰原哀",
     "nameJa": "灰原哀",
     "kana": "はいばらあい",
     "type": "Character",
@@ -357,7 +357,7 @@
   },
   {
     "id": "B01017",
-    "name": "Eisuke Hondou",
+    "name": "本堂瑛祐",
     "nameJa": "本堂瑛祐",
     "kana": "ほんどうえいすけ",
     "type": "Character",
@@ -379,7 +379,7 @@
   },
   {
     "id": "B01018",
-    "name": "Shiho Miyano",
+    "name": "宮野志保",
     "nameJa": "宮野志保",
     "kana": "みやのしほ",
     "type": "Character",
@@ -401,7 +401,7 @@
   },
   {
     "id": "B01019",
-    "name": "Ran Mouri",
+    "name": "毛利蘭",
     "nameJa": "毛利蘭",
     "kana": "もうりらん",
     "type": "Character",
@@ -425,7 +425,7 @@
   },
   {
     "id": "B01020",
-    "name": "Kogoro Mouri",
+    "name": "毛利小五郎",
     "nameJa": "毛利小五郎",
     "kana": "もうりこごろう",
     "type": "Character",
@@ -448,7 +448,7 @@
   },
   {
     "id": "B01021",
-    "name": "Ayumi Yoshida",
+    "name": "吉田歩美",
     "nameJa": "吉田歩美",
     "kana": "よしだあゆみ",
     "type": "Character",
@@ -530,7 +530,7 @@
   },
   {
     "id": "B01025",
-    "name": "Heiji Hattori",
+    "name": "服部平次",
     "nameJa": "服部平次",
     "kana": "はっとりへいじ",
     "type": "Partner",
@@ -570,7 +570,7 @@
   },
   {
     "id": "B01027",
-    "name": "Kazuha Toyama",
+    "name": "遠山和葉",
     "nameJa": "遠山和葉",
     "kana": "とおやまかずは",
     "type": "Character",
@@ -592,7 +592,7 @@
   },
   {
     "id": "B01028",
-    "name": "Heiji Hattori",
+    "name": "服部平次",
     "nameJa": "服部平次",
     "kana": "はっとりへいじ",
     "type": "Character",
@@ -615,7 +615,7 @@
   },
   {
     "id": "B01029",
-    "name": "Heiji Hattori",
+    "name": "服部平次",
     "nameJa": "服部平次",
     "kana": "はっとりへいじ",
     "type": "Character",
@@ -682,7 +682,7 @@
   },
   {
     "id": "B01032",
-    "name": "Heiji Hattori",
+    "name": "服部平次",
     "nameJa": "服部平次",
     "kana": "はっとりへいじ",
     "type": "Character",
@@ -705,7 +705,7 @@
   },
   {
     "id": "B01033",
-    "name": "Kazuha Toyama",
+    "name": "遠山和葉",
     "nameJa": "遠山和葉",
     "kana": "とおやまかずは",
     "type": "Character",
@@ -898,7 +898,7 @@
   },
   {
     "id": "B01042",
-    "name": "Kaito Kid",
+    "name": "怪盗キッド",
     "nameJa": "怪盗キッド",
     "kana": "かいとうきっど",
     "type": "Partner",
@@ -938,7 +938,7 @@
   },
   {
     "id": "B01044",
-    "name": "Kaito Kid",
+    "name": "怪盗キッド",
     "nameJa": "怪盗キッド",
     "kana": "かいとうきっど",
     "type": "Character",
@@ -960,7 +960,7 @@
   },
   {
     "id": "B01045",
-    "name": "Aoko Nakamori",
+    "name": "中森青子",
     "nameJa": "中森青子",
     "kana": "なかもりあおこ",
     "type": "Character",
@@ -982,7 +982,7 @@
   },
   {
     "id": "B01046",
-    "name": "Kaito Kid",
+    "name": "怪盗キッド",
     "nameJa": "怪盗キッド",
     "kana": "かいとうきっど",
     "type": "Character",
@@ -1004,7 +1004,7 @@
   },
   {
     "id": "B01047",
-    "name": "Kaito Kuroba",
+    "name": "黒羽快斗",
     "nameJa": "黒羽快斗",
     "kana": "くろばかいと",
     "type": "Character",
@@ -1026,7 +1026,7 @@
   },
   {
     "id": "B01048",
-    "name": "Sonoko Suzuki",
+    "name": "鈴木園子",
     "nameJa": "鈴木園子",
     "kana": "すずきそのこ",
     "type": "Character",
@@ -1049,7 +1049,7 @@
   },
   {
     "id": "B01049",
-    "name": "Kaito Kid",
+    "name": "怪盗キッド",
     "nameJa": "怪盗キッド",
     "kana": "かいとうきっど",
     "type": "Character",
@@ -1116,7 +1116,7 @@
   },
   {
     "id": "B01052",
-    "name": "Yusaku Kudo",
+    "name": "工藤優作",
     "nameJa": "工藤優作",
     "kana": "くどうゆうさく",
     "type": "Character",
@@ -1138,7 +1138,7 @@
   },
   {
     "id": "B01053",
-    "name": "Yukiko Kudo",
+    "name": "工藤有希子",
     "nameJa": "工藤有希子",
     "kana": "くどうゆきこ",
     "type": "Character",
@@ -1178,7 +1178,7 @@
   },
   {
     "id": "B01055",
-    "name": "Sonoko Suzuki",
+    "name": "鈴木園子",
     "nameJa": "鈴木園子",
     "kana": "すずきそのこ",
     "type": "Character",
@@ -1284,7 +1284,7 @@
   },
   {
     "id": "B01060",
-    "name": "Shuichi Akai",
+    "name": "赤井秀一",
     "nameJa": "赤井秀一",
     "kana": "あかいしゅういち",
     "type": "Partner",
@@ -1304,7 +1304,7 @@
   },
   {
     "id": "B01061",
-    "name": "Masumi Sera",
+    "name": "世良真純",
     "nameJa": "世良真純",
     "kana": "せらますみ",
     "type": "Partner",
@@ -1324,7 +1324,7 @@
   },
   {
     "id": "B01062",
-    "name": "Shuichi Akai",
+    "name": "赤井秀一",
     "nameJa": "赤井秀一",
     "kana": "あかいしゅういち",
     "type": "Character",
@@ -1347,7 +1347,7 @@
   },
   {
     "id": "B01063",
-    "name": "Jodie Starling",
+    "name": "ジョディ・スターリング",
     "nameJa": "ジョディ・スターリング",
     "kana": "じょでぃすたーりんぐ",
     "type": "Character",
@@ -1369,7 +1369,7 @@
   },
   {
     "id": "B01064",
-    "name": "Shuichi Akai",
+    "name": "赤井秀一",
     "nameJa": "赤井秀一",
     "kana": "あかいしゅういち",
     "type": "Character",
@@ -1392,7 +1392,7 @@
   },
   {
     "id": "B01065",
-    "name": "Subaru Okiya",
+    "name": "沖矢昴",
     "nameJa": "沖矢昴",
     "kana": "おきやすばる",
     "type": "Character",
@@ -1414,7 +1414,7 @@
   },
   {
     "id": "B01066",
-    "name": "Masumi Sera",
+    "name": "世良真純",
     "nameJa": "世良真純",
     "kana": "せらますみ",
     "type": "Character",
@@ -1460,7 +1460,7 @@
   },
   {
     "id": "B01068",
-    "name": "Shuichi Akai",
+    "name": "赤井秀一",
     "nameJa": "赤井秀一",
     "kana": "あかいしゅういち",
     "type": "Character",
@@ -1505,7 +1505,7 @@
   },
   {
     "id": "B01070",
-    "name": "Andre Camel",
+    "name": "アンドレ・キャメル",
     "nameJa": "アンドレ・キャメル",
     "kana": "あんどれきゃめる",
     "type": "Character",
@@ -1527,7 +1527,7 @@
   },
   {
     "id": "B01071",
-    "name": "James Black",
+    "name": "ジェイムズ・ブラック",
     "nameJa": "ジェイムズ・ブラック",
     "kana": "じぇいむずぶらっく",
     "type": "Character",
@@ -1549,7 +1549,7 @@
   },
   {
     "id": "B01072",
-    "name": "Jodie Starling",
+    "name": "ジョディ・スターリング",
     "nameJa": "ジョディ・スターリング",
     "kana": "じょでぃすたーりんぐ",
     "type": "Character",
@@ -1571,7 +1571,7 @@
   },
   {
     "id": "B01073",
-    "name": "Masumi Sera",
+    "name": "世良真純",
     "nameJa": "世良真純",
     "kana": "せらますみ",
     "type": "Character",
@@ -1698,7 +1698,7 @@
   },
   {
     "id": "B01079",
-    "name": "Toru Amuro",
+    "name": "安室透",
     "nameJa": "安室透",
     "kana": "あむろとおる",
     "type": "Partner",
@@ -1738,7 +1738,7 @@
   },
   {
     "id": "B01081",
-    "name": "Toru Amuro",
+    "name": "安室透",
     "nameJa": "安室透",
     "kana": "あむろとおる",
     "type": "Character",
@@ -1783,7 +1783,7 @@
   },
   {
     "id": "B01083",
-    "name": "Toru Amuro",
+    "name": "安室透",
     "nameJa": "安室透",
     "kana": "あむろとおる",
     "type": "Character",
@@ -1806,7 +1806,7 @@
   },
   {
     "id": "B01084",
-    "name": "Rei Furuya",
+    "name": "降谷零",
     "nameJa": "降谷零",
     "kana": "ふるやれい",
     "type": "Character",
@@ -1829,7 +1829,7 @@
   },
   {
     "id": "B01085",
-    "name": "Toru Amuro",
+    "name": "安室透",
     "nameJa": "安室透",
     "kana": "あむろとおる",
     "type": "Character",
@@ -1921,7 +1921,7 @@
   },
   {
     "id": "B01089",
-    "name": "Miwako Sato",
+    "name": "佐藤美和子",
     "nameJa": "佐藤美和子",
     "kana": "さとうみわこ",
     "type": "Character",
@@ -1944,7 +1944,7 @@
   },
   {
     "id": "B01090",
-    "name": "Miwako Sato",
+    "name": "佐藤美和子",
     "nameJa": "佐藤美和子",
     "kana": "さとうみわこ",
     "type": "Character",
@@ -1967,7 +1967,7 @@
   },
   {
     "id": "B01091",
-    "name": "Wataru Takagi",
+    "name": "高木渉",
     "nameJa": "高木渉",
     "kana": "たかぎわたる",
     "type": "Character",
@@ -1990,7 +1990,7 @@
   },
   {
     "id": "B01092",
-    "name": "Jinpei Matsuda",
+    "name": "松田陣平",
     "nameJa": "松田陣平",
     "kana": "まつだじんぺい",
     "type": "Character",
@@ -2013,7 +2013,7 @@
   },
   {
     "id": "B01093",
-    "name": "Juzo Megure",
+    "name": "目暮十三",
     "nameJa": "目暮十三",
     "kana": "めぐれじゅうぞう",
     "type": "Character",
@@ -2096,7 +2096,7 @@
   },
   {
     "id": "B01097",
-    "name": "Vodka",
+    "name": "ウォッカ",
     "nameJa": "ウォッカ",
     "kana": "うぉっか",
     "type": "Character",
@@ -2118,7 +2118,7 @@
   },
   {
     "id": "B01098",
-    "name": "Gin",
+    "name": "ジン",
     "nameJa": "ジン",
     "kana": "じん",
     "type": "Character",
@@ -2220,7 +2220,7 @@
   },
   {
     "id": "B02001",
-    "name": "Conan Edogawa",
+    "name": "江戸川コナン",
     "nameJa": "江戸川コナン",
     "kana": "えどがわこなん",
     "type": "Partner",
@@ -2240,7 +2240,7 @@
   },
   {
     "id": "B02002",
-    "name": "Conan Edogawa",
+    "name": "江戸川コナン",
     "nameJa": "江戸川コナン",
     "kana": "えどがわこなん",
     "type": "Character",
@@ -2264,7 +2264,7 @@
   },
   {
     "id": "B02003",
-    "name": "Shinichi Kudo",
+    "name": "工藤新一",
     "nameJa": "工藤新一",
     "kana": "くどうしんいち",
     "type": "Character",
@@ -2287,7 +2287,7 @@
   },
   {
     "id": "B02004",
-    "name": "Ran Mouri",
+    "name": "毛利蘭",
     "nameJa": "毛利蘭",
     "kana": "もうりらん",
     "type": "Character",
@@ -2355,7 +2355,7 @@
   },
   {
     "id": "B02007",
-    "name": "Conan Edogawa",
+    "name": "江戸川コナン",
     "nameJa": "江戸川コナン",
     "kana": "えどがわこなん",
     "type": "Character",
@@ -2379,7 +2379,7 @@
   },
   {
     "id": "B02008",
-    "name": "Hiroshi Agasa",
+    "name": "阿笠博士",
     "nameJa": "阿笠博士",
     "kana": "あがさひろし",
     "type": "Character",
@@ -2423,7 +2423,7 @@
   },
   {
     "id": "B02010",
-    "name": "Ai Haibara",
+    "name": "灰原哀",
     "nameJa": "灰原哀",
     "kana": "はいばらあい",
     "type": "Character",
@@ -2446,7 +2446,7 @@
   },
   {
     "id": "B02011",
-    "name": "Ai Haibara",
+    "name": "灰原哀",
     "nameJa": "灰原哀",
     "kana": "はいばらあい",
     "type": "Character",
@@ -2469,7 +2469,7 @@
   },
   {
     "id": "B02012",
-    "name": "Kogoro Mouri",
+    "name": "毛利小五郎",
     "nameJa": "毛利小五郎",
     "kana": "もうりこごろう",
     "type": "Character",
@@ -2554,7 +2554,7 @@
   },
   {
     "id": "B02016",
-    "name": "Heiji Hattori",
+    "name": "服部平次",
     "nameJa": "服部平次",
     "kana": "はっとりへいじ",
     "type": "Partner",
@@ -2594,7 +2594,7 @@
   },
   {
     "id": "B02018",
-    "name": "Heiji Hattori",
+    "name": "服部平次",
     "nameJa": "服部平次",
     "kana": "はっとりへいじ",
     "type": "Character",
@@ -2705,7 +2705,7 @@
   },
   {
     "id": "B02023",
-    "name": "Kazuha Toyama",
+    "name": "遠山和葉",
     "nameJa": "遠山和葉",
     "kana": "とおやまかずは",
     "type": "Character",
@@ -2727,7 +2727,7 @@
   },
   {
     "id": "B02024",
-    "name": "Heiji Hattori",
+    "name": "服部平次",
     "nameJa": "服部平次",
     "kana": "はっとりへいじ",
     "type": "Character",
@@ -2750,7 +2750,7 @@
   },
   {
     "id": "B02025",
-    "name": "Kazuha Toyama",
+    "name": "遠山和葉",
     "nameJa": "遠山和葉",
     "kana": "とおやまかずは",
     "type": "Character",
@@ -2966,7 +2966,7 @@
   },
   {
     "id": "B02035",
-    "name": "Kaito Kid",
+    "name": "怪盗キッド",
     "nameJa": "怪盗キッド",
     "kana": "かいとうきっど",
     "type": "Partner",
@@ -3006,7 +3006,7 @@
   },
   {
     "id": "B02037",
-    "name": "Yusaku Kudo",
+    "name": "工藤優作",
     "nameJa": "工藤優作",
     "kana": "くどうゆうさく",
     "type": "Partner",
@@ -3026,7 +3026,7 @@
   },
   {
     "id": "B02038",
-    "name": "Kaito Kid",
+    "name": "怪盗キッド",
     "nameJa": "怪盗キッド",
     "kana": "かいとうきっど",
     "type": "Character",
@@ -3048,7 +3048,7 @@
   },
   {
     "id": "B02039",
-    "name": "Yusaku Kudo",
+    "name": "工藤優作",
     "nameJa": "工藤優作",
     "kana": "くどうゆうさく",
     "type": "Character",
@@ -3092,7 +3092,7 @@
   },
   {
     "id": "B02041",
-    "name": "Kaito Kid",
+    "name": "怪盗キッド",
     "nameJa": "怪盗キッド",
     "kana": "かいとうきっど",
     "type": "Character",
@@ -3137,7 +3137,7 @@
   },
   {
     "id": "B02043",
-    "name": "Kaito Kid",
+    "name": "怪盗キッド",
     "nameJa": "怪盗キッド",
     "kana": "かいとうきっど",
     "type": "Character",
@@ -3159,7 +3159,7 @@
   },
   {
     "id": "B02044",
-    "name": "Kaito Kid",
+    "name": "怪盗キッド",
     "nameJa": "怪盗キッド",
     "kana": "かいとうきっど",
     "type": "Character",
@@ -3181,7 +3181,7 @@
   },
   {
     "id": "B02045",
-    "name": "Kaito Kid",
+    "name": "怪盗キッド",
     "nameJa": "怪盗キッド",
     "kana": "かいとうきっど",
     "type": "Character",
@@ -3225,7 +3225,7 @@
   },
   {
     "id": "B02047",
-    "name": "Yukiko Kudo",
+    "name": "工藤有希子",
     "nameJa": "工藤有希子",
     "kana": "くどうゆきこ",
     "type": "Character",
@@ -3247,7 +3247,7 @@
   },
   {
     "id": "B02048",
-    "name": "Sonoko Suzuki",
+    "name": "鈴木園子",
     "nameJa": "鈴木園子",
     "kana": "すずきそのこ",
     "type": "Character",
@@ -3270,7 +3270,7 @@
   },
   {
     "id": "B02049",
-    "name": "Aoko Nakamori",
+    "name": "中森青子",
     "nameJa": "中森青子",
     "kana": "なかもりあおこ",
     "type": "Character",
@@ -3397,7 +3397,7 @@
   },
   {
     "id": "B02055",
-    "name": "Subaru Okiya",
+    "name": "沖矢昴",
     "nameJa": "沖矢昴",
     "kana": "おきやすばる",
     "type": "Partner",
@@ -3437,7 +3437,7 @@
   },
   {
     "id": "B02057",
-    "name": "Subaru Okiya",
+    "name": "沖矢昴",
     "nameJa": "沖矢昴",
     "kana": "おきやすばる",
     "type": "Character",
@@ -3459,7 +3459,7 @@
   },
   {
     "id": "B02058",
-    "name": "Shuichi Akai",
+    "name": "赤井秀一",
     "nameJa": "赤井秀一",
     "kana": "あかいしゅういち",
     "type": "Character",
@@ -3481,7 +3481,7 @@
   },
   {
     "id": "B02059",
-    "name": "Subaru Okiya",
+    "name": "沖矢昴",
     "nameJa": "沖矢昴",
     "kana": "おきやすばる",
     "type": "Character",
@@ -3503,7 +3503,7 @@
   },
   {
     "id": "B02060",
-    "name": "Jodie Starling",
+    "name": "ジョディ・スターリング",
     "nameJa": "ジョディ・スターリング",
     "kana": "じょでぃすたーりんぐ",
     "type": "Character",
@@ -3525,7 +3525,7 @@
   },
   {
     "id": "B02061",
-    "name": "Masumi Sera",
+    "name": "世良真純",
     "nameJa": "世良真純",
     "kana": "せらますみ",
     "type": "Character",
@@ -3549,7 +3549,7 @@
   },
   {
     "id": "B02062",
-    "name": "Masumi Sera",
+    "name": "世良真純",
     "nameJa": "世良真純",
     "kana": "せらますみ",
     "type": "Character",
@@ -3722,7 +3722,7 @@
   },
   {
     "id": "B02070",
-    "name": "Rei Furuya",
+    "name": "降谷零",
     "nameJa": "降谷零",
     "kana": "ふるやれい",
     "type": "Partner",
@@ -3742,7 +3742,7 @@
   },
   {
     "id": "B02071",
-    "name": "Miwako Sato",
+    "name": "佐藤美和子",
     "nameJa": "佐藤美和子",
     "kana": "さとうみわこ",
     "type": "Partner",
@@ -3762,7 +3762,7 @@
   },
   {
     "id": "B02072",
-    "name": "Rei Furuya",
+    "name": "降谷零",
     "nameJa": "降谷零",
     "kana": "ふるやれい",
     "type": "Character",
@@ -3785,7 +3785,7 @@
   },
   {
     "id": "B02073",
-    "name": "Yui Uehara",
+    "name": "上原由衣",
     "nameJa": "上原由衣",
     "kana": "うえはらゆい",
     "type": "Character",
@@ -3808,7 +3808,7 @@
   },
   {
     "id": "B02074",
-    "name": "Ninzaburo Shiratori",
+    "name": "白鳥任三郎",
     "nameJa": "白鳥任三郎",
     "kana": "しらとりにんざぶろう",
     "type": "Character",
@@ -3831,7 +3831,7 @@
   },
   {
     "id": "B02075",
-    "name": "Takaaki Morofushi",
+    "name": "諸伏高明",
     "nameJa": "諸伏高明",
     "kana": "もろふしたかあき",
     "type": "Character",
@@ -3854,7 +3854,7 @@
   },
   {
     "id": "B02076",
-    "name": "Kansuke Yamato",
+    "name": "大和敢助",
     "nameJa": "大和敢助",
     "kana": "やまとかんすけ",
     "type": "Character",
@@ -3877,7 +3877,7 @@
   },
   {
     "id": "B02077",
-    "name": "Toru Amuro",
+    "name": "安室透",
     "nameJa": "安室透",
     "kana": "あむろとおる",
     "type": "Character",
@@ -3900,7 +3900,7 @@
   },
   {
     "id": "B02078",
-    "name": "Rei Furuya",
+    "name": "降谷零",
     "nameJa": "降谷零",
     "kana": "ふるやれい",
     "type": "Character",
@@ -3923,7 +3923,7 @@
   },
   {
     "id": "B02079",
-    "name": "Kazunobu Chiba",
+    "name": "千葉和伸",
     "nameJa": "千葉和伸",
     "kana": "ちばかずのぶ",
     "type": "Character",
@@ -3969,7 +3969,7 @@
   },
   {
     "id": "B02081",
-    "name": "Yumi Miyamoto",
+    "name": "宮本由美",
     "nameJa": "宮本由美",
     "kana": "みやもとゆみ",
     "type": "Character",
@@ -3992,7 +3992,7 @@
   },
   {
     "id": "B02082",
-    "name": "Misao Yamamura",
+    "name": "山村ミサオ",
     "nameJa": "山村ミサオ",
     "kana": "やまむらみさお",
     "type": "Character",
@@ -4077,7 +4077,7 @@
   },
   {
     "id": "B02086",
-    "name": "Vermouth",
+    "name": "ベルモット",
     "nameJa": "ベルモット",
     "kana": "べるもっと",
     "type": "Character",
@@ -4099,7 +4099,7 @@
   },
   {
     "id": "B02087",
-    "name": "Kir",
+    "name": "キール",
     "nameJa": "キール",
     "kana": "きーる",
     "type": "Character",
@@ -4203,7 +4203,7 @@
   },
   {
     "id": "B03001",
-    "name": "Ai Haibara",
+    "name": "灰原哀",
     "nameJa": "灰原哀",
     "kana": "はいばらあい",
     "type": "Partner",
@@ -4223,7 +4223,7 @@
   },
   {
     "id": "B03002",
-    "name": "Conan Edogawa",
+    "name": "江戸川コナン",
     "nameJa": "江戸川コナン",
     "kana": "えどがわこなん",
     "type": "Character",
@@ -4247,7 +4247,7 @@
   },
   {
     "id": "B03003",
-    "name": "Ai Haibara",
+    "name": "灰原哀",
     "nameJa": "灰原哀",
     "kana": "はいばらあい",
     "type": "Character",
@@ -4270,7 +4270,7 @@
   },
   {
     "id": "B03004",
-    "name": "Conan Edogawa",
+    "name": "江戸川コナン",
     "nameJa": "江戸川コナン",
     "kana": "えどがわこなん",
     "type": "Character",
@@ -4294,7 +4294,7 @@
   },
   {
     "id": "B03005",
-    "name": "Shinichi Kudo",
+    "name": "工藤新一",
     "nameJa": "工藤新一",
     "kana": "くどうしんいち",
     "type": "Character",
@@ -4361,7 +4361,7 @@
   },
   {
     "id": "B03008",
-    "name": "Hiroshi Agasa",
+    "name": "阿笠博士",
     "nameJa": "阿笠博士",
     "kana": "あがさひろし",
     "type": "Character",
@@ -4405,7 +4405,7 @@
   },
   {
     "id": "B03010",
-    "name": "Genta Kojima",
+    "name": "小嶋元太",
     "nameJa": "小嶋元太",
     "kana": "こじまげんた",
     "type": "Character",
@@ -4536,7 +4536,7 @@
   },
   {
     "id": "B03016",
-    "name": "Mitsuhiko Tsuburaya",
+    "name": "円谷光彦",
     "nameJa": "円谷光彦",
     "kana": "つぶらやみつひこ",
     "type": "Character",
@@ -4622,7 +4622,7 @@
   },
   {
     "id": "B03020",
-    "name": "Ran Mouri",
+    "name": "毛利蘭",
     "nameJa": "毛利蘭",
     "kana": "もうりらん",
     "type": "Character",
@@ -4646,7 +4646,7 @@
   },
   {
     "id": "B03021",
-    "name": "Ayumi Yoshida",
+    "name": "吉田歩美",
     "nameJa": "吉田歩美",
     "kana": "よしだあゆみ",
     "type": "Character",
@@ -4690,7 +4690,7 @@
   },
   {
     "id": "B03023",
-    "name": "Kanenori Wakita",
+    "name": "脇田兼則",
     "nameJa": "脇田兼則",
     "kana": "わきたかねのり",
     "type": "Character",
@@ -4792,7 +4792,7 @@
   },
   {
     "id": "B03028",
-    "name": "Heiji Hattori",
+    "name": "服部平次",
     "nameJa": "服部平次",
     "kana": "はっとりへいじ",
     "type": "Character",
@@ -4815,7 +4815,7 @@
   },
   {
     "id": "B03029",
-    "name": "Kazuha Toyama",
+    "name": "遠山和葉",
     "nameJa": "遠山和葉",
     "kana": "とおやまかずは",
     "type": "Character",
@@ -4881,7 +4881,7 @@
   },
   {
     "id": "B03032",
-    "name": "Heiji Hattori",
+    "name": "服部平次",
     "nameJa": "服部平次",
     "kana": "はっとりへいじ",
     "type": "Character",
@@ -4904,7 +4904,7 @@
   },
   {
     "id": "B03033",
-    "name": "Kazuha Toyama",
+    "name": "遠山和葉",
     "nameJa": "遠山和葉",
     "kana": "とおやまかずは",
     "type": "Character",
@@ -5184,7 +5184,7 @@
   },
   {
     "id": "B03046",
-    "name": "Kaito Kid",
+    "name": "怪盗キッド",
     "nameJa": "怪盗キッド",
     "kana": "かいとうきっど",
     "type": "Character",
@@ -5229,7 +5229,7 @@
   },
   {
     "id": "B03048",
-    "name": "Yusaku Kudo",
+    "name": "工藤優作",
     "nameJa": "工藤優作",
     "kana": "くどうゆうさく",
     "type": "Character",
@@ -5273,7 +5273,7 @@
   },
   {
     "id": "B03050",
-    "name": "Kaito Kid",
+    "name": "怪盗キッド",
     "nameJa": "怪盗キッド",
     "kana": "かいとうきっど",
     "type": "Character",
@@ -5295,7 +5295,7 @@
   },
   {
     "id": "B03051",
-    "name": "Kaito Kid",
+    "name": "怪盗キッド",
     "nameJa": "怪盗キッド",
     "kana": "かいとうきっど",
     "type": "Character",
@@ -5362,7 +5362,7 @@
   },
   {
     "id": "B03054",
-    "name": "Sonoko Suzuki",
+    "name": "鈴木園子",
     "nameJa": "鈴木園子",
     "kana": "すずきそのこ",
     "type": "Character",
@@ -5602,7 +5602,7 @@
   },
   {
     "id": "B03065",
-    "name": "Jodie Starling",
+    "name": "ジョディ・スターリング",
     "nameJa": "ジョディ・スターリング",
     "kana": "じょでぃすたーりんぐ",
     "type": "Partner",
@@ -5622,7 +5622,7 @@
   },
   {
     "id": "B03066",
-    "name": "Shuichi Akai",
+    "name": "赤井秀一",
     "nameJa": "赤井秀一",
     "kana": "あかいしゅういち",
     "type": "Character",
@@ -5645,7 +5645,7 @@
   },
   {
     "id": "B03067",
-    "name": "Subaru Okiya",
+    "name": "沖矢昴",
     "nameJa": "沖矢昴",
     "kana": "おきやすばる",
     "type": "Character",
@@ -5667,7 +5667,7 @@
   },
   {
     "id": "B03068",
-    "name": "Shuichi Akai",
+    "name": "赤井秀一",
     "nameJa": "赤井秀一",
     "kana": "あかいしゅういち",
     "type": "Character",
@@ -5734,7 +5734,7 @@
   },
   {
     "id": "B03071",
-    "name": "Tomoaki Araide",
+    "name": "新出智明",
     "nameJa": "新出智明",
     "kana": "あらいでともあき",
     "type": "Character",
@@ -5756,7 +5756,7 @@
   },
   {
     "id": "B03072",
-    "name": "Andre Camel",
+    "name": "アンドレ・キャメル",
     "nameJa": "アンドレ・キャメル",
     "kana": "あんどれきゃめる",
     "type": "Character",
@@ -5800,7 +5800,7 @@
   },
   {
     "id": "B03074",
-    "name": "Subaru Okiya",
+    "name": "沖矢昴",
     "nameJa": "沖矢昴",
     "kana": "おきやすばる",
     "type": "Character",
@@ -5822,7 +5822,7 @@
   },
   {
     "id": "B03075",
-    "name": "James Black",
+    "name": "ジェイムズ・ブラック",
     "nameJa": "ジェイムズ・ブラック",
     "kana": "じぇいむずぶらっく",
     "type": "Character",
@@ -5844,7 +5844,7 @@
   },
   {
     "id": "B03076",
-    "name": "Masumi Sera",
+    "name": "世良真純",
     "nameJa": "世良真純",
     "kana": "せらますみ",
     "type": "Character",
@@ -5868,7 +5868,7 @@
   },
   {
     "id": "B03077",
-    "name": "Rena Mizunashi",
+    "name": "水無怜奈",
     "nameJa": "水無怜奈",
     "kana": "みずなしれな",
     "type": "Character",
@@ -5992,7 +5992,7 @@
   },
   {
     "id": "B03083",
-    "name": "Hiromitsu Morofushi",
+    "name": "諸伏景光",
     "nameJa": "諸伏景光",
     "kana": "もろふしひろみつ",
     "type": "Partner",
@@ -6012,7 +6012,7 @@
   },
   {
     "id": "B03084",
-    "name": "Rei Furuya",
+    "name": "降谷零",
     "nameJa": "降谷零",
     "kana": "ふるやれい",
     "type": "Character",
@@ -6035,7 +6035,7 @@
   },
   {
     "id": "B03085",
-    "name": "Hiromitsu Morofushi",
+    "name": "諸伏景光",
     "nameJa": "諸伏景光",
     "kana": "もろふしひろみつ",
     "type": "Character",
@@ -6059,7 +6059,7 @@
   },
   {
     "id": "B03086",
-    "name": "Wataru Date",
+    "name": "伊達航",
     "nameJa": "伊達航",
     "kana": "だてわたる",
     "type": "Character",
@@ -6082,7 +6082,7 @@
   },
   {
     "id": "B03087",
-    "name": "Kenji Hagiwara",
+    "name": "萩原研二",
     "nameJa": "萩原研二",
     "kana": "はぎわらけんじ",
     "type": "Character",
@@ -6105,7 +6105,7 @@
   },
   {
     "id": "B03088",
-    "name": "Jinpei Matsuda",
+    "name": "松田陣平",
     "nameJa": "松田陣平",
     "kana": "まつだじんぺい",
     "type": "Character",
@@ -6151,7 +6151,7 @@
   },
   {
     "id": "B03090",
-    "name": "Miwako Sato",
+    "name": "佐藤美和子",
     "nameJa": "佐藤美和子",
     "kana": "さとうみわこ",
     "type": "Character",
@@ -6197,7 +6197,7 @@
   },
   {
     "id": "B03092",
-    "name": "Wataru Takagi",
+    "name": "高木渉",
     "nameJa": "高木渉",
     "kana": "たかぎわたる",
     "type": "Character",
@@ -6289,7 +6289,7 @@
   },
   {
     "id": "B03096",
-    "name": "Juzo Megure",
+    "name": "目暮十三",
     "nameJa": "目暮十三",
     "kana": "めぐれじゅうぞう",
     "type": "Character",
@@ -6332,7 +6332,7 @@
   },
   {
     "id": "B03098",
-    "name": "Takaaki Morofushi",
+    "name": "諸伏高明",
     "nameJa": "諸伏高明",
     "kana": "もろふしたかあき",
     "type": "Character",
@@ -6355,7 +6355,7 @@
   },
   {
     "id": "B03099",
-    "name": "Kansuke Yamato",
+    "name": "大和敢助",
     "nameJa": "大和敢助",
     "kana": "やまとかんすけ",
     "type": "Character",
@@ -6507,7 +6507,7 @@
   },
   {
     "id": "B03106",
-    "name": "Sherry",
+    "name": "シェリー",
     "nameJa": "シェリー",
     "kana": "しぇりー",
     "type": "Partner",
@@ -6527,7 +6527,7 @@
   },
   {
     "id": "B03107",
-    "name": "Gin",
+    "name": "ジン",
     "nameJa": "ジン",
     "kana": "じん",
     "type": "Partner",
@@ -6547,7 +6547,7 @@
   },
   {
     "id": "B03108",
-    "name": "Vermouth",
+    "name": "ベルモット",
     "nameJa": "ベルモット",
     "kana": "べるもっと",
     "type": "Partner",
@@ -6587,7 +6587,7 @@
   },
   {
     "id": "B03110",
-    "name": "Gin",
+    "name": "ジン",
     "nameJa": "ジン",
     "kana": "じん",
     "type": "Character",
@@ -6609,7 +6609,7 @@
   },
   {
     "id": "B03111",
-    "name": "Bourbon",
+    "name": "バーボン",
     "nameJa": "バーボン",
     "kana": "ばーぼん",
     "type": "Character",
@@ -6631,7 +6631,7 @@
   },
   {
     "id": "B03112",
-    "name": "Rye",
+    "name": "ライ",
     "nameJa": "ライ",
     "kana": "らい",
     "type": "Character",
@@ -6653,7 +6653,7 @@
   },
   {
     "id": "B03113",
-    "name": "Sherry",
+    "name": "シェリー",
     "nameJa": "シェリー",
     "kana": "しぇりー",
     "type": "Character",
@@ -6675,7 +6675,7 @@
   },
   {
     "id": "B03114",
-    "name": "Scotch",
+    "name": "スコッチ",
     "nameJa": "スコッチ",
     "kana": "すこっち",
     "type": "Character",
@@ -6719,7 +6719,7 @@
   },
   {
     "id": "B03116",
-    "name": "Vodka",
+    "name": "ウォッカ",
     "nameJa": "ウォッカ",
     "kana": "うぉっか",
     "type": "Character",
@@ -6763,7 +6763,7 @@
   },
   {
     "id": "B03118",
-    "name": "Kir",
+    "name": "キール",
     "nameJa": "キール",
     "kana": "きーる",
     "type": "Character",
@@ -6785,7 +6785,7 @@
   },
   {
     "id": "B03119",
-    "name": "Chianti",
+    "name": "キャンティ",
     "nameJa": "キャンティ",
     "kana": "きゃんてぃ",
     "type": "Character",
@@ -6829,7 +6829,7 @@
   },
   {
     "id": "B03121",
-    "name": "Korn",
+    "name": "コルン",
     "nameJa": "コルン",
     "kana": "こるん",
     "type": "Character",
@@ -6851,7 +6851,7 @@
   },
   {
     "id": "B03122",
-    "name": "Sherry",
+    "name": "シェリー",
     "nameJa": "シェリー",
     "kana": "しぇりー",
     "type": "Character",
@@ -6873,7 +6873,7 @@
   },
   {
     "id": "B03123",
-    "name": "Gin",
+    "name": "ジン",
     "nameJa": "ジン",
     "kana": "じん",
     "type": "Character",
@@ -6895,7 +6895,7 @@
   },
   {
     "id": "B03124",
-    "name": "Tequila",
+    "name": "テキーラ",
     "nameJa": "テキーラ",
     "kana": "てきーら",
     "type": "Character",
@@ -6961,7 +6961,7 @@
   },
   {
     "id": "B03127",
-    "name": "Pisco",
+    "name": "ピスコ",
     "nameJa": "ピスコ",
     "kana": "ぴすこ",
     "type": "Character",
@@ -7005,7 +7005,7 @@
   },
   {
     "id": "B03129",
-    "name": "Vermouth",
+    "name": "ベルモット",
     "nameJa": "ベルモット",
     "kana": "べるもっと",
     "type": "Character",
@@ -7211,7 +7211,7 @@
   },
   {
     "id": "B04001",
-    "name": "Shinichi Kudo",
+    "name": "工藤新一",
     "nameJa": "工藤新一",
     "kana": "くどうしんいち",
     "type": "Partner",
@@ -7231,7 +7231,7 @@
   },
   {
     "id": "B04002",
-    "name": "Ran Mouri",
+    "name": "毛利蘭",
     "nameJa": "毛利蘭",
     "kana": "もうりらん",
     "type": "Partner",
@@ -7251,7 +7251,7 @@
   },
   {
     "id": "B04003",
-    "name": "Shinichi Kudo",
+    "name": "工藤新一",
     "nameJa": "工藤新一",
     "kana": "くどうしんいち",
     "type": "Character",
@@ -7274,7 +7274,7 @@
   },
   {
     "id": "B04004",
-    "name": "Ran Mouri",
+    "name": "毛利蘭",
     "nameJa": "毛利蘭",
     "kana": "もうりらん",
     "type": "Character",
@@ -7298,7 +7298,7 @@
   },
   {
     "id": "B04005",
-    "name": "Conan Edogawa",
+    "name": "江戸川コナン",
     "nameJa": "江戸川コナン",
     "kana": "えどがわこなん",
     "type": "Character",
@@ -7322,7 +7322,7 @@
   },
   {
     "id": "B04006",
-    "name": "Shinichi Kudo",
+    "name": "工藤新一",
     "nameJa": "工藤新一",
     "kana": "くどうしんいち",
     "type": "Character",
@@ -7367,7 +7367,7 @@
   },
   {
     "id": "B04008",
-    "name": "Ai Haibara",
+    "name": "灰原哀",
     "nameJa": "灰原哀",
     "kana": "はいばらあい",
     "type": "Character",
@@ -7390,7 +7390,7 @@
   },
   {
     "id": "B04009",
-    "name": "Ai Haibara",
+    "name": "灰原哀",
     "nameJa": "灰原哀",
     "kana": "はいばらあい",
     "type": "Character",
@@ -7413,7 +7413,7 @@
   },
   {
     "id": "B04010",
-    "name": "Eisuke Hondou",
+    "name": "本堂瑛祐",
     "nameJa": "本堂瑛祐",
     "kana": "ほんどうえいすけ",
     "type": "Character",
@@ -7435,7 +7435,7 @@
   },
   {
     "id": "B04011",
-    "name": "Kogoro Mouri",
+    "name": "毛利小五郎",
     "nameJa": "毛利小五郎",
     "kana": "もうりこごろう",
     "type": "Character",
@@ -7458,7 +7458,7 @@
   },
   {
     "id": "B04012",
-    "name": "Ran Mouri",
+    "name": "毛利蘭",
     "nameJa": "毛利蘭",
     "kana": "もうりらん",
     "type": "Character",
@@ -7542,7 +7542,7 @@
   },
   {
     "id": "B04016",
-    "name": "Kazuha Toyama",
+    "name": "遠山和葉",
     "nameJa": "遠山和葉",
     "kana": "とおやまかずは",
     "type": "Partner",
@@ -7562,7 +7562,7 @@
   },
   {
     "id": "B04017",
-    "name": "Heiji Hattori",
+    "name": "服部平次",
     "nameJa": "服部平次",
     "kana": "はっとりへいじ",
     "type": "Character",
@@ -7585,7 +7585,7 @@
   },
   {
     "id": "B04018",
-    "name": "Kazuha Toyama",
+    "name": "遠山和葉",
     "nameJa": "遠山和葉",
     "kana": "とおやまかずは",
     "type": "Character",
@@ -7823,7 +7823,7 @@
   },
   {
     "id": "B04029",
-    "name": "Sonoko Suzuki",
+    "name": "鈴木園子",
     "nameJa": "鈴木園子",
     "kana": "すずきそのこ",
     "type": "Partner",
@@ -7843,7 +7843,7 @@
   },
   {
     "id": "B04030",
-    "name": "Kaito Kuroba",
+    "name": "黒羽快斗",
     "nameJa": "黒羽快斗",
     "kana": "くろばかいと",
     "type": "Character",
@@ -7866,7 +7866,7 @@
   },
   {
     "id": "B04031",
-    "name": "Aoko Nakamori",
+    "name": "中森青子",
     "nameJa": "中森青子",
     "kana": "なかもりあおこ",
     "type": "Character",
@@ -7911,7 +7911,7 @@
   },
   {
     "id": "B04033",
-    "name": "Kaito Kid",
+    "name": "怪盗キッド",
     "nameJa": "怪盗キッド",
     "kana": "かいとうきっど",
     "type": "Character",
@@ -8000,7 +8000,7 @@
   },
   {
     "id": "B04037",
-    "name": "Sonoko Suzuki",
+    "name": "鈴木園子",
     "nameJa": "鈴木園子",
     "kana": "すずきそのこ",
     "type": "Character",
@@ -8128,7 +8128,7 @@
   },
   {
     "id": "B04043",
-    "name": "Andre Camel",
+    "name": "アンドレ・キャメル",
     "nameJa": "アンドレ・キャメル",
     "kana": "あんどれきゃめる",
     "type": "Partner",
@@ -8168,7 +8168,7 @@
   },
   {
     "id": "B04045",
-    "name": "Rena Mizunashi",
+    "name": "水無怜奈",
     "nameJa": "水無怜奈",
     "kana": "みずなしれな",
     "type": "Partner",
@@ -8188,7 +8188,7 @@
   },
   {
     "id": "B04046",
-    "name": "Shuichi Akai",
+    "name": "赤井秀一",
     "nameJa": "赤井秀一",
     "kana": "あかいしゅういち",
     "type": "Character",
@@ -8211,7 +8211,7 @@
   },
   {
     "id": "B04047",
-    "name": "Masumi Sera",
+    "name": "世良真純",
     "nameJa": "世良真純",
     "kana": "せらますみ",
     "type": "Character",
@@ -8258,7 +8258,7 @@
   },
   {
     "id": "B04049",
-    "name": "Subaru Okiya",
+    "name": "沖矢昴",
     "nameJa": "沖矢昴",
     "kana": "おきやすばる",
     "type": "Character",
@@ -8280,7 +8280,7 @@
   },
   {
     "id": "B04050",
-    "name": "James Black",
+    "name": "ジェイムズ・ブラック",
     "nameJa": "ジェイムズ・ブラック",
     "kana": "じぇいむずぶらっく",
     "type": "Character",
@@ -8342,7 +8342,7 @@
   },
   {
     "id": "B04053",
-    "name": "Shuichi Akai",
+    "name": "赤井秀一",
     "nameJa": "赤井秀一",
     "kana": "あかいしゅういち",
     "type": "Character",
@@ -8407,7 +8407,7 @@
   },
   {
     "id": "B04056",
-    "name": "Andre Camel",
+    "name": "アンドレ・キャメル",
     "nameJa": "アンドレ・キャメル",
     "kana": "あんどれきゃめる",
     "type": "Character",
@@ -8429,7 +8429,7 @@
   },
   {
     "id": "B04057",
-    "name": "Jodie Starling",
+    "name": "ジョディ・スターリング",
     "nameJa": "ジョディ・スターリング",
     "kana": "じょでぃすたーりんぐ",
     "type": "Character",
@@ -8451,7 +8451,7 @@
   },
   {
     "id": "B04058",
-    "name": "Jodie Starling",
+    "name": "ジョディ・スターリング",
     "nameJa": "ジョディ・スターリング",
     "kana": "じょでぃすたーりんぐ",
     "type": "Character",
@@ -8473,7 +8473,7 @@
   },
   {
     "id": "B04059",
-    "name": "Rena Mizunashi",
+    "name": "水無怜奈",
     "nameJa": "水無怜奈",
     "kana": "みずなしれな",
     "type": "Character",
@@ -8597,7 +8597,7 @@
   },
   {
     "id": "B04065",
-    "name": "Wataru Takagi",
+    "name": "高木渉",
     "nameJa": "高木渉",
     "kana": "たかぎわたる",
     "type": "Partner",
@@ -8617,7 +8617,7 @@
   },
   {
     "id": "B04066",
-    "name": "Jinpei Matsuda",
+    "name": "松田陣平",
     "nameJa": "松田陣平",
     "kana": "まつだじんぺい",
     "type": "Partner",
@@ -8637,7 +8637,7 @@
   },
   {
     "id": "B04067",
-    "name": "Juzo Megure",
+    "name": "目暮十三",
     "nameJa": "目暮十三",
     "kana": "めぐれじゅうぞう",
     "type": "Partner",
@@ -8657,7 +8657,7 @@
   },
   {
     "id": "B04068",
-    "name": "Toru Amuro",
+    "name": "安室透",
     "nameJa": "安室透",
     "kana": "あむろとおる",
     "type": "Character",
@@ -8680,7 +8680,7 @@
   },
   {
     "id": "B04069",
-    "name": "Miwako Sato",
+    "name": "佐藤美和子",
     "nameJa": "佐藤美和子",
     "kana": "さとうみわこ",
     "type": "Character",
@@ -8703,7 +8703,7 @@
   },
   {
     "id": "B04070",
-    "name": "Wataru Takagi",
+    "name": "高木渉",
     "nameJa": "高木渉",
     "kana": "たかぎわたる",
     "type": "Character",
@@ -8750,7 +8750,7 @@
   },
   {
     "id": "B04072",
-    "name": "Ninzaburo Shiratori",
+    "name": "白鳥任三郎",
     "nameJa": "白鳥任三郎",
     "kana": "しらとりにんざぶろう",
     "type": "Character",
@@ -8773,7 +8773,7 @@
   },
   {
     "id": "B04073",
-    "name": "Kazunobu Chiba",
+    "name": "千葉和伸",
     "nameJa": "千葉和伸",
     "kana": "ちばかずのぶ",
     "type": "Character",
@@ -8796,7 +8796,7 @@
   },
   {
     "id": "B04074",
-    "name": "Rei Furuya",
+    "name": "降谷零",
     "nameJa": "降谷零",
     "kana": "ふるやれい",
     "type": "Character",
@@ -8819,7 +8819,7 @@
   },
   {
     "id": "B04075",
-    "name": "Ninzaburo Shiratori",
+    "name": "白鳥任三郎",
     "nameJa": "白鳥任三郎",
     "kana": "しらとりにんざぶろう",
     "type": "Character",
@@ -8865,7 +8865,7 @@
   },
   {
     "id": "B04077",
-    "name": "Jinpei Matsuda",
+    "name": "松田陣平",
     "nameJa": "松田陣平",
     "kana": "まつだじんぺい",
     "type": "Character",
@@ -8911,7 +8911,7 @@
   },
   {
     "id": "B04079",
-    "name": "Yumi Miyamoto",
+    "name": "宮本由美",
     "nameJa": "宮本由美",
     "kana": "みやもとゆみ",
     "type": "Character",
@@ -8934,7 +8934,7 @@
   },
   {
     "id": "B04080",
-    "name": "Juzo Megure",
+    "name": "目暮十三",
     "nameJa": "目暮十三",
     "kana": "めぐれじゅうぞう",
     "type": "Character",
@@ -9082,7 +9082,7 @@
   },
   {
     "id": "B04087",
-    "name": "Vodka",
+    "name": "ウォッカ",
     "nameJa": "ウォッカ",
     "kana": "うぉっか",
     "type": "Partner",
@@ -9102,7 +9102,7 @@
   },
   {
     "id": "B04088",
-    "name": "Scotch",
+    "name": "スコッチ",
     "nameJa": "スコッチ",
     "kana": "すこっち",
     "type": "Character",
@@ -9124,7 +9124,7 @@
   },
   {
     "id": "B04089",
-    "name": "Vermouth",
+    "name": "ベルモット",
     "nameJa": "ベルモット",
     "kana": "べるもっと",
     "type": "Character",
@@ -9146,7 +9146,7 @@
   },
   {
     "id": "B04090",
-    "name": "Rye",
+    "name": "ライ",
     "nameJa": "ライ",
     "kana": "らい",
     "type": "Character",
@@ -9168,7 +9168,7 @@
   },
   {
     "id": "B04091",
-    "name": "Vodka",
+    "name": "ウォッカ",
     "nameJa": "ウォッカ",
     "kana": "うぉっか",
     "type": "Character",
@@ -9190,7 +9190,7 @@
   },
   {
     "id": "B04092",
-    "name": "Chianti",
+    "name": "キャンティ",
     "nameJa": "キャンティ",
     "kana": "きゃんてぃ",
     "type": "Character",
@@ -9212,7 +9212,7 @@
   },
   {
     "id": "B04093",
-    "name": "Korn",
+    "name": "コルン",
     "nameJa": "コルン",
     "kana": "こるん",
     "type": "Character",
@@ -9234,7 +9234,7 @@
   },
   {
     "id": "B04094",
-    "name": "Gin",
+    "name": "ジン",
     "nameJa": "ジン",
     "kana": "じん",
     "type": "Character",
@@ -9256,7 +9256,7 @@
   },
   {
     "id": "B04095",
-    "name": "Bourbon",
+    "name": "バーボン",
     "nameJa": "バーボン",
     "kana": "ばーぼん",
     "type": "Character",
@@ -9298,7 +9298,7 @@
   },
   {
     "id": "B05001",
-    "name": "Eri Kisaki",
+    "name": "妃英理",
     "nameJa": "妃英理",
     "kana": "きさきえり",
     "type": "Partner",
@@ -9318,7 +9318,7 @@
   },
   {
     "id": "B05002",
-    "name": "Genta Kojima",
+    "name": "小嶋元太",
     "nameJa": "小嶋元太",
     "kana": "こじまげんた",
     "type": "Partner",
@@ -9338,7 +9338,7 @@
   },
   {
     "id": "B05003",
-    "name": "Mitsuhiko Tsuburaya",
+    "name": "円谷光彦",
     "nameJa": "円谷光彦",
     "kana": "つぶらやみつひこ",
     "type": "Partner",
@@ -9358,7 +9358,7 @@
   },
   {
     "id": "B05004",
-    "name": "Ayumi Yoshida",
+    "name": "吉田歩美",
     "nameJa": "吉田歩美",
     "kana": "よしだあゆみ",
     "type": "Partner",
@@ -9403,7 +9403,7 @@
   },
   {
     "id": "B05006",
-    "name": "Kogoro Mouri",
+    "name": "毛利小五郎",
     "nameJa": "毛利小五郎",
     "kana": "もうりこごろう",
     "type": "Character",
@@ -9426,7 +9426,7 @@
   },
   {
     "id": "B05007",
-    "name": "Eri Kisaki",
+    "name": "妃英理",
     "nameJa": "妃英理",
     "kana": "きさきえり",
     "type": "Character",
@@ -9448,7 +9448,7 @@
   },
   {
     "id": "B05008",
-    "name": "Ai Haibara",
+    "name": "灰原哀",
     "nameJa": "灰原哀",
     "kana": "はいばらあい",
     "type": "Character",
@@ -9471,7 +9471,7 @@
   },
   {
     "id": "B05009",
-    "name": "Ran Mouri",
+    "name": "毛利蘭",
     "nameJa": "毛利蘭",
     "kana": "もうりらん",
     "type": "Character",
@@ -9495,7 +9495,7 @@
   },
   {
     "id": "B05010",
-    "name": "Conan Edogawa",
+    "name": "江戸川コナン",
     "nameJa": "江戸川コナン",
     "kana": "えどがわこなん",
     "type": "Character",
@@ -9563,7 +9563,7 @@
   },
   {
     "id": "B05013",
-    "name": "Ai Haibara",
+    "name": "灰原哀",
     "nameJa": "灰原哀",
     "kana": "はいばらあい",
     "type": "Character",
@@ -9586,7 +9586,7 @@
   },
   {
     "id": "B05014",
-    "name": "Shinichi Kudo",
+    "name": "工藤新一",
     "nameJa": "工藤新一",
     "kana": "くどうしんいち",
     "type": "Character",
@@ -9631,7 +9631,7 @@
   },
   {
     "id": "B05016",
-    "name": "Genta Kojima",
+    "name": "小嶋元太",
     "nameJa": "小嶋元太",
     "kana": "こじまげんた",
     "type": "Character",
@@ -9673,7 +9673,7 @@
   },
   {
     "id": "B05018",
-    "name": "Mitsuhiko Tsuburaya",
+    "name": "円谷光彦",
     "nameJa": "円谷光彦",
     "kana": "つぶらやみつひこ",
     "type": "Character",
@@ -9718,7 +9718,7 @@
   },
   {
     "id": "B05020",
-    "name": "Ayumi Yoshida",
+    "name": "吉田歩美",
     "nameJa": "吉田歩美",
     "kana": "よしだあゆみ",
     "type": "Character",
@@ -10040,7 +10040,7 @@
   },
   {
     "id": "B05035",
-    "name": "Kazuha Toyama",
+    "name": "遠山和葉",
     "nameJa": "遠山和葉",
     "kana": "とおやまかずは",
     "type": "Character",
@@ -10062,7 +10062,7 @@
   },
   {
     "id": "B05036",
-    "name": "Heiji Hattori",
+    "name": "服部平次",
     "nameJa": "服部平次",
     "kana": "はっとりへいじ",
     "type": "Character",
@@ -10213,7 +10213,7 @@
   },
   {
     "id": "B05043",
-    "name": "Kaito Kuroba",
+    "name": "黒羽快斗",
     "nameJa": "黒羽快斗",
     "kana": "くろばかいと",
     "type": "Partner",
@@ -10233,7 +10233,7 @@
   },
   {
     "id": "B05044",
-    "name": "Aoko Nakamori",
+    "name": "中森青子",
     "nameJa": "中森青子",
     "kana": "なかもりあおこ",
     "type": "Partner",
@@ -10277,7 +10277,7 @@
   },
   {
     "id": "B05046",
-    "name": "Sonoko Suzuki",
+    "name": "鈴木園子",
     "nameJa": "鈴木園子",
     "kana": "すずきそのこ",
     "type": "Character",
@@ -10300,7 +10300,7 @@
   },
   {
     "id": "B05047",
-    "name": "Kaito Kid",
+    "name": "怪盗キッド",
     "nameJa": "怪盗キッド",
     "kana": "かいとうきっど",
     "type": "Character",
@@ -10322,7 +10322,7 @@
   },
   {
     "id": "B05048",
-    "name": "Kaito Kuroba",
+    "name": "黒羽快斗",
     "nameJa": "黒羽快斗",
     "kana": "くろばかいと",
     "type": "Character",
@@ -10345,7 +10345,7 @@
   },
   {
     "id": "B05049",
-    "name": "Aoko Nakamori",
+    "name": "中森青子",
     "nameJa": "中森青子",
     "kana": "なかもりあおこ",
     "type": "Character",
@@ -10412,7 +10412,7 @@
   },
   {
     "id": "B05052",
-    "name": "Yusaku Kudo",
+    "name": "工藤優作",
     "nameJa": "工藤優作",
     "kana": "くどうゆうさく",
     "type": "Character",
@@ -10434,7 +10434,7 @@
   },
   {
     "id": "B05053",
-    "name": "Yukiko Kudo",
+    "name": "工藤有希子",
     "nameJa": "工藤有希子",
     "kana": "くどうゆきこ",
     "type": "Character",
@@ -10672,7 +10672,7 @@
   },
   {
     "id": "B05064",
-    "name": "James Black",
+    "name": "ジェイムズ・ブラック",
     "nameJa": "ジェイムズ・ブラック",
     "kana": "じぇいむずぶらっく",
     "type": "Partner",
@@ -10780,7 +10780,7 @@
   },
   {
     "id": "B05069",
-    "name": "James Black",
+    "name": "ジェイムズ・ブラック",
     "nameJa": "ジェイムズ・ブラック",
     "kana": "じぇいむずぶらっく",
     "type": "Character",
@@ -10802,7 +10802,7 @@
   },
   {
     "id": "B05070",
-    "name": "Shuichi Akai",
+    "name": "赤井秀一",
     "nameJa": "赤井秀一",
     "kana": "あかいしゅういち",
     "type": "Character",
@@ -10825,7 +10825,7 @@
   },
   {
     "id": "B05071",
-    "name": "Andre Camel",
+    "name": "アンドレ・キャメル",
     "nameJa": "アンドレ・キャメル",
     "kana": "あんどれきゃめる",
     "type": "Character",
@@ -10847,7 +10847,7 @@
   },
   {
     "id": "B05072",
-    "name": "Subaru Okiya",
+    "name": "沖矢昴",
     "nameJa": "沖矢昴",
     "kana": "おきやすばる",
     "type": "Character",
@@ -10935,7 +10935,7 @@
   },
   {
     "id": "B05076",
-    "name": "Jodie Starling",
+    "name": "ジョディ・スターリング",
     "nameJa": "ジョディ・スターリング",
     "kana": "じょでぃすたーりんぐ",
     "type": "Character",
@@ -10979,7 +10979,7 @@
   },
   {
     "id": "B05078",
-    "name": "Masumi Sera",
+    "name": "世良真純",
     "nameJa": "世良真純",
     "kana": "せらますみ",
     "type": "Character",
@@ -11003,7 +11003,7 @@
   },
   {
     "id": "B05079",
-    "name": "Masumi Sera",
+    "name": "世良真純",
     "nameJa": "世良真純",
     "kana": "せらますみ",
     "type": "Character",
@@ -11110,7 +11110,7 @@
   },
   {
     "id": "B05084",
-    "name": "Kansuke Yamato",
+    "name": "大和敢助",
     "nameJa": "大和敢助",
     "kana": "やまとかんすけ",
     "type": "Partner",
@@ -11130,7 +11130,7 @@
   },
   {
     "id": "B05085",
-    "name": "Takaaki Morofushi",
+    "name": "諸伏高明",
     "nameJa": "諸伏高明",
     "kana": "もろふしたかあき",
     "type": "Partner",
@@ -11175,7 +11175,7 @@
   },
   {
     "id": "B05087",
-    "name": "Takaaki Morofushi",
+    "name": "諸伏高明",
     "nameJa": "諸伏高明",
     "kana": "もろふしたかあき",
     "type": "Character",
@@ -11198,7 +11198,7 @@
   },
   {
     "id": "B05088",
-    "name": "Kansuke Yamato",
+    "name": "大和敢助",
     "nameJa": "大和敢助",
     "kana": "やまとかんすけ",
     "type": "Character",
@@ -11221,7 +11221,7 @@
   },
   {
     "id": "B05089",
-    "name": "Yui Uehara",
+    "name": "上原由衣",
     "nameJa": "上原由衣",
     "kana": "うえはらゆい",
     "type": "Character",
@@ -11244,7 +11244,7 @@
   },
   {
     "id": "B05090",
-    "name": "Toru Amuro",
+    "name": "安室透",
     "nameJa": "安室透",
     "kana": "あむろとおる",
     "type": "Character",
@@ -11291,7 +11291,7 @@
   },
   {
     "id": "B05092",
-    "name": "Hiromitsu Morofushi",
+    "name": "諸伏景光",
     "nameJa": "諸伏景光",
     "kana": "もろふしひろみつ",
     "type": "Character",
@@ -11383,7 +11383,7 @@
   },
   {
     "id": "B05096",
-    "name": "Miwako Sato",
+    "name": "佐藤美和子",
     "nameJa": "佐藤美和子",
     "kana": "さとうみわこ",
     "type": "Character",
@@ -11426,7 +11426,7 @@
   },
   {
     "id": "B05098",
-    "name": "Ninzaburo Shiratori",
+    "name": "白鳥任三郎",
     "nameJa": "白鳥任三郎",
     "kana": "しらとりにんざぶろう",
     "type": "Character",
@@ -11449,7 +11449,7 @@
   },
   {
     "id": "B05099",
-    "name": "Wataru Takagi",
+    "name": "高木渉",
     "nameJa": "高木渉",
     "kana": "たかぎわたる",
     "type": "Character",
@@ -11472,7 +11472,7 @@
   },
   {
     "id": "B05100",
-    "name": "Kazunobu Chiba",
+    "name": "千葉和伸",
     "nameJa": "千葉和伸",
     "kana": "ちばかずのぶ",
     "type": "Character",
@@ -11495,7 +11495,7 @@
   },
   {
     "id": "B05101",
-    "name": "Kogoro Mouri",
+    "name": "毛利小五郎",
     "nameJa": "毛利小五郎",
     "kana": "もうりこごろう",
     "type": "Character",
@@ -11558,7 +11558,7 @@
   },
   {
     "id": "B05104",
-    "name": "Scotch",
+    "name": "スコッチ",
     "nameJa": "スコッチ",
     "kana": "すこっち",
     "type": "Partner",
@@ -11578,7 +11578,7 @@
   },
   {
     "id": "B05105",
-    "name": "Bourbon",
+    "name": "バーボン",
     "nameJa": "バーボン",
     "kana": "ばーぼん",
     "type": "Partner",
@@ -11620,7 +11620,7 @@
   },
   {
     "id": "B05107",
-    "name": "Vodka",
+    "name": "ウォッカ",
     "nameJa": "ウォッカ",
     "kana": "うぉっか",
     "type": "Character",
@@ -11642,7 +11642,7 @@
   },
   {
     "id": "B05108",
-    "name": "Bourbon",
+    "name": "バーボン",
     "nameJa": "バーボン",
     "kana": "ばーぼん",
     "type": "Character",
@@ -11664,7 +11664,7 @@
   },
   {
     "id": "B05109",
-    "name": "Kir",
+    "name": "キール",
     "nameJa": "キール",
     "kana": "きーる",
     "type": "Character",
@@ -11686,7 +11686,7 @@
   },
   {
     "id": "B05110",
-    "name": "Scotch",
+    "name": "スコッチ",
     "nameJa": "スコッチ",
     "kana": "すこっち",
     "type": "Character",
@@ -11731,7 +11731,7 @@
   },
   {
     "id": "B05112",
-    "name": "Bourbon",
+    "name": "バーボン",
     "nameJa": "バーボン",
     "kana": "ばーぼん",
     "type": "Character",
@@ -11753,7 +11753,7 @@
   },
   {
     "id": "B05113",
-    "name": "Vermouth",
+    "name": "ベルモット",
     "nameJa": "ベルモット",
     "kana": "べるもっと",
     "type": "Character",
@@ -11921,7 +11921,7 @@
   },
   {
     "id": "B06002",
-    "name": "Hiroshi Agasa",
+    "name": "阿笠博士",
     "nameJa": "阿笠博士",
     "kana": "あがさひろし",
     "type": "Partner",
@@ -11967,7 +11967,7 @@
   },
   {
     "id": "B06004",
-    "name": "Shinichi Kudo",
+    "name": "工藤新一",
     "nameJa": "工藤新一",
     "kana": "くどうしんいち",
     "type": "Character",
@@ -11990,7 +11990,7 @@
   },
   {
     "id": "B06005",
-    "name": "Hiroshi Agasa",
+    "name": "阿笠博士",
     "nameJa": "阿笠博士",
     "kana": "あがさひろし",
     "type": "Character",
@@ -12012,7 +12012,7 @@
   },
   {
     "id": "B06006",
-    "name": "Conan Edogawa",
+    "name": "江戸川コナン",
     "nameJa": "江戸川コナン",
     "kana": "えどがわこなん",
     "type": "Character",
@@ -12036,7 +12036,7 @@
   },
   {
     "id": "B06007",
-    "name": "Ai Haibara",
+    "name": "灰原哀",
     "nameJa": "灰原哀",
     "kana": "はいばらあい",
     "type": "Character",
@@ -12125,7 +12125,7 @@
   },
   {
     "id": "B06011",
-    "name": "Ran Mouri",
+    "name": "毛利蘭",
     "nameJa": "毛利蘭",
     "kana": "もうりらん",
     "type": "Character",
@@ -12760,7 +12760,7 @@
   },
   {
     "id": "B06040",
-    "name": "Kazuha Toyama",
+    "name": "遠山和葉",
     "nameJa": "遠山和葉",
     "kana": "とおやまかずは",
     "type": "Character",
@@ -13392,7 +13392,7 @@
   },
   {
     "id": "B06069",
-    "name": "Sonoko Suzuki",
+    "name": "鈴木園子",
     "nameJa": "鈴木園子",
     "kana": "すずきそのこ",
     "type": "Character",
@@ -13415,7 +13415,7 @@
   },
   {
     "id": "B06070",
-    "name": "Yukiko Kudo",
+    "name": "工藤有希子",
     "nameJa": "工藤有希子",
     "kana": "くどうゆきこ",
     "type": "Character",
@@ -13544,7 +13544,7 @@
   },
   {
     "id": "B06076",
-    "name": "James Black",
+    "name": "ジェイムズ・ブラック",
     "nameJa": "ジェイムズ・ブラック",
     "kana": "じぇいむずぶらっく",
     "type": "Character",
@@ -13566,7 +13566,7 @@
   },
   {
     "id": "B06077",
-    "name": "Jodie Starling",
+    "name": "ジョディ・スターリング",
     "nameJa": "ジョディ・スターリング",
     "kana": "じょでぃすたーりんぐ",
     "type": "Character",
@@ -13611,7 +13611,7 @@
   },
   {
     "id": "B06079",
-    "name": "Andre Camel",
+    "name": "アンドレ・キャメル",
     "nameJa": "アンドレ・キャメル",
     "kana": "あんどれきゃめる",
     "type": "Character",
@@ -13633,7 +13633,7 @@
   },
   {
     "id": "B06080",
-    "name": "Masumi Sera",
+    "name": "世良真純",
     "nameJa": "世良真純",
     "kana": "せらますみ",
     "type": "Character",
@@ -13699,7 +13699,7 @@
   },
   {
     "id": "B06083",
-    "name": "Ninzaburo Shiratori",
+    "name": "白鳥任三郎",
     "nameJa": "白鳥任三郎",
     "kana": "しらとりにんざぶろう",
     "type": "Partner",
@@ -13742,7 +13742,7 @@
   },
   {
     "id": "B06085",
-    "name": "Jinpei Matsuda",
+    "name": "松田陣平",
     "nameJa": "松田陣平",
     "kana": "まつだじんぺい",
     "type": "Character",
@@ -13765,7 +13765,7 @@
   },
   {
     "id": "B06086",
-    "name": "Kenji Hagiwara",
+    "name": "萩原研二",
     "nameJa": "萩原研二",
     "kana": "はぎわらけんじ",
     "type": "Character",
@@ -13811,7 +13811,7 @@
   },
   {
     "id": "B06088",
-    "name": "Yumi Miyamoto",
+    "name": "宮本由美",
     "nameJa": "宮本由美",
     "kana": "みやもとゆみ",
     "type": "Character",
@@ -13834,7 +13834,7 @@
   },
   {
     "id": "B06089",
-    "name": "Toru Amuro",
+    "name": "安室透",
     "nameJa": "安室透",
     "kana": "あむろとおる",
     "type": "Character",
@@ -13921,7 +13921,7 @@
   },
   {
     "id": "B06093",
-    "name": "Misao Yamamura",
+    "name": "山村ミサオ",
     "nameJa": "山村ミサオ",
     "kana": "やまむらみさお",
     "type": "Character",
@@ -13984,7 +13984,7 @@
   },
   {
     "id": "B06096",
-    "name": "Chianti",
+    "name": "キャンティ",
     "nameJa": "キャンティ",
     "kana": "きゃんてぃ",
     "type": "Partner",
@@ -14004,7 +14004,7 @@
   },
   {
     "id": "B06097",
-    "name": "Korn",
+    "name": "コルン",
     "nameJa": "コルン",
     "kana": "こるん",
     "type": "Partner",
@@ -14068,7 +14068,7 @@
   },
   {
     "id": "B06100",
-    "name": "Vermouth",
+    "name": "ベルモット",
     "nameJa": "ベルモット",
     "kana": "べるもっと",
     "type": "Character",
@@ -14090,7 +14090,7 @@
   },
   {
     "id": "B06101",
-    "name": "Chianti",
+    "name": "キャンティ",
     "nameJa": "キャンティ",
     "kana": "きゃんてぃ",
     "type": "Character",
@@ -14112,7 +14112,7 @@
   },
   {
     "id": "B06102",
-    "name": "Korn",
+    "name": "コルン",
     "nameJa": "コルン",
     "kana": "こるん",
     "type": "Character",
@@ -14134,7 +14134,7 @@
   },
   {
     "id": "B06103",
-    "name": "Gin",
+    "name": "ジン",
     "nameJa": "ジン",
     "kana": "じん",
     "type": "Character",
@@ -14302,7 +14302,7 @@
   },
   {
     "id": "B07002",
-    "name": "Conan Edogawa",
+    "name": "江戸川コナン",
     "nameJa": "江戸川コナン",
     "kana": "えどがわこなん",
     "type": "Character",
@@ -14326,7 +14326,7 @@
   },
   {
     "id": "B07003",
-    "name": "Shinichi Kudo",
+    "name": "工藤新一",
     "nameJa": "工藤新一",
     "kana": "くどうしんいち",
     "type": "Character",
@@ -14349,7 +14349,7 @@
   },
   {
     "id": "B07004",
-    "name": "Ayumi Yoshida",
+    "name": "吉田歩美",
     "nameJa": "吉田歩美",
     "kana": "よしだあゆみ",
     "type": "Character",
@@ -14371,7 +14371,7 @@
   },
   {
     "id": "B07005",
-    "name": "Kogoro Mouri",
+    "name": "毛利小五郎",
     "nameJa": "毛利小五郎",
     "kana": "もうりこごろう",
     "type": "Character",
@@ -14394,7 +14394,7 @@
   },
   {
     "id": "B07006",
-    "name": "Eri Kisaki",
+    "name": "妃英理",
     "nameJa": "妃英理",
     "kana": "きさきえり",
     "type": "Character",
@@ -14438,7 +14438,7 @@
   },
   {
     "id": "B07008",
-    "name": "Genta Kojima",
+    "name": "小嶋元太",
     "nameJa": "小嶋元太",
     "kana": "こじまげんた",
     "type": "Character",
@@ -14482,7 +14482,7 @@
   },
   {
     "id": "B07010",
-    "name": "Mitsuhiko Tsuburaya",
+    "name": "円谷光彦",
     "nameJa": "円谷光彦",
     "kana": "つぶらやみつひこ",
     "type": "Character",
@@ -14526,7 +14526,7 @@
   },
   {
     "id": "B07012",
-    "name": "Eisuke Hondou",
+    "name": "本堂瑛祐",
     "nameJa": "本堂瑛祐",
     "kana": "ほんどうえいすけ",
     "type": "Character",
@@ -14612,7 +14612,7 @@
   },
   {
     "id": "B07016",
-    "name": "Heiji Hattori",
+    "name": "服部平次",
     "nameJa": "服部平次",
     "kana": "はっとりへいじ",
     "type": "Character",
@@ -14679,7 +14679,7 @@
   },
   {
     "id": "B07019",
-    "name": "Kazuha Toyama",
+    "name": "遠山和葉",
     "nameJa": "遠山和葉",
     "kana": "とおやまかずは",
     "type": "Character",
@@ -14874,7 +14874,7 @@
   },
   {
     "id": "B07028",
-    "name": "Aoko Nakamori",
+    "name": "中森青子",
     "nameJa": "中森青子",
     "kana": "なかもりあおこ",
     "type": "Partner",
@@ -14894,7 +14894,7 @@
   },
   {
     "id": "B07029",
-    "name": "Kaito Kid",
+    "name": "怪盗キッド",
     "nameJa": "怪盗キッド",
     "kana": "かいとうきっど",
     "type": "Partner",
@@ -14983,7 +14983,7 @@
   },
   {
     "id": "B07033",
-    "name": "Kaito Kid",
+    "name": "怪盗キッド",
     "nameJa": "怪盗キッド",
     "kana": "かいとうきっど",
     "type": "Character",
@@ -15050,7 +15050,7 @@
   },
   {
     "id": "B07036",
-    "name": "Aoko Nakamori",
+    "name": "中森青子",
     "nameJa": "中森青子",
     "kana": "なかもりあおこ",
     "type": "Character",
@@ -15072,7 +15072,7 @@
   },
   {
     "id": "B07037",
-    "name": "Kaito Kuroba",
+    "name": "黒羽快斗",
     "nameJa": "黒羽快斗",
     "kana": "くろばかいと",
     "type": "Character",
@@ -15640,7 +15640,7 @@
   },
   {
     "id": "B07063",
-    "name": "Sonoko Suzuki",
+    "name": "鈴木園子",
     "nameJa": "鈴木園子",
     "kana": "すずきそのこ",
     "type": "Character",
@@ -15709,7 +15709,7 @@
   },
   {
     "id": "B07066",
-    "name": "Shuichi Akai",
+    "name": "赤井秀一",
     "nameJa": "赤井秀一",
     "kana": "あかいしゅういち",
     "type": "Character",
@@ -15732,7 +15732,7 @@
   },
   {
     "id": "B07067",
-    "name": "Subaru Okiya",
+    "name": "沖矢昴",
     "nameJa": "沖矢昴",
     "kana": "おきやすばる",
     "type": "Character",
@@ -15777,7 +15777,7 @@
   },
   {
     "id": "B07069",
-    "name": "Hidemi Hondou",
+    "name": "本堂瑛海",
     "nameJa": "本堂瑛海",
     "kana": "ほんどうひでみ",
     "type": "Character",
@@ -15799,7 +15799,7 @@
   },
   {
     "id": "B07070",
-    "name": "Tomoaki Araide",
+    "name": "新出智明",
     "nameJa": "新出智明",
     "kana": "あらいでともあき",
     "type": "Character",
@@ -15821,7 +15821,7 @@
   },
   {
     "id": "B07071",
-    "name": "Andre Camel",
+    "name": "アンドレ・キャメル",
     "nameJa": "アンドレ・キャメル",
     "kana": "あんどれきゃめる",
     "type": "Character",
@@ -15865,7 +15865,7 @@
   },
   {
     "id": "B07073",
-    "name": "James Black",
+    "name": "ジェイムズ・ブラック",
     "nameJa": "ジェイムズ・ブラック",
     "kana": "じぇいむずぶらっく",
     "type": "Character",
@@ -15887,7 +15887,7 @@
   },
   {
     "id": "B07074",
-    "name": "Jodie Starling",
+    "name": "ジョディ・スターリング",
     "nameJa": "ジョディ・スターリング",
     "kana": "じょでぃすたーりんぐ",
     "type": "Character",
@@ -16039,7 +16039,7 @@
   },
   {
     "id": "B07081",
-    "name": "Toru Amuro",
+    "name": "安室透",
     "nameJa": "安室透",
     "kana": "あむろとおる",
     "type": "Character",
@@ -16062,7 +16062,7 @@
   },
   {
     "id": "B07082",
-    "name": "Wataru Takagi",
+    "name": "高木渉",
     "nameJa": "高木渉",
     "kana": "たかぎわたる",
     "type": "Character",
@@ -16108,7 +16108,7 @@
   },
   {
     "id": "B07084",
-    "name": "Kazunobu Chiba",
+    "name": "千葉和伸",
     "nameJa": "千葉和伸",
     "kana": "ちばかずのぶ",
     "type": "Character",
@@ -16175,7 +16175,7 @@
   },
   {
     "id": "B07087",
-    "name": "Ninzaburo Shiratori",
+    "name": "白鳥任三郎",
     "nameJa": "白鳥任三郎",
     "kana": "しらとりにんざぶろう",
     "type": "Character",
@@ -16198,7 +16198,7 @@
   },
   {
     "id": "B07088",
-    "name": "Misao Yamamura",
+    "name": "山村ミサオ",
     "nameJa": "山村ミサオ",
     "kana": "やまむらみさお",
     "type": "Character",
@@ -16283,7 +16283,7 @@
   },
   {
     "id": "B07092",
-    "name": "Rye",
+    "name": "ライ",
     "nameJa": "ライ",
     "kana": "らい",
     "type": "Partner",
@@ -16325,7 +16325,7 @@
   },
   {
     "id": "B07094",
-    "name": "Gin",
+    "name": "ジン",
     "nameJa": "ジン",
     "kana": "じん",
     "type": "Character",
@@ -16347,7 +16347,7 @@
   },
   {
     "id": "B07095",
-    "name": "Vermouth",
+    "name": "ベルモット",
     "nameJa": "ベルモット",
     "kana": "べるもっと",
     "type": "Character",
@@ -16369,7 +16369,7 @@
   },
   {
     "id": "B07096",
-    "name": "Vodka",
+    "name": "ウォッカ",
     "nameJa": "ウォッカ",
     "kana": "うぉっか",
     "type": "Character",
@@ -16391,7 +16391,7 @@
   },
   {
     "id": "B07097",
-    "name": "Kir",
+    "name": "キール",
     "nameJa": "キール",
     "kana": "きーる",
     "type": "Character",
@@ -16413,7 +16413,7 @@
   },
   {
     "id": "B07098",
-    "name": "Chianti",
+    "name": "キャンティ",
     "nameJa": "キャンティ",
     "kana": "きゃんてぃ",
     "type": "Character",
@@ -16458,7 +16458,7 @@
   },
   {
     "id": "B07100",
-    "name": "Korn",
+    "name": "コルン",
     "nameJa": "コルン",
     "kana": "こるん",
     "type": "Character",
@@ -16480,7 +16480,7 @@
   },
   {
     "id": "B07101",
-    "name": "Tequila",
+    "name": "テキーラ",
     "nameJa": "テキーラ",
     "kana": "てきーら",
     "type": "Character",
@@ -16524,7 +16524,7 @@
   },
   {
     "id": "B07103",
-    "name": "Bourbon",
+    "name": "バーボン",
     "nameJa": "バーボン",
     "kana": "ばーぼん",
     "type": "Character",
@@ -16591,7 +16591,7 @@
   },
   {
     "id": "B08003",
-    "name": "Hiroshi Agasa",
+    "name": "阿笠博士",
     "nameJa": "阿笠博士",
     "kana": "あがさひろし",
     "type": "Character",
@@ -16613,7 +16613,7 @@
   },
   {
     "id": "B08004",
-    "name": "Conan Edogawa",
+    "name": "江戸川コナン",
     "nameJa": "江戸川コナン",
     "kana": "えどがわこなん",
     "type": "Character",
@@ -16637,7 +16637,7 @@
   },
   {
     "id": "B08005",
-    "name": "Ai Haibara",
+    "name": "灰原哀",
     "nameJa": "灰原哀",
     "kana": "はいばらあい",
     "type": "Character",
@@ -16660,7 +16660,7 @@
   },
   {
     "id": "B08006",
-    "name": "Genta Kojima",
+    "name": "小嶋元太",
     "nameJa": "小嶋元太",
     "kana": "こじまげんた",
     "type": "Character",
@@ -16682,7 +16682,7 @@
   },
   {
     "id": "B08007",
-    "name": "Mitsuhiko Tsuburaya",
+    "name": "円谷光彦",
     "nameJa": "円谷光彦",
     "kana": "つぶらやみつひこ",
     "type": "Character",
@@ -16704,7 +16704,7 @@
   },
   {
     "id": "B08008",
-    "name": "Ayumi Yoshida",
+    "name": "吉田歩美",
     "nameJa": "吉田歩美",
     "kana": "よしだあゆみ",
     "type": "Character",
@@ -16812,7 +16812,7 @@
   },
   {
     "id": "B08013",
-    "name": "Kogoro Mouri",
+    "name": "毛利小五郎",
     "nameJa": "毛利小五郎",
     "kana": "もうりこごろう",
     "type": "Character",
@@ -16835,7 +16835,7 @@
   },
   {
     "id": "B08014",
-    "name": "Ran Mouri",
+    "name": "毛利蘭",
     "nameJa": "毛利蘭",
     "kana": "もうりらん",
     "type": "Character",
@@ -16881,7 +16881,7 @@
   },
   {
     "id": "B08016",
-    "name": "Kanenori Wakita",
+    "name": "脇田兼則",
     "nameJa": "脇田兼則",
     "kana": "わきたかねのり",
     "type": "Character",
@@ -16966,7 +16966,7 @@
   },
   {
     "id": "B08020",
-    "name": "Kazuha Toyama",
+    "name": "遠山和葉",
     "nameJa": "遠山和葉",
     "kana": "とおやまかずは",
     "type": "Character",
@@ -16988,7 +16988,7 @@
   },
   {
     "id": "B08021",
-    "name": "Heiji Hattori",
+    "name": "服部平次",
     "nameJa": "服部平次",
     "kana": "はっとりへいじ",
     "type": "Character",
@@ -17205,7 +17205,7 @@
   },
   {
     "id": "B08031",
-    "name": "Yukiko Kudo",
+    "name": "工藤有希子",
     "nameJa": "工藤有希子",
     "kana": "くどうゆきこ",
     "type": "Partner",
@@ -17249,7 +17249,7 @@
   },
   {
     "id": "B08033",
-    "name": "Yukiko Kudo",
+    "name": "工藤有希子",
     "nameJa": "工藤有希子",
     "kana": "くどうゆきこ",
     "type": "Character",
@@ -17271,7 +17271,7 @@
   },
   {
     "id": "B08034",
-    "name": "Yusaku Kudo",
+    "name": "工藤優作",
     "nameJa": "工藤優作",
     "kana": "くどうゆうさく",
     "type": "Character",
@@ -17293,7 +17293,7 @@
   },
   {
     "id": "B08035",
-    "name": "Kaito Kid",
+    "name": "怪盗キッド",
     "nameJa": "怪盗キッド",
     "kana": "かいとうきっど",
     "type": "Character",
@@ -17337,7 +17337,7 @@
   },
   {
     "id": "B08037",
-    "name": "Sonoko Suzuki",
+    "name": "鈴木園子",
     "nameJa": "鈴木園子",
     "kana": "すずきそのこ",
     "type": "Character",
@@ -17556,7 +17556,7 @@
   },
   {
     "id": "B08047",
-    "name": "Subaru Okiya",
+    "name": "沖矢昴",
     "nameJa": "沖矢昴",
     "kana": "おきやすばる",
     "type": "Character",
@@ -17578,7 +17578,7 @@
   },
   {
     "id": "B08048",
-    "name": "Andre Camel",
+    "name": "アンドレ・キャメル",
     "nameJa": "アンドレ・キャメル",
     "kana": "あんどれきゃめる",
     "type": "Character",
@@ -17600,7 +17600,7 @@
   },
   {
     "id": "B08049",
-    "name": "Jodie Starling",
+    "name": "ジョディ・スターリング",
     "nameJa": "ジョディ・スターリング",
     "kana": "じょでぃすたーりんぐ",
     "type": "Character",
@@ -17642,7 +17642,7 @@
   },
   {
     "id": "B08051",
-    "name": "Shuichi Akai",
+    "name": "赤井秀一",
     "nameJa": "赤井秀一",
     "kana": "あかいしゅういち",
     "type": "Character",
@@ -17687,7 +17687,7 @@
   },
   {
     "id": "B08053",
-    "name": "James Black",
+    "name": "ジェイムズ・ブラック",
     "nameJa": "ジェイムズ・ブラック",
     "kana": "じぇいむずぶらっく",
     "type": "Character",
@@ -17731,7 +17731,7 @@
   },
   {
     "id": "B08055",
-    "name": "Hidemi Hondou",
+    "name": "本堂瑛海",
     "nameJa": "本堂瑛海",
     "kana": "ほんどうひでみ",
     "type": "Character",
@@ -17799,7 +17799,7 @@
   },
   {
     "id": "B08058",
-    "name": "Shiho Miyano",
+    "name": "宮野志保",
     "nameJa": "宮野志保",
     "kana": "みやのしほ",
     "type": "Character",
@@ -17927,7 +17927,7 @@
   },
   {
     "id": "B08064",
-    "name": "Ninzaburo Shiratori",
+    "name": "白鳥任三郎",
     "nameJa": "白鳥任三郎",
     "kana": "しらとりにんざぶろう",
     "type": "Character",
@@ -17950,7 +17950,7 @@
   },
   {
     "id": "B08065",
-    "name": "Kansuke Yamato",
+    "name": "大和敢助",
     "nameJa": "大和敢助",
     "kana": "やまとかんすけ",
     "type": "Character",
@@ -17973,7 +17973,7 @@
   },
   {
     "id": "B08066",
-    "name": "Yui Uehara",
+    "name": "上原由衣",
     "nameJa": "上原由衣",
     "kana": "うえはらゆい",
     "type": "Character",
@@ -17996,7 +17996,7 @@
   },
   {
     "id": "B08067",
-    "name": "Takaaki Morofushi",
+    "name": "諸伏高明",
     "nameJa": "諸伏高明",
     "kana": "もろふしたかあき",
     "type": "Character",
@@ -18019,7 +18019,7 @@
   },
   {
     "id": "B08068",
-    "name": "Toru Amuro",
+    "name": "安室透",
     "nameJa": "安室透",
     "kana": "あむろとおる",
     "type": "Character",
@@ -18111,7 +18111,7 @@
   },
   {
     "id": "B08072",
-    "name": "Miwako Sato",
+    "name": "佐藤美和子",
     "nameJa": "佐藤美和子",
     "kana": "さとうみわこ",
     "type": "Character",
@@ -18134,7 +18134,7 @@
   },
   {
     "id": "B08073",
-    "name": "Wataru Takagi",
+    "name": "高木渉",
     "nameJa": "高木渉",
     "kana": "たかぎわたる",
     "type": "Character",
@@ -18157,7 +18157,7 @@
   },
   {
     "id": "B08074",
-    "name": "Rei Furuya",
+    "name": "降谷零",
     "nameJa": "降谷零",
     "kana": "ふるやれい",
     "type": "Character",
@@ -18220,7 +18220,7 @@
   },
   {
     "id": "B08078",
-    "name": "Gin",
+    "name": "ジン",
     "nameJa": "ジン",
     "kana": "じん",
     "type": "Character",
@@ -18264,7 +18264,7 @@
   },
   {
     "id": "B08080",
-    "name": "Kir",
+    "name": "キール",
     "nameJa": "キール",
     "kana": "きーる",
     "type": "Character",
@@ -18308,7 +18308,7 @@
   },
   {
     "id": "B08082",
-    "name": "Pisco",
+    "name": "ピスコ",
     "nameJa": "ピスコ",
     "kana": "ぴすこ",
     "type": "Character",
@@ -18352,7 +18352,7 @@
   },
   {
     "id": "B08084",
-    "name": "Vodka",
+    "name": "ウォッカ",
     "nameJa": "ウォッカ",
     "kana": "うぉっか",
     "type": "Character",
@@ -18374,7 +18374,7 @@
   },
   {
     "id": "B08085",
-    "name": "Sherry",
+    "name": "シェリー",
     "nameJa": "シェリー",
     "kana": "しぇりー",
     "type": "Character",
@@ -18396,7 +18396,7 @@
   },
   {
     "id": "B08086",
-    "name": "Tequila",
+    "name": "テキーラ",
     "nameJa": "テキーラ",
     "kana": "てきーら",
     "type": "Character",
@@ -18440,7 +18440,7 @@
   },
   {
     "id": "B08088",
-    "name": "Bourbon",
+    "name": "バーボン",
     "nameJa": "バーボン",
     "kana": "ばーぼん",
     "type": "Character",
@@ -18484,7 +18484,7 @@
   },
   {
     "id": "B08090",
-    "name": "Vermouth",
+    "name": "ベルモット",
     "nameJa": "ベルモット",
     "kana": "べるもっと",
     "type": "Character",
@@ -18592,7 +18592,7 @@
   },
   {
     "id": "B09001",
-    "name": "Conan Edogawa",
+    "name": "江戸川コナン",
     "nameJa": "江戸川コナン",
     "kana": "えどがわこなん",
     "type": "Partner",
@@ -18637,7 +18637,7 @@
   },
   {
     "id": "B09003",
-    "name": "Conan Edogawa",
+    "name": "江戸川コナン",
     "nameJa": "江戸川コナン",
     "kana": "えどがわこなん",
     "type": "Character",
@@ -18661,7 +18661,7 @@
   },
   {
     "id": "B09004",
-    "name": "Ran Mouri",
+    "name": "毛利蘭",
     "nameJa": "毛利蘭",
     "kana": "もうりらん",
     "type": "Character",
@@ -18685,7 +18685,7 @@
   },
   {
     "id": "B09005",
-    "name": "Eisuke Hondou",
+    "name": "本堂瑛祐",
     "nameJa": "本堂瑛祐",
     "kana": "ほんどうえいすけ",
     "type": "Character",
@@ -18707,7 +18707,7 @@
   },
   {
     "id": "B09006",
-    "name": "Kogoro Mouri",
+    "name": "毛利小五郎",
     "nameJa": "毛利小五郎",
     "kana": "もうりこごろう",
     "type": "Character",
@@ -18730,7 +18730,7 @@
   },
   {
     "id": "B09007",
-    "name": "Kanenori Wakita",
+    "name": "脇田兼則",
     "nameJa": "脇田兼則",
     "kana": "わきたかねのり",
     "type": "Character",
@@ -18794,7 +18794,7 @@
   },
   {
     "id": "B09010",
-    "name": "Hiroshi Agasa",
+    "name": "阿笠博士",
     "nameJa": "阿笠博士",
     "kana": "あがさひろし",
     "type": "Character",
@@ -18816,7 +18816,7 @@
   },
   {
     "id": "B09011",
-    "name": "Ai Haibara",
+    "name": "灰原哀",
     "nameJa": "灰原哀",
     "kana": "はいばらあい",
     "type": "Character",
@@ -18839,7 +18839,7 @@
   },
   {
     "id": "B09012",
-    "name": "Conan Edogawa",
+    "name": "江戸川コナン",
     "nameJa": "江戸川コナン",
     "kana": "えどがわこなん",
     "type": "Character",
@@ -18863,7 +18863,7 @@
   },
   {
     "id": "B09013",
-    "name": "Eri Kisaki",
+    "name": "妃英理",
     "nameJa": "妃英理",
     "kana": "きさきえり",
     "type": "Character",
@@ -18885,7 +18885,7 @@
   },
   {
     "id": "B09014",
-    "name": "Genta Kojima",
+    "name": "小嶋元太",
     "nameJa": "小嶋元太",
     "kana": "こじまげんた",
     "type": "Character",
@@ -18927,7 +18927,7 @@
   },
   {
     "id": "B09016",
-    "name": "Mitsuhiko Tsuburaya",
+    "name": "円谷光彦",
     "nameJa": "円谷光彦",
     "kana": "つぶらやみつひこ",
     "type": "Character",
@@ -18949,7 +18949,7 @@
   },
   {
     "id": "B09017",
-    "name": "Ayumi Yoshida",
+    "name": "吉田歩美",
     "nameJa": "吉田歩美",
     "kana": "よしだあゆみ",
     "type": "Character",
@@ -19013,7 +19013,7 @@
   },
   {
     "id": "B09020",
-    "name": "Heiji Hattori",
+    "name": "服部平次",
     "nameJa": "服部平次",
     "kana": "はっとりへいじ",
     "type": "Partner",
@@ -19033,7 +19033,7 @@
   },
   {
     "id": "B09021",
-    "name": "Heiji Hattori",
+    "name": "服部平次",
     "nameJa": "服部平次",
     "kana": "はっとりへいじ",
     "type": "Character",
@@ -19056,7 +19056,7 @@
   },
   {
     "id": "B09022",
-    "name": "Kazuha Toyama",
+    "name": "遠山和葉",
     "nameJa": "遠山和葉",
     "kana": "とおやまかずは",
     "type": "Character",
@@ -19235,7 +19235,7 @@
   },
   {
     "id": "B09030",
-    "name": "Heiji Hattori",
+    "name": "服部平次",
     "nameJa": "服部平次",
     "kana": "はっとりへいじ",
     "type": "Character",
@@ -19340,7 +19340,7 @@
   },
   {
     "id": "B09035",
-    "name": "Kaito Kid",
+    "name": "怪盗キッド",
     "nameJa": "怪盗キッド",
     "kana": "かいとうきっど",
     "type": "Partner",
@@ -19360,7 +19360,7 @@
   },
   {
     "id": "B09036",
-    "name": "Kaito Kid",
+    "name": "怪盗キッド",
     "nameJa": "怪盗キッド",
     "kana": "かいとうきっど",
     "type": "Character",
@@ -19382,7 +19382,7 @@
   },
   {
     "id": "B09037",
-    "name": "Yusaku Kudo",
+    "name": "工藤優作",
     "nameJa": "工藤優作",
     "kana": "くどうゆうさく",
     "type": "Character",
@@ -19426,7 +19426,7 @@
   },
   {
     "id": "B09039",
-    "name": "Aoko Nakamori",
+    "name": "中森青子",
     "nameJa": "中森青子",
     "kana": "なかもりあおこ",
     "type": "Character",
@@ -19448,7 +19448,7 @@
   },
   {
     "id": "B09040",
-    "name": "Sonoko Suzuki",
+    "name": "鈴木園子",
     "nameJa": "鈴木園子",
     "kana": "すずきそのこ",
     "type": "Character",
@@ -19516,7 +19516,7 @@
   },
   {
     "id": "B09043",
-    "name": "Kaito Kid",
+    "name": "怪盗キッド",
     "nameJa": "怪盗キッド",
     "kana": "かいとうきっど",
     "type": "Character",
@@ -19538,7 +19538,7 @@
   },
   {
     "id": "B09044",
-    "name": "Yukiko Kudo",
+    "name": "工藤有希子",
     "nameJa": "工藤有希子",
     "kana": "くどうゆきこ",
     "type": "Character",
@@ -19560,7 +19560,7 @@
   },
   {
     "id": "B09045",
-    "name": "Kaito Kuroba",
+    "name": "黒羽快斗",
     "nameJa": "黒羽快斗",
     "kana": "くろばかいと",
     "type": "Character",
@@ -19737,7 +19737,7 @@
   },
   {
     "id": "B09053",
-    "name": "Masumi Sera",
+    "name": "世良真純",
     "nameJa": "世良真純",
     "kana": "せらますみ",
     "type": "Partner",
@@ -19782,7 +19782,7 @@
   },
   {
     "id": "B09055",
-    "name": "Masumi Sera",
+    "name": "世良真純",
     "nameJa": "世良真純",
     "kana": "せらますみ",
     "type": "Character",
@@ -19806,7 +19806,7 @@
   },
   {
     "id": "B09056",
-    "name": "Shuichi Akai",
+    "name": "赤井秀一",
     "nameJa": "赤井秀一",
     "kana": "あかいしゅういち",
     "type": "Character",
@@ -19829,7 +19829,7 @@
   },
   {
     "id": "B09057",
-    "name": "Andre Camel",
+    "name": "アンドレ・キャメル",
     "nameJa": "アンドレ・キャメル",
     "kana": "あんどれきゃめる",
     "type": "Character",
@@ -19874,7 +19874,7 @@
   },
   {
     "id": "B09059",
-    "name": "Shuichi Akai",
+    "name": "赤井秀一",
     "nameJa": "赤井秀一",
     "kana": "あかいしゅういち",
     "type": "Character",
@@ -19897,7 +19897,7 @@
   },
   {
     "id": "B09060",
-    "name": "Subaru Okiya",
+    "name": "沖矢昴",
     "nameJa": "沖矢昴",
     "kana": "おきやすばる",
     "type": "Character",
@@ -19919,7 +19919,7 @@
   },
   {
     "id": "B09061",
-    "name": "James Black",
+    "name": "ジェイムズ・ブラック",
     "nameJa": "ジェイムズ・ブラック",
     "kana": "じぇいむずぶらっく",
     "type": "Character",
@@ -19941,7 +19941,7 @@
   },
   {
     "id": "B09062",
-    "name": "Jodie Starling",
+    "name": "ジョディ・スターリング",
     "nameJa": "ジョディ・スターリング",
     "kana": "じょでぃすたーりんぐ",
     "type": "Character",
@@ -19985,7 +19985,7 @@
   },
   {
     "id": "B09064",
-    "name": "Hidemi Hondou",
+    "name": "本堂瑛海",
     "nameJa": "本堂瑛海",
     "kana": "ほんどうひでみ",
     "type": "Character",
@@ -20181,7 +20181,7 @@
   },
   {
     "id": "B09073",
-    "name": "Kenji Hagiwara",
+    "name": "萩原研二",
     "nameJa": "萩原研二",
     "kana": "はぎわらけんじ",
     "type": "Character",
@@ -20204,7 +20204,7 @@
   },
   {
     "id": "B09074",
-    "name": "Jinpei Matsuda",
+    "name": "松田陣平",
     "nameJa": "松田陣平",
     "kana": "まつだじんぺい",
     "type": "Character",
@@ -20227,7 +20227,7 @@
   },
   {
     "id": "B09075",
-    "name": "Yumi Miyamoto",
+    "name": "宮本由美",
     "nameJa": "宮本由美",
     "kana": "みやもとゆみ",
     "type": "Character",
@@ -20273,7 +20273,7 @@
   },
   {
     "id": "B09077",
-    "name": "Toru Amuro",
+    "name": "安室透",
     "nameJa": "安室透",
     "kana": "あむろとおる",
     "type": "Character",
@@ -20318,7 +20318,7 @@
   },
   {
     "id": "B09079",
-    "name": "Miwako Sato",
+    "name": "佐藤美和子",
     "nameJa": "佐藤美和子",
     "kana": "さとうみわこ",
     "type": "Character",
@@ -20341,7 +20341,7 @@
   },
   {
     "id": "B09080",
-    "name": "Wataru Takagi",
+    "name": "高木渉",
     "nameJa": "高木渉",
     "kana": "たかぎわたる",
     "type": "Character",
@@ -20404,7 +20404,7 @@
   },
   {
     "id": "B09083",
-    "name": "Kazunobu Chiba",
+    "name": "千葉和伸",
     "nameJa": "千葉和伸",
     "kana": "ちばかずのぶ",
     "type": "Character",
@@ -20450,7 +20450,7 @@
   },
   {
     "id": "B09085",
-    "name": "Juzo Megure",
+    "name": "目暮十三",
     "nameJa": "目暮十三",
     "kana": "めぐれじゅうぞう",
     "type": "Character",
@@ -20473,7 +20473,7 @@
   },
   {
     "id": "B09086",
-    "name": "Takaaki Morofushi",
+    "name": "諸伏高明",
     "nameJa": "諸伏高明",
     "kana": "もろふしたかあき",
     "type": "Character",
@@ -20496,7 +20496,7 @@
   },
   {
     "id": "B09087",
-    "name": "Hiromitsu Morofushi",
+    "name": "諸伏景光",
     "nameJa": "諸伏景光",
     "kana": "もろふしひろみつ",
     "type": "Character",
@@ -20583,7 +20583,7 @@
   },
   {
     "id": "B09091",
-    "name": "Gin",
+    "name": "ジン",
     "nameJa": "ジン",
     "kana": "じん",
     "type": "Partner",
@@ -20603,7 +20603,7 @@
   },
   {
     "id": "B09092",
-    "name": "Kir",
+    "name": "キール",
     "nameJa": "キール",
     "kana": "きーる",
     "type": "Character",
@@ -20625,7 +20625,7 @@
   },
   {
     "id": "B09093",
-    "name": "Vodka",
+    "name": "ウォッカ",
     "nameJa": "ウォッカ",
     "kana": "うぉっか",
     "type": "Character",
@@ -20647,7 +20647,7 @@
   },
   {
     "id": "B09094",
-    "name": "Gin",
+    "name": "ジン",
     "nameJa": "ジン",
     "kana": "じん",
     "type": "Character",
@@ -20669,7 +20669,7 @@
   },
   {
     "id": "B09095",
-    "name": "Vermouth",
+    "name": "ベルモット",
     "nameJa": "ベルモット",
     "kana": "べるもっと",
     "type": "Character",
@@ -20691,7 +20691,7 @@
   },
   {
     "id": "B09096",
-    "name": "Chianti",
+    "name": "キャンティ",
     "nameJa": "キャンティ",
     "kana": "きゃんてぃ",
     "type": "Character",
@@ -20713,7 +20713,7 @@
   },
   {
     "id": "B09097",
-    "name": "Korn",
+    "name": "コルン",
     "nameJa": "コルン",
     "kana": "こるん",
     "type": "Character",
@@ -20735,7 +20735,7 @@
   },
   {
     "id": "B09098",
-    "name": "Gin",
+    "name": "ジン",
     "nameJa": "ジン",
     "kana": "じん",
     "type": "Character",
@@ -20757,7 +20757,7 @@
   },
   {
     "id": "B09099",
-    "name": "Bourbon",
+    "name": "バーボン",
     "nameJa": "バーボン",
     "kana": "ばーぼん",
     "type": "Character",
@@ -20845,7 +20845,7 @@
   },
   {
     "id": "B09103",
-    "name": "Rye",
+    "name": "ライ",
     "nameJa": "ライ",
     "kana": "らい",
     "type": "Character",
@@ -21084,7 +21084,7 @@
   },
   {
     "id": "B01001P",
-    "name": "Conan Edogawa",
+    "name": "江戸川コナン",
     "nameJa": "江戸川コナン",
     "kana": "えどがわこなん",
     "type": "Partner",
@@ -21104,7 +21104,7 @@
   },
   {
     "id": "B01001Sec1",
-    "name": "Conan Edogawa",
+    "name": "江戸川コナン",
     "nameJa": "江戸川コナン",
     "kana": "えどがわこなん",
     "type": "Partner",
@@ -21124,7 +21124,7 @@
   },
   {
     "id": "B01001Sec2",
-    "name": "Conan Edogawa",
+    "name": "江戸川コナン",
     "nameJa": "江戸川コナン",
     "kana": "えどがわこなん",
     "type": "Partner",
@@ -21144,7 +21144,7 @@
   },
   {
     "id": "B01002P",
-    "name": "Shinichi Kudo",
+    "name": "工藤新一",
     "nameJa": "工藤新一",
     "kana": "くどうしんいち",
     "type": "Partner",
@@ -21164,7 +21164,7 @@
   },
   {
     "id": "B01003P",
-    "name": "Ai Haibara",
+    "name": "灰原哀",
     "nameJa": "灰原哀",
     "kana": "はいばらあい",
     "type": "Partner",
@@ -21184,7 +21184,7 @@
   },
   {
     "id": "B01004P",
-    "name": "Kogoro Mouri",
+    "name": "毛利小五郎",
     "nameJa": "毛利小五郎",
     "kana": "もうりこごろう",
     "type": "Partner",
@@ -21204,7 +21204,7 @@
   },
   {
     "id": "B01005P",
-    "name": "Conan Edogawa",
+    "name": "江戸川コナン",
     "nameJa": "江戸川コナン",
     "kana": "えどがわこなん",
     "type": "Character",
@@ -21228,7 +21228,7 @@
   },
   {
     "id": "B01006P",
-    "name": "Ai Haibara",
+    "name": "灰原哀",
     "nameJa": "灰原哀",
     "kana": "はいばらあい",
     "type": "Character",
@@ -21251,7 +21251,7 @@
   },
   {
     "id": "B01009P",
-    "name": "Shinichi Kudo",
+    "name": "工藤新一",
     "nameJa": "工藤新一",
     "kana": "くどうしんいち",
     "type": "Character",
@@ -21274,7 +21274,7 @@
   },
   {
     "id": "B01010P",
-    "name": "Kogoro Mouri",
+    "name": "毛利小五郎",
     "nameJa": "毛利小五郎",
     "kana": "もうりこごろう",
     "type": "Character",
@@ -21297,7 +21297,7 @@
   },
   {
     "id": "B01013P",
-    "name": "Eri Kisaki",
+    "name": "妃英理",
     "nameJa": "妃英理",
     "kana": "きさきえり",
     "type": "Character",
@@ -21319,7 +21319,7 @@
   },
   {
     "id": "B01016P",
-    "name": "Ai Haibara",
+    "name": "灰原哀",
     "nameJa": "灰原哀",
     "kana": "はいばらあい",
     "type": "Character",
@@ -21342,7 +21342,7 @@
   },
   {
     "id": "B01019P",
-    "name": "Ran Mouri",
+    "name": "毛利蘭",
     "nameJa": "毛利蘭",
     "kana": "もうりらん",
     "type": "Character",
@@ -21406,7 +21406,7 @@
   },
   {
     "id": "B01025P",
-    "name": "Heiji Hattori",
+    "name": "服部平次",
     "nameJa": "服部平次",
     "kana": "はっとりへいじ",
     "type": "Partner",
@@ -21446,7 +21446,7 @@
   },
   {
     "id": "B01028P",
-    "name": "Heiji Hattori",
+    "name": "服部平次",
     "nameJa": "服部平次",
     "kana": "はっとりへいじ",
     "type": "Character",
@@ -21513,7 +21513,7 @@
   },
   {
     "id": "B01033P",
-    "name": "Kazuha Toyama",
+    "name": "遠山和葉",
     "nameJa": "遠山和葉",
     "kana": "とおやまかずは",
     "type": "Character",
@@ -21620,7 +21620,7 @@
   },
   {
     "id": "B01042P",
-    "name": "Kaito Kid",
+    "name": "怪盗キッド",
     "nameJa": "怪盗キッド",
     "kana": "かいとうきっど",
     "type": "Partner",
@@ -21660,7 +21660,7 @@
   },
   {
     "id": "B01044P",
-    "name": "Kaito Kid",
+    "name": "怪盗キッド",
     "nameJa": "怪盗キッド",
     "kana": "かいとうきっど",
     "type": "Character",
@@ -21682,7 +21682,7 @@
   },
   {
     "id": "B01047P",
-    "name": "Kaito Kuroba",
+    "name": "黒羽快斗",
     "nameJa": "黒羽快斗",
     "kana": "くろばかいと",
     "type": "Character",
@@ -21704,7 +21704,7 @@
   },
   {
     "id": "B01048P",
-    "name": "Sonoko Suzuki",
+    "name": "鈴木園子",
     "nameJa": "鈴木園子",
     "kana": "すずきそのこ",
     "type": "Character",
@@ -21747,7 +21747,7 @@
   },
   {
     "id": "B01055P",
-    "name": "Sonoko Suzuki",
+    "name": "鈴木園子",
     "nameJa": "鈴木園子",
     "kana": "すずきそのこ",
     "type": "Character",
@@ -21810,7 +21810,7 @@
   },
   {
     "id": "B01060P",
-    "name": "Shuichi Akai",
+    "name": "赤井秀一",
     "nameJa": "赤井秀一",
     "kana": "あかいしゅういち",
     "type": "Partner",
@@ -21830,7 +21830,7 @@
   },
   {
     "id": "B01061P",
-    "name": "Masumi Sera",
+    "name": "世良真純",
     "nameJa": "世良真純",
     "kana": "せらますみ",
     "type": "Partner",
@@ -21850,7 +21850,7 @@
   },
   {
     "id": "B01062P",
-    "name": "Shuichi Akai",
+    "name": "赤井秀一",
     "nameJa": "赤井秀一",
     "kana": "あかいしゅういち",
     "type": "Character",
@@ -21873,7 +21873,7 @@
   },
   {
     "id": "B01065P",
-    "name": "Subaru Okiya",
+    "name": "沖矢昴",
     "nameJa": "沖矢昴",
     "kana": "おきやすばる",
     "type": "Character",
@@ -21895,7 +21895,7 @@
   },
   {
     "id": "B01066P",
-    "name": "Masumi Sera",
+    "name": "世良真純",
     "nameJa": "世良真純",
     "kana": "せらますみ",
     "type": "Character",
@@ -21919,7 +21919,7 @@
   },
   {
     "id": "B01072P",
-    "name": "Jodie Starling",
+    "name": "ジョディ・スターリング",
     "nameJa": "ジョディ・スターリング",
     "kana": "じょでぃすたーりんぐ",
     "type": "Character",
@@ -21941,7 +21941,7 @@
   },
   {
     "id": "B01073P",
-    "name": "Masumi Sera",
+    "name": "世良真純",
     "nameJa": "世良真純",
     "kana": "せらますみ",
     "type": "Character",
@@ -22005,7 +22005,7 @@
   },
   {
     "id": "B01079P",
-    "name": "Toru Amuro",
+    "name": "安室透",
     "nameJa": "安室透",
     "kana": "あむろとおる",
     "type": "Partner",
@@ -22045,7 +22045,7 @@
   },
   {
     "id": "B01081P",
-    "name": "Toru Amuro",
+    "name": "安室透",
     "nameJa": "安室透",
     "kana": "あむろとおる",
     "type": "Character",
@@ -22068,7 +22068,7 @@
   },
   {
     "id": "B01084P",
-    "name": "Rei Furuya",
+    "name": "降谷零",
     "nameJa": "降谷零",
     "kana": "ふるやれい",
     "type": "Character",
@@ -22113,7 +22113,7 @@
   },
   {
     "id": "B01090P",
-    "name": "Miwako Sato",
+    "name": "佐藤美和子",
     "nameJa": "佐藤美和子",
     "kana": "さとうみわこ",
     "type": "Character",
@@ -22136,7 +22136,7 @@
   },
   {
     "id": "B01092P",
-    "name": "Jinpei Matsuda",
+    "name": "松田陣平",
     "nameJa": "松田陣平",
     "kana": "まつだじんぺい",
     "type": "Character",
@@ -22199,7 +22199,7 @@
   },
   {
     "id": "B01097P",
-    "name": "Vodka",
+    "name": "ウォッカ",
     "nameJa": "ウォッカ",
     "kana": "うぉっか",
     "type": "Character",
@@ -22221,7 +22221,7 @@
   },
   {
     "id": "B01098P",
-    "name": "Gin",
+    "name": "ジン",
     "nameJa": "ジン",
     "kana": "じん",
     "type": "Character",
@@ -22323,7 +22323,7 @@
   },
   {
     "id": "B02001P",
-    "name": "Conan Edogawa",
+    "name": "江戸川コナン",
     "nameJa": "江戸川コナン",
     "kana": "えどがわこなん",
     "type": "Partner",
@@ -22343,7 +22343,7 @@
   },
   {
     "id": "B02003P",
-    "name": "Shinichi Kudo",
+    "name": "工藤新一",
     "nameJa": "工藤新一",
     "kana": "くどうしんいち",
     "type": "Character",
@@ -22366,7 +22366,7 @@
   },
   {
     "id": "B02004P",
-    "name": "Ran Mouri",
+    "name": "毛利蘭",
     "nameJa": "毛利蘭",
     "kana": "もうりらん",
     "type": "Character",
@@ -22434,7 +22434,7 @@
   },
   {
     "id": "B02011P",
-    "name": "Ai Haibara",
+    "name": "灰原哀",
     "nameJa": "灰原哀",
     "kana": "はいばらあい",
     "type": "Character",
@@ -22499,7 +22499,7 @@
   },
   {
     "id": "B02016P",
-    "name": "Heiji Hattori",
+    "name": "服部平次",
     "nameJa": "服部平次",
     "kana": "はっとりへいじ",
     "type": "Partner",
@@ -22519,7 +22519,7 @@
   },
   {
     "id": "B02016Sec1",
-    "name": "Heiji Hattori",
+    "name": "服部平次",
     "nameJa": "服部平次",
     "kana": "はっとりへいじ",
     "type": "Partner",
@@ -22539,7 +22539,7 @@
   },
   {
     "id": "B02016Sec2",
-    "name": "Heiji Hattori",
+    "name": "服部平次",
     "nameJa": "服部平次",
     "kana": "はっとりへいじ",
     "type": "Partner",
@@ -22579,7 +22579,7 @@
   },
   {
     "id": "B02018P",
-    "name": "Heiji Hattori",
+    "name": "服部平次",
     "nameJa": "服部平次",
     "kana": "はっとりへいじ",
     "type": "Character",
@@ -22668,7 +22668,7 @@
   },
   {
     "id": "B02024P",
-    "name": "Heiji Hattori",
+    "name": "服部平次",
     "nameJa": "服部平次",
     "kana": "はっとりへいじ",
     "type": "Character",
@@ -22691,7 +22691,7 @@
   },
   {
     "id": "B02025P",
-    "name": "Kazuha Toyama",
+    "name": "遠山和葉",
     "nameJa": "遠山和葉",
     "kana": "とおやまかずは",
     "type": "Character",
@@ -22777,7 +22777,7 @@
   },
   {
     "id": "B02035P",
-    "name": "Kaito Kid",
+    "name": "怪盗キッド",
     "nameJa": "怪盗キッド",
     "kana": "かいとうきっど",
     "type": "Partner",
@@ -22797,7 +22797,7 @@
   },
   {
     "id": "B02035Sec1",
-    "name": "Kaito Kid",
+    "name": "怪盗キッド",
     "nameJa": "怪盗キッド",
     "kana": "かいとうきっど",
     "type": "Partner",
@@ -22817,7 +22817,7 @@
   },
   {
     "id": "B02035Sec2",
-    "name": "Kaito Kid",
+    "name": "怪盗キッド",
     "nameJa": "怪盗キッド",
     "kana": "かいとうきっど",
     "type": "Partner",
@@ -22857,7 +22857,7 @@
   },
   {
     "id": "B02037P",
-    "name": "Yusaku Kudo",
+    "name": "工藤優作",
     "nameJa": "工藤優作",
     "kana": "くどうゆうさく",
     "type": "Partner",
@@ -22877,7 +22877,7 @@
   },
   {
     "id": "B02038P",
-    "name": "Kaito Kid",
+    "name": "怪盗キッド",
     "nameJa": "怪盗キッド",
     "kana": "かいとうきっど",
     "type": "Character",
@@ -22921,7 +22921,7 @@
   },
   {
     "id": "B02041P",
-    "name": "Kaito Kid",
+    "name": "怪盗キッド",
     "nameJa": "怪盗キッド",
     "kana": "かいとうきっど",
     "type": "Character",
@@ -22966,7 +22966,7 @@
   },
   {
     "id": "B02044P",
-    "name": "Kaito Kid",
+    "name": "怪盗キッド",
     "nameJa": "怪盗キッド",
     "kana": "かいとうきっど",
     "type": "Character",
@@ -23010,7 +23010,7 @@
   },
   {
     "id": "B02048P",
-    "name": "Sonoko Suzuki",
+    "name": "鈴木園子",
     "nameJa": "鈴木園子",
     "kana": "すずきそのこ",
     "type": "Character",
@@ -23075,7 +23075,7 @@
   },
   {
     "id": "B02055P",
-    "name": "Subaru Okiya",
+    "name": "沖矢昴",
     "nameJa": "沖矢昴",
     "kana": "おきやすばる",
     "type": "Partner",
@@ -23115,7 +23115,7 @@
   },
   {
     "id": "B02057P",
-    "name": "Subaru Okiya",
+    "name": "沖矢昴",
     "nameJa": "沖矢昴",
     "kana": "おきやすばる",
     "type": "Character",
@@ -23137,7 +23137,7 @@
   },
   {
     "id": "B02058P",
-    "name": "Shuichi Akai",
+    "name": "赤井秀一",
     "nameJa": "赤井秀一",
     "kana": "あかいしゅういち",
     "type": "Character",
@@ -23159,7 +23159,7 @@
   },
   {
     "id": "B02059P",
-    "name": "Subaru Okiya",
+    "name": "沖矢昴",
     "nameJa": "沖矢昴",
     "kana": "おきやすばる",
     "type": "Character",
@@ -23268,7 +23268,7 @@
   },
   {
     "id": "B02070P",
-    "name": "Rei Furuya",
+    "name": "降谷零",
     "nameJa": "降谷零",
     "kana": "ふるやれい",
     "type": "Partner",
@@ -23288,7 +23288,7 @@
   },
   {
     "id": "B02071P",
-    "name": "Miwako Sato",
+    "name": "佐藤美和子",
     "nameJa": "佐藤美和子",
     "kana": "さとうみわこ",
     "type": "Partner",
@@ -23308,7 +23308,7 @@
   },
   {
     "id": "B02072P",
-    "name": "Rei Furuya",
+    "name": "降谷零",
     "nameJa": "降谷零",
     "kana": "ふるやれい",
     "type": "Character",
@@ -23331,7 +23331,7 @@
   },
   {
     "id": "B02074P",
-    "name": "Ninzaburo Shiratori",
+    "name": "白鳥任三郎",
     "nameJa": "白鳥任三郎",
     "kana": "しらとりにんざぶろう",
     "type": "Character",
@@ -23354,7 +23354,7 @@
   },
   {
     "id": "B02075P",
-    "name": "Takaaki Morofushi",
+    "name": "諸伏高明",
     "nameJa": "諸伏高明",
     "kana": "もろふしたかあき",
     "type": "Character",
@@ -23377,7 +23377,7 @@
   },
   {
     "id": "B02076P",
-    "name": "Kansuke Yamato",
+    "name": "大和敢助",
     "nameJa": "大和敢助",
     "kana": "やまとかんすけ",
     "type": "Character",
@@ -23400,7 +23400,7 @@
   },
   {
     "id": "B02077P",
-    "name": "Toru Amuro",
+    "name": "安室透",
     "nameJa": "安室透",
     "kana": "あむろとおる",
     "type": "Character",
@@ -23423,7 +23423,7 @@
   },
   {
     "id": "B02078P",
-    "name": "Rei Furuya",
+    "name": "降谷零",
     "nameJa": "降谷零",
     "kana": "ふるやれい",
     "type": "Character",
@@ -23488,7 +23488,7 @@
   },
   {
     "id": "B02086P",
-    "name": "Vermouth",
+    "name": "ベルモット",
     "nameJa": "ベルモット",
     "kana": "べるもっと",
     "type": "Character",
@@ -23510,7 +23510,7 @@
   },
   {
     "id": "B02087P",
-    "name": "Kir",
+    "name": "キール",
     "nameJa": "キール",
     "kana": "きーる",
     "type": "Character",
@@ -23574,7 +23574,7 @@
   },
   {
     "id": "B03001P",
-    "name": "Ai Haibara",
+    "name": "灰原哀",
     "nameJa": "灰原哀",
     "kana": "はいばらあい",
     "type": "Partner",
@@ -23594,7 +23594,7 @@
   },
   {
     "id": "B03002P",
-    "name": "Conan Edogawa",
+    "name": "江戸川コナン",
     "nameJa": "江戸川コナン",
     "kana": "えどがわこなん",
     "type": "Character",
@@ -23618,7 +23618,7 @@
   },
   {
     "id": "B03003P",
-    "name": "Ai Haibara",
+    "name": "灰原哀",
     "nameJa": "灰原哀",
     "kana": "はいばらあい",
     "type": "Character",
@@ -23663,7 +23663,7 @@
   },
   {
     "id": "B03010P",
-    "name": "Genta Kojima",
+    "name": "小嶋元太",
     "nameJa": "小嶋元太",
     "kana": "こじまげんた",
     "type": "Character",
@@ -23707,7 +23707,7 @@
   },
   {
     "id": "B03016P",
-    "name": "Mitsuhiko Tsuburaya",
+    "name": "円谷光彦",
     "nameJa": "円谷光彦",
     "kana": "つぶらやみつひこ",
     "type": "Character",
@@ -23729,7 +23729,7 @@
   },
   {
     "id": "B03021P",
-    "name": "Ayumi Yoshida",
+    "name": "吉田歩美",
     "nameJa": "吉田歩美",
     "kana": "よしだあゆみ",
     "type": "Character",
@@ -23813,7 +23813,7 @@
   },
   {
     "id": "B03028P",
-    "name": "Heiji Hattori",
+    "name": "服部平次",
     "nameJa": "服部平次",
     "kana": "はっとりへいじ",
     "type": "Character",
@@ -23836,7 +23836,7 @@
   },
   {
     "id": "B03029P",
-    "name": "Kazuha Toyama",
+    "name": "遠山和葉",
     "nameJa": "遠山和葉",
     "kana": "とおやまかずは",
     "type": "Character",
@@ -23902,7 +23902,7 @@
   },
   {
     "id": "B03032P",
-    "name": "Heiji Hattori",
+    "name": "服部平次",
     "nameJa": "服部平次",
     "kana": "はっとりへいじ",
     "type": "Character",
@@ -23925,7 +23925,7 @@
   },
   {
     "id": "B03033P",
-    "name": "Kazuha Toyama",
+    "name": "遠山和葉",
     "nameJa": "遠山和葉",
     "kana": "とおやまかずは",
     "type": "Character",
@@ -23989,7 +23989,7 @@
   },
   {
     "id": "B03046P",
-    "name": "Kaito Kid",
+    "name": "怪盗キッド",
     "nameJa": "怪盗キッド",
     "kana": "かいとうきっど",
     "type": "Character",
@@ -24034,7 +24034,7 @@
   },
   {
     "id": "B03048P",
-    "name": "Yusaku Kudo",
+    "name": "工藤優作",
     "nameJa": "工藤優作",
     "kana": "くどうゆうさく",
     "type": "Character",
@@ -24100,7 +24100,7 @@
   },
   {
     "id": "B03054P",
-    "name": "Sonoko Suzuki",
+    "name": "鈴木園子",
     "nameJa": "鈴木園子",
     "kana": "すずきそのこ",
     "type": "Character",
@@ -24209,7 +24209,7 @@
   },
   {
     "id": "B03065P",
-    "name": "Jodie Starling",
+    "name": "ジョディ・スターリング",
     "nameJa": "ジョディ・スターリング",
     "kana": "じょでぃすたーりんぐ",
     "type": "Partner",
@@ -24229,7 +24229,7 @@
   },
   {
     "id": "B03066P",
-    "name": "Shuichi Akai",
+    "name": "赤井秀一",
     "nameJa": "赤井秀一",
     "kana": "あかいしゅういち",
     "type": "Character",
@@ -24252,7 +24252,7 @@
   },
   {
     "id": "B03067P",
-    "name": "Subaru Okiya",
+    "name": "沖矢昴",
     "nameJa": "沖矢昴",
     "kana": "おきやすばる",
     "type": "Character",
@@ -24296,7 +24296,7 @@
   },
   {
     "id": "B03071P",
-    "name": "Tomoaki Araide",
+    "name": "新出智明",
     "nameJa": "新出智明",
     "kana": "あらいでともあき",
     "type": "Character",
@@ -24380,7 +24380,7 @@
   },
   {
     "id": "B03083P",
-    "name": "Hiromitsu Morofushi",
+    "name": "諸伏景光",
     "nameJa": "諸伏景光",
     "kana": "もろふしひろみつ",
     "type": "Partner",
@@ -24400,7 +24400,7 @@
   },
   {
     "id": "B03084P",
-    "name": "Rei Furuya",
+    "name": "降谷零",
     "nameJa": "降谷零",
     "kana": "ふるやれい",
     "type": "Character",
@@ -24423,7 +24423,7 @@
   },
   {
     "id": "B03085P",
-    "name": "Hiromitsu Morofushi",
+    "name": "諸伏景光",
     "nameJa": "諸伏景光",
     "kana": "もろふしひろみつ",
     "type": "Character",
@@ -24447,7 +24447,7 @@
   },
   {
     "id": "B03086P",
-    "name": "Wataru Date",
+    "name": "伊達航",
     "nameJa": "伊達航",
     "kana": "だてわたる",
     "type": "Character",
@@ -24470,7 +24470,7 @@
   },
   {
     "id": "B03087P",
-    "name": "Kenji Hagiwara",
+    "name": "萩原研二",
     "nameJa": "萩原研二",
     "kana": "はぎわらけんじ",
     "type": "Character",
@@ -24493,7 +24493,7 @@
   },
   {
     "id": "B03088P",
-    "name": "Jinpei Matsuda",
+    "name": "松田陣平",
     "nameJa": "松田陣平",
     "kana": "まつだじんぺい",
     "type": "Character",
@@ -24539,7 +24539,7 @@
   },
   {
     "id": "B03090P",
-    "name": "Miwako Sato",
+    "name": "佐藤美和子",
     "nameJa": "佐藤美和子",
     "kana": "さとうみわこ",
     "type": "Character",
@@ -24562,7 +24562,7 @@
   },
   {
     "id": "B03092P",
-    "name": "Wataru Takagi",
+    "name": "高木渉",
     "nameJa": "高木渉",
     "kana": "たかぎわたる",
     "type": "Character",
@@ -24608,7 +24608,7 @@
   },
   {
     "id": "B03098P",
-    "name": "Takaaki Morofushi",
+    "name": "諸伏高明",
     "nameJa": "諸伏高明",
     "kana": "もろふしたかあき",
     "type": "Character",
@@ -24651,7 +24651,7 @@
   },
   {
     "id": "B03106P",
-    "name": "Sherry",
+    "name": "シェリー",
     "nameJa": "シェリー",
     "kana": "しぇりー",
     "type": "Partner",
@@ -24671,7 +24671,7 @@
   },
   {
     "id": "B03107P",
-    "name": "Gin",
+    "name": "ジン",
     "nameJa": "ジン",
     "kana": "じん",
     "type": "Partner",
@@ -24691,7 +24691,7 @@
   },
   {
     "id": "B03108P",
-    "name": "Vermouth",
+    "name": "ベルモット",
     "nameJa": "ベルモット",
     "kana": "べるもっと",
     "type": "Partner",
@@ -24711,7 +24711,7 @@
   },
   {
     "id": "B03110P",
-    "name": "Gin",
+    "name": "ジン",
     "nameJa": "ジン",
     "kana": "じん",
     "type": "Character",
@@ -24733,7 +24733,7 @@
   },
   {
     "id": "B03111P",
-    "name": "Bourbon",
+    "name": "バーボン",
     "nameJa": "バーボン",
     "kana": "ばーぼん",
     "type": "Character",
@@ -24755,7 +24755,7 @@
   },
   {
     "id": "B03112P",
-    "name": "Rye",
+    "name": "ライ",
     "nameJa": "ライ",
     "kana": "らい",
     "type": "Character",
@@ -24777,7 +24777,7 @@
   },
   {
     "id": "B03113P",
-    "name": "Sherry",
+    "name": "シェリー",
     "nameJa": "シェリー",
     "kana": "しぇりー",
     "type": "Character",
@@ -24799,7 +24799,7 @@
   },
   {
     "id": "B03114P",
-    "name": "Scotch",
+    "name": "スコッチ",
     "nameJa": "スコッチ",
     "kana": "すこっち",
     "type": "Character",
@@ -24843,7 +24843,7 @@
   },
   {
     "id": "B03116P",
-    "name": "Vodka",
+    "name": "ウォッカ",
     "nameJa": "ウォッカ",
     "kana": "うぉっか",
     "type": "Character",
@@ -24865,7 +24865,7 @@
   },
   {
     "id": "B03123P",
-    "name": "Gin",
+    "name": "ジン",
     "nameJa": "ジン",
     "kana": "じん",
     "type": "Character",
@@ -24887,7 +24887,7 @@
   },
   {
     "id": "B03129P",
-    "name": "Vermouth",
+    "name": "ベルモット",
     "nameJa": "ベルモット",
     "kana": "べるもっと",
     "type": "Character",
@@ -24949,7 +24949,7 @@
   },
   {
     "id": "B03139Sec1",
-    "name": "Shuichi Akai",
+    "name": "赤井秀一",
     "nameJa": "赤井秀一",
     "kana": "あかいしゅういち",
     "type": "Partner",
@@ -24969,7 +24969,7 @@
   },
   {
     "id": "B03139Sec2",
-    "name": "Shuichi Akai",
+    "name": "赤井秀一",
     "nameJa": "赤井秀一",
     "kana": "あかいしゅういち",
     "type": "Partner",
@@ -24989,7 +24989,7 @@
   },
   {
     "id": "B03140Sec1",
-    "name": "Toru Amuro",
+    "name": "安室透",
     "nameJa": "安室透",
     "kana": "あむろとおる",
     "type": "Partner",
@@ -25009,7 +25009,7 @@
   },
   {
     "id": "B03140Sec2",
-    "name": "Toru Amuro",
+    "name": "安室透",
     "nameJa": "安室透",
     "kana": "あむろとおる",
     "type": "Partner",
@@ -25029,7 +25029,7 @@
   },
   {
     "id": "B04001P",
-    "name": "Shinichi Kudo",
+    "name": "工藤新一",
     "nameJa": "工藤新一",
     "kana": "くどうしんいち",
     "type": "Partner",
@@ -25049,7 +25049,7 @@
   },
   {
     "id": "B04001Sec1",
-    "name": "Shinichi Kudo",
+    "name": "工藤新一",
     "nameJa": "工藤新一",
     "kana": "くどうしんいち",
     "type": "Partner",
@@ -25069,7 +25069,7 @@
   },
   {
     "id": "B04001Sec2",
-    "name": "Shinichi Kudo",
+    "name": "工藤新一",
     "nameJa": "工藤新一",
     "kana": "くどうしんいち",
     "type": "Partner",
@@ -25089,7 +25089,7 @@
   },
   {
     "id": "B04002P",
-    "name": "Ran Mouri",
+    "name": "毛利蘭",
     "nameJa": "毛利蘭",
     "kana": "もうりらん",
     "type": "Partner",
@@ -25109,7 +25109,7 @@
   },
   {
     "id": "B04002Sec1",
-    "name": "Ran Mouri",
+    "name": "毛利蘭",
     "nameJa": "毛利蘭",
     "kana": "もうりらん",
     "type": "Partner",
@@ -25129,7 +25129,7 @@
   },
   {
     "id": "B04002Sec2",
-    "name": "Ran Mouri",
+    "name": "毛利蘭",
     "nameJa": "毛利蘭",
     "kana": "もうりらん",
     "type": "Partner",
@@ -25149,7 +25149,7 @@
   },
   {
     "id": "B04003P",
-    "name": "Shinichi Kudo",
+    "name": "工藤新一",
     "nameJa": "工藤新一",
     "kana": "くどうしんいち",
     "type": "Character",
@@ -25172,7 +25172,7 @@
   },
   {
     "id": "B04004P",
-    "name": "Ran Mouri",
+    "name": "毛利蘭",
     "nameJa": "毛利蘭",
     "kana": "もうりらん",
     "type": "Character",
@@ -25196,7 +25196,7 @@
   },
   {
     "id": "B04005P",
-    "name": "Conan Edogawa",
+    "name": "江戸川コナン",
     "nameJa": "江戸川コナン",
     "kana": "えどがわこなん",
     "type": "Character",
@@ -25220,7 +25220,7 @@
   },
   {
     "id": "B04006P",
-    "name": "Shinichi Kudo",
+    "name": "工藤新一",
     "nameJa": "工藤新一",
     "kana": "くどうしんいち",
     "type": "Character",
@@ -25263,7 +25263,7 @@
   },
   {
     "id": "B04016P",
-    "name": "Kazuha Toyama",
+    "name": "遠山和葉",
     "nameJa": "遠山和葉",
     "kana": "とおやまかずは",
     "type": "Partner",
@@ -25283,7 +25283,7 @@
   },
   {
     "id": "B04017P",
-    "name": "Heiji Hattori",
+    "name": "服部平次",
     "nameJa": "服部平次",
     "kana": "はっとりへいじ",
     "type": "Character",
@@ -25306,7 +25306,7 @@
   },
   {
     "id": "B04018P",
-    "name": "Kazuha Toyama",
+    "name": "遠山和葉",
     "nameJa": "遠山和葉",
     "kana": "とおやまかずは",
     "type": "Character",
@@ -25370,7 +25370,7 @@
   },
   {
     "id": "B04029P",
-    "name": "Sonoko Suzuki",
+    "name": "鈴木園子",
     "nameJa": "鈴木園子",
     "kana": "すずきそのこ",
     "type": "Partner",
@@ -25390,7 +25390,7 @@
   },
   {
     "id": "B04030P",
-    "name": "Kaito Kuroba",
+    "name": "黒羽快斗",
     "nameJa": "黒羽快斗",
     "kana": "くろばかいと",
     "type": "Character",
@@ -25413,7 +25413,7 @@
   },
   {
     "id": "B04031P",
-    "name": "Aoko Nakamori",
+    "name": "中森青子",
     "nameJa": "中森青子",
     "kana": "なかもりあおこ",
     "type": "Character",
@@ -25500,7 +25500,7 @@
   },
   {
     "id": "B04043P",
-    "name": "Andre Camel",
+    "name": "アンドレ・キャメル",
     "nameJa": "アンドレ・キャメル",
     "kana": "あんどれきゃめる",
     "type": "Partner",
@@ -25540,7 +25540,7 @@
   },
   {
     "id": "B04045P",
-    "name": "Rena Mizunashi",
+    "name": "水無怜奈",
     "nameJa": "水無怜奈",
     "kana": "みずなしれな",
     "type": "Partner",
@@ -25560,7 +25560,7 @@
   },
   {
     "id": "B04046P",
-    "name": "Shuichi Akai",
+    "name": "赤井秀一",
     "nameJa": "赤井秀一",
     "kana": "あかいしゅういち",
     "type": "Character",
@@ -25583,7 +25583,7 @@
   },
   {
     "id": "B04047P",
-    "name": "Masumi Sera",
+    "name": "世良真純",
     "nameJa": "世良真純",
     "kana": "せらますみ",
     "type": "Character",
@@ -25630,7 +25630,7 @@
   },
   {
     "id": "B04050P",
-    "name": "James Black",
+    "name": "ジェイムズ・ブラック",
     "nameJa": "ジェイムズ・ブラック",
     "kana": "じぇいむずぶらっく",
     "type": "Character",
@@ -25714,7 +25714,7 @@
   },
   {
     "id": "B04056P",
-    "name": "Andre Camel",
+    "name": "アンドレ・キャメル",
     "nameJa": "アンドレ・キャメル",
     "kana": "あんどれきゃめる",
     "type": "Character",
@@ -25756,7 +25756,7 @@
   },
   {
     "id": "B04065P",
-    "name": "Wataru Takagi",
+    "name": "高木渉",
     "nameJa": "高木渉",
     "kana": "たかぎわたる",
     "type": "Partner",
@@ -25776,7 +25776,7 @@
   },
   {
     "id": "B04066P",
-    "name": "Jinpei Matsuda",
+    "name": "松田陣平",
     "nameJa": "松田陣平",
     "kana": "まつだじんぺい",
     "type": "Partner",
@@ -25796,7 +25796,7 @@
   },
   {
     "id": "B04067P",
-    "name": "Juzo Megure",
+    "name": "目暮十三",
     "nameJa": "目暮十三",
     "kana": "めぐれじゅうぞう",
     "type": "Partner",
@@ -25816,7 +25816,7 @@
   },
   {
     "id": "B04068P",
-    "name": "Toru Amuro",
+    "name": "安室透",
     "nameJa": "安室透",
     "kana": "あむろとおる",
     "type": "Character",
@@ -25839,7 +25839,7 @@
   },
   {
     "id": "B04069P",
-    "name": "Miwako Sato",
+    "name": "佐藤美和子",
     "nameJa": "佐藤美和子",
     "kana": "さとうみわこ",
     "type": "Character",
@@ -25862,7 +25862,7 @@
   },
   {
     "id": "B04070P",
-    "name": "Wataru Takagi",
+    "name": "高木渉",
     "nameJa": "高木渉",
     "kana": "たかぎわたる",
     "type": "Character",
@@ -25909,7 +25909,7 @@
   },
   {
     "id": "B04074P",
-    "name": "Rei Furuya",
+    "name": "降谷零",
     "nameJa": "降谷零",
     "kana": "ふるやれい",
     "type": "Character",
@@ -25955,7 +25955,7 @@
   },
   {
     "id": "B04077P",
-    "name": "Jinpei Matsuda",
+    "name": "松田陣平",
     "nameJa": "松田陣平",
     "kana": "まつだじんぺい",
     "type": "Character",
@@ -26021,7 +26021,7 @@
   },
   {
     "id": "B04087P",
-    "name": "Vodka",
+    "name": "ウォッカ",
     "nameJa": "ウォッカ",
     "kana": "うぉっか",
     "type": "Partner",
@@ -26041,7 +26041,7 @@
   },
   {
     "id": "B04088P",
-    "name": "Scotch",
+    "name": "スコッチ",
     "nameJa": "スコッチ",
     "kana": "すこっち",
     "type": "Character",
@@ -26063,7 +26063,7 @@
   },
   {
     "id": "B04089P",
-    "name": "Vermouth",
+    "name": "ベルモット",
     "nameJa": "ベルモット",
     "kana": "べるもっと",
     "type": "Character",
@@ -26085,7 +26085,7 @@
   },
   {
     "id": "B04091P",
-    "name": "Vodka",
+    "name": "ウォッカ",
     "nameJa": "ウォッカ",
     "kana": "うぉっか",
     "type": "Character",
@@ -26107,7 +26107,7 @@
   },
   {
     "id": "B04094P",
-    "name": "Gin",
+    "name": "ジン",
     "nameJa": "ジン",
     "kana": "じん",
     "type": "Character",
@@ -26149,7 +26149,7 @@
   },
   {
     "id": "B05001P",
-    "name": "Eri Kisaki",
+    "name": "妃英理",
     "nameJa": "妃英理",
     "kana": "きさきえり",
     "type": "Partner",
@@ -26169,7 +26169,7 @@
   },
   {
     "id": "B05002P",
-    "name": "Genta Kojima",
+    "name": "小嶋元太",
     "nameJa": "小嶋元太",
     "kana": "こじまげんた",
     "type": "Partner",
@@ -26189,7 +26189,7 @@
   },
   {
     "id": "B05003P",
-    "name": "Mitsuhiko Tsuburaya",
+    "name": "円谷光彦",
     "nameJa": "円谷光彦",
     "kana": "つぶらやみつひこ",
     "type": "Partner",
@@ -26209,7 +26209,7 @@
   },
   {
     "id": "B05004P",
-    "name": "Ayumi Yoshida",
+    "name": "吉田歩美",
     "nameJa": "吉田歩美",
     "kana": "よしだあゆみ",
     "type": "Partner",
@@ -26279,7 +26279,7 @@
   },
   {
     "id": "B05006P",
-    "name": "Kogoro Mouri",
+    "name": "毛利小五郎",
     "nameJa": "毛利小五郎",
     "kana": "もうりこごろう",
     "type": "Character",
@@ -26302,7 +26302,7 @@
   },
   {
     "id": "B05006P2",
-    "name": "Kogoro Mouri",
+    "name": "毛利小五郎",
     "nameJa": "毛利小五郎",
     "kana": "もうりこごろう",
     "type": "Character",
@@ -26325,7 +26325,7 @@
   },
   {
     "id": "B05007P",
-    "name": "Eri Kisaki",
+    "name": "妃英理",
     "nameJa": "妃英理",
     "kana": "きさきえり",
     "type": "Character",
@@ -26347,7 +26347,7 @@
   },
   {
     "id": "B05008P",
-    "name": "Ai Haibara",
+    "name": "灰原哀",
     "nameJa": "灰原哀",
     "kana": "はいばらあい",
     "type": "Character",
@@ -26370,7 +26370,7 @@
   },
   {
     "id": "B05009P",
-    "name": "Ran Mouri",
+    "name": "毛利蘭",
     "nameJa": "毛利蘭",
     "kana": "もうりらん",
     "type": "Character",
@@ -26394,7 +26394,7 @@
   },
   {
     "id": "B05016P",
-    "name": "Genta Kojima",
+    "name": "小嶋元太",
     "nameJa": "小嶋元太",
     "kana": "こじまげんた",
     "type": "Character",
@@ -26416,7 +26416,7 @@
   },
   {
     "id": "B05018P",
-    "name": "Mitsuhiko Tsuburaya",
+    "name": "円谷光彦",
     "nameJa": "円谷光彦",
     "kana": "つぶらやみつひこ",
     "type": "Character",
@@ -26438,7 +26438,7 @@
   },
   {
     "id": "B05020P",
-    "name": "Ayumi Yoshida",
+    "name": "吉田歩美",
     "nameJa": "吉田歩美",
     "kana": "よしだあゆみ",
     "type": "Character",
@@ -26650,7 +26650,7 @@
   },
   {
     "id": "B05043P",
-    "name": "Kaito Kuroba",
+    "name": "黒羽快斗",
     "nameJa": "黒羽快斗",
     "kana": "くろばかいと",
     "type": "Partner",
@@ -26670,7 +26670,7 @@
   },
   {
     "id": "B05044P",
-    "name": "Aoko Nakamori",
+    "name": "中森青子",
     "nameJa": "中森青子",
     "kana": "なかもりあおこ",
     "type": "Partner",
@@ -26714,7 +26714,7 @@
   },
   {
     "id": "B05046P",
-    "name": "Sonoko Suzuki",
+    "name": "鈴木園子",
     "nameJa": "鈴木園子",
     "kana": "すずきそのこ",
     "type": "Character",
@@ -26737,7 +26737,7 @@
   },
   {
     "id": "B05046P2",
-    "name": "Sonoko Suzuki",
+    "name": "鈴木園子",
     "nameJa": "鈴木園子",
     "kana": "すずきそのこ",
     "type": "Character",
@@ -26760,7 +26760,7 @@
   },
   {
     "id": "B05049P",
-    "name": "Aoko Nakamori",
+    "name": "中森青子",
     "nameJa": "中森青子",
     "kana": "なかもりあおこ",
     "type": "Character",
@@ -26845,7 +26845,7 @@
   },
   {
     "id": "B05064P",
-    "name": "James Black",
+    "name": "ジェイムズ・ブラック",
     "nameJa": "ジェイムズ・ブラック",
     "kana": "じぇいむずぶらっく",
     "type": "Partner",
@@ -26931,7 +26931,7 @@
   },
   {
     "id": "B05076P",
-    "name": "Jodie Starling",
+    "name": "ジョディ・スターリング",
     "nameJa": "ジョディ・スターリング",
     "kana": "じょでぃすたーりんぐ",
     "type": "Character",
@@ -26953,7 +26953,7 @@
   },
   {
     "id": "B05078P",
-    "name": "Masumi Sera",
+    "name": "世良真純",
     "nameJa": "世良真純",
     "kana": "せらますみ",
     "type": "Character",
@@ -27017,7 +27017,7 @@
   },
   {
     "id": "B05084P",
-    "name": "Kansuke Yamato",
+    "name": "大和敢助",
     "nameJa": "大和敢助",
     "kana": "やまとかんすけ",
     "type": "Partner",
@@ -27037,7 +27037,7 @@
   },
   {
     "id": "B05084Sec1",
-    "name": "Kansuke Yamato",
+    "name": "大和敢助",
     "nameJa": "大和敢助",
     "kana": "やまとかんすけ",
     "type": "Partner",
@@ -27057,7 +27057,7 @@
   },
   {
     "id": "B05084Sec2",
-    "name": "Kansuke Yamato",
+    "name": "大和敢助",
     "nameJa": "大和敢助",
     "kana": "やまとかんすけ",
     "type": "Partner",
@@ -27077,7 +27077,7 @@
   },
   {
     "id": "B05085P",
-    "name": "Takaaki Morofushi",
+    "name": "諸伏高明",
     "nameJa": "諸伏高明",
     "kana": "もろふしたかあき",
     "type": "Partner",
@@ -27097,7 +27097,7 @@
   },
   {
     "id": "B05085Sec1",
-    "name": "Takaaki Morofushi",
+    "name": "諸伏高明",
     "nameJa": "諸伏高明",
     "kana": "もろふしたかあき",
     "type": "Partner",
@@ -27117,7 +27117,7 @@
   },
   {
     "id": "B05085Sec2",
-    "name": "Takaaki Morofushi",
+    "name": "諸伏高明",
     "nameJa": "諸伏高明",
     "kana": "もろふしたかあき",
     "type": "Partner",
@@ -27161,7 +27161,7 @@
   },
   {
     "id": "B05087P",
-    "name": "Takaaki Morofushi",
+    "name": "諸伏高明",
     "nameJa": "諸伏高明",
     "kana": "もろふしたかあき",
     "type": "Character",
@@ -27184,7 +27184,7 @@
   },
   {
     "id": "B05087P2",
-    "name": "Takaaki Morofushi",
+    "name": "諸伏高明",
     "nameJa": "諸伏高明",
     "kana": "もろふしたかあき",
     "type": "Character",
@@ -27207,7 +27207,7 @@
   },
   {
     "id": "B05088P",
-    "name": "Kansuke Yamato",
+    "name": "大和敢助",
     "nameJa": "大和敢助",
     "kana": "やまとかんすけ",
     "type": "Character",
@@ -27230,7 +27230,7 @@
   },
   {
     "id": "B05088P2",
-    "name": "Kansuke Yamato",
+    "name": "大和敢助",
     "nameJa": "大和敢助",
     "kana": "やまとかんすけ",
     "type": "Character",
@@ -27253,7 +27253,7 @@
   },
   {
     "id": "B05089P",
-    "name": "Yui Uehara",
+    "name": "上原由衣",
     "nameJa": "上原由衣",
     "kana": "うえはらゆい",
     "type": "Character",
@@ -27276,7 +27276,7 @@
   },
   {
     "id": "B05089P2",
-    "name": "Yui Uehara",
+    "name": "上原由衣",
     "nameJa": "上原由衣",
     "kana": "うえはらゆい",
     "type": "Character",
@@ -27345,7 +27345,7 @@
   },
   {
     "id": "B05096P",
-    "name": "Miwako Sato",
+    "name": "佐藤美和子",
     "nameJa": "佐藤美和子",
     "kana": "さとうみわこ",
     "type": "Character",
@@ -27368,7 +27368,7 @@
   },
   {
     "id": "B05099P",
-    "name": "Wataru Takagi",
+    "name": "高木渉",
     "nameJa": "高木渉",
     "kana": "たかぎわたる",
     "type": "Character",
@@ -27411,7 +27411,7 @@
   },
   {
     "id": "B05104P",
-    "name": "Scotch",
+    "name": "スコッチ",
     "nameJa": "スコッチ",
     "kana": "すこっち",
     "type": "Partner",
@@ -27431,7 +27431,7 @@
   },
   {
     "id": "B05105P",
-    "name": "Bourbon",
+    "name": "バーボン",
     "nameJa": "バーボン",
     "kana": "ばーぼん",
     "type": "Partner",
@@ -27473,7 +27473,7 @@
   },
   {
     "id": "B05107P",
-    "name": "Vodka",
+    "name": "ウォッカ",
     "nameJa": "ウォッカ",
     "kana": "うぉっか",
     "type": "Character",
@@ -27495,7 +27495,7 @@
   },
   {
     "id": "B05110P",
-    "name": "Scotch",
+    "name": "スコッチ",
     "nameJa": "スコッチ",
     "kana": "すこっち",
     "type": "Character",
@@ -27517,7 +27517,7 @@
   },
   {
     "id": "B05113P",
-    "name": "Vermouth",
+    "name": "ベルモット",
     "nameJa": "ベルモット",
     "kana": "べるもっと",
     "type": "Character",
@@ -27619,7 +27619,7 @@
   },
   {
     "id": "B06001Sec1",
-    "name": "Conan Edogawa",
+    "name": "江戸川コナン",
     "nameJa": "江戸川コナン",
     "kana": "えどがわこなん",
     "type": "Partner",
@@ -27639,7 +27639,7 @@
   },
   {
     "id": "B06001Sec2",
-    "name": "Conan Edogawa",
+    "name": "江戸川コナン",
     "nameJa": "江戸川コナン",
     "kana": "えどがわこなん",
     "type": "Partner",
@@ -27659,7 +27659,7 @@
   },
   {
     "id": "B06002P",
-    "name": "Hiroshi Agasa",
+    "name": "阿笠博士",
     "nameJa": "阿笠博士",
     "kana": "あがさひろし",
     "type": "Partner",
@@ -27705,7 +27705,7 @@
   },
   {
     "id": "B06004P",
-    "name": "Shinichi Kudo",
+    "name": "工藤新一",
     "nameJa": "工藤新一",
     "kana": "くどうしんいち",
     "type": "Character",
@@ -27728,7 +27728,7 @@
   },
   {
     "id": "B06005P",
-    "name": "Hiroshi Agasa",
+    "name": "阿笠博士",
     "nameJa": "阿笠博士",
     "kana": "あがさひろし",
     "type": "Character",
@@ -27750,7 +27750,7 @@
   },
   {
     "id": "B06007P",
-    "name": "Ai Haibara",
+    "name": "灰原哀",
     "nameJa": "灰原哀",
     "kana": "はいばらあい",
     "type": "Character",
@@ -27795,7 +27795,7 @@
   },
   {
     "id": "B06011P",
-    "name": "Ran Mouri",
+    "name": "毛利蘭",
     "nameJa": "毛利蘭",
     "kana": "もうりらん",
     "type": "Character",
@@ -28210,7 +28210,7 @@
   },
   {
     "id": "B06040P",
-    "name": "Kazuha Toyama",
+    "name": "遠山和葉",
     "nameJa": "遠山和葉",
     "kana": "とおやまかずは",
     "type": "Character",
@@ -28620,7 +28620,7 @@
   },
   {
     "id": "B06069P",
-    "name": "Sonoko Suzuki",
+    "name": "鈴木園子",
     "nameJa": "鈴木園子",
     "kana": "すずきそのこ",
     "type": "Character",
@@ -28750,7 +28750,7 @@
   },
   {
     "id": "B06077P",
-    "name": "Jodie Starling",
+    "name": "ジョディ・スターリング",
     "nameJa": "ジョディ・スターリング",
     "kana": "じょでぃすたーりんぐ",
     "type": "Character",
@@ -28815,7 +28815,7 @@
   },
   {
     "id": "B06083P",
-    "name": "Ninzaburo Shiratori",
+    "name": "白鳥任三郎",
     "nameJa": "白鳥任三郎",
     "kana": "しらとりにんざぶろう",
     "type": "Partner",
@@ -28858,7 +28858,7 @@
   },
   {
     "id": "B06085P",
-    "name": "Jinpei Matsuda",
+    "name": "松田陣平",
     "nameJa": "松田陣平",
     "kana": "まつだじんぺい",
     "type": "Character",
@@ -28881,7 +28881,7 @@
   },
   {
     "id": "B06086P",
-    "name": "Kenji Hagiwara",
+    "name": "萩原研二",
     "nameJa": "萩原研二",
     "kana": "はぎわらけんじ",
     "type": "Character",
@@ -28927,7 +28927,7 @@
   },
   {
     "id": "B06089P",
-    "name": "Toru Amuro",
+    "name": "安室透",
     "nameJa": "安室透",
     "kana": "あむろとおる",
     "type": "Character",
@@ -29012,7 +29012,7 @@
   },
   {
     "id": "B06096P",
-    "name": "Chianti",
+    "name": "キャンティ",
     "nameJa": "キャンティ",
     "kana": "きゃんてぃ",
     "type": "Partner",
@@ -29032,7 +29032,7 @@
   },
   {
     "id": "B06097P",
-    "name": "Korn",
+    "name": "コルン",
     "nameJa": "コルン",
     "kana": "こるん",
     "type": "Partner",
@@ -29096,7 +29096,7 @@
   },
   {
     "id": "B06100P",
-    "name": "Vermouth",
+    "name": "ベルモット",
     "nameJa": "ベルモット",
     "kana": "べるもっと",
     "type": "Character",
@@ -29118,7 +29118,7 @@
   },
   {
     "id": "B06103P",
-    "name": "Gin",
+    "name": "ジン",
     "nameJa": "ジン",
     "kana": "じん",
     "type": "Character",
@@ -29312,7 +29312,7 @@
   },
   {
     "id": "B07002P",
-    "name": "Conan Edogawa",
+    "name": "江戸川コナン",
     "nameJa": "江戸川コナン",
     "kana": "えどがわこなん",
     "type": "Character",
@@ -29336,7 +29336,7 @@
   },
   {
     "id": "B07003P",
-    "name": "Shinichi Kudo",
+    "name": "工藤新一",
     "nameJa": "工藤新一",
     "kana": "くどうしんいち",
     "type": "Character",
@@ -29359,7 +29359,7 @@
   },
   {
     "id": "B07004P",
-    "name": "Ayumi Yoshida",
+    "name": "吉田歩美",
     "nameJa": "吉田歩美",
     "kana": "よしだあゆみ",
     "type": "Character",
@@ -29447,7 +29447,7 @@
   },
   {
     "id": "B07012P",
-    "name": "Eisuke Hondou",
+    "name": "本堂瑛祐",
     "nameJa": "本堂瑛祐",
     "kana": "ほんどうえいすけ",
     "type": "Character",
@@ -29513,7 +29513,7 @@
   },
   {
     "id": "B07016P",
-    "name": "Heiji Hattori",
+    "name": "服部平次",
     "nameJa": "服部平次",
     "kana": "はっとりへいじ",
     "type": "Character",
@@ -29536,7 +29536,7 @@
   },
   {
     "id": "B07016P2",
-    "name": "Heiji Hattori",
+    "name": "服部平次",
     "nameJa": "服部平次",
     "kana": "はっとりへいじ",
     "type": "Character",
@@ -29728,7 +29728,7 @@
   },
   {
     "id": "B07028P",
-    "name": "Aoko Nakamori",
+    "name": "中森青子",
     "nameJa": "中森青子",
     "kana": "なかもりあおこ",
     "type": "Partner",
@@ -29748,7 +29748,7 @@
   },
   {
     "id": "B07028Sec1",
-    "name": "Aoko Nakamori",
+    "name": "中森青子",
     "nameJa": "中森青子",
     "kana": "なかもりあおこ",
     "type": "Partner",
@@ -29768,7 +29768,7 @@
   },
   {
     "id": "B07028Sec2",
-    "name": "Aoko Nakamori",
+    "name": "中森青子",
     "nameJa": "中森青子",
     "kana": "なかもりあおこ",
     "type": "Partner",
@@ -29788,7 +29788,7 @@
   },
   {
     "id": "B07029P",
-    "name": "Kaito Kid",
+    "name": "怪盗キッド",
     "nameJa": "怪盗キッド",
     "kana": "かいとうきっど",
     "type": "Partner",
@@ -29900,7 +29900,7 @@
   },
   {
     "id": "B07033P",
-    "name": "Kaito Kid",
+    "name": "怪盗キッド",
     "nameJa": "怪盗キッド",
     "kana": "かいとうきっど",
     "type": "Character",
@@ -29922,7 +29922,7 @@
   },
   {
     "id": "B07033P2",
-    "name": "Kaito Kid",
+    "name": "怪盗キッド",
     "nameJa": "怪盗キッド",
     "kana": "かいとうきっど",
     "type": "Character",
@@ -29989,7 +29989,7 @@
   },
   {
     "id": "B07036P",
-    "name": "Aoko Nakamori",
+    "name": "中森青子",
     "nameJa": "中森青子",
     "kana": "なかもりあおこ",
     "type": "Character",
@@ -30271,7 +30271,7 @@
   },
   {
     "id": "B07063P",
-    "name": "Sonoko Suzuki",
+    "name": "鈴木園子",
     "nameJa": "鈴木園子",
     "kana": "すずきそのこ",
     "type": "Character",
@@ -30318,7 +30318,7 @@
   },
   {
     "id": "B07066P",
-    "name": "Shuichi Akai",
+    "name": "赤井秀一",
     "nameJa": "赤井秀一",
     "kana": "あかいしゅういち",
     "type": "Character",
@@ -30364,7 +30364,7 @@
   },
   {
     "id": "B07069P",
-    "name": "Hidemi Hondou",
+    "name": "本堂瑛海",
     "nameJa": "本堂瑛海",
     "kana": "ほんどうひでみ",
     "type": "Character",
@@ -30386,7 +30386,7 @@
   },
   {
     "id": "B07073P",
-    "name": "James Black",
+    "name": "ジェイムズ・ブラック",
     "nameJa": "ジェイムズ・ブラック",
     "kana": "じぇいむずぶらっく",
     "type": "Character",
@@ -30515,7 +30515,7 @@
   },
   {
     "id": "B07082P",
-    "name": "Wataru Takagi",
+    "name": "高木渉",
     "nameJa": "高木渉",
     "kana": "たかぎわたる",
     "type": "Character",
@@ -30561,7 +30561,7 @@
   },
   {
     "id": "B07084P",
-    "name": "Kazunobu Chiba",
+    "name": "千葉和伸",
     "nameJa": "千葉和伸",
     "kana": "ちばかずのぶ",
     "type": "Character",
@@ -30584,7 +30584,7 @@
   },
   {
     "id": "B07087P",
-    "name": "Ninzaburo Shiratori",
+    "name": "白鳥任三郎",
     "nameJa": "白鳥任三郎",
     "kana": "しらとりにんざぶろう",
     "type": "Character",
@@ -30647,7 +30647,7 @@
   },
   {
     "id": "B07092P",
-    "name": "Rye",
+    "name": "ライ",
     "nameJa": "ライ",
     "kana": "らい",
     "type": "Partner",
@@ -30689,7 +30689,7 @@
   },
   {
     "id": "B07094P",
-    "name": "Gin",
+    "name": "ジン",
     "nameJa": "ジン",
     "kana": "じん",
     "type": "Character",
@@ -30711,7 +30711,7 @@
   },
   {
     "id": "B07095P",
-    "name": "Vermouth",
+    "name": "ベルモット",
     "nameJa": "ベルモット",
     "kana": "べるもっと",
     "type": "Character",
@@ -30733,7 +30733,7 @@
   },
   {
     "id": "B07097P",
-    "name": "Kir",
+    "name": "キール",
     "nameJa": "キール",
     "kana": "きーる",
     "type": "Character",
@@ -30755,7 +30755,7 @@
   },
   {
     "id": "B07098P",
-    "name": "Chianti",
+    "name": "キャンティ",
     "nameJa": "キャンティ",
     "kana": "きゃんてぃ",
     "type": "Character",
@@ -30777,7 +30777,7 @@
   },
   {
     "id": "B07103P",
-    "name": "Bourbon",
+    "name": "バーボン",
     "nameJa": "バーボン",
     "kana": "ばーぼん",
     "type": "Character",
@@ -30819,7 +30819,7 @@
   },
   {
     "id": "B08001Sec1",
-    "name": "Ai Haibara",
+    "name": "灰原哀",
     "nameJa": "灰原哀",
     "kana": "はいばらあい",
     "type": "Partner",
@@ -30839,7 +30839,7 @@
   },
   {
     "id": "B08001Sec2",
-    "name": "Ai Haibara",
+    "name": "灰原哀",
     "nameJa": "灰原哀",
     "kana": "はいばらあい",
     "type": "Partner",
@@ -30884,7 +30884,7 @@
   },
   {
     "id": "B08003P",
-    "name": "Hiroshi Agasa",
+    "name": "阿笠博士",
     "nameJa": "阿笠博士",
     "kana": "あがさひろし",
     "type": "Character",
@@ -30906,7 +30906,7 @@
   },
   {
     "id": "B08004P",
-    "name": "Conan Edogawa",
+    "name": "江戸川コナン",
     "nameJa": "江戸川コナン",
     "kana": "えどがわこなん",
     "type": "Character",
@@ -30930,7 +30930,7 @@
   },
   {
     "id": "B08005P",
-    "name": "Ai Haibara",
+    "name": "灰原哀",
     "nameJa": "灰原哀",
     "kana": "はいばらあい",
     "type": "Character",
@@ -30975,7 +30975,7 @@
   },
   {
     "id": "B08014P",
-    "name": "Ran Mouri",
+    "name": "毛利蘭",
     "nameJa": "毛利蘭",
     "kana": "もうりらん",
     "type": "Character",
@@ -31062,7 +31062,7 @@
   },
   {
     "id": "B08020P",
-    "name": "Kazuha Toyama",
+    "name": "遠山和葉",
     "nameJa": "遠山和葉",
     "kana": "とおやまかずは",
     "type": "Character",
@@ -31084,7 +31084,7 @@
   },
   {
     "id": "B08021P",
-    "name": "Heiji Hattori",
+    "name": "服部平次",
     "nameJa": "服部平次",
     "kana": "はっとりへいじ",
     "type": "Character",
@@ -31191,7 +31191,7 @@
   },
   {
     "id": "B08031P",
-    "name": "Yukiko Kudo",
+    "name": "工藤有希子",
     "nameJa": "工藤有希子",
     "kana": "くどうゆきこ",
     "type": "Partner",
@@ -31235,7 +31235,7 @@
   },
   {
     "id": "B08033P",
-    "name": "Yukiko Kudo",
+    "name": "工藤有希子",
     "nameJa": "工藤有希子",
     "kana": "くどうゆきこ",
     "type": "Character",
@@ -31257,7 +31257,7 @@
   },
   {
     "id": "B08034P",
-    "name": "Yusaku Kudo",
+    "name": "工藤優作",
     "nameJa": "工藤優作",
     "kana": "くどうゆうさく",
     "type": "Character",
@@ -31279,7 +31279,7 @@
   },
   {
     "id": "B08037P",
-    "name": "Sonoko Suzuki",
+    "name": "鈴木園子",
     "nameJa": "鈴木園子",
     "kana": "すずきそのこ",
     "type": "Character",
@@ -31408,7 +31408,7 @@
   },
   {
     "id": "B08047P",
-    "name": "Subaru Okiya",
+    "name": "沖矢昴",
     "nameJa": "沖矢昴",
     "kana": "おきやすばる",
     "type": "Character",
@@ -31430,7 +31430,7 @@
   },
   {
     "id": "B08049P",
-    "name": "Jodie Starling",
+    "name": "ジョディ・スターリング",
     "nameJa": "ジョディ・スターリング",
     "kana": "じょでぃすたーりんぐ",
     "type": "Character",
@@ -31472,7 +31472,7 @@
   },
   {
     "id": "B08051P",
-    "name": "Shuichi Akai",
+    "name": "赤井秀一",
     "nameJa": "赤井秀一",
     "kana": "あかいしゅういち",
     "type": "Character",
@@ -31495,7 +31495,7 @@
   },
   {
     "id": "B08055P",
-    "name": "Hidemi Hondou",
+    "name": "本堂瑛海",
     "nameJa": "本堂瑛海",
     "kana": "ほんどうひでみ",
     "type": "Character",
@@ -31517,7 +31517,7 @@
   },
   {
     "id": "B08058P",
-    "name": "Shiho Miyano",
+    "name": "宮野志保",
     "nameJa": "宮野志保",
     "kana": "みやのしほ",
     "type": "Character",
@@ -31645,7 +31645,7 @@
   },
   {
     "id": "B08065P",
-    "name": "Kansuke Yamato",
+    "name": "大和敢助",
     "nameJa": "大和敢助",
     "kana": "やまとかんすけ",
     "type": "Character",
@@ -31668,7 +31668,7 @@
   },
   {
     "id": "B08066P",
-    "name": "Yui Uehara",
+    "name": "上原由衣",
     "nameJa": "上原由衣",
     "kana": "うえはらゆい",
     "type": "Character",
@@ -31691,7 +31691,7 @@
   },
   {
     "id": "B08067P",
-    "name": "Takaaki Morofushi",
+    "name": "諸伏高明",
     "nameJa": "諸伏高明",
     "kana": "もろふしたかあき",
     "type": "Character",
@@ -31714,7 +31714,7 @@
   },
   {
     "id": "B08068P",
-    "name": "Toru Amuro",
+    "name": "安室透",
     "nameJa": "安室透",
     "kana": "あむろとおる",
     "type": "Character",
@@ -31777,7 +31777,7 @@
   },
   {
     "id": "B08077Sec1",
-    "name": "Gin",
+    "name": "ジン",
     "nameJa": "ジン",
     "kana": "じん",
     "type": "Partner",
@@ -31797,7 +31797,7 @@
   },
   {
     "id": "B08077Sec2",
-    "name": "Gin",
+    "name": "ジン",
     "nameJa": "ジン",
     "kana": "じん",
     "type": "Partner",
@@ -31817,7 +31817,7 @@
   },
   {
     "id": "B08078P",
-    "name": "Gin",
+    "name": "ジン",
     "nameJa": "ジン",
     "kana": "じん",
     "type": "Character",
@@ -31861,7 +31861,7 @@
   },
   {
     "id": "B08080P",
-    "name": "Kir",
+    "name": "キール",
     "nameJa": "キール",
     "kana": "きーる",
     "type": "Character",
@@ -31969,7 +31969,7 @@
   },
   {
     "id": "B09001P",
-    "name": "Conan Edogawa",
+    "name": "江戸川コナン",
     "nameJa": "江戸川コナン",
     "kana": "えどがわこなん",
     "type": "Partner",
@@ -32014,7 +32014,7 @@
   },
   {
     "id": "B09003P",
-    "name": "Conan Edogawa",
+    "name": "江戸川コナン",
     "nameJa": "江戸川コナン",
     "kana": "えどがわこなん",
     "type": "Character",
@@ -32038,7 +32038,7 @@
   },
   {
     "id": "B09004P",
-    "name": "Ran Mouri",
+    "name": "毛利蘭",
     "nameJa": "毛利蘭",
     "kana": "もうりらん",
     "type": "Character",
@@ -32062,7 +32062,7 @@
   },
   {
     "id": "B09006P",
-    "name": "Kogoro Mouri",
+    "name": "毛利小五郎",
     "nameJa": "毛利小五郎",
     "kana": "もうりこごろう",
     "type": "Character",
@@ -32085,7 +32085,7 @@
   },
   {
     "id": "B09007P",
-    "name": "Kanenori Wakita",
+    "name": "脇田兼則",
     "nameJa": "脇田兼則",
     "kana": "わきたかねのり",
     "type": "Character",
@@ -32107,7 +32107,7 @@
   },
   {
     "id": "B09010P",
-    "name": "Hiroshi Agasa",
+    "name": "阿笠博士",
     "nameJa": "阿笠博士",
     "kana": "あがさひろし",
     "type": "Character",
@@ -32129,7 +32129,7 @@
   },
   {
     "id": "B09011P",
-    "name": "Ai Haibara",
+    "name": "灰原哀",
     "nameJa": "灰原哀",
     "kana": "はいばらあい",
     "type": "Character",
@@ -32152,7 +32152,7 @@
   },
   {
     "id": "B09012P",
-    "name": "Conan Edogawa",
+    "name": "江戸川コナン",
     "nameJa": "江戸川コナン",
     "kana": "えどがわこなん",
     "type": "Character",
@@ -32196,7 +32196,7 @@
   },
   {
     "id": "B09020P",
-    "name": "Heiji Hattori",
+    "name": "服部平次",
     "nameJa": "服部平次",
     "kana": "はっとりへいじ",
     "type": "Partner",
@@ -32216,7 +32216,7 @@
   },
   {
     "id": "B09021P",
-    "name": "Heiji Hattori",
+    "name": "服部平次",
     "nameJa": "服部平次",
     "kana": "はっとりへいじ",
     "type": "Character",
@@ -32239,7 +32239,7 @@
   },
   {
     "id": "B09022P",
-    "name": "Kazuha Toyama",
+    "name": "遠山和葉",
     "nameJa": "遠山和葉",
     "kana": "とおやまかずは",
     "type": "Character",
@@ -32328,7 +32328,7 @@
   },
   {
     "id": "B09030P",
-    "name": "Heiji Hattori",
+    "name": "服部平次",
     "nameJa": "服部平次",
     "kana": "はっとりへいじ",
     "type": "Character",
@@ -32391,7 +32391,7 @@
   },
   {
     "id": "B09035P",
-    "name": "Kaito Kid",
+    "name": "怪盗キッド",
     "nameJa": "怪盗キッド",
     "kana": "かいとうきっど",
     "type": "Partner",
@@ -32411,7 +32411,7 @@
   },
   {
     "id": "B09036P",
-    "name": "Kaito Kid",
+    "name": "怪盗キッド",
     "nameJa": "怪盗キッド",
     "kana": "かいとうきっど",
     "type": "Character",
@@ -32433,7 +32433,7 @@
   },
   {
     "id": "B09037P",
-    "name": "Yusaku Kudo",
+    "name": "工藤優作",
     "nameJa": "工藤優作",
     "kana": "くどうゆうさく",
     "type": "Character",
@@ -32477,7 +32477,7 @@
   },
   {
     "id": "B09040P",
-    "name": "Sonoko Suzuki",
+    "name": "鈴木園子",
     "nameJa": "鈴木園子",
     "kana": "すずきそのこ",
     "type": "Character",
@@ -32523,7 +32523,7 @@
   },
   {
     "id": "B09043P",
-    "name": "Kaito Kid",
+    "name": "怪盗キッド",
     "nameJa": "怪盗キッド",
     "kana": "かいとうきっど",
     "type": "Character",
@@ -32545,7 +32545,7 @@
   },
   {
     "id": "B09044P",
-    "name": "Yukiko Kudo",
+    "name": "工藤有希子",
     "nameJa": "工藤有希子",
     "kana": "くどうゆきこ",
     "type": "Character",
@@ -32609,7 +32609,7 @@
   },
   {
     "id": "B09053P",
-    "name": "Masumi Sera",
+    "name": "世良真純",
     "nameJa": "世良真純",
     "kana": "せらますみ",
     "type": "Partner",
@@ -32654,7 +32654,7 @@
   },
   {
     "id": "B09055P",
-    "name": "Masumi Sera",
+    "name": "世良真純",
     "nameJa": "世良真純",
     "kana": "せらますみ",
     "type": "Character",
@@ -32678,7 +32678,7 @@
   },
   {
     "id": "B09055P2",
-    "name": "Masumi Sera",
+    "name": "世良真純",
     "nameJa": "世良真純",
     "kana": "せらますみ",
     "type": "Character",
@@ -32702,7 +32702,7 @@
   },
   {
     "id": "B09056P",
-    "name": "Shuichi Akai",
+    "name": "赤井秀一",
     "nameJa": "赤井秀一",
     "kana": "あかいしゅういち",
     "type": "Character",
@@ -32748,7 +32748,7 @@
   },
   {
     "id": "B09059P",
-    "name": "Shuichi Akai",
+    "name": "赤井秀一",
     "nameJa": "赤井秀一",
     "kana": "あかいしゅういち",
     "type": "Character",
@@ -33027,7 +33027,7 @@
   },
   {
     "id": "B09073P",
-    "name": "Kenji Hagiwara",
+    "name": "萩原研二",
     "nameJa": "萩原研二",
     "kana": "はぎわらけんじ",
     "type": "Character",
@@ -33050,7 +33050,7 @@
   },
   {
     "id": "B09074P",
-    "name": "Jinpei Matsuda",
+    "name": "松田陣平",
     "nameJa": "松田陣平",
     "kana": "まつだじんぺい",
     "type": "Character",
@@ -33073,7 +33073,7 @@
   },
   {
     "id": "B09074P2",
-    "name": "Jinpei Matsuda",
+    "name": "松田陣平",
     "nameJa": "松田陣平",
     "kana": "まつだじんぺい",
     "type": "Character",
@@ -33096,7 +33096,7 @@
   },
   {
     "id": "B09075P",
-    "name": "Yumi Miyamoto",
+    "name": "宮本由美",
     "nameJa": "宮本由美",
     "kana": "みやもとゆみ",
     "type": "Character",
@@ -33142,7 +33142,7 @@
   },
   {
     "id": "B09077P",
-    "name": "Toru Amuro",
+    "name": "安室透",
     "nameJa": "安室透",
     "kana": "あむろとおる",
     "type": "Character",
@@ -33165,7 +33165,7 @@
   },
   {
     "id": "B09086P",
-    "name": "Takaaki Morofushi",
+    "name": "諸伏高明",
     "nameJa": "諸伏高明",
     "kana": "もろふしたかあき",
     "type": "Character",
@@ -33188,7 +33188,7 @@
   },
   {
     "id": "B09087P",
-    "name": "Hiromitsu Morofushi",
+    "name": "諸伏景光",
     "nameJa": "諸伏景光",
     "kana": "もろふしひろみつ",
     "type": "Character",
@@ -33272,7 +33272,7 @@
   },
   {
     "id": "B09091P",
-    "name": "Gin",
+    "name": "ジン",
     "nameJa": "ジン",
     "kana": "じん",
     "type": "Partner",
@@ -33292,7 +33292,7 @@
   },
   {
     "id": "B09092P",
-    "name": "Kir",
+    "name": "キール",
     "nameJa": "キール",
     "kana": "きーる",
     "type": "Character",
@@ -33314,7 +33314,7 @@
   },
   {
     "id": "B09093P",
-    "name": "Vodka",
+    "name": "ウォッカ",
     "nameJa": "ウォッカ",
     "kana": "うぉっか",
     "type": "Character",
@@ -33336,7 +33336,7 @@
   },
   {
     "id": "B09095P",
-    "name": "Vermouth",
+    "name": "ベルモット",
     "nameJa": "ベルモット",
     "kana": "べるもっと",
     "type": "Character",
@@ -33358,7 +33358,7 @@
   },
   {
     "id": "B09096P",
-    "name": "Chianti",
+    "name": "キャンティ",
     "nameJa": "キャンティ",
     "kana": "きゃんてぃ",
     "type": "Character",
@@ -33380,7 +33380,7 @@
   },
   {
     "id": "B09097P",
-    "name": "Korn",
+    "name": "コルン",
     "nameJa": "コルン",
     "kana": "こるん",
     "type": "Character",
@@ -33402,7 +33402,7 @@
   },
   {
     "id": "B09098P",
-    "name": "Gin",
+    "name": "ジン",
     "nameJa": "ジン",
     "kana": "じん",
     "type": "Character",
@@ -33619,7 +33619,7 @@
   },
   {
     "id": "D01001",
-    "name": "Conan Edogawa",
+    "name": "江戸川コナン",
     "nameJa": "江戸川コナン",
     "kana": "えどがわこなん",
     "type": "Partner",
@@ -33639,7 +33639,7 @@
   },
   {
     "id": "D01002",
-    "name": "Conan Edogawa",
+    "name": "江戸川コナン",
     "nameJa": "江戸川コナン",
     "kana": "えどがわこなん",
     "type": "Character",
@@ -33663,7 +33663,7 @@
   },
   {
     "id": "D01003",
-    "name": "Conan Edogawa",
+    "name": "江戸川コナン",
     "nameJa": "江戸川コナン",
     "kana": "えどがわこなん",
     "type": "Character",
@@ -33687,7 +33687,7 @@
   },
   {
     "id": "D01004",
-    "name": "Shinichi Kudo",
+    "name": "工藤新一",
     "nameJa": "工藤新一",
     "kana": "くどうしんいち",
     "type": "Character",
@@ -33710,7 +33710,7 @@
   },
   {
     "id": "D01005",
-    "name": "Kogoro Mouri",
+    "name": "毛利小五郎",
     "nameJa": "毛利小五郎",
     "kana": "もうりこごろう",
     "type": "Character",
@@ -33733,7 +33733,7 @@
   },
   {
     "id": "D01006",
-    "name": "Ran Mouri",
+    "name": "毛利蘭",
     "nameJa": "毛利蘭",
     "kana": "もうりらん",
     "type": "Character",
@@ -33757,7 +33757,7 @@
   },
   {
     "id": "D01007",
-    "name": "Ran Mouri",
+    "name": "毛利蘭",
     "nameJa": "毛利蘭",
     "kana": "もうりらん",
     "type": "Character",
@@ -33781,7 +33781,7 @@
   },
   {
     "id": "D01008",
-    "name": "Hiroshi Agasa",
+    "name": "阿笠博士",
     "nameJa": "阿笠博士",
     "kana": "あがさひろし",
     "type": "Character",
@@ -33803,7 +33803,7 @@
   },
   {
     "id": "D01009",
-    "name": "Ayumi Yoshida",
+    "name": "吉田歩美",
     "nameJa": "吉田歩美",
     "kana": "よしだあゆみ",
     "type": "Character",
@@ -33825,7 +33825,7 @@
   },
   {
     "id": "D01010",
-    "name": "Mitsuhiko Tsuburaya",
+    "name": "円谷光彦",
     "nameJa": "円谷光彦",
     "kana": "つぶらやみつひこ",
     "type": "Character",
@@ -33847,7 +33847,7 @@
   },
   {
     "id": "D01011",
-    "name": "Genta Kojima",
+    "name": "小嶋元太",
     "nameJa": "小嶋元太",
     "kana": "こじまげんた",
     "type": "Character",
@@ -33869,7 +33869,7 @@
   },
   {
     "id": "D01012",
-    "name": "Ai Haibara",
+    "name": "灰原哀",
     "nameJa": "灰原哀",
     "kana": "はいばらあい",
     "type": "Character",
@@ -33892,7 +33892,7 @@
   },
   {
     "id": "D01013",
-    "name": "Ai Haibara",
+    "name": "灰原哀",
     "nameJa": "灰原哀",
     "kana": "はいばらあい",
     "type": "Character",
@@ -33975,7 +33975,7 @@
   },
   {
     "id": "D02001",
-    "name": "Heiji Hattori",
+    "name": "服部平次",
     "nameJa": "服部平次",
     "kana": "はっとりへいじ",
     "type": "Partner",
@@ -33995,7 +33995,7 @@
   },
   {
     "id": "D02002",
-    "name": "Heiji Hattori",
+    "name": "服部平次",
     "nameJa": "服部平次",
     "kana": "はっとりへいじ",
     "type": "Character",
@@ -34018,7 +34018,7 @@
   },
   {
     "id": "D02003",
-    "name": "Heiji Hattori",
+    "name": "服部平次",
     "nameJa": "服部平次",
     "kana": "はっとりへいじ",
     "type": "Character",
@@ -34041,7 +34041,7 @@
   },
   {
     "id": "D02004",
-    "name": "Heiji Hattori",
+    "name": "服部平次",
     "nameJa": "服部平次",
     "kana": "はっとりへいじ",
     "type": "Character",
@@ -34064,7 +34064,7 @@
   },
   {
     "id": "D02005",
-    "name": "Kazuha Toyama",
+    "name": "遠山和葉",
     "nameJa": "遠山和葉",
     "kana": "とおやまかずは",
     "type": "Character",
@@ -34086,7 +34086,7 @@
   },
   {
     "id": "D02006",
-    "name": "Kazuha Toyama",
+    "name": "遠山和葉",
     "nameJa": "遠山和葉",
     "kana": "とおやまかずは",
     "type": "Character",
@@ -34322,7 +34322,7 @@
   },
   {
     "id": "D03001",
-    "name": "Kaito Kid",
+    "name": "怪盗キッド",
     "nameJa": "怪盗キッド",
     "kana": "かいとうきっど",
     "type": "Partner",
@@ -34342,7 +34342,7 @@
   },
   {
     "id": "D03002",
-    "name": "Kaito Kid",
+    "name": "怪盗キッド",
     "nameJa": "怪盗キッド",
     "kana": "かいとうきっど",
     "type": "Character",
@@ -34364,7 +34364,7 @@
   },
   {
     "id": "D03003",
-    "name": "Kaito Kid",
+    "name": "怪盗キッド",
     "nameJa": "怪盗キッド",
     "kana": "かいとうきっど",
     "type": "Character",
@@ -34386,7 +34386,7 @@
   },
   {
     "id": "D03004",
-    "name": "Kaito Kid",
+    "name": "怪盗キッド",
     "nameJa": "怪盗キッド",
     "kana": "かいとうきっど",
     "type": "Character",
@@ -34408,7 +34408,7 @@
   },
   {
     "id": "D03005",
-    "name": "Aoko Nakamori",
+    "name": "中森青子",
     "nameJa": "中森青子",
     "kana": "なかもりあおこ",
     "type": "Character",
@@ -34499,7 +34499,7 @@
   },
   {
     "id": "D03009",
-    "name": "Sonoko Suzuki",
+    "name": "鈴木園子",
     "nameJa": "鈴木園子",
     "kana": "すずきそのこ",
     "type": "Character",
@@ -34522,7 +34522,7 @@
   },
   {
     "id": "D03010",
-    "name": "Sonoko Suzuki",
+    "name": "鈴木園子",
     "nameJa": "鈴木園子",
     "kana": "すずきそのこ",
     "type": "Character",
@@ -34672,7 +34672,7 @@
   },
   {
     "id": "D04001",
-    "name": "Shuichi Akai",
+    "name": "赤井秀一",
     "nameJa": "赤井秀一",
     "kana": "あかいしゅういち",
     "type": "Partner",
@@ -34692,7 +34692,7 @@
   },
   {
     "id": "D04002",
-    "name": "Shuichi Akai",
+    "name": "赤井秀一",
     "nameJa": "赤井秀一",
     "kana": "あかいしゅういち",
     "type": "Character",
@@ -34715,7 +34715,7 @@
   },
   {
     "id": "D04003",
-    "name": "Shuichi Akai",
+    "name": "赤井秀一",
     "nameJa": "赤井秀一",
     "kana": "あかいしゅういち",
     "type": "Character",
@@ -34738,7 +34738,7 @@
   },
   {
     "id": "D04004",
-    "name": "Shuichi Akai",
+    "name": "赤井秀一",
     "nameJa": "赤井秀一",
     "kana": "あかいしゅういち",
     "type": "Character",
@@ -34761,7 +34761,7 @@
   },
   {
     "id": "D04005",
-    "name": "Masumi Sera",
+    "name": "世良真純",
     "nameJa": "世良真純",
     "kana": "せらますみ",
     "type": "Character",
@@ -34830,7 +34830,7 @@
   },
   {
     "id": "D04008",
-    "name": "Masumi Sera",
+    "name": "世良真純",
     "nameJa": "世良真純",
     "kana": "せらますみ",
     "type": "Character",
@@ -34854,7 +34854,7 @@
   },
   {
     "id": "D04009",
-    "name": "Hidemi Hondou",
+    "name": "本堂瑛海",
     "nameJa": "本堂瑛海",
     "kana": "ほんどうひでみ",
     "type": "Character",
@@ -34876,7 +34876,7 @@
   },
   {
     "id": "D04010",
-    "name": "Jodie Starling",
+    "name": "ジョディ・スターリング",
     "nameJa": "ジョディ・スターリング",
     "kana": "じょでぃすたーりんぐ",
     "type": "Character",
@@ -34898,7 +34898,7 @@
   },
   {
     "id": "D04011",
-    "name": "Jodie Starling",
+    "name": "ジョディ・スターリング",
     "nameJa": "ジョディ・スターリング",
     "kana": "じょでぃすたーりんぐ",
     "type": "Character",
@@ -34920,7 +34920,7 @@
   },
   {
     "id": "D04012",
-    "name": "James Black",
+    "name": "ジェイムズ・ブラック",
     "nameJa": "ジェイムズ・ブラック",
     "kana": "じぇいむずぶらっく",
     "type": "Character",
@@ -34942,7 +34942,7 @@
   },
   {
     "id": "D04013",
-    "name": "Andre Camel",
+    "name": "アンドレ・キャメル",
     "nameJa": "アンドレ・キャメル",
     "kana": "あんどれきゃめる",
     "type": "Character",
@@ -35024,7 +35024,7 @@
   },
   {
     "id": "D05001",
-    "name": "Toru Amuro",
+    "name": "安室透",
     "nameJa": "安室透",
     "kana": "あむろとおる",
     "type": "Partner",
@@ -35044,7 +35044,7 @@
   },
   {
     "id": "D05002",
-    "name": "Rei Furuya",
+    "name": "降谷零",
     "nameJa": "降谷零",
     "kana": "ふるやれい",
     "type": "Character",
@@ -35067,7 +35067,7 @@
   },
   {
     "id": "D05003",
-    "name": "Rei Furuya",
+    "name": "降谷零",
     "nameJa": "降谷零",
     "kana": "ふるやれい",
     "type": "Character",
@@ -35090,7 +35090,7 @@
   },
   {
     "id": "D05004",
-    "name": "Rei Furuya",
+    "name": "降谷零",
     "nameJa": "降谷零",
     "kana": "ふるやれい",
     "type": "Character",
@@ -35136,7 +35136,7 @@
   },
   {
     "id": "D05006",
-    "name": "Juzo Megure",
+    "name": "目暮十三",
     "nameJa": "目暮十三",
     "kana": "めぐれじゅうぞう",
     "type": "Character",
@@ -35159,7 +35159,7 @@
   },
   {
     "id": "D05007",
-    "name": "Jinpei Matsuda",
+    "name": "松田陣平",
     "nameJa": "松田陣平",
     "kana": "まつだじんぺい",
     "type": "Character",
@@ -35182,7 +35182,7 @@
   },
   {
     "id": "D05008",
-    "name": "Jinpei Matsuda",
+    "name": "松田陣平",
     "nameJa": "松田陣平",
     "kana": "まつだじんぺい",
     "type": "Character",
@@ -35253,7 +35253,7 @@
   },
   {
     "id": "D05011",
-    "name": "Ninzaburo Shiratori",
+    "name": "白鳥任三郎",
     "nameJa": "白鳥任三郎",
     "kana": "しらとりにんざぶろう",
     "type": "Character",
@@ -35276,7 +35276,7 @@
   },
   {
     "id": "D05012",
-    "name": "Miwako Sato",
+    "name": "佐藤美和子",
     "nameJa": "佐藤美和子",
     "kana": "さとうみわこ",
     "type": "Character",
@@ -35299,7 +35299,7 @@
   },
   {
     "id": "D05013",
-    "name": "Wataru Takagi",
+    "name": "高木渉",
     "nameJa": "高木渉",
     "kana": "たかぎわたる",
     "type": "Character",
@@ -35382,7 +35382,7 @@
   },
   {
     "id": "D06001",
-    "name": "Heiji Hattori",
+    "name": "服部平次",
     "nameJa": "服部平次",
     "kana": "はっとりへいじ",
     "type": "Partner",
@@ -35402,7 +35402,7 @@
   },
   {
     "id": "D06002",
-    "name": "Kaito Kid",
+    "name": "怪盗キッド",
     "nameJa": "怪盗キッド",
     "kana": "かいとうきっど",
     "type": "Partner",
@@ -35422,7 +35422,7 @@
   },
   {
     "id": "D06003",
-    "name": "Heiji Hattori",
+    "name": "服部平次",
     "nameJa": "服部平次",
     "kana": "はっとりへいじ",
     "type": "Character",
@@ -35445,7 +35445,7 @@
   },
   {
     "id": "D06004",
-    "name": "Heiji Hattori",
+    "name": "服部平次",
     "nameJa": "服部平次",
     "kana": "はっとりへいじ",
     "type": "Character",
@@ -35468,7 +35468,7 @@
   },
   {
     "id": "D06005",
-    "name": "Heiji Hattori",
+    "name": "服部平次",
     "nameJa": "服部平次",
     "kana": "はっとりへいじ",
     "type": "Character",
@@ -35491,7 +35491,7 @@
   },
   {
     "id": "D06006",
-    "name": "Kazuha Toyama",
+    "name": "遠山和葉",
     "nameJa": "遠山和葉",
     "kana": "とおやまかずは",
     "type": "Character",
@@ -35513,7 +35513,7 @@
   },
   {
     "id": "D06007",
-    "name": "Kazuha Toyama",
+    "name": "遠山和葉",
     "nameJa": "遠山和葉",
     "kana": "とおやまかずは",
     "type": "Character",
@@ -35580,7 +35580,7 @@
   },
   {
     "id": "D06010",
-    "name": "Kaito Kid",
+    "name": "怪盗キッド",
     "nameJa": "怪盗キッド",
     "kana": "かいとうきっど",
     "type": "Character",
@@ -35602,7 +35602,7 @@
   },
   {
     "id": "D06011",
-    "name": "Kaito Kid",
+    "name": "怪盗キッド",
     "nameJa": "怪盗キッド",
     "kana": "かいとうきっど",
     "type": "Character",
@@ -35624,7 +35624,7 @@
   },
   {
     "id": "D06012",
-    "name": "Kaito Kid",
+    "name": "怪盗キッド",
     "nameJa": "怪盗キッド",
     "kana": "かいとうきっど",
     "type": "Character",
@@ -35669,7 +35669,7 @@
   },
   {
     "id": "D06014",
-    "name": "Aoko Nakamori",
+    "name": "中森青子",
     "nameJa": "中森青子",
     "kana": "なかもりあおこ",
     "type": "Character",
@@ -35691,7 +35691,7 @@
   },
   {
     "id": "D06015",
-    "name": "Sonoko Suzuki",
+    "name": "鈴木園子",
     "nameJa": "鈴木園子",
     "kana": "すずきそのこ",
     "type": "Character",
@@ -35714,7 +35714,7 @@
   },
   {
     "id": "D06016",
-    "name": "Yusaku Kudo",
+    "name": "工藤優作",
     "nameJa": "工藤優作",
     "kana": "くどうゆうさく",
     "type": "Character",
@@ -35816,7 +35816,7 @@
   },
   {
     "id": "D06021",
-    "name": "Heiji Hattori",
+    "name": "服部平次",
     "nameJa": "服部平次",
     "kana": "はっとりへいじ",
     "type": "Character",
@@ -35839,7 +35839,7 @@
   },
   {
     "id": "D06022",
-    "name": "Kaito Kid",
+    "name": "怪盗キッド",
     "nameJa": "怪盗キッド",
     "kana": "かいとうきっど",
     "type": "Character",
@@ -35861,7 +35861,7 @@
   },
   {
     "id": "D06023",
-    "name": "Heiji Hattori",
+    "name": "服部平次",
     "nameJa": "服部平次",
     "kana": "はっとりへいじ",
     "type": "Character",
@@ -35884,7 +35884,7 @@
   },
   {
     "id": "D06024",
-    "name": "Kaito Kid",
+    "name": "怪盗キッド",
     "nameJa": "怪盗キッド",
     "kana": "かいとうきっど",
     "type": "Character",
@@ -35906,7 +35906,7 @@
   },
   {
     "id": "D07001",
-    "name": "Sherry",
+    "name": "シェリー",
     "nameJa": "シェリー",
     "kana": "しぇりー",
     "type": "Partner",
@@ -35926,7 +35926,7 @@
   },
   {
     "id": "D07002",
-    "name": "Sherry",
+    "name": "シェリー",
     "nameJa": "シェリー",
     "kana": "しぇりー",
     "type": "Character",
@@ -35948,7 +35948,7 @@
   },
   {
     "id": "D07003",
-    "name": "Sherry",
+    "name": "シェリー",
     "nameJa": "シェリー",
     "kana": "しぇりー",
     "type": "Character",
@@ -35970,7 +35970,7 @@
   },
   {
     "id": "D07004",
-    "name": "Gin",
+    "name": "ジン",
     "nameJa": "ジン",
     "kana": "じん",
     "type": "Character",
@@ -35992,7 +35992,7 @@
   },
   {
     "id": "D07005",
-    "name": "Gin",
+    "name": "ジン",
     "nameJa": "ジン",
     "kana": "じん",
     "type": "Character",
@@ -36014,7 +36014,7 @@
   },
   {
     "id": "D07006",
-    "name": "Bourbon",
+    "name": "バーボン",
     "nameJa": "バーボン",
     "kana": "ばーぼん",
     "type": "Character",
@@ -36036,7 +36036,7 @@
   },
   {
     "id": "D07007",
-    "name": "Bourbon",
+    "name": "バーボン",
     "nameJa": "バーボン",
     "kana": "ばーぼん",
     "type": "Character",
@@ -36058,7 +36058,7 @@
   },
   {
     "id": "D07008",
-    "name": "Vermouth",
+    "name": "ベルモット",
     "nameJa": "ベルモット",
     "kana": "べるもっと",
     "type": "Character",
@@ -36080,7 +36080,7 @@
   },
   {
     "id": "D07009",
-    "name": "Vermouth",
+    "name": "ベルモット",
     "nameJa": "ベルモット",
     "kana": "べるもっと",
     "type": "Character",
@@ -36146,7 +36146,7 @@
   },
   {
     "id": "D07012",
-    "name": "Vodka",
+    "name": "ウォッカ",
     "nameJa": "ウォッカ",
     "kana": "うぉっか",
     "type": "Character",
@@ -36168,7 +36168,7 @@
   },
   {
     "id": "D07013",
-    "name": "Vodka",
+    "name": "ウォッカ",
     "nameJa": "ウォッカ",
     "kana": "うぉっか",
     "type": "Character",
@@ -36190,7 +36190,7 @@
   },
   {
     "id": "D07014",
-    "name": "Rye",
+    "name": "ライ",
     "nameJa": "ライ",
     "kana": "らい",
     "type": "Character",
@@ -36212,7 +36212,7 @@
   },
   {
     "id": "D07015",
-    "name": "Rye",
+    "name": "ライ",
     "nameJa": "ライ",
     "kana": "らい",
     "type": "Character",
@@ -36234,7 +36234,7 @@
   },
   {
     "id": "D07016",
-    "name": "Kir",
+    "name": "キール",
     "nameJa": "キール",
     "kana": "きーる",
     "type": "Character",
@@ -36256,7 +36256,7 @@
   },
   {
     "id": "D07017",
-    "name": "Kir",
+    "name": "キール",
     "nameJa": "キール",
     "kana": "きーる",
     "type": "Character",
@@ -36278,7 +36278,7 @@
   },
   {
     "id": "D07018",
-    "name": "Gin",
+    "name": "ジン",
     "nameJa": "ジン",
     "kana": "じん",
     "type": "Character",
@@ -36300,7 +36300,7 @@
   },
   {
     "id": "D07019",
-    "name": "Sherry",
+    "name": "シェリー",
     "nameJa": "シェリー",
     "kana": "しぇりー",
     "type": "Character",
@@ -36322,7 +36322,7 @@
   },
   {
     "id": "D07020",
-    "name": "Chianti",
+    "name": "キャンティ",
     "nameJa": "キャンティ",
     "kana": "きゃんてぃ",
     "type": "Character",
@@ -36344,7 +36344,7 @@
   },
   {
     "id": "D07021",
-    "name": "Korn",
+    "name": "コルン",
     "nameJa": "コルン",
     "kana": "こるん",
     "type": "Character",
@@ -36426,7 +36426,7 @@
   },
   {
     "id": "D08001",
-    "name": "Conan Edogawa",
+    "name": "江戸川コナン",
     "nameJa": "江戸川コナン",
     "kana": "えどがわこなん",
     "type": "Partner",
@@ -36466,7 +36466,7 @@
   },
   {
     "id": "D08003",
-    "name": "Conan Edogawa",
+    "name": "江戸川コナン",
     "nameJa": "江戸川コナン",
     "kana": "えどがわこなん",
     "type": "Character",
@@ -36490,7 +36490,7 @@
   },
   {
     "id": "D08004",
-    "name": "Conan Edogawa",
+    "name": "江戸川コナン",
     "nameJa": "江戸川コナン",
     "kana": "えどがわこなん",
     "type": "Character",
@@ -36514,7 +36514,7 @@
   },
   {
     "id": "D08005",
-    "name": "Ai Haibara",
+    "name": "灰原哀",
     "nameJa": "灰原哀",
     "kana": "はいばらあい",
     "type": "Character",
@@ -36537,7 +36537,7 @@
   },
   {
     "id": "D08006",
-    "name": "Ai Haibara",
+    "name": "灰原哀",
     "nameJa": "灰原哀",
     "kana": "はいばらあい",
     "type": "Character",
@@ -36560,7 +36560,7 @@
   },
   {
     "id": "D08007",
-    "name": "Ayumi Yoshida",
+    "name": "吉田歩美",
     "nameJa": "吉田歩美",
     "kana": "よしだあゆみ",
     "type": "Character",
@@ -36582,7 +36582,7 @@
   },
   {
     "id": "D08008",
-    "name": "Ayumi Yoshida",
+    "name": "吉田歩美",
     "nameJa": "吉田歩美",
     "kana": "よしだあゆみ",
     "type": "Character",
@@ -36604,7 +36604,7 @@
   },
   {
     "id": "D08009",
-    "name": "Genta Kojima",
+    "name": "小嶋元太",
     "nameJa": "小嶋元太",
     "kana": "こじまげんた",
     "type": "Character",
@@ -36626,7 +36626,7 @@
   },
   {
     "id": "D08010",
-    "name": "Genta Kojima",
+    "name": "小嶋元太",
     "nameJa": "小嶋元太",
     "kana": "こじまげんた",
     "type": "Character",
@@ -36648,7 +36648,7 @@
   },
   {
     "id": "D08011",
-    "name": "Mitsuhiko Tsuburaya",
+    "name": "円谷光彦",
     "nameJa": "円谷光彦",
     "kana": "つぶらやみつひこ",
     "type": "Character",
@@ -36670,7 +36670,7 @@
   },
   {
     "id": "D08012",
-    "name": "Mitsuhiko Tsuburaya",
+    "name": "円谷光彦",
     "nameJa": "円谷光彦",
     "kana": "つぶらやみつひこ",
     "type": "Character",
@@ -36692,7 +36692,7 @@
   },
   {
     "id": "D08013",
-    "name": "Ayumi Yoshida",
+    "name": "吉田歩美",
     "nameJa": "吉田歩美",
     "kana": "よしだあゆみ",
     "type": "Character",
@@ -36714,7 +36714,7 @@
   },
   {
     "id": "D08014",
-    "name": "Ayumi Yoshida",
+    "name": "吉田歩美",
     "nameJa": "吉田歩美",
     "kana": "よしだあゆみ",
     "type": "Character",
@@ -36736,7 +36736,7 @@
   },
   {
     "id": "D08015",
-    "name": "Genta Kojima",
+    "name": "小嶋元太",
     "nameJa": "小嶋元太",
     "kana": "こじまげんた",
     "type": "Character",
@@ -36758,7 +36758,7 @@
   },
   {
     "id": "D08016",
-    "name": "Genta Kojima",
+    "name": "小嶋元太",
     "nameJa": "小嶋元太",
     "kana": "こじまげんた",
     "type": "Character",
@@ -36780,7 +36780,7 @@
   },
   {
     "id": "D08017",
-    "name": "Mitsuhiko Tsuburaya",
+    "name": "円谷光彦",
     "nameJa": "円谷光彦",
     "kana": "つぶらやみつひこ",
     "type": "Character",
@@ -36802,7 +36802,7 @@
   },
   {
     "id": "D08018",
-    "name": "Mitsuhiko Tsuburaya",
+    "name": "円谷光彦",
     "nameJa": "円谷光彦",
     "kana": "つぶらやみつひこ",
     "type": "Character",
@@ -36824,7 +36824,7 @@
   },
   {
     "id": "D08019",
-    "name": "Hiroshi Agasa",
+    "name": "阿笠博士",
     "nameJa": "阿笠博士",
     "kana": "あがさひろし",
     "type": "Character",
@@ -36846,7 +36846,7 @@
   },
   {
     "id": "D08020",
-    "name": "Hiroshi Agasa",
+    "name": "阿笠博士",
     "nameJa": "阿笠博士",
     "kana": "あがさひろし",
     "type": "Character",
@@ -36890,7 +36890,7 @@
   },
   {
     "id": "D08022",
-    "name": "Conan Edogawa",
+    "name": "江戸川コナン",
     "nameJa": "江戸川コナン",
     "kana": "えどがわこなん",
     "type": "Character",
@@ -36914,7 +36914,7 @@
   },
   {
     "id": "D08023",
-    "name": "Ran Mouri",
+    "name": "毛利蘭",
     "nameJa": "毛利蘭",
     "kana": "もうりらん",
     "type": "Character",
@@ -36998,7 +36998,7 @@
   },
   {
     "id": "D09001",
-    "name": "Kansuke Yamato",
+    "name": "大和敢助",
     "nameJa": "大和敢助",
     "kana": "やまとかんすけ",
     "type": "Partner",
@@ -37018,7 +37018,7 @@
   },
   {
     "id": "D09002",
-    "name": "Takaaki Morofushi",
+    "name": "諸伏高明",
     "nameJa": "諸伏高明",
     "kana": "もろふしたかあき",
     "type": "Partner",
@@ -37038,7 +37038,7 @@
   },
   {
     "id": "D09003",
-    "name": "Yui Uehara",
+    "name": "上原由衣",
     "nameJa": "上原由衣",
     "kana": "うえはらゆい",
     "type": "Partner",
@@ -37058,7 +37058,7 @@
   },
   {
     "id": "D09004",
-    "name": "Kansuke Yamato",
+    "name": "大和敢助",
     "nameJa": "大和敢助",
     "kana": "やまとかんすけ",
     "type": "Character",
@@ -37081,7 +37081,7 @@
   },
   {
     "id": "D09005",
-    "name": "Kansuke Yamato",
+    "name": "大和敢助",
     "nameJa": "大和敢助",
     "kana": "やまとかんすけ",
     "type": "Character",
@@ -37104,7 +37104,7 @@
   },
   {
     "id": "D09006",
-    "name": "Takaaki Morofushi",
+    "name": "諸伏高明",
     "nameJa": "諸伏高明",
     "kana": "もろふしたかあき",
     "type": "Character",
@@ -37127,7 +37127,7 @@
   },
   {
     "id": "D09007",
-    "name": "Takaaki Morofushi",
+    "name": "諸伏高明",
     "nameJa": "諸伏高明",
     "kana": "もろふしたかあき",
     "type": "Character",
@@ -37150,7 +37150,7 @@
   },
   {
     "id": "D09008",
-    "name": "Yui Uehara",
+    "name": "上原由衣",
     "nameJa": "上原由衣",
     "kana": "うえはらゆい",
     "type": "Character",
@@ -37173,7 +37173,7 @@
   },
   {
     "id": "D09009",
-    "name": "Yui Uehara",
+    "name": "上原由衣",
     "nameJa": "上原由衣",
     "kana": "うえはらゆい",
     "type": "Character",
@@ -37196,7 +37196,7 @@
   },
   {
     "id": "D09010",
-    "name": "Rei Furuya",
+    "name": "降谷零",
     "nameJa": "降谷零",
     "kana": "ふるやれい",
     "type": "Character",
@@ -37219,7 +37219,7 @@
   },
   {
     "id": "D09011",
-    "name": "Rei Furuya",
+    "name": "降谷零",
     "nameJa": "降谷零",
     "kana": "ふるやれい",
     "type": "Character",
@@ -37290,7 +37290,7 @@
   },
   {
     "id": "D09014",
-    "name": "Kansuke Yamato",
+    "name": "大和敢助",
     "nameJa": "大和敢助",
     "kana": "やまとかんすけ",
     "type": "Character",
@@ -37313,7 +37313,7 @@
   },
   {
     "id": "D09015",
-    "name": "Kansuke Yamato",
+    "name": "大和敢助",
     "nameJa": "大和敢助",
     "kana": "やまとかんすけ",
     "type": "Character",
@@ -37336,7 +37336,7 @@
   },
   {
     "id": "D09016",
-    "name": "Takaaki Morofushi",
+    "name": "諸伏高明",
     "nameJa": "諸伏高明",
     "kana": "もろふしたかあき",
     "type": "Character",
@@ -37359,7 +37359,7 @@
   },
   {
     "id": "D09017",
-    "name": "Takaaki Morofushi",
+    "name": "諸伏高明",
     "nameJa": "諸伏高明",
     "kana": "もろふしたかあき",
     "type": "Character",
@@ -37382,7 +37382,7 @@
   },
   {
     "id": "D09018",
-    "name": "Yui Uehara",
+    "name": "上原由衣",
     "nameJa": "上原由衣",
     "kana": "うえはらゆい",
     "type": "Character",
@@ -37405,7 +37405,7 @@
   },
   {
     "id": "D09019",
-    "name": "Yui Uehara",
+    "name": "上原由衣",
     "nameJa": "上原由衣",
     "kana": "うえはらゆい",
     "type": "Character",
@@ -37451,7 +37451,7 @@
   },
   {
     "id": "D09021",
-    "name": "Rei Furuya",
+    "name": "降谷零",
     "nameJa": "降谷零",
     "kana": "ふるやれい",
     "type": "Character",
@@ -37474,7 +37474,7 @@
   },
   {
     "id": "D09022",
-    "name": "Wataru Takagi",
+    "name": "高木渉",
     "nameJa": "高木渉",
     "kana": "たかぎわたる",
     "type": "Character",
@@ -37497,7 +37497,7 @@
   },
   {
     "id": "D09023",
-    "name": "Wataru Takagi",
+    "name": "高木渉",
     "nameJa": "高木渉",
     "kana": "たかぎわたる",
     "type": "Character",
@@ -37520,7 +37520,7 @@
   },
   {
     "id": "D09024",
-    "name": "Miwako Sato",
+    "name": "佐藤美和子",
     "nameJa": "佐藤美和子",
     "kana": "さとうみわこ",
     "type": "Character",
@@ -37737,7 +37737,7 @@
   },
   {
     "id": "D10007",
-    "name": "Ran Mouri",
+    "name": "毛利蘭",
     "nameJa": "毛利蘭",
     "kana": "もうりらん",
     "type": "Character",
@@ -37761,7 +37761,7 @@
   },
   {
     "id": "D10008",
-    "name": "Ran Mouri",
+    "name": "毛利蘭",
     "nameJa": "毛利蘭",
     "kana": "もうりらん",
     "type": "Character",
@@ -37785,7 +37785,7 @@
   },
   {
     "id": "D10009",
-    "name": "Shinichi Kudo",
+    "name": "工藤新一",
     "nameJa": "工藤新一",
     "kana": "くどうしんいち",
     "type": "Character",
@@ -37808,7 +37808,7 @@
   },
   {
     "id": "D10010",
-    "name": "Shinichi Kudo",
+    "name": "工藤新一",
     "nameJa": "工藤新一",
     "kana": "くどうしんいち",
     "type": "Character",
@@ -37831,7 +37831,7 @@
   },
   {
     "id": "D10011",
-    "name": "Kogoro Mouri",
+    "name": "毛利小五郎",
     "nameJa": "毛利小五郎",
     "kana": "もうりこごろう",
     "type": "Character",
@@ -37854,7 +37854,7 @@
   },
   {
     "id": "D10012",
-    "name": "Conan Edogawa",
+    "name": "江戸川コナン",
     "nameJa": "江戸川コナン",
     "kana": "えどがわこなん",
     "type": "Character",
@@ -37878,7 +37878,7 @@
   },
   {
     "id": "D10013",
-    "name": "Conan Edogawa",
+    "name": "江戸川コナン",
     "nameJa": "江戸川コナン",
     "kana": "えどがわこなん",
     "type": "Character",
@@ -37902,7 +37902,7 @@
   },
   {
     "id": "D10014",
-    "name": "Conan Edogawa",
+    "name": "江戸川コナン",
     "nameJa": "江戸川コナン",
     "kana": "えどがわこなん",
     "type": "Character",
@@ -37926,7 +37926,7 @@
   },
   {
     "id": "D10015",
-    "name": "Kogoro Mouri",
+    "name": "毛利小五郎",
     "nameJa": "毛利小五郎",
     "kana": "もうりこごろう",
     "type": "Character",
@@ -37949,7 +37949,7 @@
   },
   {
     "id": "D10016",
-    "name": "Shinichi Kudo",
+    "name": "工藤新一",
     "nameJa": "工藤新一",
     "kana": "くどうしんいち",
     "type": "Character",
@@ -37972,7 +37972,7 @@
   },
   {
     "id": "D10017",
-    "name": "Shinichi Kudo",
+    "name": "工藤新一",
     "nameJa": "工藤新一",
     "kana": "くどうしんいち",
     "type": "Character",
@@ -37995,7 +37995,7 @@
   },
   {
     "id": "D10018",
-    "name": "Ran Mouri",
+    "name": "毛利蘭",
     "nameJa": "毛利蘭",
     "kana": "もうりらん",
     "type": "Character",
@@ -38019,7 +38019,7 @@
   },
   {
     "id": "D10019",
-    "name": "Ran Mouri",
+    "name": "毛利蘭",
     "nameJa": "毛利蘭",
     "kana": "もうりらん",
     "type": "Character",
@@ -38043,7 +38043,7 @@
   },
   {
     "id": "D10020",
-    "name": "Shinichi Kudo",
+    "name": "工藤新一",
     "nameJa": "工藤新一",
     "kana": "くどうしんいち",
     "type": "Character",
@@ -38066,7 +38066,7 @@
   },
   {
     "id": "D10021",
-    "name": "Shinichi Kudo",
+    "name": "工藤新一",
     "nameJa": "工藤新一",
     "kana": "くどうしんいち",
     "type": "Character",
@@ -38089,7 +38089,7 @@
   },
   {
     "id": "D10022",
-    "name": "Ran Mouri",
+    "name": "毛利蘭",
     "nameJa": "毛利蘭",
     "kana": "もうりらん",
     "type": "Character",
@@ -38113,7 +38113,7 @@
   },
   {
     "id": "D10023",
-    "name": "Ran Mouri",
+    "name": "毛利蘭",
     "nameJa": "毛利蘭",
     "kana": "もうりらん",
     "type": "Character",
@@ -38331,7 +38331,7 @@
   },
   {
     "id": "D11007",
-    "name": "Jinpei Matsuda",
+    "name": "松田陣平",
     "nameJa": "松田陣平",
     "kana": "まつだじんぺい",
     "type": "Character",
@@ -38354,7 +38354,7 @@
   },
   {
     "id": "D11008",
-    "name": "Jinpei Matsuda",
+    "name": "松田陣平",
     "nameJa": "松田陣平",
     "kana": "まつだじんぺい",
     "type": "Character",
@@ -38377,7 +38377,7 @@
   },
   {
     "id": "D11009",
-    "name": "Kenji Hagiwara",
+    "name": "萩原研二",
     "nameJa": "萩原研二",
     "kana": "はぎわらけんじ",
     "type": "Character",
@@ -38400,7 +38400,7 @@
   },
   {
     "id": "D11010",
-    "name": "Kenji Hagiwara",
+    "name": "萩原研二",
     "nameJa": "萩原研二",
     "kana": "はぎわらけんじ",
     "type": "Character",
@@ -38515,7 +38515,7 @@
   },
   {
     "id": "D11015",
-    "name": "Juzo Megure",
+    "name": "目暮十三",
     "nameJa": "目暮十三",
     "kana": "めぐれじゅうぞう",
     "type": "Character",
@@ -38558,7 +38558,7 @@
   },
   {
     "id": "D11017",
-    "name": "Wataru Takagi",
+    "name": "高木渉",
     "nameJa": "高木渉",
     "kana": "たかぎわたる",
     "type": "Character",
@@ -38581,7 +38581,7 @@
   },
   {
     "id": "D11018",
-    "name": "Miwako Sato",
+    "name": "佐藤美和子",
     "nameJa": "佐藤美和子",
     "kana": "さとうみわこ",
     "type": "Character",
@@ -38666,7 +38666,7 @@
   },
   {
     "id": "PR001",
-    "name": "Conan Edogawa",
+    "name": "江戸川コナン",
     "nameJa": "江戸川コナン",
     "kana": "えどがわこなん",
     "type": "Partner",
@@ -38686,7 +38686,7 @@
   },
   {
     "id": "PR002",
-    "name": "Conan Edogawa",
+    "name": "江戸川コナン",
     "nameJa": "江戸川コナン",
     "kana": "えどがわこなん",
     "type": "Partner",
@@ -38766,7 +38766,7 @@
   },
   {
     "id": "PR006",
-    "name": "Conan Edogawa",
+    "name": "江戸川コナン",
     "nameJa": "江戸川コナン",
     "kana": "えどがわこなん",
     "type": "Character",
@@ -38790,7 +38790,7 @@
   },
   {
     "id": "PR007",
-    "name": "Conan Edogawa",
+    "name": "江戸川コナン",
     "nameJa": "江戸川コナン",
     "kana": "えどがわこなん",
     "type": "Partner",
@@ -38810,7 +38810,7 @@
   },
   {
     "id": "PR008",
-    "name": "Heiji Hattori",
+    "name": "服部平次",
     "nameJa": "服部平次",
     "kana": "はっとりへいじ",
     "type": "Partner",
@@ -38830,7 +38830,7 @@
   },
   {
     "id": "PR009",
-    "name": "Kaito Kid",
+    "name": "怪盗キッド",
     "nameJa": "怪盗キッド",
     "kana": "かいとうきっど",
     "type": "Partner",
@@ -38850,7 +38850,7 @@
   },
   {
     "id": "PR010",
-    "name": "Shuichi Akai",
+    "name": "赤井秀一",
     "nameJa": "赤井秀一",
     "kana": "あかいしゅういち",
     "type": "Partner",
@@ -38870,7 +38870,7 @@
   },
   {
     "id": "PR011",
-    "name": "Toru Amuro",
+    "name": "安室透",
     "nameJa": "安室透",
     "kana": "あむろとおる",
     "type": "Partner",
@@ -39090,7 +39090,7 @@
   },
   {
     "id": "PR022",
-    "name": "Conan Edogawa",
+    "name": "江戸川コナン",
     "nameJa": "江戸川コナン",
     "kana": "えどがわこなん",
     "type": "Partner",
@@ -39110,7 +39110,7 @@
   },
   {
     "id": "PR023",
-    "name": "Conan Edogawa",
+    "name": "江戸川コナン",
     "nameJa": "江戸川コナン",
     "kana": "えどがわこなん",
     "type": "Character",
@@ -39134,7 +39134,7 @@
   },
   {
     "id": "PR024",
-    "name": "Kaito Kid",
+    "name": "怪盗キッド",
     "nameJa": "怪盗キッド",
     "kana": "かいとうきっど",
     "type": "Character",
@@ -39156,7 +39156,7 @@
   },
   {
     "id": "PR025",
-    "name": "Heiji Hattori",
+    "name": "服部平次",
     "nameJa": "服部平次",
     "kana": "はっとりへいじ",
     "type": "Character",
@@ -39179,7 +39179,7 @@
   },
   {
     "id": "PR026",
-    "name": "Ran Mouri",
+    "name": "毛利蘭",
     "nameJa": "毛利蘭",
     "kana": "もうりらん",
     "type": "Character",
@@ -39226,7 +39226,7 @@
   },
   {
     "id": "PR028",
-    "name": "Jodie Starling",
+    "name": "ジョディ・スターリング",
     "nameJa": "ジョディ・スターリング",
     "kana": "じょでぃすたーりんぐ",
     "type": "Character",
@@ -39248,7 +39248,7 @@
   },
   {
     "id": "PR029",
-    "name": "Ninzaburo Shiratori",
+    "name": "白鳥任三郎",
     "nameJa": "白鳥任三郎",
     "kana": "しらとりにんざぶろう",
     "type": "Character",
@@ -39271,7 +39271,7 @@
   },
   {
     "id": "PR030",
-    "name": "Ran Mouri",
+    "name": "毛利蘭",
     "nameJa": "毛利蘭",
     "kana": "もうりらん",
     "type": "Character",
@@ -39318,7 +39318,7 @@
   },
   {
     "id": "PR032",
-    "name": "Jodie Starling",
+    "name": "ジョディ・スターリング",
     "nameJa": "ジョディ・スターリング",
     "kana": "じょでぃすたーりんぐ",
     "type": "Character",
@@ -39340,7 +39340,7 @@
   },
   {
     "id": "PR033",
-    "name": "Ninzaburo Shiratori",
+    "name": "白鳥任三郎",
     "nameJa": "白鳥任三郎",
     "kana": "しらとりにんざぶろう",
     "type": "Character",
@@ -39363,7 +39363,7 @@
   },
   {
     "id": "PR034",
-    "name": "Kazuha Toyama",
+    "name": "遠山和葉",
     "nameJa": "遠山和葉",
     "kana": "とおやまかずは",
     "type": "Character",
@@ -39385,7 +39385,7 @@
   },
   {
     "id": "PR035",
-    "name": "Ran Mouri",
+    "name": "毛利蘭",
     "nameJa": "毛利蘭",
     "kana": "もうりらん",
     "type": "Character",
@@ -39409,7 +39409,7 @@
   },
   {
     "id": "PR036",
-    "name": "Kazuha Toyama",
+    "name": "遠山和葉",
     "nameJa": "遠山和葉",
     "kana": "とおやまかずは",
     "type": "Character",
@@ -39451,7 +39451,7 @@
   },
   {
     "id": "PR038",
-    "name": "Aoko Nakamori",
+    "name": "中森青子",
     "nameJa": "中森青子",
     "kana": "なかもりあおこ",
     "type": "Character",
@@ -39473,7 +39473,7 @@
   },
   {
     "id": "PR039",
-    "name": "Aoko Nakamori",
+    "name": "中森青子",
     "nameJa": "中森青子",
     "kana": "なかもりあおこ",
     "type": "Character",
@@ -39495,7 +39495,7 @@
   },
   {
     "id": "PR040",
-    "name": "Ran Mouri",
+    "name": "毛利蘭",
     "nameJa": "毛利蘭",
     "kana": "もうりらん",
     "type": "Character",
@@ -39541,7 +39541,7 @@
   },
   {
     "id": "PR042",
-    "name": "Sonoko Suzuki",
+    "name": "鈴木園子",
     "nameJa": "鈴木園子",
     "kana": "すずきそのこ",
     "type": "Character",
@@ -39564,7 +39564,7 @@
   },
   {
     "id": "PR043",
-    "name": "Masumi Sera",
+    "name": "世良真純",
     "nameJa": "世良真純",
     "kana": "せらますみ",
     "type": "Character",
@@ -39586,7 +39586,7 @@
   },
   {
     "id": "PR044",
-    "name": "Takaaki Morofushi",
+    "name": "諸伏高明",
     "nameJa": "諸伏高明",
     "kana": "もろふしたかあき",
     "type": "Character",
@@ -39631,7 +39631,7 @@
   },
   {
     "id": "PR046",
-    "name": "Sonoko Suzuki",
+    "name": "鈴木園子",
     "nameJa": "鈴木園子",
     "kana": "すずきそのこ",
     "type": "Character",
@@ -39654,7 +39654,7 @@
   },
   {
     "id": "PR047",
-    "name": "Masumi Sera",
+    "name": "世良真純",
     "nameJa": "世良真純",
     "kana": "せらますみ",
     "type": "Character",
@@ -39676,7 +39676,7 @@
   },
   {
     "id": "PR048",
-    "name": "Takaaki Morofushi",
+    "name": "諸伏高明",
     "nameJa": "諸伏高明",
     "kana": "もろふしたかあき",
     "type": "Character",
@@ -39721,7 +39721,7 @@
   },
   {
     "id": "PR050",
-    "name": "Vodka",
+    "name": "ウォッカ",
     "nameJa": "ウォッカ",
     "kana": "うぉっか",
     "type": "Character",
@@ -39743,7 +39743,7 @@
   },
   {
     "id": "PR051",
-    "name": "Gin",
+    "name": "ジン",
     "nameJa": "ジン",
     "kana": "じん",
     "type": "Character",
@@ -39765,7 +39765,7 @@
   },
   {
     "id": "PR052",
-    "name": "Conan Edogawa",
+    "name": "江戸川コナン",
     "nameJa": "江戸川コナン",
     "kana": "えどがわこなん",
     "type": "Character",
@@ -39789,7 +39789,7 @@
   },
   {
     "id": "PR053",
-    "name": "Shinichi Kudo",
+    "name": "工藤新一",
     "nameJa": "工藤新一",
     "kana": "くどうしんいち",
     "type": "Character",
@@ -39812,7 +39812,7 @@
   },
   {
     "id": "PR054",
-    "name": "Ai Haibara",
+    "name": "灰原哀",
     "nameJa": "灰原哀",
     "kana": "はいばらあい",
     "type": "Character",
@@ -39835,7 +39835,7 @@
   },
   {
     "id": "PR055",
-    "name": "Vermouth",
+    "name": "ベルモット",
     "nameJa": "ベルモット",
     "kana": "べるもっと",
     "type": "Character",
@@ -39857,7 +39857,7 @@
   },
   {
     "id": "PR056",
-    "name": "Ran Mouri",
+    "name": "毛利蘭",
     "nameJa": "毛利蘭",
     "kana": "もうりらん",
     "type": "Character",
@@ -39881,7 +39881,7 @@
   },
   {
     "id": "PR057",
-    "name": "Ai Haibara",
+    "name": "灰原哀",
     "nameJa": "灰原哀",
     "kana": "はいばらあい",
     "type": "Character",
@@ -39904,7 +39904,7 @@
   },
   {
     "id": "PR058",
-    "name": "Wataru Takagi",
+    "name": "高木渉",
     "nameJa": "高木渉",
     "kana": "たかぎわたる",
     "type": "Character",
@@ -39927,7 +39927,7 @@
   },
   {
     "id": "PR059",
-    "name": "Kogoro Mouri",
+    "name": "毛利小五郎",
     "nameJa": "毛利小五郎",
     "kana": "もうりこごろう",
     "type": "Character",
@@ -39950,7 +39950,7 @@
   },
   {
     "id": "PR060",
-    "name": "Heiji Hattori",
+    "name": "服部平次",
     "nameJa": "服部平次",
     "kana": "はっとりへいじ",
     "type": "Character",
@@ -40016,7 +40016,7 @@
   },
   {
     "id": "PR063",
-    "name": "Kogoro Mouri",
+    "name": "毛利小五郎",
     "nameJa": "毛利小五郎",
     "kana": "もうりこごろう",
     "type": "Character",
@@ -40039,7 +40039,7 @@
   },
   {
     "id": "PR064",
-    "name": "Heiji Hattori",
+    "name": "服部平次",
     "nameJa": "服部平次",
     "kana": "はっとりへいじ",
     "type": "Character",
@@ -40125,7 +40125,7 @@
   },
   {
     "id": "PR068",
-    "name": "Masumi Sera",
+    "name": "世良真純",
     "nameJa": "世良真純",
     "kana": "せらますみ",
     "type": "Character",
@@ -40149,7 +40149,7 @@
   },
   {
     "id": "PR069",
-    "name": "Conan Edogawa",
+    "name": "江戸川コナン",
     "nameJa": "江戸川コナン",
     "kana": "えどがわこなん",
     "type": "Partner",
@@ -40169,7 +40169,7 @@
   },
   {
     "id": "PR070",
-    "name": "Conan Edogawa",
+    "name": "江戸川コナン",
     "nameJa": "江戸川コナン",
     "kana": "えどがわこなん",
     "type": "Partner",
@@ -40189,7 +40189,7 @@
   },
   {
     "id": "PR071",
-    "name": "Conan Edogawa",
+    "name": "江戸川コナン",
     "nameJa": "江戸川コナン",
     "kana": "えどがわこなん",
     "type": "Partner",
@@ -40209,7 +40209,7 @@
   },
   {
     "id": "PR072",
-    "name": "Conan Edogawa",
+    "name": "江戸川コナン",
     "nameJa": "江戸川コナン",
     "kana": "えどがわこなん",
     "type": "Partner",
@@ -40249,7 +40249,7 @@
   },
   {
     "id": "PR074",
-    "name": "Conan Edogawa",
+    "name": "江戸川コナン",
     "nameJa": "江戸川コナン",
     "kana": "えどがわこなん",
     "type": "Partner",
@@ -40269,7 +40269,7 @@
   },
   {
     "id": "PR075",
-    "name": "Heiji Hattori",
+    "name": "服部平次",
     "nameJa": "服部平次",
     "kana": "はっとりへいじ",
     "type": "Partner",
@@ -40289,7 +40289,7 @@
   },
   {
     "id": "PR076",
-    "name": "Kaito Kid",
+    "name": "怪盗キッド",
     "nameJa": "怪盗キッド",
     "kana": "かいとうきっど",
     "type": "Partner",
@@ -40309,7 +40309,7 @@
   },
   {
     "id": "PR077",
-    "name": "Shuichi Akai",
+    "name": "赤井秀一",
     "nameJa": "赤井秀一",
     "kana": "あかいしゅういち",
     "type": "Partner",
@@ -40329,7 +40329,7 @@
   },
   {
     "id": "PR078",
-    "name": "Toru Amuro",
+    "name": "安室透",
     "nameJa": "安室透",
     "kana": "あむろとおる",
     "type": "Partner",
@@ -40349,7 +40349,7 @@
   },
   {
     "id": "PR079",
-    "name": "Gin",
+    "name": "ジン",
     "nameJa": "ジン",
     "kana": "じん",
     "type": "Partner",
@@ -40369,7 +40369,7 @@
   },
   {
     "id": "PR080",
-    "name": "Toru Amuro",
+    "name": "安室透",
     "nameJa": "安室透",
     "kana": "あむろとおる",
     "type": "Character",
@@ -40414,7 +40414,7 @@
   },
   {
     "id": "PR082",
-    "name": "Kazuha Toyama",
+    "name": "遠山和葉",
     "nameJa": "遠山和葉",
     "kana": "とおやまかずは",
     "type": "Character",
@@ -40436,7 +40436,7 @@
   },
   {
     "id": "PR083",
-    "name": "Aoko Nakamori",
+    "name": "中森青子",
     "nameJa": "中森青子",
     "kana": "なかもりあおこ",
     "type": "Character",
@@ -40458,7 +40458,7 @@
   },
   {
     "id": "PR084",
-    "name": "Eri Kisaki",
+    "name": "妃英理",
     "nameJa": "妃英理",
     "kana": "きさきえり",
     "type": "Character",
@@ -40480,7 +40480,7 @@
   },
   {
     "id": "PR085",
-    "name": "Subaru Okiya",
+    "name": "沖矢昴",
     "nameJa": "沖矢昴",
     "kana": "おきやすばる",
     "type": "Character",
@@ -40502,7 +40502,7 @@
   },
   {
     "id": "PR086",
-    "name": "Wataru Date",
+    "name": "伊達航",
     "nameJa": "伊達航",
     "kana": "だてわたる",
     "type": "Character",
@@ -40525,7 +40525,7 @@
   },
   {
     "id": "PR087",
-    "name": "Bourbon",
+    "name": "バーボン",
     "nameJa": "バーボン",
     "kana": "ばーぼん",
     "type": "Character",
@@ -40547,7 +40547,7 @@
   },
   {
     "id": "PR088",
-    "name": "Kazuha Toyama",
+    "name": "遠山和葉",
     "nameJa": "遠山和葉",
     "kana": "とおやまかずは",
     "type": "Character",
@@ -40569,7 +40569,7 @@
   },
   {
     "id": "PR089",
-    "name": "Aoko Nakamori",
+    "name": "中森青子",
     "nameJa": "中森青子",
     "kana": "なかもりあおこ",
     "type": "Character",
@@ -40591,7 +40591,7 @@
   },
   {
     "id": "PR090",
-    "name": "Eri Kisaki",
+    "name": "妃英理",
     "nameJa": "妃英理",
     "kana": "きさきえり",
     "type": "Character",
@@ -40613,7 +40613,7 @@
   },
   {
     "id": "PR091",
-    "name": "Subaru Okiya",
+    "name": "沖矢昴",
     "nameJa": "沖矢昴",
     "kana": "おきやすばる",
     "type": "Character",
@@ -40635,7 +40635,7 @@
   },
   {
     "id": "PR092",
-    "name": "Wataru Date",
+    "name": "伊達航",
     "nameJa": "伊達航",
     "kana": "だてわたる",
     "type": "Character",
@@ -40658,7 +40658,7 @@
   },
   {
     "id": "PR093",
-    "name": "Bourbon",
+    "name": "バーボン",
     "nameJa": "バーボン",
     "kana": "ばーぼん",
     "type": "Character",
@@ -40680,7 +40680,7 @@
   },
   {
     "id": "PR094",
-    "name": "Shuichi Akai",
+    "name": "赤井秀一",
     "nameJa": "赤井秀一",
     "kana": "あかいしゅういち",
     "type": "Character",
@@ -40703,7 +40703,7 @@
   },
   {
     "id": "PR095",
-    "name": "Sonoko Suzuki",
+    "name": "鈴木園子",
     "nameJa": "鈴木園子",
     "kana": "すずきそのこ",
     "type": "Character",
@@ -40726,7 +40726,7 @@
   },
   {
     "id": "PR096",
-    "name": "Toru Amuro",
+    "name": "安室透",
     "nameJa": "安室透",
     "kana": "あむろとおる",
     "type": "Character",
@@ -40749,7 +40749,7 @@
   },
   {
     "id": "PR097",
-    "name": "Ai Haibara",
+    "name": "灰原哀",
     "nameJa": "灰原哀",
     "kana": "はいばらあい",
     "type": "Character",
@@ -40772,7 +40772,7 @@
   },
   {
     "id": "PR098",
-    "name": "Kazuha Toyama",
+    "name": "遠山和葉",
     "nameJa": "遠山和葉",
     "kana": "とおやまかずは",
     "type": "Character",
@@ -40794,7 +40794,7 @@
   },
   {
     "id": "PR099",
-    "name": "Yukiko Kudo",
+    "name": "工藤有希子",
     "nameJa": "工藤有希子",
     "kana": "くどうゆきこ",
     "type": "Character",
@@ -40839,7 +40839,7 @@
   },
   {
     "id": "PR101",
-    "name": "Kenji Hagiwara",
+    "name": "萩原研二",
     "nameJa": "萩原研二",
     "kana": "はぎわらけんじ",
     "type": "Character",
@@ -40862,7 +40862,7 @@
   },
   {
     "id": "PR102",
-    "name": "Ran Mouri",
+    "name": "毛利蘭",
     "nameJa": "毛利蘭",
     "kana": "もうりらん",
     "type": "Character",
@@ -40886,7 +40886,7 @@
   },
   {
     "id": "PR103",
-    "name": "Vodka",
+    "name": "ウォッカ",
     "nameJa": "ウォッカ",
     "kana": "うぉっか",
     "type": "Character",
@@ -40908,7 +40908,7 @@
   },
   {
     "id": "PR104",
-    "name": "Kazuha Toyama",
+    "name": "遠山和葉",
     "nameJa": "遠山和葉",
     "kana": "とおやまかずは",
     "type": "Character",
@@ -40930,7 +40930,7 @@
   },
   {
     "id": "PR105",
-    "name": "Yukiko Kudo",
+    "name": "工藤有希子",
     "nameJa": "工藤有希子",
     "kana": "くどうゆきこ",
     "type": "Character",
@@ -40975,7 +40975,7 @@
   },
   {
     "id": "PR107",
-    "name": "Kenji Hagiwara",
+    "name": "萩原研二",
     "nameJa": "萩原研二",
     "kana": "はぎわらけんじ",
     "type": "Character",
@@ -40998,7 +40998,7 @@
   },
   {
     "id": "PR108",
-    "name": "Ran Mouri",
+    "name": "毛利蘭",
     "nameJa": "毛利蘭",
     "kana": "もうりらん",
     "type": "Character",
@@ -41022,7 +41022,7 @@
   },
   {
     "id": "PR109",
-    "name": "Vodka",
+    "name": "ウォッカ",
     "nameJa": "ウォッカ",
     "kana": "うぉっか",
     "type": "Character",
@@ -41124,7 +41124,7 @@
   },
   {
     "id": "PR114",
-    "name": "Takaaki Morofushi",
+    "name": "諸伏高明",
     "nameJa": "諸伏高明",
     "kana": "もろふしたかあき",
     "type": "Character",
@@ -41167,7 +41167,7 @@
   },
   {
     "id": "PR116",
-    "name": "Yui Uehara",
+    "name": "上原由衣",
     "nameJa": "上原由衣",
     "kana": "うえはらゆい",
     "type": "Character",
@@ -41190,7 +41190,7 @@
   },
   {
     "id": "PR117",
-    "name": "Conan Edogawa",
+    "name": "江戸川コナン",
     "nameJa": "江戸川コナン",
     "kana": "えどがわこなん",
     "type": "Character",
@@ -41214,7 +41214,7 @@
   },
   {
     "id": "PR118",
-    "name": "Conan Edogawa",
+    "name": "江戸川コナン",
     "nameJa": "江戸川コナン",
     "kana": "えどがわこなん",
     "type": "Character",
@@ -41238,7 +41238,7 @@
   },
   {
     "id": "PR119",
-    "name": "Conan Edogawa",
+    "name": "江戸川コナン",
     "nameJa": "江戸川コナン",
     "kana": "えどがわこなん",
     "type": "Partner",
@@ -41258,7 +41258,7 @@
   },
   {
     "id": "PR120",
-    "name": "Shinichi Kudo",
+    "name": "工藤新一",
     "nameJa": "工藤新一",
     "kana": "くどうしんいち",
     "type": "Partner",
@@ -41278,7 +41278,7 @@
   },
   {
     "id": "PR121",
-    "name": "Ran Mouri",
+    "name": "毛利蘭",
     "nameJa": "毛利蘭",
     "kana": "もうりらん",
     "type": "Partner",
@@ -41298,7 +41298,7 @@
   },
   {
     "id": "PR122",
-    "name": "Kogoro Mouri",
+    "name": "毛利小五郎",
     "nameJa": "毛利小五郎",
     "kana": "もうりこごろう",
     "type": "Partner",
@@ -41318,7 +41318,7 @@
   },
   {
     "id": "PR123",
-    "name": "Ai Haibara",
+    "name": "灰原哀",
     "nameJa": "灰原哀",
     "kana": "はいばらあい",
     "type": "Partner",
@@ -41338,7 +41338,7 @@
   },
   {
     "id": "PR124",
-    "name": "Heiji Hattori",
+    "name": "服部平次",
     "nameJa": "服部平次",
     "kana": "はっとりへいじ",
     "type": "Partner",
@@ -41358,7 +41358,7 @@
   },
   {
     "id": "PR125",
-    "name": "Kaito Kid",
+    "name": "怪盗キッド",
     "nameJa": "怪盗キッド",
     "kana": "かいとうきっど",
     "type": "Partner",
@@ -41378,7 +41378,7 @@
   },
   {
     "id": "PR126",
-    "name": "Shuichi Akai",
+    "name": "赤井秀一",
     "nameJa": "赤井秀一",
     "kana": "あかいしゅういち",
     "type": "Partner",
@@ -41398,7 +41398,7 @@
   },
   {
     "id": "PR127",
-    "name": "Toru Amuro",
+    "name": "安室透",
     "nameJa": "安室透",
     "kana": "あむろとおる",
     "type": "Partner",
@@ -41418,7 +41418,7 @@
   },
   {
     "id": "PR128",
-    "name": "Kansuke Yamato",
+    "name": "大和敢助",
     "nameJa": "大和敢助",
     "kana": "やまとかんすけ",
     "type": "Partner",
@@ -41438,7 +41438,7 @@
   },
   {
     "id": "PR129",
-    "name": "Takaaki Morofushi",
+    "name": "諸伏高明",
     "nameJa": "諸伏高明",
     "kana": "もろふしたかあき",
     "type": "Partner",
@@ -41458,7 +41458,7 @@
   },
   {
     "id": "PR130",
-    "name": "Yui Uehara",
+    "name": "上原由衣",
     "nameJa": "上原由衣",
     "kana": "うえはらゆい",
     "type": "Partner",
@@ -41478,7 +41478,7 @@
   },
   {
     "id": "PR131",
-    "name": "Conan Edogawa",
+    "name": "江戸川コナン",
     "nameJa": "江戸川コナン",
     "kana": "えどがわこなん",
     "type": "Character",
@@ -41502,7 +41502,7 @@
   },
   {
     "id": "PR132",
-    "name": "Hiromitsu Morofushi",
+    "name": "諸伏景光",
     "nameJa": "諸伏景光",
     "kana": "もろふしひろみつ",
     "type": "Character",
@@ -41526,7 +41526,7 @@
   },
   {
     "id": "PR133",
-    "name": "Kansuke Yamato",
+    "name": "大和敢助",
     "nameJa": "大和敢助",
     "kana": "やまとかんすけ",
     "type": "Character",
@@ -41549,7 +41549,7 @@
   },
   {
     "id": "PR134",
-    "name": "Vermouth",
+    "name": "ベルモット",
     "nameJa": "ベルモット",
     "kana": "べるもっと",
     "type": "Character",
@@ -41571,7 +41571,7 @@
   },
   {
     "id": "PR135",
-    "name": "Ai Haibara",
+    "name": "灰原哀",
     "nameJa": "灰原哀",
     "kana": "はいばらあい",
     "type": "Character",
@@ -41616,7 +41616,7 @@
   },
   {
     "id": "PR137",
-    "name": "Yusaku Kudo",
+    "name": "工藤優作",
     "nameJa": "工藤優作",
     "kana": "くどうゆうさく",
     "type": "Character",
@@ -41660,7 +41660,7 @@
   },
   {
     "id": "PR139",
-    "name": "Wataru Takagi",
+    "name": "高木渉",
     "nameJa": "高木渉",
     "kana": "たかぎわたる",
     "type": "Character",
@@ -41683,7 +41683,7 @@
   },
   {
     "id": "PR140",
-    "name": "Masumi Sera",
+    "name": "世良真純",
     "nameJa": "世良真純",
     "kana": "せらますみ",
     "type": "Character",
@@ -41707,7 +41707,7 @@
   },
   {
     "id": "PR141",
-    "name": "Ai Haibara",
+    "name": "灰原哀",
     "nameJa": "灰原哀",
     "kana": "はいばらあい",
     "type": "Character",
@@ -41752,7 +41752,7 @@
   },
   {
     "id": "PR143",
-    "name": "Yusaku Kudo",
+    "name": "工藤優作",
     "nameJa": "工藤優作",
     "kana": "くどうゆうさく",
     "type": "Character",
@@ -41796,7 +41796,7 @@
   },
   {
     "id": "PR145",
-    "name": "Wataru Takagi",
+    "name": "高木渉",
     "nameJa": "高木渉",
     "kana": "たかぎわたる",
     "type": "Character",
@@ -41819,7 +41819,7 @@
   },
   {
     "id": "PR146",
-    "name": "Masumi Sera",
+    "name": "世良真純",
     "nameJa": "世良真純",
     "kana": "せらますみ",
     "type": "Character",
@@ -41843,7 +41843,7 @@
   },
   {
     "id": "PR147",
-    "name": "Shinichi Kudo",
+    "name": "工藤新一",
     "nameJa": "工藤新一",
     "kana": "くどうしんいち",
     "type": "Character",
@@ -41866,7 +41866,7 @@
   },
   {
     "id": "PR148",
-    "name": "Heiji Hattori",
+    "name": "服部平次",
     "nameJa": "服部平次",
     "kana": "はっとりへいじ",
     "type": "Character",
@@ -41889,7 +41889,7 @@
   },
   {
     "id": "PR149",
-    "name": "Kaito Kid",
+    "name": "怪盗キッド",
     "nameJa": "怪盗キッド",
     "kana": "かいとうきっど",
     "type": "Character",
@@ -41911,7 +41911,7 @@
   },
   {
     "id": "PR150",
-    "name": "Shuichi Akai",
+    "name": "赤井秀一",
     "nameJa": "赤井秀一",
     "kana": "あかいしゅういち",
     "type": "Character",
@@ -41934,7 +41934,7 @@
   },
   {
     "id": "PR151",
-    "name": "Rei Furuya",
+    "name": "降谷零",
     "nameJa": "降谷零",
     "kana": "ふるやれい",
     "type": "Character",
@@ -41957,7 +41957,7 @@
   },
   {
     "id": "PR152",
-    "name": "Gin",
+    "name": "ジン",
     "nameJa": "ジン",
     "kana": "じん",
     "type": "Character",
@@ -42002,7 +42002,7 @@
   },
   {
     "id": "PR154",
-    "name": "Heiji Hattori",
+    "name": "服部平次",
     "nameJa": "服部平次",
     "kana": "はっとりへいじ",
     "type": "Character",
@@ -42025,7 +42025,7 @@
   },
   {
     "id": "PR155",
-    "name": "Hiroshi Agasa",
+    "name": "阿笠博士",
     "nameJa": "阿笠博士",
     "kana": "あがさひろし",
     "type": "Character",
@@ -42067,7 +42067,7 @@
   },
   {
     "id": "PR157",
-    "name": "Toru Amuro",
+    "name": "安室透",
     "nameJa": "安室透",
     "kana": "あむろとおる",
     "type": "Character",
@@ -42134,7 +42134,7 @@
   },
   {
     "id": "PR160",
-    "name": "Sonoko Suzuki",
+    "name": "鈴木園子",
     "nameJa": "鈴木園子",
     "kana": "すずきそのこ",
     "type": "Character",
@@ -42157,7 +42157,7 @@
   },
   {
     "id": "PR161",
-    "name": "Hiroshi Agasa",
+    "name": "阿笠博士",
     "nameJa": "阿笠博士",
     "kana": "あがさひろし",
     "type": "Character",
@@ -42199,7 +42199,7 @@
   },
   {
     "id": "PR163",
-    "name": "Toru Amuro",
+    "name": "安室透",
     "nameJa": "安室透",
     "kana": "あむろとおる",
     "type": "Character",
@@ -42266,7 +42266,7 @@
   },
   {
     "id": "PR166",
-    "name": "Sonoko Suzuki",
+    "name": "鈴木園子",
     "nameJa": "鈴木園子",
     "kana": "すずきそのこ",
     "type": "Character",
@@ -42289,7 +42289,7 @@
   },
   {
     "id": "PR167",
-    "name": "Kaito Kid",
+    "name": "怪盗キッド",
     "nameJa": "怪盗キッド",
     "kana": "かいとうきっど",
     "type": "Character",
@@ -42311,7 +42311,7 @@
   },
   {
     "id": "PR168",
-    "name": "Kazuha Toyama",
+    "name": "遠山和葉",
     "nameJa": "遠山和葉",
     "kana": "とおやまかずは",
     "type": "Character",
@@ -42333,7 +42333,7 @@
   },
   {
     "id": "PR169",
-    "name": "Heiji Hattori",
+    "name": "服部平次",
     "nameJa": "服部平次",
     "kana": "はっとりへいじ",
     "type": "Character",
@@ -42376,7 +42376,7 @@
   },
   {
     "id": "PR171",
-    "name": "Kogoro Mouri",
+    "name": "毛利小五郎",
     "nameJa": "毛利小五郎",
     "kana": "もうりこごろう",
     "type": "Character",
@@ -42399,7 +42399,7 @@
   },
   {
     "id": "PR172",
-    "name": "Takaaki Morofushi",
+    "name": "諸伏高明",
     "nameJa": "諸伏高明",
     "kana": "もろふしたかあき",
     "type": "Character",
@@ -42422,7 +42422,7 @@
   },
   {
     "id": "PR173",
-    "name": "Ran Mouri",
+    "name": "毛利蘭",
     "nameJa": "毛利蘭",
     "kana": "もうりらん",
     "type": "Character",
@@ -42446,7 +42446,7 @@
   },
   {
     "id": "PR174",
-    "name": "Kogoro Mouri",
+    "name": "毛利小五郎",
     "nameJa": "毛利小五郎",
     "kana": "もうりこごろう",
     "type": "Character",
@@ -42469,7 +42469,7 @@
   },
   {
     "id": "PR175",
-    "name": "Shinichi Kudo",
+    "name": "工藤新一",
     "nameJa": "工藤新一",
     "kana": "くどうしんいち",
     "type": "Character",
@@ -42512,7 +42512,7 @@
   },
   {
     "id": "PR177",
-    "name": "Yui Uehara",
+    "name": "上原由衣",
     "nameJa": "上原由衣",
     "kana": "うえはらゆい",
     "type": "Character",
@@ -42578,7 +42578,7 @@
   },
   {
     "id": "PR180",
-    "name": "Andre Camel",
+    "name": "アンドレ・キャメル",
     "nameJa": "アンドレ・キャメル",
     "kana": "あんどれきゃめる",
     "type": "Character",
@@ -42600,7 +42600,7 @@
   },
   {
     "id": "PR181",
-    "name": "Juzo Megure",
+    "name": "目暮十三",
     "nameJa": "目暮十三",
     "kana": "めぐれじゅうぞう",
     "type": "Character",
@@ -42623,7 +42623,7 @@
   },
   {
     "id": "PR182",
-    "name": "Ai Haibara",
+    "name": "灰原哀",
     "nameJa": "灰原哀",
     "kana": "はいばらあい",
     "type": "Character",
@@ -42646,7 +42646,7 @@
   },
   {
     "id": "PR183",
-    "name": "Yui Uehara",
+    "name": "上原由衣",
     "nameJa": "上原由衣",
     "kana": "うえはらゆい",
     "type": "Character",
@@ -42712,7 +42712,7 @@
   },
   {
     "id": "PR186",
-    "name": "Andre Camel",
+    "name": "アンドレ・キャメル",
     "nameJa": "アンドレ・キャメル",
     "kana": "あんどれきゃめる",
     "type": "Character",
@@ -42734,7 +42734,7 @@
   },
   {
     "id": "PR187",
-    "name": "Juzo Megure",
+    "name": "目暮十三",
     "nameJa": "目暮十三",
     "kana": "めぐれじゅうぞう",
     "type": "Character",
@@ -42757,7 +42757,7 @@
   },
   {
     "id": "PR188",
-    "name": "Ai Haibara",
+    "name": "灰原哀",
     "nameJa": "灰原哀",
     "kana": "はいばらあい",
     "type": "Character",
@@ -42780,7 +42780,7 @@
   },
   {
     "id": "PR189",
-    "name": "Yui Uehara",
+    "name": "上原由衣",
     "nameJa": "上原由衣",
     "kana": "うえはらゆい",
     "type": "Character",
@@ -42803,7 +42803,7 @@
   },
   {
     "id": "PR190",
-    "name": "Ran Mouri",
+    "name": "毛利蘭",
     "nameJa": "毛利蘭",
     "kana": "もうりらん",
     "type": "Partner",
@@ -42843,7 +42843,7 @@
   },
   {
     "id": "PR192",
-    "name": "Chianti",
+    "name": "キャンティ",
     "nameJa": "キャンティ",
     "kana": "きゃんてぃ",
     "type": "Character",
@@ -42865,7 +42865,7 @@
   },
   {
     "id": "PR193",
-    "name": "Kansuke Yamato",
+    "name": "大和敢助",
     "nameJa": "大和敢助",
     "kana": "やまとかんすけ",
     "type": "Character",
@@ -42888,7 +42888,7 @@
   },
   {
     "id": "PR194",
-    "name": "Ai Haibara",
+    "name": "灰原哀",
     "nameJa": "灰原哀",
     "kana": "はいばらあい",
     "type": "Character",
@@ -42955,7 +42955,7 @@
   },
   {
     "id": "PR197",
-    "name": "Kaito Kid",
+    "name": "怪盗キッド",
     "nameJa": "怪盗キッド",
     "kana": "かいとうきっど",
     "type": "Character",
@@ -42977,7 +42977,7 @@
   },
   {
     "id": "PR198",
-    "name": "Takaaki Morofushi",
+    "name": "諸伏高明",
     "nameJa": "諸伏高明",
     "kana": "もろふしたかあき",
     "type": "Character",
@@ -43000,7 +43000,7 @@
   },
   {
     "id": "PR199",
-    "name": "Conan Edogawa",
+    "name": "江戸川コナン",
     "nameJa": "江戸川コナン",
     "kana": "えどがわこなん",
     "type": "Character",
@@ -43069,7 +43069,7 @@
   },
   {
     "id": "PR202",
-    "name": "Kir",
+    "name": "キール",
     "nameJa": "キール",
     "kana": "きーる",
     "type": "Character",
@@ -43091,7 +43091,7 @@
   },
   {
     "id": "PR203",
-    "name": "Vermouth",
+    "name": "ベルモット",
     "nameJa": "ベルモット",
     "kana": "べるもっと",
     "type": "Character",
@@ -43136,7 +43136,7 @@
   },
   {
     "id": "PR205",
-    "name": "Conan Edogawa",
+    "name": "江戸川コナン",
     "nameJa": "江戸川コナン",
     "kana": "えどがわこなん",
     "type": "Character",
@@ -43205,7 +43205,7 @@
   },
   {
     "id": "PR208",
-    "name": "Kir",
+    "name": "キール",
     "nameJa": "キール",
     "kana": "きーる",
     "type": "Character",
@@ -43227,7 +43227,7 @@
   },
   {
     "id": "PR209",
-    "name": "Vermouth",
+    "name": "ベルモット",
     "nameJa": "ベルモット",
     "kana": "べるもっと",
     "type": "Character",
@@ -43292,7 +43292,7 @@
   },
   {
     "id": "PR212",
-    "name": "Shinichi Kudo",
+    "name": "工藤新一",
     "nameJa": "工藤新一",
     "kana": "くどうしんいち",
     "type": "Character",
@@ -43315,7 +43315,7 @@
   },
   {
     "id": "PR213",
-    "name": "Hiromitsu Morofushi",
+    "name": "諸伏景光",
     "nameJa": "諸伏景光",
     "kana": "もろふしひろみつ",
     "type": "Character",
@@ -43339,7 +43339,7 @@
   },
   {
     "id": "PR214",
-    "name": "Conan Edogawa",
+    "name": "江戸川コナン",
     "nameJa": "江戸川コナン",
     "kana": "えどがわこなん",
     "type": "Partner",
@@ -43359,7 +43359,7 @@
   },
   {
     "id": "PR215",
-    "name": "Conan Edogawa",
+    "name": "江戸川コナン",
     "nameJa": "江戸川コナン",
     "kana": "えどがわこなん",
     "type": "Partner",
@@ -43379,7 +43379,7 @@
   },
   {
     "id": "PR216",
-    "name": "Conan Edogawa",
+    "name": "江戸川コナン",
     "nameJa": "江戸川コナン",
     "kana": "えどがわこなん",
     "type": "Partner",
@@ -43399,7 +43399,7 @@
   },
   {
     "id": "PR217",
-    "name": "Conan Edogawa",
+    "name": "江戸川コナン",
     "nameJa": "江戸川コナン",
     "kana": "えどがわこなん",
     "type": "Partner",
@@ -43439,7 +43439,7 @@
   },
   {
     "id": "PR219",
-    "name": "Ran Mouri",
+    "name": "毛利蘭",
     "nameJa": "毛利蘭",
     "kana": "もうりらん",
     "type": "Partner",
@@ -43459,7 +43459,7 @@
   },
   {
     "id": "PR220",
-    "name": "Kazuha Toyama",
+    "name": "遠山和葉",
     "nameJa": "遠山和葉",
     "kana": "とおやまかずは",
     "type": "Partner",
@@ -43479,7 +43479,7 @@
   },
   {
     "id": "PR221",
-    "name": "Sonoko Suzuki",
+    "name": "鈴木園子",
     "nameJa": "鈴木園子",
     "kana": "すずきそのこ",
     "type": "Partner",
@@ -43499,7 +43499,7 @@
   },
   {
     "id": "PR222",
-    "name": "Masumi Sera",
+    "name": "世良真純",
     "nameJa": "世良真純",
     "kana": "せらますみ",
     "type": "Partner",
@@ -43519,7 +43519,7 @@
   },
   {
     "id": "PR223",
-    "name": "Miwako Sato",
+    "name": "佐藤美和子",
     "nameJa": "佐藤美和子",
     "kana": "さとうみわこ",
     "type": "Partner",
@@ -43539,7 +43539,7 @@
   },
   {
     "id": "PR224",
-    "name": "Vermouth",
+    "name": "ベルモット",
     "nameJa": "ベルモット",
     "kana": "べるもっと",
     "type": "Partner",
@@ -43559,7 +43559,7 @@
   },
   {
     "id": "PR225",
-    "name": "Conan Edogawa",
+    "name": "江戸川コナン",
     "nameJa": "江戸川コナン",
     "kana": "えどがわこなん",
     "type": "Partner",
@@ -43579,7 +43579,7 @@
   },
   {
     "id": "PR226",
-    "name": "Heiji Hattori",
+    "name": "服部平次",
     "nameJa": "服部平次",
     "kana": "はっとりへいじ",
     "type": "Partner",
@@ -43599,7 +43599,7 @@
   },
   {
     "id": "PR227",
-    "name": "Kaito Kid",
+    "name": "怪盗キッド",
     "nameJa": "怪盗キッド",
     "kana": "かいとうきっど",
     "type": "Partner",
@@ -43619,7 +43619,7 @@
   },
   {
     "id": "PR228",
-    "name": "Shuichi Akai",
+    "name": "赤井秀一",
     "nameJa": "赤井秀一",
     "kana": "あかいしゅういち",
     "type": "Partner",
@@ -43639,7 +43639,7 @@
   },
   {
     "id": "PR229",
-    "name": "Toru Amuro",
+    "name": "安室透",
     "nameJa": "安室透",
     "kana": "あむろとおる",
     "type": "Partner",
@@ -43659,7 +43659,7 @@
   },
   {
     "id": "PR230",
-    "name": "Gin",
+    "name": "ジン",
     "nameJa": "ジン",
     "kana": "じん",
     "type": "Character",
@@ -43704,7 +43704,7 @@
   },
   {
     "id": "PR232",
-    "name": "Aoko Nakamori",
+    "name": "中森青子",
     "nameJa": "中森青子",
     "kana": "なかもりあおこ",
     "type": "Character",
@@ -43726,7 +43726,7 @@
   },
   {
     "id": "PR233",
-    "name": "Shuichi Akai",
+    "name": "赤井秀一",
     "nameJa": "赤井秀一",
     "kana": "あかいしゅういち",
     "type": "Character",
@@ -43749,7 +43749,7 @@
   },
   {
     "id": "PR234",
-    "name": "Ran Mouri",
+    "name": "毛利蘭",
     "nameJa": "毛利蘭",
     "kana": "もうりらん",
     "type": "Character",
@@ -43795,7 +43795,7 @@
   },
   {
     "id": "PR236",
-    "name": "Kansuke Yamato",
+    "name": "大和敢助",
     "nameJa": "大和敢助",
     "kana": "やまとかんすけ",
     "type": "Character",
@@ -43840,7 +43840,7 @@
   },
   {
     "id": "PR238",
-    "name": "Kazuha Toyama",
+    "name": "遠山和葉",
     "nameJa": "遠山和葉",
     "kana": "とおやまかずは",
     "type": "Character",
@@ -43862,7 +43862,7 @@
   },
   {
     "id": "PR239",
-    "name": "Heiji Hattori",
+    "name": "服部平次",
     "nameJa": "服部平次",
     "kana": "はっとりへいじ",
     "type": "Character",
@@ -43885,7 +43885,7 @@
   },
   {
     "id": "PR240",
-    "name": "Ran Mouri",
+    "name": "毛利蘭",
     "nameJa": "毛利蘭",
     "kana": "もうりらん",
     "type": "Character",
@@ -43931,7 +43931,7 @@
   },
   {
     "id": "PR242",
-    "name": "Kansuke Yamato",
+    "name": "大和敢助",
     "nameJa": "大和敢助",
     "kana": "やまとかんすけ",
     "type": "Character",
@@ -43976,7 +43976,7 @@
   },
   {
     "id": "PR244",
-    "name": "Kazuha Toyama",
+    "name": "遠山和葉",
     "nameJa": "遠山和葉",
     "kana": "とおやまかずは",
     "type": "Character",
@@ -43998,7 +43998,7 @@
   },
   {
     "id": "PR245",
-    "name": "Heiji Hattori",
+    "name": "服部平次",
     "nameJa": "服部平次",
     "kana": "はっとりへいじ",
     "type": "Character",
@@ -44021,7 +44021,7 @@
   },
   {
     "id": "PR246",
-    "name": "Ai Haibara",
+    "name": "灰原哀",
     "nameJa": "灰原哀",
     "kana": "はいばらあい",
     "type": "Character",
@@ -44086,7 +44086,7 @@
   },
   {
     "id": "PR249",
-    "name": "Kazuha Toyama",
+    "name": "遠山和葉",
     "nameJa": "遠山和葉",
     "kana": "とおやまかずは",
     "type": "Partner",
@@ -44106,7 +44106,7 @@
   },
   {
     "id": "PR250",
-    "name": "Sonoko Suzuki",
+    "name": "鈴木園子",
     "nameJa": "鈴木園子",
     "kana": "すずきそのこ",
     "type": "Partner",
@@ -44126,7 +44126,7 @@
   },
   {
     "id": "PR251",
-    "name": "Masumi Sera",
+    "name": "世良真純",
     "nameJa": "世良真純",
     "kana": "せらますみ",
     "type": "Partner",
@@ -44186,7 +44186,7 @@
   },
   {
     "id": "PR254",
-    "name": "Jinpei Matsuda",
+    "name": "松田陣平",
     "nameJa": "松田陣平",
     "kana": "まつだじんぺい",
     "type": "Partner",
@@ -44206,7 +44206,7 @@
   },
   {
     "id": "PR255",
-    "name": "Kenji Hagiwara",
+    "name": "萩原研二",
     "nameJa": "萩原研二",
     "kana": "はぎわらけんじ",
     "type": "Partner",
@@ -44226,7 +44226,7 @@
   },
   {
     "id": "PR256",
-    "name": "Gin",
+    "name": "ジン",
     "nameJa": "ジン",
     "kana": "じん",
     "type": "Partner",
@@ -44246,7 +44246,7 @@
   },
   {
     "id": "PR257",
-    "name": "Vermouth",
+    "name": "ベルモット",
     "nameJa": "ベルモット",
     "kana": "べるもっと",
     "type": "Partner",
@@ -44369,7 +44369,7 @@
   },
   {
     "id": "PR263",
-    "name": "Kaito Kid",
+    "name": "怪盗キッド",
     "nameJa": "怪盗キッド",
     "kana": "かいとうきっど",
     "type": "Character",
@@ -44435,7 +44435,7 @@
   },
   {
     "id": "PR266",
-    "name": "Kogoro Mouri",
+    "name": "毛利小五郎",
     "nameJa": "毛利小五郎",
     "kana": "もうりこごろう",
     "type": "Character",
@@ -44458,7 +44458,7 @@
   },
   {
     "id": "PR267",
-    "name": "Takaaki Morofushi",
+    "name": "諸伏高明",
     "nameJa": "諸伏高明",
     "kana": "もろふしたかあき",
     "type": "Character",
@@ -44504,7 +44504,7 @@
   },
   {
     "id": "PR269",
-    "name": "Kaito Kid",
+    "name": "怪盗キッド",
     "nameJa": "怪盗キッド",
     "kana": "かいとうきっど",
     "type": "Character",
@@ -44570,7 +44570,7 @@
   },
   {
     "id": "PR272",
-    "name": "Kogoro Mouri",
+    "name": "毛利小五郎",
     "nameJa": "毛利小五郎",
     "kana": "もうりこごろう",
     "type": "Character",
@@ -44593,7 +44593,7 @@
   },
   {
     "id": "PR273",
-    "name": "Takaaki Morofushi",
+    "name": "諸伏高明",
     "nameJa": "諸伏高明",
     "kana": "もろふしたかあき",
     "type": "Character",
