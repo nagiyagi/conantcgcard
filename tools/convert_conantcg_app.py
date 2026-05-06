@@ -90,8 +90,11 @@ def convert_card(src):
     name_ja = (src.get("name") or "").strip()
 
     return {
-        "id":          src.get("card_id") or src.get("card_num"),
-        "cardNum":     src.get("card_num"),
+        # `id` is the printed card number (unique per printing — parallels/foils
+        # get their own entry). `cardId` is the source's logical identifier and
+        # is shared across reprints of the same card.
+        "id":          src.get("card_num") or src.get("card_id"),
+        "cardId":      src.get("card_id"),
         "name":        name_ja,
         "nameJa":      name_ja,
         "kana":        src.get("kana"),
@@ -169,7 +172,6 @@ def main():
     print(f"Found {len(records)} card record(s) in {args.input}")
 
     converted = []
-    seen_ids = set()
     skipped = 0
     for src in records:
         if not isinstance(src, dict):
@@ -179,9 +181,6 @@ def main():
         if not card["id"]:
             skipped += 1
             continue
-        if card["id"] in seen_ids:
-            continue
-        seen_ids.add(card["id"])
         converted.append(card)
 
     # Sort by set, then by id within set.
