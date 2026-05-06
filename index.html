@@ -1,0 +1,1822 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0d1117">
+<meta name="description" content="Detective Conan TCG card tracker - manage your collection and build decks">
+<title>Case File · Conan TCG Tracker</title>
+<link rel="manifest" href="manifest.json">
+<link rel="icon" type="image/svg+xml" href="icons/icon.svg">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+
+<style>
+/* ===== Theme: Case File / Detective Noir ===== */
+:root {
+  --bg: #0d1117;
+  --bg-soft: #161b22;
+  --bg-card: #1c2128;
+  --bg-elev: #21262d;
+  --border: #30363d;
+  --border-soft: #21262d;
+  --ink: #e6edf3;
+  --ink-soft: #8b949e;
+  --ink-faint: #6e7681;
+  --accent: #c93030;
+  --accent-soft: #8b1d1d;
+  --accent-glow: rgba(201, 48, 48, 0.18);
+  --paper: #f4ecd8;
+  --gold: #d4a857;
+  --shadow: 0 12px 28px rgba(0,0,0,0.5);
+
+  /* Color tokens for card colors */
+  --c-blue: #4493f8;
+  --c-green: #3fb950;
+  --c-white: #f0f6fc;
+  --c-red: #f85149;
+  --c-yellow: #e3b341;
+  --c-black: #58606a;
+
+  --font-display: "Playfair Display", Georgia, "Times New Roman", serif;
+  --font-body: "Inter", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", "SF Mono", Consolas, monospace;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;800;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.5;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  overscroll-behavior-y: none;
+}
+
+body::before {
+  /* Subtle noise overlay for paper feel */
+  content: "";
+  position: fixed; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.04 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.6;
+}
+
+button { font: inherit; color: inherit; background: none; border: none; cursor: pointer; }
+input, select, textarea { font: inherit; color: inherit; }
+
+/* ===== Layout ===== */
+.app {
+  position: relative;
+  z-index: 2;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 16px 80px;
+}
+
+/* ===== Header ===== */
+.header {
+  padding: 24px 0 18px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 20px;
+  position: relative;
+}
+.header h1 {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(24px, 4vw, 36px);
+  letter-spacing: -0.02em;
+  line-height: 1;
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.header h1 .stamp {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  border: 1.5px solid var(--accent);
+  padding: 4px 10px;
+  transform: rotate(-2deg);
+  border-radius: 2px;
+}
+.header .sub {
+  margin-top: 6px;
+  font-size: 13px;
+  color: var(--ink-soft);
+  font-family: var(--font-mono);
+  letter-spacing: 0.05em;
+}
+
+/* ===== Tabs ===== */
+.tabs {
+  display: flex;
+  gap: 0;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 22px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.tabs::-webkit-scrollbar { display: none; }
+.tab {
+  padding: 12px 22px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  border-bottom: 2px solid transparent;
+  white-space: nowrap;
+  transition: color 0.15s, border-color 0.15s;
+}
+.tab:hover { color: var(--ink); }
+.tab.active { color: var(--ink); border-bottom-color: var(--accent); }
+.tab .badge {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 1px 7px;
+  font-size: 10px;
+  background: var(--bg-elev);
+  color: var(--ink-soft);
+  border-radius: 10px;
+  letter-spacing: 0.05em;
+}
+
+/* ===== Toolbar (search + filters) ===== */
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 18px;
+  align-items: stretch;
+}
+.search-box {
+  flex: 1 1 240px;
+  position: relative;
+  min-width: 200px;
+}
+.search-box input {
+  width: 100%;
+  padding: 10px 14px 10px 38px;
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  color: var(--ink);
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.search-box input:focus {
+  border-color: var(--accent-soft);
+  box-shadow: 0 0 0 3px var(--accent-glow);
+}
+.search-box::before {
+  content: "⌕";
+  position: absolute;
+  left: 14px; top: 50%;
+  transform: translateY(-50%);
+  color: var(--ink-faint);
+  font-size: 18px;
+  pointer-events: none;
+}
+
+.btn {
+  padding: 10px 16px;
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink);
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+.btn:hover { border-color: var(--ink-faint); background: var(--bg-elev); }
+.btn.primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: white;
+}
+.btn.primary:hover { background: var(--accent-soft); border-color: var(--accent-soft); }
+.btn.ghost { background: transparent; }
+.btn.danger { color: var(--accent); border-color: var(--accent-soft); }
+.btn.danger:hover { background: var(--accent); color: white; }
+.btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+select.btn {
+  padding-right: 32px;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath fill='%238b949e' d='M5 6 0 0h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+}
+
+/* ===== Filter chips ===== */
+.filter-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 18px;
+  padding: 12px 14px;
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+}
+.filter-group {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.filter-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-right: 4px;
+}
+.chip {
+  padding: 4px 10px;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--ink-soft);
+  transition: all 0.15s;
+  font-family: var(--font-mono);
+  letter-spacing: 0.04em;
+}
+.chip:hover { color: var(--ink); border-color: var(--ink-faint); }
+.chip.active {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--bg);
+}
+.chip.color-blue.active { background: var(--c-blue); border-color: var(--c-blue); }
+.chip.color-green.active { background: var(--c-green); border-color: var(--c-green); color: var(--bg); }
+.chip.color-white.active { background: var(--c-white); border-color: var(--c-white); color: var(--bg); }
+.chip.color-red.active { background: var(--c-red); border-color: var(--c-red); }
+.chip.color-yellow.active { background: var(--c-yellow); border-color: var(--c-yellow); color: var(--bg); }
+.chip.color-black.active { background: var(--c-black); border-color: var(--ink-faint); color: var(--ink); }
+
+/* ===== Card grid ===== */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 14px;
+}
+@media (min-width: 768px) {
+  .card-grid { grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); }
+}
+
+.card {
+  position: relative;
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.18s, border-color 0.18s, box-shadow 0.18s;
+}
+.card:hover {
+  transform: translateY(-3px);
+  border-color: var(--ink-faint);
+  box-shadow: var(--shadow);
+}
+.card-img-wrap {
+  aspect-ratio: 5 / 7;
+  background: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+.card-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.card-img-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink-faint);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-align: center;
+  padding: 12px;
+}
+.card-img-placeholder .id-text {
+  font-size: 14px;
+  color: var(--ink-soft);
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+.card-info {
+  padding: 8px 10px 10px;
+  border-top: 1px solid var(--border-soft);
+}
+.card-info .name {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ink);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 4px;
+}
+.card-info .meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--ink-faint);
+  letter-spacing: 0.05em;
+}
+.color-dot {
+  display: inline-block;
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--ink-faint);
+  flex-shrink: 0;
+}
+.color-dot.blue { background: var(--c-blue); }
+.color-dot.green { background: var(--c-green); }
+.color-dot.white { background: var(--c-white); }
+.color-dot.red { background: var(--c-red); }
+.color-dot.yellow { background: var(--c-yellow); }
+.color-dot.black { background: var(--c-black); border: 1px solid var(--ink-faint); }
+
+.card-qty-badge {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  background: var(--accent);
+  color: white;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 999px;
+  z-index: 2;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+
+/* ===== Modal (card detail) ===== */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.75);
+  backdrop-filter: blur(4px);
+  z-index: 100;
+  display: none;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 20px;
+  overflow-y: auto;
+}
+.modal-backdrop.open { display: flex; }
+.modal {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  max-width: 720px;
+  width: 100%;
+  margin: 20px auto;
+  position: relative;
+  animation: modalIn 0.25s ease;
+}
+@keyframes modalIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.modal .close {
+  position: absolute;
+  top: 12px; right: 12px;
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: var(--bg-elev);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  color: var(--ink-soft);
+  z-index: 2;
+}
+.modal .close:hover { color: var(--ink); background: var(--bg-soft); }
+.modal-body {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+}
+@media (min-width: 640px) {
+  .modal-body { grid-template-columns: 280px 1fr; }
+}
+.modal-img {
+  background: var(--bg);
+  aspect-ratio: 5 / 7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px 8px 0 0;
+  overflow: hidden;
+}
+@media (min-width: 640px) {
+  .modal-img { border-radius: 8px 0 0 8px; aspect-ratio: 5/7; height: auto; }
+}
+.modal-img img { width: 100%; height: 100%; object-fit: cover; }
+.modal-detail { padding: 24px; }
+.modal-detail h2 {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 4px;
+  line-height: 1.2;
+}
+.modal-detail .card-id {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--ink-faint);
+  letter-spacing: 0.1em;
+  margin-bottom: 18px;
+}
+.attr-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px 16px;
+  margin-bottom: 18px;
+  padding: 14px;
+  background: var(--bg-soft);
+  border-radius: 4px;
+  border: 1px solid var(--border-soft);
+}
+.attr {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.attr-label {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+.attr-value {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink);
+}
+.modal-detail .effect {
+  padding: 14px;
+  background: var(--bg-soft);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 4px 4px 0;
+  font-size: 13px;
+  line-height: 1.6;
+  margin-bottom: 18px;
+  white-space: pre-wrap;
+}
+.modal-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* ===== Empty / loading states ===== */
+.empty {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--ink-soft);
+}
+.empty .icon { font-size: 40px; margin-bottom: 12px; opacity: 0.4; }
+.empty h3 {
+  font-family: var(--font-display);
+  font-size: 22px;
+  margin-bottom: 8px;
+  color: var(--ink);
+}
+.empty p { font-size: 14px; margin-bottom: 18px; }
+
+/* ===== Collections / Decks list ===== */
+.list-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 14px;
+}
+.list-item {
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 18px;
+  cursor: pointer;
+  transition: border-color 0.15s, transform 0.15s;
+}
+.list-item:hover {
+  border-color: var(--ink-faint);
+  transform: translateY(-2px);
+}
+.list-item h3 {
+  font-family: var(--font-display);
+  font-size: 18px;
+  margin-bottom: 6px;
+  font-weight: 700;
+}
+.list-item .meta {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--ink-faint);
+  letter-spacing: 0.05em;
+}
+.list-item .stats {
+  display: flex;
+  gap: 14px;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border-soft);
+  font-family: var(--font-mono);
+  font-size: 11px;
+}
+.list-item .stat-num {
+  color: var(--ink);
+  font-weight: 600;
+  font-size: 13px;
+}
+.list-item .stat-lbl {
+  color: var(--ink-faint);
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* ===== Quantity controls in detail view ===== */
+.qty-control {
+  display: inline-flex;
+  align-items: center;
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.qty-control button {
+  width: 32px; height: 32px;
+  font-size: 16px;
+  color: var(--ink-soft);
+  transition: background 0.15s, color 0.15s;
+}
+.qty-control button:hover { background: var(--bg-soft); color: var(--ink); }
+.qty-control .val {
+  min-width: 36px;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 13px;
+}
+
+/* ===== Toast notifications ===== */
+.toast-stack {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 200;
+  pointer-events: none;
+}
+.toast {
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: 4px;
+  padding: 12px 18px;
+  font-size: 13px;
+  box-shadow: var(--shadow);
+  animation: toastIn 0.25s ease;
+  pointer-events: auto;
+  font-family: var(--font-mono);
+  letter-spacing: 0.02em;
+}
+@keyframes toastIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== Detail view header (deck/collection) ===== */
+.detail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border);
+}
+.detail-header h2 {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 800;
+  line-height: 1.1;
+}
+.detail-header .meta {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--ink-faint);
+  letter-spacing: 0.08em;
+  margin-top: 4px;
+}
+.detail-header .actions { display: flex; gap: 8px; flex-wrap: wrap; }
+
+/* ===== Stats panel ===== */
+.stats-panel {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.stat-card {
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 12px 14px;
+}
+.stat-card .label {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: 4px;
+}
+.stat-card .value {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--ink);
+}
+.stat-card .breakdown {
+  display: flex;
+  gap: 4px;
+  margin-top: 6px;
+  align-items: center;
+  font-size: 10px;
+  font-family: var(--font-mono);
+  color: var(--ink-soft);
+  flex-wrap: wrap;
+}
+.stat-card .breakdown span {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+}
+
+/* ===== Settings ===== */
+.settings-section {
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 20px;
+  margin-bottom: 16px;
+}
+.settings-section h3 {
+  font-family: var(--font-display);
+  font-size: 18px;
+  margin-bottom: 12px;
+}
+.settings-section p {
+  color: var(--ink-soft);
+  font-size: 13px;
+  margin-bottom: 14px;
+}
+.settings-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+/* ===== Form (modal create/edit) ===== */
+.form-group { margin-bottom: 14px; }
+.form-group label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: 6px;
+}
+.form-group input, .form-group textarea {
+  width: 100%;
+  padding: 10px 12px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  color: var(--ink);
+  font-size: 14px;
+  outline: none;
+}
+.form-group input:focus, .form-group textarea:focus {
+  border-color: var(--accent-soft);
+  box-shadow: 0 0 0 3px var(--accent-glow);
+}
+.form-group textarea { resize: vertical; min-height: 70px; }
+
+/* ===== Result count ===== */
+.result-count {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--ink-faint);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+/* ===== Install button ===== */
+.install-prompt {
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+  z-index: 90;
+  display: none;
+}
+.install-prompt.show { display: block; }
+
+/* ===== Mobile tweaks ===== */
+@media (max-width: 640px) {
+  .header h1 { font-size: 22px; }
+  .header h1 .stamp { font-size: 9px; padding: 3px 7px; }
+  .modal-detail h2 { font-size: 20px; }
+  .modal-detail { padding: 18px; }
+  .attr-grid { grid-template-columns: repeat(2, 1fr); padding: 12px; }
+  .tab { padding: 11px 14px; }
+}
+</style>
+</head>
+<body>
+
+<div class="app">
+
+  <header class="header">
+    <h1>
+      Case File
+      <span class="stamp">CONFIDENTIAL · TCG</span>
+    </h1>
+    <div class="sub">// Detective Conan TCG &mdash; Personal Tracker</div>
+  </header>
+
+  <nav class="tabs" id="tabs">
+    <button class="tab active" data-view="cards">Cards <span class="badge" id="tab-count-cards">0</span></button>
+    <button class="tab" data-view="collections">Collections <span class="badge" id="tab-count-coll">0</span></button>
+    <button class="tab" data-view="decks">Decks <span class="badge" id="tab-count-decks">0</span></button>
+    <button class="tab" data-view="settings">Settings</button>
+  </nav>
+
+  <main id="main"></main>
+
+</div>
+
+<div class="toast-stack" id="toasts"></div>
+
+<button class="btn primary install-prompt" id="install-btn">↓ Install App</button>
+
+<!-- ============================== APP LOGIC ============================== -->
+<script>
+'use strict';
+
+/* ===== IndexedDB wrapper (tiny, no deps) ===== */
+const DB_NAME = 'conan-tracker';
+const DB_VERSION = 1;
+const STORES = {
+  cards: 'cards',           // key: id
+  collections: 'collections', // key: id (uuid)
+  decks: 'decks',            // key: id (uuid)
+  meta: 'meta'               // key: string
+};
+
+let _db = null;
+function openDB() {
+  if (_db) return Promise.resolve(_db);
+  return new Promise((resolve, reject) => {
+    const req = indexedDB.open(DB_NAME, DB_VERSION);
+    req.onupgradeneeded = (e) => {
+      const db = e.target.result;
+      if (!db.objectStoreNames.contains(STORES.cards)) db.createObjectStore(STORES.cards, { keyPath: 'id' });
+      if (!db.objectStoreNames.contains(STORES.collections)) db.createObjectStore(STORES.collections, { keyPath: 'id' });
+      if (!db.objectStoreNames.contains(STORES.decks)) db.createObjectStore(STORES.decks, { keyPath: 'id' });
+      if (!db.objectStoreNames.contains(STORES.meta)) db.createObjectStore(STORES.meta);
+    };
+    req.onsuccess = () => { _db = req.result; resolve(_db); };
+    req.onerror = () => reject(req.error);
+  });
+}
+
+function tx(storeName, mode='readonly') {
+  return openDB().then(db => db.transaction(storeName, mode).objectStore(storeName));
+}
+async function dbGet(storeName, key) {
+  const store = await tx(storeName);
+  return new Promise((res, rej) => {
+    const r = store.get(key);
+    r.onsuccess = () => res(r.result);
+    r.onerror = () => rej(r.error);
+  });
+}
+async function dbGetAll(storeName) {
+  const store = await tx(storeName);
+  return new Promise((res, rej) => {
+    const r = store.getAll();
+    r.onsuccess = () => res(r.result);
+    r.onerror = () => rej(r.error);
+  });
+}
+async function dbPut(storeName, value, key) {
+  const store = await tx(storeName, 'readwrite');
+  return new Promise((res, rej) => {
+    const r = key !== undefined ? store.put(value, key) : store.put(value);
+    r.onsuccess = () => res(r.result);
+    r.onerror = () => rej(r.error);
+  });
+}
+async function dbDelete(storeName, key) {
+  const store = await tx(storeName, 'readwrite');
+  return new Promise((res, rej) => {
+    const r = store.delete(key);
+    r.onsuccess = () => res();
+    r.onerror = () => rej(r.error);
+  });
+}
+async function dbBulkPut(storeName, items) {
+  const db = await openDB();
+  return new Promise((res, rej) => {
+    const transaction = db.transaction(storeName, 'readwrite');
+    const store = transaction.objectStore(storeName);
+    items.forEach(item => store.put(item));
+    transaction.oncomplete = () => res();
+    transaction.onerror = () => rej(transaction.error);
+  });
+}
+async function dbClear(storeName) {
+  const store = await tx(storeName, 'readwrite');
+  return new Promise((res, rej) => {
+    const r = store.clear();
+    r.onsuccess = () => res();
+    r.onerror = () => rej(r.error);
+  });
+}
+
+/* ===== Helpers ===== */
+const uuid = () => 'id-' + Date.now().toString(36) + '-' + Math.random().toString(36).slice(2, 8);
+const $ = (sel, root=document) => root.querySelector(sel);
+const $$ = (sel, root=document) => Array.from(root.querySelectorAll(sel));
+const html = (strings, ...values) => {
+  // Tagged template that auto-escapes interpolated values
+  let s = '';
+  strings.forEach((str, i) => {
+    s += str;
+    if (i < values.length) {
+      const v = values[i];
+      if (Array.isArray(v)) s += v.join('');
+      else if (v === null || v === undefined) s += '';
+      else if (typeof v === 'object' && v.__raw) s += v.__raw;
+      else s += String(v).replace(/[&<>"']/g, c => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c]));
+    }
+  });
+  return s;
+};
+const raw = (s) => ({ __raw: s });
+
+function toast(msg) {
+  const stack = $('#toasts');
+  const el = document.createElement('div');
+  el.className = 'toast';
+  el.textContent = msg;
+  stack.appendChild(el);
+  setTimeout(() => { el.style.opacity = '0'; el.style.transform = 'translateY(8px)'; el.style.transition = 'all 0.2s'; }, 2400);
+  setTimeout(() => el.remove(), 2700);
+}
+
+/* ===== App state ===== */
+const state = {
+  view: 'cards',
+  cards: [],
+  collections: [],
+  decks: [],
+  filters: {
+    q: '', color: '', type: '', rarity: '', set: '',
+  },
+  // detail context
+  activeCollection: null,
+  activeDeck: null,
+};
+
+/* ===== Card data normalization & display ===== */
+const COLORS = ['blue','green','white','red','yellow','black'];
+const TYPES = ['Partner','Character','Event','Case'];
+const RARITIES = ['C','CP','CP2','R','RP','SR','SRP','SRCP','SEC','MR','MRP','MRCP','D','PR'];
+
+function colorClass(c) { return (c || '').toLowerCase(); }
+
+function cardImageUrl(card) {
+  // The TakaraTomy site exposes images at predictable URLs.
+  // We support: explicit imageUrl, then fall back to the official storage path.
+  if (card.imageUrl) return card.imageUrl;
+  if (card.imageId) return `https://www.takaratomy.co.jp/products/conan-cardgame/storage/card/${card.imageId}.jpg`;
+  return null;
+}
+
+/* ===== Initial bootstrapping ===== */
+async function loadInitialData() {
+  // If DB has cards already, use them. Otherwise, fetch sample data.
+  const existing = await dbGetAll(STORES.cards);
+  if (existing && existing.length > 0) {
+    state.cards = existing;
+    return;
+  }
+  try {
+    const res = await fetch('data/cards.json');
+    if (!res.ok) throw new Error('fetch failed');
+    const data = await res.json();
+    await dbBulkPut(STORES.cards, data);
+    state.cards = data;
+    toast(`Loaded ${data.length} sample cards`);
+  } catch (e) {
+    console.error('Failed to load sample cards:', e);
+    state.cards = [];
+  }
+}
+
+async function refreshState() {
+  state.cards = await dbGetAll(STORES.cards);
+  state.collections = await dbGetAll(STORES.collections);
+  state.decks = await dbGetAll(STORES.decks);
+  $('#tab-count-cards').textContent = state.cards.length;
+  $('#tab-count-coll').textContent = state.collections.length;
+  $('#tab-count-decks').textContent = state.decks.length;
+}
+
+/* ===== Routing ===== */
+function setView(v) {
+  state.view = v;
+  $$('.tab').forEach(t => t.classList.toggle('active', t.dataset.view === v));
+  state.activeCollection = null;
+  state.activeDeck = null;
+  render();
+}
+
+/* ===== Filters ===== */
+function applyFilters(cards) {
+  const f = state.filters;
+  const q = f.q.trim().toLowerCase();
+  return cards.filter(c => {
+    if (q && !(`${c.name||''} ${c.nameJa||''} ${c.id||''} ${c.effect||''}`.toLowerCase().includes(q))) return false;
+    if (f.color && (c.color || '').toLowerCase() !== f.color) return false;
+    if (f.type && c.type !== f.type) return false;
+    if (f.rarity && c.rarity !== f.rarity) return false;
+    if (f.set && c.set !== f.set) return false;
+    return true;
+  });
+}
+
+/* ===== Renderers ===== */
+function render() {
+  if (state.view === 'cards') renderCardsView();
+  else if (state.view === 'collections') renderCollectionsView();
+  else if (state.view === 'decks') renderDecksView();
+  else if (state.view === 'settings') renderSettingsView();
+}
+
+function renderCardImg(card, opts={}) {
+  const url = cardImageUrl(card);
+  if (url) {
+    return html`<img loading="lazy" src="${url}" alt="${card.name || card.id}" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'card-img-placeholder',innerHTML:'<div class=\\'id-text\\'>${card.id}</div>NO IMAGE'}))">`;
+  }
+  return html`<div class="card-img-placeholder"><div class="id-text">${card.id}</div>${(card.name||'').toUpperCase()}</div>`;
+}
+
+function renderCardTile(card, qty=null) {
+  const colorCls = colorClass(card.color);
+  return html`
+    <div class="card" data-card-id="${card.id}">
+      ${qty ? raw(`<div class="card-qty-badge">×${qty}</div>`) : ''}
+      <div class="card-img-wrap">${raw(renderCardImg(card))}</div>
+      <div class="card-info">
+        <div class="name">${card.name || card.id}</div>
+        <div class="meta">
+          <span class="color-dot ${colorCls}"></span>
+          <span>${card.rarity || '—'}</span>
+          ${card.level ? raw(`<span>· Lv ${card.level}</span>`) : ''}
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function renderCardsView() {
+  const sets = [...new Set(state.cards.map(c => c.set).filter(Boolean))].sort();
+  const types = [...new Set(state.cards.map(c => c.type).filter(Boolean))];
+  const rarities = [...new Set(state.cards.map(c => c.rarity).filter(Boolean))];
+
+  $('#main').innerHTML = `
+    <div class="toolbar">
+      <div class="search-box">
+        <input type="search" id="q" placeholder="Search by name, ID, or effect text..." value="${state.filters.q}">
+      </div>
+      <select class="btn" id="filter-set">
+        <option value="">All Sets</option>
+        ${sets.map(s => `<option value="${s}" ${state.filters.set===s?'selected':''}>${s}</option>`).join('')}
+      </select>
+      <select class="btn" id="filter-type">
+        <option value="">All Types</option>
+        ${types.map(t => `<option value="${t}" ${state.filters.type===t?'selected':''}>${t}</option>`).join('')}
+      </select>
+      <select class="btn" id="filter-rarity">
+        <option value="">All Rarities</option>
+        ${rarities.map(r => `<option value="${r}" ${state.filters.rarity===r?'selected':''}>${r}</option>`).join('')}
+      </select>
+    </div>
+    <div class="filter-row">
+      <div class="filter-group">
+        <span class="filter-label">Color</span>
+        ${COLORS.map(c => `<button class="chip color-${c} ${state.filters.color===c?'active':''}" data-color="${c}">${c}</button>`).join('')}
+        ${state.filters.color ? `<button class="chip" data-color="">clear</button>` : ''}
+      </div>
+    </div>
+    <div class="result-count" id="result-count"></div>
+    <div id="card-grid-container"></div>
+  `;
+
+  // Wire up filters
+  $('#q').addEventListener('input', e => { state.filters.q = e.target.value; renderCardsList(); });
+  $('#filter-set').addEventListener('change', e => { state.filters.set = e.target.value; renderCardsList(); });
+  $('#filter-type').addEventListener('change', e => { state.filters.type = e.target.value; renderCardsList(); });
+  $('#filter-rarity').addEventListener('change', e => { state.filters.rarity = e.target.value; renderCardsList(); });
+  $$('.chip[data-color]').forEach(b => b.addEventListener('click', () => {
+    state.filters.color = b.dataset.color;
+    renderCardsView(); // re-render to update active state
+  }));
+
+  renderCardsList();
+}
+
+function renderCardsList() {
+  const filtered = applyFilters(state.cards);
+  $('#result-count').textContent = `${filtered.length} of ${state.cards.length} cards`;
+  const container = $('#card-grid-container');
+
+  if (filtered.length === 0) {
+    container.innerHTML = `<div class="empty"><div class="icon">🔍</div><h3>No cards match</h3><p>Try clearing filters or check your search.</p></div>`;
+    return;
+  }
+
+  container.innerHTML = `<div class="card-grid">${filtered.map(c => renderCardTile(c)).join('')}</div>`;
+  $$('.card[data-card-id]', container).forEach(el => {
+    el.addEventListener('click', () => openCardModal(el.dataset.cardId));
+  });
+}
+
+/* ===== Card detail modal ===== */
+function openCardModal(cardId) {
+  const card = state.cards.find(c => c.id === cardId);
+  if (!card) return;
+
+  const colorCls = colorClass(card.color);
+  const attrs = [
+    ['ID', card.id],
+    ['Type', card.type || '—'],
+    ['Rarity', card.rarity || '—'],
+    ['Color', card.color ? `<span class="color-dot ${colorCls}"></span> ${card.color}` : '—'],
+    ['Level', card.level ?? '—'],
+    ['AP', card.ap ?? '—'],
+    ['LP', card.lp ?? '—'],
+    ['Set', card.set || '—'],
+    ['Features', (card.features || []).join(', ') || '—'],
+    ['Illustrator', card.illustrator || '—'],
+  ];
+
+  const modal = document.createElement('div');
+  modal.className = 'modal-backdrop open';
+  modal.innerHTML = `
+    <div class="modal">
+      <button class="close" aria-label="Close">×</button>
+      <div class="modal-body">
+        <div class="modal-img">${renderCardImg(card)}</div>
+        <div class="modal-detail">
+          <h2>${card.name || card.id}</h2>
+          <div class="card-id">${card.id} · ${card.nameJa || ''}</div>
+          <div class="attr-grid">
+            ${attrs.map(([l, v]) => `
+              <div class="attr">
+                <span class="attr-label">${l}</span>
+                <span class="attr-value">${v}</span>
+              </div>`).join('')}
+          </div>
+          ${card.effect ? `<div class="effect">${card.effect}</div>` : ''}
+          <div class="modal-actions">
+            <button class="btn primary" id="add-to-coll">+ Add to Collection</button>
+            <button class="btn" id="add-to-deck">+ Add to Deck</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+  document.body.appendChild(modal);
+
+  const close = () => modal.remove();
+  $('.close', modal).addEventListener('click', close);
+  modal.addEventListener('click', e => { if (e.target === modal) close(); });
+  document.addEventListener('keydown', function escHandler(e) {
+    if (e.key === 'Escape') { close(); document.removeEventListener('keydown', escHandler); }
+  });
+
+  $('#add-to-coll', modal).addEventListener('click', () => { close(); promptAddToCollection(card); });
+  $('#add-to-deck', modal).addEventListener('click', () => { close(); promptAddToDeck(card); });
+}
+
+/* ===== Collections ===== */
+async function renderCollectionsView() {
+  if (state.activeCollection) return renderCollectionDetail(state.activeCollection);
+  const cols = state.collections;
+  $('#main').innerHTML = `
+    <div class="toolbar">
+      <button class="btn primary" id="new-coll">+ New Collection</button>
+    </div>
+    ${cols.length === 0 ? `
+      <div class="empty">
+        <div class="icon">📁</div>
+        <h3>No collections yet</h3>
+        <p>Track which cards you actually own. Create a collection to get started.</p>
+        <button class="btn primary" id="empty-new-coll">+ New Collection</button>
+      </div>
+    ` : `
+      <div class="list-grid">
+        ${cols.map(c => {
+          const total = Object.values(c.cards || {}).reduce((s,n)=>s+n, 0);
+          const unique = Object.keys(c.cards || {}).length;
+          return `<div class="list-item" data-id="${c.id}">
+            <h3>${c.name}</h3>
+            <div class="meta">${c.note || 'No description'}</div>
+            <div class="stats">
+              <div><div class="stat-num">${total}</div><div class="stat-lbl">Total Cards</div></div>
+              <div><div class="stat-num">${unique}</div><div class="stat-lbl">Unique</div></div>
+            </div>
+          </div>`;
+        }).join('')}
+      </div>
+    `}
+  `;
+
+  const newBtn = (id) => $('#'+id)?.addEventListener('click', () => promptCreateCollection());
+  newBtn('new-coll'); newBtn('empty-new-coll');
+  $$('.list-item[data-id]').forEach(el => {
+    el.addEventListener('click', () => { state.activeCollection = el.dataset.id; render(); });
+  });
+}
+
+function promptCreateCollection() {
+  openFormModal('New Collection', [
+    { name: 'name', label: 'Name', required: true },
+    { name: 'note', label: 'Description (optional)', textarea: true },
+  ], async (data) => {
+    const c = { id: uuid(), name: data.name, note: data.note || '', cards: {}, createdAt: Date.now() };
+    await dbPut(STORES.collections, c);
+    await refreshState();
+    toast('Collection created');
+    state.activeCollection = c.id;
+    render();
+  });
+}
+
+function promptAddToCollection(card) {
+  if (state.collections.length === 0) {
+    toast('Create a collection first');
+    setView('collections');
+    return;
+  }
+  const opts = state.collections.map(c => `<option value="${c.id}">${c.name}</option>`).join('');
+  openFormModal(`Add ${card.name || card.id}`, [
+    { name: 'collId', label: 'Collection', selectHtml: opts },
+    { name: 'qty', label: 'Quantity', type: 'number', value: '1' },
+  ], async (data) => {
+    const coll = await dbGet(STORES.collections, data.collId);
+    if (!coll) return;
+    coll.cards = coll.cards || {};
+    const q = Math.max(1, parseInt(data.qty || '1'));
+    coll.cards[card.id] = (coll.cards[card.id] || 0) + q;
+    await dbPut(STORES.collections, coll);
+    await refreshState();
+    toast(`Added ×${q} to ${coll.name}`);
+  });
+}
+
+async function renderCollectionDetail(id) {
+  const coll = await dbGet(STORES.collections, id);
+  if (!coll) { state.activeCollection = null; return render(); }
+  const entries = Object.entries(coll.cards || {});
+  const cardMap = new Map(state.cards.map(c => [c.id, c]));
+  const filled = entries.map(([id, qty]) => ({ card: cardMap.get(id), qty })).filter(x => x.card);
+  const total = entries.reduce((s,[,n])=>s+n, 0);
+
+  // Color breakdown
+  const byColor = {};
+  filled.forEach(({card, qty}) => { const c = (card.color||'?').toLowerCase(); byColor[c] = (byColor[c]||0)+qty; });
+
+  $('#main').innerHTML = `
+    <div class="detail-header">
+      <div>
+        <button class="btn ghost" id="back">← Collections</button>
+        <h2 style="margin-top:8px">${coll.name}</h2>
+        <div class="meta">${coll.note || ''}</div>
+      </div>
+      <div class="actions">
+        <button class="btn" id="rename">Rename</button>
+        <button class="btn danger" id="del">Delete</button>
+      </div>
+    </div>
+    <div class="stats-panel">
+      <div class="stat-card"><div class="label">Total Cards</div><div class="value">${total}</div></div>
+      <div class="stat-card"><div class="label">Unique Cards</div><div class="value">${filled.length}</div></div>
+      <div class="stat-card"><div class="label">By Color</div><div class="value" style="font-size:14px">
+        <div class="breakdown">${Object.entries(byColor).map(([c,n])=>`<span><span class="color-dot ${c}"></span>${n}</span>`).join('')}</div>
+      </div></div>
+    </div>
+    <div id="coll-cards"></div>
+  `;
+  $('#back').addEventListener('click', () => { state.activeCollection = null; render(); });
+  $('#rename').addEventListener('click', () => promptRenameCollection(coll));
+  $('#del').addEventListener('click', () => promptDeleteCollection(coll));
+
+  const container = $('#coll-cards');
+  if (filled.length === 0) {
+    container.innerHTML = `<div class="empty"><div class="icon">📭</div><h3>No cards yet</h3><p>Browse the Cards tab and use "Add to Collection".</p></div>`;
+  } else {
+    container.innerHTML = `<div class="card-grid">${filled.map(({card, qty}) => renderCardTile(card, qty)).join('')}</div>`;
+    $$('.card[data-card-id]').forEach(el => {
+      el.addEventListener('click', () => openCollectionCardEditor(coll, el.dataset.cardId));
+    });
+  }
+}
+
+function openCollectionCardEditor(coll, cardId) {
+  const card = state.cards.find(c => c.id === cardId);
+  if (!card) return;
+  const currentQty = (coll.cards || {})[cardId] || 0;
+
+  const modal = document.createElement('div');
+  modal.className = 'modal-backdrop open';
+  modal.innerHTML = `
+    <div class="modal">
+      <button class="close">×</button>
+      <div class="modal-body">
+        <div class="modal-img">${renderCardImg(card)}</div>
+        <div class="modal-detail">
+          <h2>${card.name || card.id}</h2>
+          <div class="card-id">${card.id}</div>
+          <p style="margin: 14px 0 8px; color: var(--ink-soft); font-size:13px">Quantity in <strong>${coll.name}</strong>:</p>
+          <div class="qty-control" style="margin-bottom:18px">
+            <button id="qty-down">−</button>
+            <span class="val" id="qty-val">${currentQty}</span>
+            <button id="qty-up">+</button>
+          </div>
+          <div class="modal-actions">
+            <button class="btn primary" id="save">Save</button>
+            <button class="btn danger" id="remove">Remove from Collection</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+  document.body.appendChild(modal);
+  let qty = currentQty;
+  const update = () => $('#qty-val', modal).textContent = qty;
+  $('#qty-up', modal).addEventListener('click', () => { qty++; update(); });
+  $('#qty-down', modal).addEventListener('click', () => { if (qty > 0) qty--; update(); });
+  $('.close', modal).addEventListener('click', () => modal.remove());
+  modal.addEventListener('click', e => { if (e.target === modal) modal.remove(); });
+  $('#save', modal).addEventListener('click', async () => {
+    if (qty <= 0) delete coll.cards[cardId]; else coll.cards[cardId] = qty;
+    await dbPut(STORES.collections, coll);
+    modal.remove();
+    toast('Updated');
+    render();
+  });
+  $('#remove', modal).addEventListener('click', async () => {
+    delete coll.cards[cardId];
+    await dbPut(STORES.collections, coll);
+    modal.remove();
+    toast('Removed');
+    render();
+  });
+}
+
+function promptRenameCollection(coll) {
+  openFormModal('Rename Collection', [
+    { name: 'name', label: 'Name', required: true, value: coll.name },
+    { name: 'note', label: 'Description', textarea: true, value: coll.note || '' },
+  ], async (data) => {
+    coll.name = data.name; coll.note = data.note;
+    await dbPut(STORES.collections, coll);
+    await refreshState();
+    toast('Renamed');
+    render();
+  });
+}
+
+function promptDeleteCollection(coll) {
+  if (!confirm(`Delete "${coll.name}"? This cannot be undone.`)) return;
+  dbDelete(STORES.collections, coll.id).then(async () => {
+    await refreshState();
+    state.activeCollection = null;
+    toast('Deleted');
+    render();
+  });
+}
+
+/* ===== Decks (similar shape, but represents a single playable deck) ===== */
+async function renderDecksView() {
+  if (state.activeDeck) return renderDeckDetail(state.activeDeck);
+  const decks = state.decks;
+  $('#main').innerHTML = `
+    <div class="toolbar">
+      <button class="btn primary" id="new-deck">+ New Deck</button>
+    </div>
+    ${decks.length === 0 ? `
+      <div class="empty">
+        <div class="icon">🎴</div>
+        <h3>No decks yet</h3>
+        <p>Build decks to plan your gameplay. Each deck tracks card counts and color balance.</p>
+        <button class="btn primary" id="empty-new-deck">+ New Deck</button>
+      </div>
+    ` : `
+      <div class="list-grid">
+        ${decks.map(d => {
+          const total = Object.values(d.cards || {}).reduce((s,n)=>s+n, 0);
+          const unique = Object.keys(d.cards || {}).length;
+          return `<div class="list-item" data-id="${d.id}">
+            <h3>${d.name}</h3>
+            <div class="meta">${d.note || 'No description'}</div>
+            <div class="stats">
+              <div><div class="stat-num">${total}</div><div class="stat-lbl">Cards</div></div>
+              <div><div class="stat-num">${unique}</div><div class="stat-lbl">Unique</div></div>
+              <div><div class="stat-num">${d.partner ? '✓' : '—'}</div><div class="stat-lbl">Partner</div></div>
+            </div>
+          </div>`;
+        }).join('')}
+      </div>
+    `}
+  `;
+  const newBtn = (id) => $('#'+id)?.addEventListener('click', () => promptCreateDeck());
+  newBtn('new-deck'); newBtn('empty-new-deck');
+  $$('.list-item[data-id]').forEach(el => {
+    el.addEventListener('click', () => { state.activeDeck = el.dataset.id; render(); });
+  });
+}
+
+function promptCreateDeck() {
+  openFormModal('New Deck', [
+    { name: 'name', label: 'Name', required: true },
+    { name: 'note', label: 'Description (optional)', textarea: true },
+  ], async (data) => {
+    const d = { id: uuid(), name: data.name, note: data.note || '', cards: {}, partner: null, createdAt: Date.now() };
+    await dbPut(STORES.decks, d);
+    await refreshState();
+    toast('Deck created');
+    state.activeDeck = d.id;
+    render();
+  });
+}
+
+function promptAddToDeck(card) {
+  if (state.decks.length === 0) {
+    toast('Create a deck first');
+    setView('decks');
+    return;
+  }
+  const opts = state.decks.map(d => `<option value="${d.id}">${d.name}</option>`).join('');
+  openFormModal(`Add ${card.name || card.id} to Deck`, [
+    { name: 'deckId', label: 'Deck', selectHtml: opts },
+    { name: 'qty', label: 'Quantity', type: 'number', value: '1' },
+  ], async (data) => {
+    const deck = await dbGet(STORES.decks, data.deckId);
+    if (!deck) return;
+    deck.cards = deck.cards || {};
+    const q = Math.max(1, parseInt(data.qty || '1'));
+    const existing = deck.cards[card.id] || 0;
+    // Standard TCG rule: max 4 copies. Soft warn rather than hard block.
+    if (existing + q > 4) {
+      if (!confirm(`This would put ${existing + q} copies in your deck (most TCGs cap at 4). Continue?`)) return;
+    }
+    deck.cards[card.id] = existing + q;
+    await dbPut(STORES.decks, deck);
+    await refreshState();
+    toast(`Added ×${q} to ${deck.name}`);
+  });
+}
+
+async function renderDeckDetail(id) {
+  const deck = await dbGet(STORES.decks, id);
+  if (!deck) { state.activeDeck = null; return render(); }
+  const cardMap = new Map(state.cards.map(c => [c.id, c]));
+  const entries = Object.entries(deck.cards || {});
+  const filled = entries.map(([id, qty]) => ({ card: cardMap.get(id), qty })).filter(x => x.card);
+  const total = entries.reduce((s,[,n])=>s+n, 0);
+
+  // Stats
+  const byColor = {};
+  const byLevel = {};
+  const byType = {};
+  filled.forEach(({card, qty}) => {
+    const c = (card.color||'?').toLowerCase(); byColor[c] = (byColor[c]||0)+qty;
+    if (card.level !== undefined && card.level !== null) byLevel[card.level] = (byLevel[card.level]||0)+qty;
+    if (card.type) byType[card.type] = (byType[card.type]||0)+qty;
+  });
+
+  $('#main').innerHTML = `
+    <div class="detail-header">
+      <div>
+        <button class="btn ghost" id="back">← Decks</button>
+        <h2 style="margin-top:8px">${deck.name}</h2>
+        <div class="meta">${deck.note || ''}</div>
+      </div>
+      <div class="actions">
+        <button class="btn" id="rename">Rename</button>
+        <button class="btn" id="export-deck">Export</button>
+        <button class="btn danger" id="del">Delete</button>
+      </div>
+    </div>
+    <div class="stats-panel">
+      <div class="stat-card"><div class="label">Total</div><div class="value">${total}</div></div>
+      <div class="stat-card"><div class="label">Unique</div><div class="value">${filled.length}</div></div>
+      <div class="stat-card"><div class="label">By Color</div><div class="value" style="font-size:14px">
+        <div class="breakdown">${Object.entries(byColor).map(([c,n])=>`<span><span class="color-dot ${c}"></span>${n}</span>`).join('') || '—'}</div>
+      </div></div>
+      <div class="stat-card"><div class="label">Level Curve</div><div class="value" style="font-size:14px">
+        <div class="breakdown">${Object.entries(byLevel).sort((a,b)=>+a[0]-+b[0]).map(([l,n])=>`<span>L${l}: ${n}</span>`).join('') || '—'}</div>
+      </div></div>
+      <div class="stat-card"><div class="label">By Type</div><div class="value" style="font-size:14px">
+        <div class="breakdown">${Object.entries(byType).map(([t,n])=>`<span>${t}: ${n}</span>`).join('') || '—'}</div>
+      </div></div>
+    </div>
+    <div id="deck-cards"></div>
+  `;
+  $('#back').addEventListener('click', () => { state.activeDeck = null; render(); });
+  $('#rename').addEventListener('click', () => promptRenameDeck(deck));
+  $('#del').addEventListener('click', () => promptDeleteDeck(deck));
+  $('#export-deck').addEventListener('click', () => exportDeck(deck));
+
+  const container = $('#deck-cards');
+  if (filled.length === 0) {
+    container.innerHTML = `<div class="empty"><div class="icon">🎴</div><h3>Empty deck</h3><p>Browse the Cards tab and use "Add to Deck" on any card.</p></div>`;
+  } else {
+    // Sort by level then name for a sensible deck list display
+    filled.sort((a,b) => (a.card.level||0) - (b.card.level||0) || (a.card.name||'').localeCompare(b.card.name||''));
+    container.innerHTML = `<div class="card-grid">${filled.map(({card, qty}) => renderCardTile(card, qty)).join('')}</div>`;
+    $$('.card[data-card-id]').forEach(el => {
+      el.addEventListener('click', () => openDeckCardEditor(deck, el.dataset.cardId));
+    });
+  }
+}
+
+function openDeckCardEditor(deck, cardId) {
+  const card = state.cards.find(c => c.id === cardId);
+  if (!card) return;
+  const currentQty = (deck.cards || {})[cardId] || 0;
+
+  const modal = document.createElement('div');
+  modal.className = 'modal-backdrop open';
+  modal.innerHTML = `
+    <div class="modal">
+      <button class="close">×</button>
+      <div class="modal-body">
+        <div class="modal-img">${renderCardImg(card)}</div>
+        <div class="modal-detail">
+          <h2>${card.name || card.id}</h2>
+          <div class="card-id">${card.id}</div>
+          <p style="margin: 14px 0 8px; color: var(--ink-soft); font-size:13px">Copies in <strong>${deck.name}</strong>:</p>
+          <div class="qty-control" style="margin-bottom:18px">
+            <button id="qty-down">−</button>
+            <span class="val" id="qty-val">${currentQty}</span>
+            <button id="qty-up">+</button>
+          </div>
+          <div class="modal-actions">
+            <button class="btn primary" id="save">Save</button>
+            <button class="btn danger" id="remove">Remove</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+  document.body.appendChild(modal);
+  let qty = currentQty;
+  const update = () => $('#qty-val', modal).textContent = qty;
+  $('#qty-up', modal).addEventListener('click', () => { qty++; update(); });
+  $('#qty-down', modal).addEventListener('click', () => { if (qty > 0) qty--; update(); });
+  $('.close', modal).addEventListener('click', () => modal.remove());
+  modal.addEventListener('click', e => { if (e.target === modal) modal.remove(); });
+  $('#save', modal).addEventListener('click', async () => {
+    if (qty <= 0) delete deck.cards[cardId]; else deck.cards[cardId] = qty;
+    await dbPut(STORES.decks, deck);
+    modal.remove();
+    toast('Updated');
+    render();
+  });
+  $('#remove', modal).addEventListener('click', async () => {
+    delete deck.cards[cardId];
+    await dbPut(STORES.decks, deck);
+    modal.remove();
+    toast('Removed');
+    render();
+  });
+}
+
+function promptRenameDeck(deck) {
+  openFormModal('Edit Deck', [
+    { name: 'name', label: 'Name', required: true, value: deck.name },
+    { name: 'note', label: 'Description', textarea: true, value: deck.note || '' },
+  ], async (data) => {
+    deck.name = data.name; deck.note = data.note;
+    await dbPut(STORES.decks, deck);
+    await refreshState();
+    toast('Updated');
+    render();
+  });
+}
+
+function promptDeleteDeck(deck) {
+  if (!confirm(`Delete deck "${deck.name}"?`)) return;
+  dbDelete(STORES.decks, deck.id).then(async () => {
+    await refreshState();
+    state.activeDeck = null;
+    toast('Deleted');
+    render();
+  });
+}
+
+function exportDeck(deck) {
+  const cardMap = new Map(state.cards.map(c => [c.id, c]));
+  const lines = [`# ${deck.name}`, deck.note ? `# ${deck.note}` : '', ''];
+  Object.entries(deck.cards || {}).forEach(([id, qty]) => {
+    const c = cardMap.get(id);
+    lines.push(`${qty} × ${id} ${c ? `- ${c.name}` : ''}`);
+  });
+  const blob = new Blob([lines.join('\n')], { type: 'text/plain' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = `${deck.name.replace(/[^\w]+/g,'_')}.txt`;
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+/* ===== Settings view (import/export/manage) ===== */
+function renderSettingsView() {
+  $('#main').innerHTML = `
+    <div class="settings-section">
+      <h3>Card Database</h3>
+      <p>Import or replace the card database. Expected format: JSON array of card objects (see <code>data/cards.json</code> for shape).</p>
+      <div class="settings-row">
+        <input type="file" id="import-cards" accept=".json,application/json" style="display:none">
+        <button class="btn primary" id="import-cards-btn">Import cards.json</button>
+        <button class="btn" id="export-cards-btn">Export current cards</button>
+        <button class="btn danger" id="reset-cards-btn">Reset to sample data</button>
+      </div>
+      <p style="margin-top:10px"><strong>${state.cards.length}</strong> cards in database.</p>
+    </div>
+
+    <div class="settings-section">
+      <h3>Backup &amp; Restore</h3>
+      <p>Export everything (cards + collections + decks) to a single JSON file for backup, or to move to another device.</p>
+      <div class="settings-row">
+        <input type="file" id="import-all" accept=".json,application/json" style="display:none">
+        <button class="btn primary" id="export-all-btn">Export Backup</button>
+        <button class="btn" id="import-all-btn">Restore from Backup</button>
+      </div>
+    </div>
+
+    <div class="settings-section">
+      <h3>Danger Zone</h3>
+      <p>Permanently delete data from this device. There is no undo.</p>
+      <div class="settings-row">
+        <button class="btn danger" id="clear-coll">Delete all Collections</button>
+        <button class="btn danger" id="clear-decks">Delete all Decks</button>
+        <button class="btn danger" id="clear-all">Delete EVERYTHING</button>
+      </div>
+    </div>
+
+    <div class="settings-section">
+      <h3>About</h3>
+      <p>Case File is a personal tracker for the Detective Conan TCG by TOMY. Card data is sourced from community efforts (saitho, conancards.com) or the official site at takaratomy.co.jp. This is a fan tool, not affiliated with TOMY.</p>
+      <p style="font-family: var(--font-mono); font-size: 11px; color: var(--ink-faint); letter-spacing: 0.05em;">v1.0 · offline-capable PWA</p>
+    </div>
+  `;
+
+  $('#import-cards-btn').addEventListener('click', () => $('#import-cards').click());
+  $('#import-cards').addEventListener('change', e => importCardsFile(e.target.files[0]));
+  $('#export-cards-btn').addEventListener('click', () => downloadJson(state.cards, 'conan-cards.json'));
+  $('#reset-cards-btn').addEventListener('click', resetCards);
+
+  $('#export-all-btn').addEventListener('click', exportBackup);
+  $('#import-all-btn').addEventListener('click', () => $('#import-all').click());
+  $('#import-all').addEventListener('change', e => importBackup(e.target.files[0]));
+
+  $('#clear-coll').addEventListener('click', async () => {
+    if (!confirm('Delete ALL collections?')) return;
+    await dbClear(STORES.collections); await refreshState(); toast('Collections cleared'); render();
+  });
+  $('#clear-decks').addEventListener('click', async () => {
+    if (!confirm('Delete ALL decks?')) return;
+    await dbClear(STORES.decks); await refreshState(); toast('Decks cleared'); render();
+  });
+  $('#clear-all').addEventListener('click', async () => {
+    if (!confirm('Delete ALL data including cards, collections, and decks?')) return;
+    if (!confirm('Really sure? This cannot be undone.')) return;
+    await dbClear(STORES.cards); await dbClear(STORES.collections); await dbClear(STORES.decks);
+    await refreshState();
+    toast('All data cleared');
+    render();
+  });
+}
+
+async function importCardsFile(file) {
+  if (!file) return;
+  try {
+    const text = await file.text();
+    const data = JSON.parse(text);
+    if (!Array.isArray(data)) throw new Error('Not an array');
+    if (!data[0] || !data[0].id) throw new Error('Missing card.id field');
+    await dbClear(STORES.cards);
+    await dbBulkPut(STORES.cards, data);
+    await refreshState();
+    toast(`Imported ${data.length} cards`);
+    render();
+  } catch (e) {
+    alert('Import failed: ' + e.message);
+  }
+}
+
+async function resetCards() {
+  if (!confirm('Replace current card database with the bundled sample? Your collections and decks will be kept.')) return;
+  try {
+    const res = await fetch('data/cards.json');
+    const data = await res.json();
+    await dbClear(STORES.cards);
+    await dbBulkPut(STORES.cards, data);
+    await refreshState();
+    toast('Reset complete');
+    render();
+  } catch (e) {
+    alert('Reset failed: ' + e.message);
+  }
+}
+
+async function exportBackup() {
+  const payload = {
+    version: 1,
+    exportedAt: new Date().toISOString(),
+    cards: state.cards,
+    collections: state.collections,
+    decks: state.decks,
+  };
+  downloadJson(payload, `conan-tracker-backup-${new Date().toISOString().slice(0,10)}.json`);
+}
+
+async function importBackup(file) {
+  if (!file) return;
+  try {
+    const text = await file.text();
+    const data = JSON.parse(text);
+    if (!data.version) throw new Error('Not a valid backup file');
+    if (!confirm('Restoring this backup will REPLACE current data. Continue?')) return;
+    await dbClear(STORES.cards); await dbClear(STORES.collections); await dbClear(STORES.decks);
+    if (data.cards) await dbBulkPut(STORES.cards, data.cards);
+    if (data.collections) await dbBulkPut(STORES.collections, data.collections);
+    if (data.decks) await dbBulkPut(STORES.decks, data.decks);
+    await refreshState();
+    toast('Backup restored');
+    render();
+  } catch (e) {
+    alert('Restore failed: ' + e.message);
+  }
+}
+
+function downloadJson(obj, filename) {
+  const blob = new Blob([JSON.stringify(obj, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = filename;
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+/* ===== Generic form modal ===== */
+function openFormModal(title, fields, onSubmit) {
+  const fieldsHtml = fields.map(f => {
+    if (f.selectHtml) {
+      return `<div class="form-group"><label>${f.label}</label><select name="${f.name}" class="btn" style="width:100%; text-transform:none; letter-spacing:normal; font-family:var(--font-body)">${f.selectHtml}</select></div>`;
+    }
+    if (f.textarea) {
+      return `<div class="form-group"><label>${f.label}</label><textarea name="${f.name}">${f.value || ''}</textarea></div>`;
+    }
+    return `<div class="form-group"><label>${f.label}${f.required?' *':''}</label><input type="${f.type||'text'}" name="${f.name}" value="${f.value || ''}" ${f.required?'required':''}></div>`;
+  }).join('');
+
+  const modal = document.createElement('div');
+  modal.className = 'modal-backdrop open';
+  modal.innerHTML = `
+    <div class="modal">
+      <button class="close">×</button>
+      <div style="padding: 24px">
+        <h2 style="font-family: var(--font-display); font-size: 22px; margin-bottom: 18px">${title}</h2>
+        <form id="form">
+          ${fieldsHtml}
+          <div class="modal-actions">
+            <button type="submit" class="btn primary">Save</button>
+            <button type="button" class="btn" id="cancel">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  `;
+  document.body.appendChild(modal);
+
+  $('.close', modal).addEventListener('click', () => modal.remove());
+  $('#cancel', modal).addEventListener('click', () => modal.remove());
+  modal.addEventListener('click', e => { if (e.target === modal) modal.remove(); });
+
+  $('#form', modal).addEventListener('submit', (e) => {
+    e.preventDefault();
+    const data = {};
+    fields.forEach(f => {
+      const el = modal.querySelector(`[name="${f.name}"]`);
+      data[f.name] = el ? el.value : '';
+      if (f.required && !data[f.name]) { el.focus(); return; }
+    });
+    if (fields.some(f => f.required && !data[f.name])) return;
+    modal.remove();
+    onSubmit(data);
+  });
+
+  setTimeout(() => modal.querySelector('input, textarea, select')?.focus(), 50);
+}
+
+/* ===== PWA install + service worker ===== */
+let deferredInstall = null;
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  deferredInstall = e;
+  $('#install-btn').classList.add('show');
+});
+$('#install-btn').addEventListener('click', async () => {
+  if (!deferredInstall) return;
+  deferredInstall.prompt();
+  await deferredInstall.userChoice;
+  deferredInstall = null;
+  $('#install-btn').classList.remove('show');
+});
+
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('sw.js').catch(err => console.warn('SW register failed:', err));
+  });
+}
+
+/* ===== Wire up tabs ===== */
+$$('.tab').forEach(t => t.addEventListener('click', () => setView(t.dataset.view)));
+
+/* ===== Boot ===== */
+(async () => {
+  await openDB();
+  await loadInitialData();
+  await refreshState();
+  render();
+})();
+</script>
+
+</body>
+</html>
