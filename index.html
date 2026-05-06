@@ -1,0 +1,1841 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover">
+<meta name="theme-color" content="#0c0a08">
+<meta name="description" content="Browse, search and track your Detective Conan TCG card collection offline.">
+<title>Detective Conan TCG · Case File</title>
+
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Conan TCG">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://laststand.co.th">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#0c0a08;--surface:#15110d;--surface-2:#1d1814;--surface-3:#251e18;
+  --border:#2d2620;--border-strong:#3d342a;
+  --ink:#f0e9d8;--ink-dim:#a8a08d;--ink-faded:#6f685d;
+  --crimson:#a01829;--crimson-bright:#c8102e;--crimson-glow:rgba(200,16,46,.35);
+  --gold:#c9a35c;--gold-soft:#8a703d;
+  --shadow:rgba(0,0,0,.6);
+  --serif:'DM Serif Display','Times New Roman',serif;
+  --sans:'DM Sans',system-ui,-apple-system,sans-serif;
+  --mono:'JetBrains Mono','Courier New',monospace;
+  --safe-top:env(safe-area-inset-top,0px);
+  --safe-bot:env(safe-area-inset-bottom,0px);
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html,body{height:100%}
+body{
+  font-family:var(--sans);background:var(--bg);color:var(--ink);
+  min-height:100vh;overflow-x:hidden;
+  background-image:
+    radial-gradient(ellipse 80% 60% at 50% 0%,rgba(160,24,41,.06),transparent 70%),
+    radial-gradient(ellipse 100% 80% at 50% 100%,rgba(201,163,92,.025),transparent 70%);
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+}
+body::before{
+  content:'';position:fixed;inset:0;pointer-events:none;opacity:.04;z-index:1;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence baseFrequency='0.9' seed='5'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+}
+button{font:inherit;color:inherit}
+a{color:inherit}
+input,textarea{font:inherit}
+
+/* ============ HEADER ============ */
+.case-header{
+  position:sticky;top:0;z-index:50;padding-top:var(--safe-top);
+  backdrop-filter:blur(18px) saturate(140%);-webkit-backdrop-filter:blur(18px) saturate(140%);
+  background:rgba(12,10,8,.82);border-bottom:1px solid var(--border);
+}
+.case-header::after{
+  content:'';position:absolute;left:0;right:0;bottom:-1px;height:1px;
+  background:linear-gradient(90deg,transparent,var(--crimson) 50%,transparent);opacity:.5;
+}
+.brand-row{display:flex;align-items:center;justify-content:space-between;padding:14px 18px 10px;gap:12px}
+.brand{display:flex;align-items:center;gap:11px;min-width:0}
+.brand-mark{
+  width:38px;height:38px;border-radius:50%;flex-shrink:0;
+  background:radial-gradient(circle at 35% 30%,var(--crimson-bright),var(--crimson) 60%,#5a0c19 100%);
+  box-shadow:0 0 0 1px rgba(200,16,46,.3),0 4px 14px rgba(160,24,41,.3),inset 0 1px 0 rgba(255,255,255,.15);
+  position:relative;
+}
+.brand-mark::after{
+  content:'';position:absolute;inset:8px;border:1.8px solid var(--ink);border-radius:50%;
+  border-bottom-color:transparent;transform:rotate(-35deg);opacity:.92;
+}
+.brand-mark::before{
+  content:'';position:absolute;width:9px;height:1.8px;background:var(--ink);
+  bottom:6px;right:4px;transform:rotate(45deg);border-radius:1px;opacity:.92;
+}
+.brand-text{display:flex;flex-direction:column;line-height:1;min-width:0}
+.brand-line{
+  font-family:var(--mono);font-size:9px;letter-spacing:.22em;color:var(--crimson-bright);
+  text-transform:uppercase;font-weight:600;margin-bottom:5px;
+}
+.brand-title{
+  font-family:var(--serif);font-size:18px;letter-spacing:.01em;font-style:italic;
+  color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.case-no{
+  font-family:var(--mono);font-size:9.5px;color:var(--ink-faded);
+  letter-spacing:.15em;text-align:right;line-height:1.4;flex-shrink:0;
+}
+.case-no .v{display:block;color:var(--gold);margin-top:3px;font-size:10px;letter-spacing:.1em}
+
+.stats-strip{
+  display:flex;align-items:center;justify-content:space-between;gap:14px;
+  padding:10px 18px 12px;border-top:1px solid var(--border);
+}
+.stat-block{display:flex;flex-direction:column;gap:3px}
+.stat-label{
+  font-family:var(--mono);font-size:9px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--ink-faded);
+}
+.stat-value{font-family:var(--serif);font-size:22px;color:var(--ink);line-height:1;letter-spacing:.005em}
+.stat-value .small{font-size:13px;color:var(--ink-dim);font-style:italic}
+.progress-wrap{flex:1;display:flex;flex-direction:column;gap:6px;max-width:170px}
+.progress{height:6px;background:var(--surface-2);border:1px solid var(--border);overflow:hidden;position:relative}
+.progress-fill{
+  height:100%;background:linear-gradient(90deg,var(--gold-soft),var(--gold));
+  width:0;transition:width .6s cubic-bezier(.2,.7,.2,1);box-shadow:0 0 8px rgba(201,163,92,.4);
+}
+.progress-pct{font-family:var(--mono);font-size:10px;color:var(--gold);letter-spacing:.1em;text-align:right}
+
+/* ============ FILTERS ============ */
+.filters{padding:12px 14px 10px;background:linear-gradient(180deg,rgba(12,10,8,.95),rgba(12,10,8,.6))}
+.search-wrap{position:relative;margin-bottom:10px}
+.search-input{
+  width:100%;background:var(--surface);border:1px solid var(--border);color:var(--ink);
+  font-family:var(--mono);font-size:13px;padding:11px 38px 11px 38px;outline:none;
+  transition:border-color .2s,background .2s;letter-spacing:.02em;border-radius:0;
+}
+.search-input::placeholder{color:var(--ink-faded);font-family:var(--mono);letter-spacing:.05em}
+.search-input:focus{border-color:var(--crimson);background:var(--surface-2);box-shadow:0 0 0 3px var(--crimson-glow)}
+.search-input::-webkit-search-cancel-button,.search-input::-webkit-search-decoration{-webkit-appearance:none;appearance:none}
+.search-icon{
+  position:absolute;left:13px;top:50%;transform:translateY(-50%);width:16px;height:16px;
+  color:var(--ink-dim);pointer-events:none;
+}
+.search-clear{
+  position:absolute;right:8px;top:50%;transform:translateY(-50%);width:24px;height:24px;
+  background:transparent;border:none;color:var(--ink-faded);cursor:pointer;
+  display:none;align-items:center;justify-content:center;border-radius:50%;
+  transition:color .15s,background .15s;
+}
+.search-clear.visible{display:flex}
+.search-clear:hover{color:var(--ink);background:var(--surface-3)}
+
+.filter-row{
+  display:flex;gap:7px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px;
+  margin:0 -14px;padding-left:14px;padding-right:14px;
+}
+.filter-row::-webkit-scrollbar{display:none}
+.chip{
+  flex-shrink:0;font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--ink-dim);background:var(--surface);border:1px solid var(--border);
+  padding:7px 13px;cursor:pointer;transition:all .18s;white-space:nowrap;
+  display:flex;align-items:center;gap:6px;border-radius:0;
+}
+.chip:hover{color:var(--ink);border-color:var(--border-strong)}
+.chip.active{color:var(--bg);background:var(--ink);border-color:var(--ink)}
+.chip.active[data-filter="owned"]{background:var(--gold);color:var(--bg);border-color:var(--gold)}
+.chip-count{font-size:10px;opacity:.75}
+
+/* Type filter chips — secondary row */
+.filter-row.types{margin-top:8px}
+.filter-row.types .chip{font-size:10.5px;padding:6px 11px}
+.filter-row.types .chip.active[data-type]{background:var(--crimson);color:var(--ink);border-color:var(--crimson)}
+
+/* Badges — type, rarity, color */
+.badge{
+  display:inline-flex;align-items:center;gap:4px;
+  font-family:var(--mono);font-size:10px;letter-spacing:.12em;
+  text-transform:uppercase;font-weight:600;
+  padding:3px 8px;border:1px solid var(--border-strong);
+  background:var(--surface-3);color:var(--ink);
+}
+.badge.type{background:var(--crimson);border-color:var(--crimson);color:var(--ink)}
+.badge.rarity{background:var(--gold);border-color:var(--gold);color:var(--bg)}
+.badge.color-Blue{background:#1d3a6e;border-color:#3158a3;color:#dbe7ff}
+.badge.color-Green{background:#1a4023;border-color:#2d6f3a;color:#d2efd6}
+.badge.color-White{background:#3a3530;border-color:#5a544c;color:#f0e9d8}
+.badge.color-Red{background:#5a1320;border-color:#8a2030;color:#ffd6dc}
+.badge.color-Yellow{background:#4a3814;border-color:#7a5d24;color:#ffe9b8}
+.badge.color-Black{background:#1a1a1a;border-color:#3a3a3a;color:#e0e0e0}
+.badge-row{display:flex;flex-wrap:wrap;gap:5px}
+
+/* Card name overlay on grid tile */
+.card-name{
+  position:absolute;left:0;right:0;bottom:0;
+  padding:14px 6px 5px;
+  font-family:var(--sans);font-size:10px;font-weight:600;line-height:1.15;
+  color:var(--ink);
+  background:linear-gradient(180deg,transparent,rgba(0,0,0,.85) 60%);
+  text-overflow:ellipsis;overflow:hidden;white-space:nowrap;
+  pointer-events:none;z-index:2;
+}
+.card.unowned .card-name{color:var(--ink-dim)}
+
+/* Card-code chip (replaces card-num when we have a code) */
+.card-num.has-code{font-family:var(--mono);font-weight:600}
+
+/* Modal — richer layout */
+.modal-card{max-width:480px}
+.modal-name{
+  font-family:var(--serif);font-style:italic;font-size:22px;line-height:1.2;
+  color:var(--ink);margin-bottom:6px;word-break:break-word;
+}
+.modal-name-en{
+  font-family:var(--sans);font-size:13px;font-weight:500;line-height:1.3;
+  color:var(--ink-dim);margin:-2px 0 8px;word-break:break-word;
+  display:none;
+}
+.modal-name-en.visible{display:block}
+.modal-name-en::before{
+  content:'EN';font-family:var(--mono);font-size:8.5px;font-weight:700;
+  letter-spacing:.2em;color:var(--gold);background:var(--surface-3);
+  padding:2px 5px;margin-right:7px;border-radius:2px;vertical-align:1.5px;
+}
+.modal-code{
+  font-family:var(--mono);font-size:11px;letter-spacing:.15em;
+  color:var(--gold);margin-bottom:14px;
+}
+.modal-stats{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:10px 16px;
+  padding:12px 0;margin:0 0 14px;
+  border-top:1px dashed var(--border);border-bottom:1px dashed var(--border);
+}
+.modal-stat{display:flex;flex-direction:column;gap:3px}
+.modal-stat .meta-label{font-size:9px}
+.modal-stat .v{font-family:var(--sans);font-size:13px;color:var(--ink);font-weight:500}
+.modal-stat .v.dim{color:var(--ink-faded);font-style:italic}
+.modal-stat.full{grid-column:1/-1}
+
+.ability-block{
+  background:var(--bg);border:1px solid var(--border);
+  padding:11px 13px;margin-bottom:14px;
+  font-family:var(--sans);font-size:13px;line-height:1.55;color:var(--ink);
+}
+.ability-block .label{
+  font-family:var(--mono);font-size:9px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--ink-faded);
+  display:block;margin-bottom:8px;
+}
+/* Ability inline tags from cc_ability HTML */
+.ability-block .cc-info-sys{
+  display:inline-block;
+  font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.05em;
+  background:var(--crimson);color:var(--ink);
+  padding:1px 6px;margin:0 2px;border-radius:2px;
+}
+.ability-block .cc-info-sleep{
+  display:inline-block;
+  font-family:var(--mono);font-size:10px;font-weight:600;
+  background:var(--surface-3);color:var(--gold);border:1px solid var(--gold-soft);
+  padding:1px 6px;margin:0 2px;border-radius:2px;
+}
+.ability-block br{margin-bottom:4px}
+
+.ability-empty{
+  font-family:var(--sans);font-size:12px;color:var(--ink-faded);
+  font-style:italic;text-align:center;padding:18px 0;
+  border-top:1px dashed var(--border);border-bottom:1px dashed var(--border);
+  margin-bottom:14px;
+}
+
+/* ============ GRID ============ */
+.case-file{position:relative;z-index:2;padding:8px 12px 110px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+@media(min-width:520px){.grid{grid-template-columns:repeat(4,1fr);gap:12px}}
+@media(min-width:768px){.grid{grid-template-columns:repeat(5,1fr);gap:14px}.case-file{padding:14px 20px 110px}}
+@media(min-width:1024px){.grid{grid-template-columns:repeat(6,1fr)}}
+@media(min-width:1280px){.grid{grid-template-columns:repeat(7,1fr)}}
+
+.card{
+  position:relative;aspect-ratio:.7;background:var(--surface-2);border:1px solid var(--border);
+  cursor:pointer;overflow:hidden;
+  transition:transform .25s cubic-bezier(.2,.7,.2,1),border-color .2s,box-shadow .25s;
+  animation:fadeUp .5s cubic-bezier(.2,.7,.2,1) backwards;
+}
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.card:hover{transform:translateY(-2px);border-color:var(--border-strong);box-shadow:0 8px 20px var(--shadow)}
+.card:active{transform:translateY(0) scale(.98)}
+.card img{
+  width:100%;height:100%;object-fit:cover;display:block;
+  transition:opacity .3s,filter .3s;background:var(--surface);
+}
+.card.unowned img{opacity:.32;filter:grayscale(.85) contrast(.9)}
+.card.unowned:hover img{opacity:.55;filter:grayscale(.45)}
+.card-num{
+  position:absolute;top:5px;left:5px;font-family:var(--mono);font-size:9px;font-weight:600;
+  letter-spacing:.05em;color:var(--ink);background:rgba(0,0,0,.7);padding:2px 5px;
+  pointer-events:none;z-index:2;
+}
+.owned-stamp{
+  position:absolute;top:5px;right:5px;width:20px;height:20px;border-radius:50%;background:var(--gold);
+  display:none;align-items:center;justify-content:center;z-index:2;
+  box-shadow:0 0 0 2px var(--bg),0 0 10px rgba(201,163,92,.5);
+  animation:stampIn .3s cubic-bezier(.2,1.5,.3,1);
+}
+@keyframes stampIn{from{transform:scale(0) rotate(-45deg);opacity:0}to{transform:scale(1) rotate(0);opacity:1}}
+.card.owned .owned-stamp{display:flex}
+.owned-stamp svg{width:11px;height:11px;color:var(--bg)}
+.card.unowned::after{
+  content:'';position:absolute;inset:0;
+  background:repeating-linear-gradient(135deg,transparent 0,transparent 6px,rgba(0,0,0,.18) 6px,rgba(0,0,0,.18) 7px);
+  pointer-events:none;
+}
+
+.empty{grid-column:1/-1;padding:60px 20px;text-align:center;color:var(--ink-faded)}
+.empty .empty-mark{font-family:var(--serif);font-size:48px;font-style:italic;color:var(--crimson);opacity:.4;margin-bottom:8px}
+.empty-title{font-family:var(--serif);font-size:18px;color:var(--ink-dim);margin-bottom:6px}
+.empty-sub{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faded)}
+
+/* ============ MODAL ============ */
+.modal{
+  position:fixed;inset:0;z-index:100;background:rgba(8,6,4,.92);
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  display:none;align-items:flex-start;justify-content:center;
+  overflow-y:auto;padding:20px 14px calc(20px + var(--safe-bot));
+  animation:fadeIn .25s ease;
+}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.modal.open{display:flex}
+.modal-card{
+  width:100%;max-width:440px;background:var(--surface);border:1px solid var(--border);
+  position:relative;margin:auto;animation:scaleIn .3s cubic-bezier(.2,1.2,.3,1);
+}
+@keyframes scaleIn{from{transform:scale(.95) translateY(8px);opacity:0}to{transform:scale(1) translateY(0);opacity:1}}
+.modal-close{
+  position:absolute;top:10px;right:10px;z-index:5;width:36px;height:36px;
+  background:rgba(0,0,0,.6);border:1px solid var(--border-strong);color:var(--ink);
+  cursor:pointer;display:flex;align-items:center;justify-content:center;border-radius:50%;
+  transition:background .15s;
+}
+.modal-close:hover{background:var(--crimson)}
+.modal-img-wrap{width:100%;aspect-ratio:.72;background:#000;position:relative}
+.modal-img-wrap img{width:100%;height:100%;object-fit:contain;display:block}
+.modal-body{padding:18px 20px 20px;border-top:1px solid var(--border)}
+.modal-meta{display:flex;justify-content:space-between;gap:14px;margin-bottom:14px;padding-bottom:14px;border-bottom:1px dashed var(--border)}
+.meta-block{display:flex;flex-direction:column;gap:4px;min-width:0}
+.meta-label{font-family:var(--mono);font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-faded)}
+.meta-value{font-family:var(--mono);font-size:11px;color:var(--ink);letter-spacing:.05em;word-break:break-all}
+.meta-value.serif{font-family:var(--serif);font-size:18px;font-style:italic;letter-spacing:0}
+
+.btn{
+  width:100%;font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.18em;
+  text-transform:uppercase;padding:13px 16px;border:1px solid var(--border-strong);
+  background:var(--surface-2);color:var(--ink);cursor:pointer;transition:all .18s;
+  display:flex;align-items:center;justify-content:center;gap:8px;border-radius:0;
+}
+.btn:hover{background:var(--surface-3);border-color:var(--ink-faded)}
+.btn:active{transform:scale(.98)}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.btn-primary{background:var(--gold);color:var(--bg);border-color:var(--gold)}
+.btn-primary:hover{background:#dab873;border-color:#dab873}
+.btn-primary:disabled:hover{background:var(--gold);border-color:var(--gold)}
+.btn-danger{background:transparent;color:var(--crimson-bright);border-color:var(--crimson)}
+.btn-danger:hover{background:var(--crimson);color:var(--ink)}
+.btn-ghost{background:transparent;color:var(--ink-dim);border-color:var(--border);font-size:11px;letter-spacing:.15em}
+.btn-row{display:flex;gap:8px;margin-top:8px}
+.btn-row .btn{flex:1}
+
+.modal-actions{display:flex;flex-direction:column;gap:10px}
+.open-source{
+  display:flex;align-items:center;justify-content:center;gap:6px;
+  font-family:var(--mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--ink-faded);text-decoration:none;padding:8px;margin-top:4px;transition:color .15s;
+}
+.open-source:hover{color:var(--ink-dim)}
+
+/* settings content */
+.settings-content{padding:20px}
+.settings-content h3{
+  font-family:var(--serif);font-style:italic;font-size:20px;
+  margin-bottom:6px;color:var(--ink);
+}
+.settings-content .lede{
+  font-family:var(--mono);font-size:10px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--crimson-bright);margin-bottom:18px;
+}
+.settings-content p{
+  font-family:var(--sans);font-size:13px;line-height:1.55;color:var(--ink-dim);margin-bottom:14px;
+}
+.settings-content textarea{
+  width:100%;background:var(--bg);border:1px solid var(--border);color:var(--ink);
+  font-family:var(--mono);font-size:11px;padding:10px;resize:vertical;min-height:110px;outline:none;
+}
+.settings-content textarea:focus{border-color:var(--crimson)}
+.settings-content hr{border:none;border-top:1px dashed var(--border);margin:18px 0}
+.kbd{font-family:var(--mono);font-size:10px;background:var(--surface-3);border:1px solid var(--border);padding:1px 5px;color:var(--ink-dim)}
+.muted{color:var(--ink-faded);font-size:11px}
+
+/* progress in settings */
+.warm-progress{
+  display:none;margin-top:10px;padding:10px;background:var(--bg);border:1px solid var(--border);
+  font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--ink-dim);
+}
+.warm-progress.visible{display:block}
+.warm-progress .bar{height:4px;background:var(--surface-3);margin-top:6px;overflow:hidden}
+.warm-progress .bar > div{height:100%;background:var(--gold);width:0;transition:width .25s}
+
+/* ============ FAB ============ */
+.fab-row{
+  position:fixed;left:0;right:0;display:flex;justify-content:center;gap:10px;z-index:30;
+  pointer-events:none;bottom:calc(18px + var(--safe-bot));
+}
+.fab{
+  pointer-events:auto;background:rgba(21,17,13,.92);border:1px solid var(--border-strong);color:var(--ink);
+  font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;
+  padding:11px 16px;cursor:pointer;display:flex;align-items:center;gap:8px;border-radius:0;
+  box-shadow:0 8px 24px rgba(0,0,0,.5),0 0 0 1px rgba(255,255,255,.02) inset;
+  transition:all .2s;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+}
+.fab:hover{transform:translateY(-2px);border-color:var(--ink-faded)}
+.fab:active{transform:translateY(0) scale(.97)}
+.fab svg{width:14px;height:14px}
+.fab.syncing svg{animation:spin 1s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* ============ TOAST ============ */
+.toast{
+  position:fixed;bottom:calc(78px + var(--safe-bot));left:50%;
+  transform:translateX(-50%) translateY(20px);
+  background:var(--surface-2);border:1px solid var(--border-strong);border-left:3px solid var(--gold);
+  color:var(--ink);padding:11px 16px;font-family:var(--mono);font-size:11px;letter-spacing:.05em;
+  z-index:200;max-width:90%;opacity:0;pointer-events:none;
+  transition:opacity .25s,transform .25s;box-shadow:0 8px 24px rgba(0,0,0,.6);
+}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.toast.error{border-left-color:var(--crimson-bright)}
+.toast.info{border-left-color:var(--ink-dim)}
+
+/* ============ INSTALL PROMPT ============ */
+.install-banner{
+  display:none;
+  margin:0 14px 10px;padding:11px 14px;
+  background:linear-gradient(135deg,var(--surface),var(--surface-2));
+  border:1px solid var(--gold-soft);
+  font-family:var(--mono);font-size:11px;color:var(--ink);
+  letter-spacing:.05em;
+  align-items:center;gap:10px;
+}
+.install-banner.visible{display:flex}
+.install-banner button{
+  background:var(--gold);border:none;color:var(--bg);
+  font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.15em;
+  text-transform:uppercase;padding:6px 11px;cursor:pointer;flex-shrink:0;
+}
+.install-banner .dismiss{background:transparent;color:var(--ink-faded);font-size:14px;padding:0 4px}
+
+/* ============ SPLASH ============ */
+.splash{
+  position:fixed;inset:0;z-index:1000;background:var(--bg);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;
+  transition:opacity .4s;
+}
+.splash.fading{opacity:0;pointer-events:none}
+.splash-mark{
+  width:60px;height:60px;border-radius:50%;
+  background:radial-gradient(circle at 35% 30%,var(--crimson-bright),var(--crimson) 60%,#5a0c19 100%);
+  position:relative;
+  box-shadow:0 0 0 1px rgba(200,16,46,.3),0 4px 30px rgba(160,24,41,.4);
+  animation:pulse 1.4s ease-in-out infinite;
+}
+.splash-mark::after{
+  content:'';position:absolute;inset:12px;border:2.2px solid var(--ink);border-radius:50%;
+  border-bottom-color:transparent;transform:rotate(-35deg);
+}
+.splash-mark::before{
+  content:'';position:absolute;width:14px;height:2.5px;background:var(--ink);
+  bottom:9px;right:6px;transform:rotate(45deg);border-radius:1px;
+}
+@keyframes pulse{
+  0%,100%{transform:scale(1);box-shadow:0 0 0 1px rgba(200,16,46,.3),0 4px 30px rgba(160,24,41,.4)}
+  50%{transform:scale(1.06);box-shadow:0 0 0 1px rgba(200,16,46,.5),0 4px 50px rgba(160,24,41,.6)}
+}
+.splash-text{font-family:var(--serif);font-style:italic;color:var(--ink-dim);font-size:14px;letter-spacing:.04em}
+.splash-sub{font-family:var(--mono);font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:var(--ink-faded)}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
+}
+</style>
+</head>
+<body>
+
+<div class="splash" id="splash">
+  <div class="splash-mark"></div>
+  <div class="splash-text">Opening case file…</div>
+  <div class="splash-sub">Detective Conan TCG</div>
+</div>
+
+<header class="case-header">
+  <div class="brand-row">
+    <div class="brand">
+      <div class="brand-mark"></div>
+      <div class="brand-text">
+        <div class="brand-line">Case File · Vol. 01</div>
+        <div class="brand-title">Detective Conan TCG</div>
+      </div>
+    </div>
+    <div class="case-no">
+      DOSSIER<span class="v" id="caseDate">—</span>
+    </div>
+  </div>
+  <div class="stats-strip">
+    <div class="stat-block">
+      <div class="stat-label">Evidence Logged</div>
+      <div class="stat-value">
+        <span id="ownedCount">0</span><span class="small"> / <span id="totalCount">0</span></span>
+      </div>
+    </div>
+    <div class="progress-wrap">
+      <div class="progress"><div class="progress-fill" id="progressFill"></div></div>
+      <div class="progress-pct" id="progressPct">0%</div>
+    </div>
+  </div>
+</header>
+
+<section class="filters">
+  <div class="install-banner" id="installBanner">
+    <span style="flex:1">Install as an app for offline use.</span>
+    <button id="installBtn">Install</button>
+    <button class="dismiss" id="installDismiss" aria-label="Dismiss">×</button>
+  </div>
+  <div class="search-wrap">
+    <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.35-4.35"/></svg>
+    <input type="search" inputmode="search" class="search-input" id="searchInput" placeholder="Search · name (TH/EN), code, type, rarity…" autocomplete="off">
+    <button class="search-clear" id="searchClear" aria-label="Clear">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+  </div>
+  <div class="filter-row">
+    <button class="chip active" data-filter="all">All <span class="chip-count" id="cAll">0</span></button>
+    <button class="chip" data-filter="owned">In Evidence <span class="chip-count" id="cOwned">0</span></button>
+    <button class="chip" data-filter="missing">Outstanding <span class="chip-count" id="cMissing">0</span></button>
+  </div>
+  <div class="filter-row types" id="typeFilters" style="display:none">
+    <button class="chip active" data-type="all">All Types</button>
+    <button class="chip" data-type="Partner">Partner</button>
+    <button class="chip" data-type="Character">Character</button>
+    <button class="chip" data-type="Event">Event</button>
+    <button class="chip" data-type="Case">Case</button>
+  </div>
+</section>
+
+<main class="case-file">
+  <div class="grid" id="grid"></div>
+</main>
+
+<div class="modal" id="cardModal" role="dialog" aria-modal="true">
+  <div class="modal-card">
+    <button class="modal-close" id="modalClose" aria-label="Close">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+    <div class="modal-img-wrap"><img id="modalImg" alt=""></div>
+    <div class="modal-body">
+      <div id="modalName" class="modal-name">—</div>
+      <div id="modalNameEn" class="modal-name-en"></div>
+      <div id="modalCode" class="modal-code">—</div>
+      <div id="modalBadges" class="badge-row" style="margin-bottom:14px"></div>
+
+      <div class="modal-stats" id="modalStats">
+        <div class="modal-stat">
+          <span class="meta-label">Status</span>
+          <span class="v" id="modalStatus">—</span>
+        </div>
+        <div class="modal-stat">
+          <span class="meta-label">Card №</span>
+          <span class="v" id="modalNum">—</span>
+        </div>
+        <div class="modal-stat" id="modalStatOrigin">
+          <span class="meta-label">Origin</span>
+          <span class="v dim" id="modalOrigin">—</span>
+        </div>
+        <div class="modal-stat" id="modalStatAP" style="display:none">
+          <span class="meta-label">Attack / Life</span>
+          <span class="v" id="modalAPLP">—</span>
+        </div>
+        <div class="modal-stat" id="modalStatLevel" style="display:none">
+          <span class="meta-label">Level</span>
+          <span class="v" id="modalLevel">—</span>
+        </div>
+        <div class="modal-stat full" id="modalStatTraits" style="display:none">
+          <span class="meta-label">Traits</span>
+          <span class="v dim" id="modalTraits">—</span>
+        </div>
+      </div>
+
+      <div id="modalAbility" class="ability-block" style="display:none">
+        <span class="label">Ability</span>
+        <div id="modalAbilityText"></div>
+      </div>
+      <div id="modalAbilityEmpty" class="ability-empty">No detail available — fetch card details to see name, ability, and stats.</div>
+
+      <div class="modal-actions">
+        <button class="btn btn-primary" id="toggleOwned">Mark as Owned</button>
+        <a class="open-source" id="openSource" href="https://laststand.co.th/conan_cards" target="_blank" rel="noopener">View on laststand.co.th →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="settingsModal" role="dialog" aria-modal="true">
+  <div class="modal-card">
+    <button class="modal-close" id="settingsClose" aria-label="Close">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+    <div class="settings-content">
+      <div class="lede">Investigation Console</div>
+      <h3>Resync the dossier</h3>
+      <p>Pull the latest card list from <span class="kbd">laststand.co.th</span>. Direct fetch is tried first, falling back to a public CORS proxy. Last sync: <span class="muted" id="lastSyncTxt">never</span>.</p>
+      <button class="btn btn-primary" id="autoSyncBtn">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 12a9 9 0 1 1-3-6.7L21 8"/><path d="M21 3v5h-5"/></svg>
+        Auto-Sync now
+      </button>
+      <hr>
+      <h3 style="font-size:16px">Fetch card details</h3>
+      <p>Pull each card's name, code, type, rarity, colors, and ability text. Roughly 300+ small requests through the same proxies — usually 30–90 seconds. Cached locally afterwards. Details: <span class="muted" id="detailsStatus">none yet</span>.</p>
+      <button class="btn" id="fetchDetailsBtn">Fetch all details</button>
+      <div class="warm-progress" id="detailsProgress">
+        <span id="detailsTxt">Fetching… 0 / 0</span>
+        <div class="bar"><div id="detailsBar"></div></div>
+      </div>
+      <hr>
+      <h3 style="font-size:16px">Translate names to English</h3>
+      <p>The app already aliases ~150 Detective Conan characters and traits via a built-in dictionary, so common searches like <span class="kbd">Conan</span>, <span class="kbd">Detective</span>, <span class="kbd">Black Organization</span> work out of the box. For everything else — one-off NPCs, locations, set names — this runs each Thai name through the free <a href="https://mymemory.translated.net" target="_blank" rel="noopener" style="color:var(--gold)">MyMemory</a> translator. Cached locally; one-time cost. Status: <span class="muted" id="translateStatus">never</span>.</p>
+      <button class="btn" id="translateBtn">Translate remaining names</button>
+      <div class="warm-progress" id="translateProgress">
+        <span id="translateTxt">Translating… 0 / 0</span>
+        <div class="bar"><div id="translateBar"></div></div>
+      </div>
+      <hr>
+      <h3 style="font-size:16px">Cache images for offline</h3>
+      <p>Download every card image to your device so the case file works fully offline. Roughly 30–80 MB depending on set count.</p>
+      <button class="btn" id="warmCacheBtn">Download all images</button>
+      <div class="warm-progress" id="warmProgress">
+        <span id="warmTxt">Caching… 0 / 0</span>
+        <div class="bar"><div id="warmBar"></div></div>
+      </div>
+      <hr>
+      <h3 style="font-size:16px">Manual update</h3>
+      <p>If auto-sync fails, paste the response from <a href="https://laststand.co.th/cc_search?query=&card_type=&card_colors=&card_rarity=&card_origin=&card_level=&card_ap=&card_lp=&card_cutin=false&card_disguise=false&card_inspire=false&card_traits=&card_pa=false" target="_blank" rel="noopener" style="color:var(--gold)">the search endpoint</a> below:</p>
+      <textarea id="manualHtml" placeholder="Paste raw response (JSON or HTML)…"></textarea>
+      <div class="btn-row"><button class="btn" id="manualSyncBtn">Parse &amp; update</button></div>
+      <hr>
+      <h3 style="font-size:16px">Backup</h3>
+      <div class="btn-row">
+        <button class="btn btn-ghost" id="exportBtn">Export</button>
+        <button class="btn btn-ghost" id="importBtn">Import</button>
+      </div>
+      <input type="file" id="importFile" accept="application/json" hidden>
+      <hr>
+      <button class="btn btn-danger" id="resetBtn">Wipe owned records</button>
+      <p style="margin-top:14px;font-size:11px;color:var(--ink-faded);text-align:center">
+        Card art © 青山剛昌／小学館 © TOMY · References via laststand.co.th · Thai reference translation only — not TAKARA TOMY official.
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="fab-row">
+  <button class="fab" id="syncFab" aria-label="Sync &amp; settings">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 12a9 9 0 1 1-3-6.7L21 8"/><path d="M21 3v5h-5"/></svg>
+    Sync &amp; settings
+  </button>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script id="seed-cards" type="application/json">[["8e539c625b294911b23213f6961425bf",41],["5e9a51acee9e4bbd8203cc7a868e1a15",42],["86e628880a8c431daf6446525134e991",43],["c210d49c4b6344efa2b0f8174c20c95e",44],["db9b2a74d8cd4e7f84e158ea51e021df",45],["5a28ded1909941cb9a33e4a22181a87b",46],["6d83a93e2adb4f98be6fa170cfb13615",47],["6d341e4a372c4d6c8238a1a936dc5373",48],["955d19bbf770420abc14cb59dd80c0ae",49],["d20b43d35df541dd89397b730797e359",50],["a2c9d65b21ea46868a3d1d4c1c81c9bd",51],["23dca7067dfa495ebb33997e0ed559cc",52],["4edd37d2b04e49fe992ab9a2e6bcdc72",53],["ee25ae08f6884fc3811309a9230271a5",54],["12d3ff73743f433184898fc48af3182a",56],["1f09db0f19db4b0d8b33d8df3a308ac9",57],["6324a7d83842497f91cf54fb5864c79f",58],["bc8466a5ff244dffb8f8929b034a5f7e",59],["ace35fb8c56147dcac5a3eb2b8e5d8f7",60],["1af36bf1cced462eb883d7759653982d",61],["2f271afd606343cd989b0fb85c76a9be",62],["5a4bf8290f354913b963c5b75b461b47",65],["61cc8ac6836f412f9827dec524354a9f",66],["18b20f16d97543b7a36f7ca1cdc61240",68],["d2b292ba487140b787ab59a46f3bd86a",71],["b828d112611c4108a69d66f0b99d673f",73],["b14a5005ba0f4c8089a0c605c52fa733",75],["358db6e52f504dbdb6aa2a45ffc1e707",78],["25343bc146c1421cbce7724881600580",79],["ee18056350c04a85bb0e9c904d906228",80],["75e3e1faf4c14952b9cf525a67506c94",81],["e906dd465be9497b8eec5e3bf42b5bb8",82],["1457f7ef9ef64b1bafbff945c92cc214",83],["3da0fdb4f92947849f7ea318963f1d68",84],["fd887857963e48ce9f6614b3bd3b74f0",85],["e07933a8e7634f3ba16692a284b35176",87],["c713cbe7abb14a9ca5e9b75cd5f1549a",88],["0c7ade04ff2744d5ad4bb9dd34d818b6",89],["7f94b2a91bb942ef893d69bfd7676a52",90],["ea99f67ed8d24540a5f6056bf696c730",91],["bf6e80ca59f9474b977e10ae59fa7ab3",92],["47b8edb6b922466db0ff875204654311",93],["d0e43297da7a4cbb9102ec13447085d2",94],["a886a2a0654c4f69900f258bd23a5c18",95],["1f902560f2e54832bd4beee555f82664",96],["ce6ed1dc8f0347a79b2149322e1e3564",97],["e1c8d99dc7c348dfb734ec588552e634",98],["28b54c3e4a5e4020ae7f65429579f678",99],["0985e775d801485b828f0fb79ca9b1eb",100],["109b8474c0bd4a0b901c671ff40ceb0b",102],["40b81b4dc7f04342b9b7306e38eb08a1",103],["0c692def7c2845408b00053a8396c647",104],["7bb79c5fc51c4c2c874fdf37ff09d95c",105],["5ab042a2a9ba40af81a71c3a67de0e7a",106],["8faa790d773d47f8a5d9d3c99face6f2",107],["dceff3041f7f4a68bf9d3d3bbd76b7f6",108],["db7020d3e171411ab266e70eaa610c26",110],["52d308a696b3427484529d94d8827a27",111],["0b53dad4047845f5a50fee65f15374b6",112],["0b669f60a4664f0e815eb975a79cd931",113],["565e362560ca46b685ddacb34a13220f",114],["a51f75e53bd845aca4fa96e47108a2e6",115],["8d7a36b18ac748f68fe793b10224fb47",116],["5550010f23904a5896bdc4cbb555cbce",117],["647b543424bc456596dfa1415e32310f",118],["a5b0279bdd1f45a8adb1a8baf827990e",119],["853cce44969947b98905083d43ca3a3c",120],["5f3b4e202b804611af5887a50b284b68",121],["da4b6c851ff94806b0ddbbc80c099b41",122],["3995e40407e340748e1cb2731f19a903",123],["23d6794ab2064eaba6a8eb5f00f85bf0",124],["92c9750416084211a9f4f472798ebf83",125],["0da304fffedf45a7934be27893b82b5c",126],["47663b8e21064244ab9bcd954c18fd5e",127],["43001fcbe4324dd4b40069e9069fdc91",128],["0f23069834b844ccb2abb7b02f7be44c",129],["b010630da3084690948279ee21ec9252",130],["d0261b0218f74670b94597df12660548",131],["1a901d0ee7ed4270830f1c3a51b59e1f",132],["d3a3faa3359e4ba4bf9a9508770edf8e",133],["00d7c2593a394a348434914ecde084cf",134],["112fa03848cd4031940fccda37bb72d6",135],["541e424711044a9ab67ecf7085d0d132",136],["2ca1cd8137704c3b99794fe37e8a08f4",137],["118b9f5eae7c4ac3941a21b397da3a5e",138],["a141f3239d8742a98ed2c9d5fd2d6702",139],["6050f497af574f25be47e3c85b2048e3",140],["de30dbd9bbc14266a9916c0c579ce4e7",179],["6aed3c7c011b476d88ec706ee5564971",182],["bbb8df7d4cf64daa82826f4fcd681efa",198],["d629da7cb2094314aac8c15a10b01a51",230],["9454b82b6a984af799c3b29454498047",231],["c3cd925c74ff4a70a7945f80a8b61e03",232],["fa77ac80d5724299b523aa3331d6c77b",233],["9efd8538cd0841d58427f960723c480b",234],["ddccbbed9c714ba48be0994ce5156ccd",235],["628103bad5b042c2a6768b1905269589",236],["121982546add45e9a74ef8e81759d5fd",237],["2c301f31cf3943d5924df6ec41d2e596",238],["8bece805aaa24f37be334a98d9cbf7d7",239],["c63bc3dc491b4809a140a51fecd5f56f",240],["e81f81cbc54b4c5d95fced5c92ef2b68",241],["4387e2878f1c4a56be38c3ea1ab4a9bf",242],["d65ec328e7ee49d99bebac28994cf7f3",243],["af29f4ce36de412499ff8dcd886a7a65",244],["b1fdcd9e1e17436793548dac1bbf8a0a",245],["af747933228e44f59f4a24f7b159f4e7",246],["ae627b78c1e549dab116f15233fde4a8",247],["dfb1cacc3be943b885ec88c9ac11038b",248],["f0dd16ff1b9b489bb95edfdc5d986eca",249],["97bd15ff6fae46caa966ebb8030d0b8e",250],["3ef374681e5d4a3aa6b7db6b81cac845",251],["02b71e5aa5df4c8d939d7a9b01224969",252],["b90c6022c73d428ca25d2182b00ed83b",253],["dc4efe05a34645fcb98e975554ebb62e",254],["e20f725741124bbb9aee56c933f5e7d8",255],["ac2993f7e5ad45adac4a3f1e163d93c7",256],["f2ceb1fc550341738d4544cf6cf6348b",257],["c10abe0f09da4a0ea7522f4fae297578",258],["247adcde3fb240948a419ea14d887a40",261],["b17b37df920c49b78095e51cbe2d3ed7",262],["7c4b5b7911854716be588ce7b9959d7a",263],["8ca3bc01f7e146bbb9707ac31fef1952",264],["8a5d3d2c0c2a4296a4c191721f471419",265],["bc666669fc214fcf9956aefe18cb0461",266],["e6c988b89b1343f5978c8463973babf5",267],["f1997fbfbccb493e9fd973731d8bce1b",268],["ec78cc0c66a0450e9dd012c14d89edee",269],["a50b999bbbef4a129b80bc88ae06185b",270],["dc417ab6f4f64f06ac35248ee22c1413",271],["e545fb8437194b00979bb5f23134304b",272],["b919893c50384f81a2ada90425df94a4",273],["c5aa7d6fa5e74cd2ac822324ce3a19ba",274],["4c1efb25224e434aaa845761d39f0e47",275],["452e55b644734fd3a5d12f326a40aac1",276],["2610143a764046a983c850576306e30d",277],["1140b20a54704990aef25045de83081e",278],["4f73050b2ebf4432a1cdbea6c7996e5c",279],["00495cc5a2c44360be847213592e01c5",280],["90ddc658c58e4e0482d9204bea7ac4ee",281],["ea99dfac98924770bcce7b42593eb735",282],["a5250e1297b049dd8426753764cb222f",283],["2263cd59b44c47f6ba7b49081e459d58",284],["2eb2161f368b4e1e9842fea06bd076c1",285],["1f7e43e3b05143c6ab275289fa0d11ed",286],["14b6c3cde68d44b597e7493c8d574227",287],["aa093a1c547f45ff9d855b8805e26510",288],["5d14ccade4f14053a6f51dfed8faafdc",290],["c1c46b08da034dbba0c75e0ea0ba1a42",291],["8c8156f8c7334962b463b3f2d26f5429",292],["69a63ce0cd904de1973bd3d3c4888cda",293],["b92c87a1ef254e9aa2c69d7fcd7f3253",294],["2dfea37fa64844caa5bb21ed065fec69",295],["f45bc61583d9482c9181fe8ab43de2c9",296],["65194d3f1a494a648fe2c06cec5a7834",297],["a012c9bbd5a34bc7ae307278a931f88f",298],["859bed9457ae4f9ebaf5a0996f774d6d",299],["8503d32a01064d8c85d5c2c075d3b41a",300],["cdb87d82e7134a0abb44c1c0230339cc",301],["8e02747daa224078b6ffce16692421c4",302],["356f76bf0c7047b9a79a8f12a68412d9",304],["e927971b467544ba95ca084c293dc4ad",305],["7be1e9b4affe4c45ae1c08fc76edc140",306],["8cc87cce5c9048d88c119b9dffccc195",307],["5fc1e32c559d4ffab97b0370c299b5b6",308],["7a31828e6d394de9b3af7b1d4b77a3dd",309],["a5934236543142849eee9f3b89ebc93d",310],["b17d23f8b6f441b689d0a759c42e48f6",311],["124321af6917448ca5e521aaaa9dd688",312],["42d7e225a499425db03aa89bdf83832b",313],["00b60bd78d8f4218971dbc069103c28c",314],["5569213f5a954a9ebafe2774b9d962a8",315],["70c4f7b2622742da99e5e23d635cb62a",316],["1f9db77928c24a17afdd07d56faa3aee",318],["ea7e5cf70a844c45a21a4f57b28b0765",319],["1f22e064e80a4877a32374b0a09ca68a",320],["6f225290b3e7474e8f0146549e488e48",321],["7059ddecaddb4d4e8e0007d3d8008ef4",322],["6ce02fddd66e417cb6c11f92b7911a99",323],["b799e5b0102e4dd7940abba275af0a5b",324],["22530fa998834188ac1c11b637ff3d28",325],["41db44d682094ab5b2b8407c868bf262",326],["4d859f84eb5549d8bcc73cecabc382f5",327],["95fd944bc0404c8f94935b8d737679c3",328],["fcf64b8f57374f93bb0ff47592923ae7",329],["f3ea8b5997e946fa942c873f6f88b607",330],["83f3b9b14f2e41bfaf77b89f95ff47db",331],["0668a5f7e1264783b4963a401a8760e3",332],["7f9f8d34c8a0454484a01d476ab25374",333],["44d11b139e02495d8789d8f74d647e8f",334],["2281d4d29aeb4cd79f14b4deb22c2c31",335],["bc01d242f8e24707be93229e331da869",336],["2bdd313d8d8a491ea1968c48675929a6",337],["eb3e98d712d841b6b58a68416ba76814",338],["5f5ac1761b1c4f5293f05b58a534aeb4",339],["1187637208aa4907acd86b338bf07c7e",340],["4234e24d4905491c82d5047b9bc49043",341],["a13f736d3bdd406c9189411592886377",342],["10b189e4593941b7b984c2f25a495522",343],["76b2e9057b0b414bb4c9cd1a88554bf5",344],["a0ab4687fad143cfbbda68576f66720e",345],["b083f56b7624402ea00c076e08c07c28",346],["4d1a85c51ee8435aa82aef3567e93f58",347],["e408b4cf0a9c457282e0f67396b9a003",348],["189faacb92ce4fc7a9cc7a73e4da2def",349],["f2da193545f642fdb0a2e75269c537a2",350],["f75b9af688f24b84822be2f708f13719",351],["17a0ea60449a41a1a9f9fe9529f08ce5",352],["aa45700e11ab4e109fae328cf82b2967",353],["e741b0c47e534d59961f7e5c0008bea4",354],["558fb1d8718e474f9dc58d94f2970e45",355],["e99f8fbe896a42568f6e500ed4478750",356],["3750165eb100412390e32bd317e8c669",357],["47b3eb00cf7440a48eb73920952bcc21",358],["71e3226bd88447be924a83638505e51a",359],["4f0a7059d34546ecb338faecab6fbcbb",360],["5aeaad733f2c4ca8bce7d8ead7f79305",361],["48ac08e571c243dcaedea16b1db4242a",362],["374b76111a5e44e4a62980e4d261e8d8",363],["fe11580934a545ba8dcdcfa46398ff22",364],["8d3394585c6640c080ac488a4e6e7282",365],["76b9658dfc8c4dfb80d13d376c3a5ddb",366],["6a85ed23b35449d69190cd835898fa7f",367],["31053880822743b2b8df373be19dd66d",368],["86c0adf17d95485f87d27afbfec9ffe6",369],["fdfc4dea92c54f59882c0b6764be2388",370],["cdfb989094cc46dcb09959aea172bf2e",371],["0fa02c7b0ca949c49028c686dec6af95",372],["94f0522a7fe74e70beb87ab685d56ad8",373],["48206266006a4339b342bc14f9fd05b1",374],["3a3c4999af6d4c23a54cd2003e52ebd5",375],["e894c36dd70c4295875ddd7ff370841f",376],["2f2980b2729449b491faaa02c6e0baa7",377],["4cafeb9763f04adfa8508b100750d8b4",378],["a636cd79abf84d1a8a5e22aaffbe9535",379],["15bdf50aa58e4446a042a9524444c370",380],["bf7c6666e5ce450aa65555e58e27898c",381],["a93c46a393b54d0dac4f463bd99d4c90",382],["6f0dba4848764417befeb1efa8aac259",383],["e07a5eb97cbb4ff5869be4ce1f115ded",384],["36404cb9d2aa45b3ad74c61eff80b530",385],["e2661fdf95044bd38a2ebb4303a9ad0c",386],["a224a4d03f26466c9d45d28d5d0857d8",684],["e4a4906482c94a4eabdcd1fb23e24d75",688],["edd655de76c847579f9a0786ff4bc815",690],["b9871f1946b64efaa2e754940d135d17",692],["1dff8eba0bc34bcea5470b52d163be15",698],["b2c0d513c2c4459d97f9301f23f1a6ce",702],["525e191ed3c14da8bda858ae7f2315cf",704],["0f8b2f1b07294acc94c667cba8aa5598",706],["e626edd5fb1d4d6f8297df12594c721c",708],["a7cdd4b16f57459e86e483d781802aa4",710],["ac24f30b14e54291822ecbc31b9334dd",712],["584d1524741a4c2daa2bec19c8ee1996",714],["081361ead1b8449192e3409b0d7b7d59",718],["e11acc5def77480aaa86b7c3a80b0548",721],["dde832a5727c4a458b57a1fae2685261",723],["44f00f8eae0d4588afb02f7b01c8af50",725],["ac6fb39011f74a5695774b7a755e6a83",727],["02e8354644144f94855e128127d5be58",730],["ce2d8b2e27404f12966612cdf3757126",734],["7912f303d2a94a3fb7a2f7c0516df04f",735],["043044dad5264fd98a8735ed7f1384b2",737],["2d47d2b029a34addbc3b97e025b8b96b",741],["0c360fd809e84290a762b2d32b565ff6",744],["d6240f40a11645748fa01c715879d732",746],["cb29b60af66240ab9f21067edf3b3da5",747],["1c9c3e59023942ab8d6afe8df9546d64",749],["3873b932f0f640779c4b74f1ea0ee737",750],["6b74a19a42454a008970695aac9044d5",752],["3e530fdccec640ffb5a60bbb121d7fb9",755],["e16c21176dcc48d1be813fb311495bd0",757],["97fff527b7294bc5b05e35686d6822bf",759],["371b8ab6191642a383561977e20d33c3",760],["d1e52b9f05a44f66ad1db6877fc50514",764],["fa6527c8af1b404d9f87c206818132b6",767],["4448314d640041f6a1e32bff291b80fa",769],["d5eb94f258544f9cbb2950982b321706",773],["7c10183c95ae4b13b49e5d5759b644a4",782],["e2d66a36816049b9ae8177774c4cc261",784],["2ca6836a7ff5489c91db416e967944e9",786],["990d83cd7c264a06a414331b59b5112d",787],["000e439a64684656ab5959fdab90b8d0",788],["1206ca04e27a4fc29d85c45d651557b9",790],["c9caabf9b4c249bab1775cb50ea4251a",794],["a4b446e8290a4c268c1bc147b9dac319",802],["65e91a06bc2443b2a05f9f9b7b89313b",803],["b6d5cf82a84f4d8992242873cd2fdc8f",805],["c0673951e8c944a9bb3177728d4a4b23",807],["b50a1d9cdcce4d6bbc82e70e0cea2fe9",809],["5dc4f55a3a0c4739a3d6bc1e7d45a549",813],["b96bc7b85293410b8d82313a0336e90c",814],["6d2370b96df647ca89f4df10b0cfda09",815],["866bd7d5e5f74ac4bcccab86f355ad9c",817],["db3fcb2d5e314a16984820da7f171b50",819],["4bd20d001a664b14ae5d5855b11787b9",821],["331f3638357a4b5b91c77a19f5bd8016",822],["bfe68d0f0da34dd28dbbf2644605c3a1",828],["f0ce0cd2552842bbb4f19010f615e425",830],["48c807e57352406e9a9d702d584a85ed",831],["05b7427b3ebf40538bcd4331c63ae586",833],["4605edaaee144f2c945dc9765bd7b30e",835],["0aa0ccf0faa849cda4e30be488bd9793",838],["fcb7dd272d544f6683a9fa9091b22f3a",839],["c67ce29b18c64ea7a3a5e36eeaa6b062",852],["0fa34bbb453346138aeb98bb8f4cc32c",862],["29c6a5a2380a45afb36c2af119982922",867],["e5c080e0c14347cc9378a96aeab63a45",868],["2c6a652c72ee427a80cf444d69486ba7",869],["8ff3beb17e1f46fea5f0c3c8743f4e87",871],["ba7698f62a5345e7a261ccbae9b27ef1",872],["c3715b7824aa450b9db31487f5993d54",1480]]</script>
+
+<script>
+(() => {
+'use strict';
+
+/* ============================================================
+   Detective Conan TCG · Case File — client logic
+   ============================================================ */
+
+const IMG_BASE = 'https://laststand.co.th/media/conan_card/';
+const SOURCE_URL = 'https://laststand.co.th/conan_cards';
+const SEARCH_URL = 'https://laststand.co.th/cc_search?query=&card_type=&card_colors=&card_rarity=&card_origin=&card_level=&card_ap=&card_lp=&card_cutin=false&card_disguise=false&card_inspire=false&card_traits=&card_pa=false';
+const DETAIL_URL = (id) => `https://laststand.co.th/cc_info?cardId=${id}&query=&card_type=&card_colors=&card_rarity=&card_origin=&card_level=&card_ap=&card_lp=&card_cutin=false&card_disguise=false&card_inspire=false&card_traits=&card_pa=true`;
+const CORS_PROXIES = [
+  (u) => `https://api.allorigins.win/raw?url=${encodeURIComponent(u)}`,
+  (u) => `https://corsproxy.io/?${encodeURIComponent(u)}`,
+];
+
+const LS_CARDS = 'conan.cards.v1';        // [{h,id,...}]
+const LS_OWNED = 'conan.owned.v1';        // {id: 1}
+const LS_LAST_SYNC = 'conan.lastSync.v1'; // ISO date
+const LS_LAST_DETAIL = 'conan.lastDetail.v1'; // ISO date of last detail fetch
+const LS_LAST_TRANSLATE = 'conan.lastTranslate.v1'; // ISO date of last online translate
+const LS_DISMISS_INSTALL = 'conan.dismissInstall.v1';
+
+// ---------- State ----------
+let CARDS = [];                  // [{h, id, code?, name?, type?, ...}]
+let OWNED = new Set();           // ids (numbers)
+let CURRENT_FILTER = 'all';
+let CURRENT_TYPE = 'all';
+let CURRENT_QUERY = '';
+let openCardId = null;
+let installEvent = null;
+let detailFetchAbort = false;
+
+// ---------- Thai → English dictionary ----------
+// Detective Conan character names + common traits + game terms.
+// Used for search aliasing (so typing "Conan" matches "เอโดงาวะ โคนัน")
+// and for showing English name alongside Thai in the modal.
+// Order matters within phrase-resolution: longer entries are matched first.
+const TH_EN_DICT = {
+  // === Main characters ===
+  'เอโดงาวะ โคนัน': 'Edogawa Conan',
+  'เอโดงาวะ': 'Edogawa', 'โคนัน': 'Conan',
+  'คุโด้ ชินอิจิ': 'Kudo Shinichi', 'คุโด้': 'Kudo', 'คุโด': 'Kudo', 'ชินอิจิ': 'Shinichi',
+  'คุโด้ ยูซากุ': 'Kudo Yusaku', 'ยูซากุ': 'Yusaku',
+  'คุโด้ ยูคิโกะ': 'Kudo Yukiko', 'ยูคิโกะ': 'Yukiko',
+  'โมริ รัน': 'Mori Ran', 'โมริ โคโกโร่': 'Mori Kogoro',
+  'โมริ': 'Mori', 'รัน': 'Ran', 'โคโกโร่': 'Kogoro', 'โคโกโร': 'Kogoro',
+  'ฮัตโตริ เฮย์จิ': 'Hattori Heiji', 'ฮัตโตริ': 'Hattori', 'เฮย์จิ': 'Heiji', 'เฮย์โซ': 'Heizo',
+  'โทยามะ คาซึฮะ': 'Toyama Kazuha', 'โทยามะ': 'Toyama', 'คาซึฮะ': 'Kazuha',
+  'จอมโจรคิด': 'Phantom Thief Kid', 'ไคโตะ คิด': 'Kaito Kid',
+  'คุโรบะ ไคโตะ': 'Kuroba Kaito', 'คุโรบะ': 'Kuroba', 'ไคโตะ': 'Kaito', 'คิด': 'Kid',
+  'นาคาโมริ อาโอโกะ': 'Nakamori Aoko', 'นาคาโมริ': 'Nakamori', 'อาโอโกะ': 'Aoko',
+  'อาคาอิ ชูอิจิ': 'Akai Shuichi', 'อาคาอิ': 'Akai', 'ชูอิจิ': 'Shuichi',
+  'อามุโร โทรุ': 'Amuro Toru', 'อามุโร': 'Amuro', 'โทรุ': 'Toru',
+  'มิยาโนะ ชิโฮะ': 'Miyano Shiho', 'ไฮบาระ ไอ': 'Haibara Ai',
+  'มิยาโนะ': 'Miyano', 'ชิโฮะ': 'Shiho', 'ไฮบาระ': 'Haibara', 'ไอ': 'Ai',
+  'ฮากาเสะ อากาสะ': 'Professor Agasa', 'อากาสะ ฮิโรชิ': 'Agasa Hiroshi',
+  'ฮากาเสะ': 'Hakase', 'อากาสะ': 'Agasa',
+  'ฮอนโด ยูซุรุ': 'Hondo Eisuke', 'ฮอนโด': 'Hondo', 'ยูซุรุ': 'Eisuke',
+  'ซาโตว์ มิวะโกะ': 'Sato Miwako', 'ซาโตะ': 'Sato', 'ซาโตว์': 'Sato', 'มิวะโกะ': 'Miwako',
+  'ทากากิ วาตารุ': 'Takagi Wataru', 'ทากากิ': 'Takagi', 'วาตารุ': 'Wataru',
+  'ชิรัตโตริ': 'Shiratori', 'ชิราโตริ': 'Shiratori', 'นินซาบุโระ': 'Ninzaburo',
+  'เมงุเระ จูโซ': 'Megure Juzo', 'เมงุเระ': 'Megure', 'จูโซ': 'Juzo',
+  'ซุซุกิ โซโนโกะ': 'Suzuki Sonoko', 'ซุซุกิ': 'Suzuki', 'โซโนโกะ': 'Sonoko',
+  'เซระ มาซึมิ': 'Sera Masumi', 'เซระ': 'Sera', 'มาซึมิ': 'Masumi',
+  'มัตสึดะ จินเปย์': 'Matsuda Jinpei', 'มัตสึดะ': 'Matsuda', 'จินเปย์': 'Jinpei',
+  'ฮากิวาระ เคนโซ': 'Hagiwara Kenzo', 'ฮากิวาระ': 'Hagiwara', 'เคนโซ': 'Kenzo',
+  'ฟุรุยะ เรย์': 'Furuya Rei', 'ฟุรุยะ': 'Furuya', 'เรย์': 'Rei',
+  'อาคาอิ มาซึมิ': 'Akai Masumi',
+  'จิน': 'Gin', 'วอดก้า': 'Vodka', 'เวอร์มัธ': 'Vermouth', 'เคอร์': 'Korn',
+  'เบลเยี่ยม': 'Bourbon', 'รัม': 'Rum', 'จินเซ้นเซ': 'Pisco', 'คีร์': 'Kir',
+  'เบลเดร': 'Belmod', 'แอนนี่': 'Annie',
+  'โยชิดะ อายุมิ': 'Yoshida Ayumi', 'อายุมิ': 'Ayumi',
+  'โคจิมะ เก็นตะ': 'Kojima Genta', 'เก็นตะ': 'Genta',
+  'ซึบุรายะ มิตสึฮิโกะ': 'Tsuburaya Mitsuhiko', 'มิตสึฮิโกะ': 'Mitsuhiko',
+  'จอมโจร': 'Phantom Thief', 'จอมโจรเสือดำ': 'Black Panther Thief',
+  'ฮานเซรู': 'Hanzel', 'ใบหน้าแดง': 'Crimson',
+  'จอดี้': 'Jodie', 'แชสะ': 'Camel', 'แอนดรี้': 'Andre',
+
+  // === Trait categories (from filter list on source) ===
+  'นักสืบ': 'Detective', 'ตำรวจ': 'Police', 'คนร้าย': 'Criminal',
+  'นักเรียนมัธยมปลาย': 'High School Student', 'นักศึกษามหาวิทยาลัย': 'University Student',
+  'นักศึกษาปริญญาโท': "Master's Student", 'นักศึกษาแพทย์': 'Medical Student',
+  'นักวิทยาศาสตร์': 'Scientist', 'นักวาด': 'Artist', 'นักประดิษฐ์': 'Inventor',
+  'นักมายากล': 'Magician', 'นักออกแบบ': 'Designer', 'นักเขียนนิยาย': 'Novelist',
+  'นักแสดง': 'Actor', 'นักฟุตบอล': 'Soccer Player', 'นักคาราเต้': 'Karate Practitioner',
+  'นักสร้าง CG': 'CG Creator',
+  'กลุ่มนักสืบเยาวชน': 'Detective Boys', 'กลุ่มนายทุนซึซึกิ': 'Suzuki Conglomerate',
+  'กองความมั่นคงสาธารณะ': 'Public Security Bureau',
+  'กรมตำรวจกุนมะ': 'Gunma Police', 'กรมตำรวจคานางาวะ': 'Kanagawa Police',
+  'กรมตำรวจชิซุโอกะ': 'Shizuoka Police', 'กรมตำรวจชิบะ': 'Chiba Police',
+  'กรมตำรวจนครบาล': 'Metropolitan Police', 'กรมตำรวจนางาโนะ': 'Nagano Police',
+  'กรมตำรวจฮอกไกโด': 'Hokkaido Police', 'กรมตำรวจเกียวโต': 'Kyoto Police',
+  'กรมตำรวจโอซาก้า': 'Osaka Police',
+  'ตระกูลอากาอิ': 'Akai Family', 'ตากล้อง': 'Photographer',
+  'ทนายความ': 'Lawyer', 'นักการเมือง': 'Politician', 'ครู': 'Teacher',
+  'พ่อครัวซูชิ': 'Sushi Chef', 'พ่อบ้าน': 'Butler', 'แม่บ้าน': 'Housekeeper',
+  'บรรณารักษ์': 'Librarian', 'บอดี้การ์ด': 'Bodyguard', 'บาร์เทนเดอร์': 'Bartender',
+  'บุคลากรทางการแพทย์': 'Medical Personnel', 'แพทย์': 'Doctor',
+  'ผู้ช่วย': 'Assistant', 'ผู้ประกาศข่าว': 'News Anchor',
+  'เจ้าหน้าที่รักษาความปลอดภัย': 'Security Guard', 'เลขานุการ': 'Secretary',
+  'เซียนหมากรุก': 'Chess Master', 'ศาสตราจารย์': 'Professor',
+  'สำนักงานนักสืบโมริ': 'Mori Detective Agency',
+  'ร้านกาแฟปัวโรต์': 'Cafe Poirot', 'ร้านราเม็ง': 'Ramen Shop', 'ร้านเหล้า': 'Bar',
+  'วิศวะกรระบบ': 'System Engineer', 'ปาร์ตี้หาคู่': 'Matchmaking Party',
+  'ผู้ชมซากุระ': 'Cherry Blossom Viewing',
+  'พนักงานบริษัทขายอาหาร': 'Food Company Employee',
+  'มอนสเตอร์': 'Monster', 'ราชินี': 'Queen', 'องค์ชาย': 'Prince', 'องค์หญิง': 'Princess',
+  'ฮีโร่': 'Hero', 'หุ่นยนต์': 'Robot',
+  'สุนัข': 'Dog', 'แมว': 'Cat', 'เหยี่ยว': 'Hawk', 'ชิปมังค์': 'Chipmunk',
+  'แม่มด': 'Witch', 'เทพปิศาจ': 'Demon God',
+  'แกดเจ็ต': 'Gadget', 'ไอดอล': 'Idol', 'เมด': 'Maid',
+  'มนต์แดง': 'Red Magic', 'บิ๊กจูเวล': 'Big Jewel',
+  'โดโรซันไค': 'Dorosankai', 'ไคจิน': 'Kaijin',
+  'องค์กรชุดดำ': 'Black Organization',
+
+  // === Card system / ability terms ===
+  'ช่วงไขคดี': 'Investigation Phase', 'ปิดคดี': 'Close Case',
+  'สลีป': 'Sleep', 'แอสซิสต์': 'Assist', 'พื้นที่': 'Area',
+  'การ์ด': 'Card', 'คดี': 'Case', 'พาร์ทเนอร์': 'Partner',
+  'อีเวนท์': 'Event', 'ตัวละคร': 'Character', 'ตัว': 'piece',
+  'เลเวล': 'Level', 'พลังจู่โจม': 'Attack Power', 'พลังชีวิต': 'Life Points',
+  'พลังเข้าประจัญ': 'Battle Power', 'จู่โจม': 'Attack', 'ป้องกัน': 'Defend',
+  'ฝ่ายตรงข้าม': 'Opponent', 'ฝ่ายเรา': 'Self',
+  'ช่อง': 'Slot', 'หลังการ์ด': 'Card Back', 'สแตนดบาย': 'Standby',
+  'จั่ว': 'Draw', 'ใบ': 'card(s)', 'มือ': 'Hand', 'ทิ้ง': 'Discard',
+  'สนาม': 'Field', 'เด็ค': 'Deck', 'ตอบโต้': 'Counter',
+  'เลือก': 'Choose', 'อาจจะ': 'may', 'ถ้า': 'if', 'แล้ว': 'then',
+  'หรือ': 'or', 'และ': 'and', 'ทั้ง': 'both',
+};
+
+// Sorted keys (longest first) so phrase matches before single words
+const TH_EN_KEYS = Object.keys(TH_EN_DICT).sort((a, b) => b.length - a.length);
+
+function translateThai(text) {
+  if (!text || typeof text !== 'string') return null;
+  let result = text;
+  let changed = false;
+  for (const k of TH_EN_KEYS) {
+    if (result.includes(k)) {
+      result = result.split(k).join(' ' + TH_EN_DICT[k] + ' ');
+      changed = true;
+    }
+  }
+  if (!changed) return null;
+  return result.replace(/\s+/g, ' ').replace(/\s+([,;:.!?])/g, '$1').trim();
+}
+
+// ---------- DOM ----------
+const $ = (sel) => document.querySelector(sel);
+const grid = $('#grid');
+const ownedCountEl = $('#ownedCount');
+const totalCountEl = $('#totalCount');
+const progressFill = $('#progressFill');
+const progressPct = $('#progressPct');
+const cAllEl = $('#cAll');
+const cOwnedEl = $('#cOwned');
+const cMissingEl = $('#cMissing');
+const searchInput = $('#searchInput');
+const searchClear = $('#searchClear');
+const cardModal = $('#cardModal');
+const settingsModal = $('#settingsModal');
+const toastEl = $('#toast');
+
+// ---------- Storage ----------
+function loadCards() {
+  try {
+    const stored = localStorage.getItem(LS_CARDS);
+    if (stored) {
+      const parsed = JSON.parse(stored);
+      if (Array.isArray(parsed) && parsed.length) {
+        const first = parsed[0];
+        if (Array.isArray(first)) {
+          // Legacy compact format: [[h, id], ...]
+          return parsed.map(([h, id]) => ({ h, id }));
+        }
+        // Strip any stale `_haystack` field that may have been persisted by older builds
+        return parsed.map(c => { const { _haystack, ...rest } = c; return rest; });
+      }
+    }
+  } catch (e) { /* fall through to seed */ }
+  // Seed from inline JSON
+  try {
+    const seedEl = document.getElementById('seed-cards');
+    const seed = JSON.parse(seedEl.textContent);
+    return seed.map(([h, id]) => ({ h, id }));
+  } catch (e) {
+    return [];
+  }
+}
+function saveCards(cards) {
+  // Persist plain card objects — never include the in-memory haystack cache
+  const cleaned = cards.map(c => { const { _haystack, ...rest } = c; return rest; });
+  localStorage.setItem(LS_CARDS, JSON.stringify(cleaned));
+}
+function loadOwned() {
+  try {
+    const stored = localStorage.getItem(LS_OWNED);
+    if (stored) {
+      const o = JSON.parse(stored);
+      return new Set(Object.keys(o).map(Number));
+    }
+  } catch {}
+  return new Set();
+}
+function saveOwned() {
+  const obj = {};
+  OWNED.forEach(id => obj[id] = 1);
+  localStorage.setItem(LS_OWNED, JSON.stringify(obj));
+}
+
+// ---------- Helpers ----------
+function imgUrl(card) { return IMG_BASE + card.h + '.webp'; }
+
+function formatDate(iso) {
+  if (!iso) return 'never';
+  const d = new Date(iso);
+  if (isNaN(d)) return 'never';
+  return d.toLocaleString(undefined, { dateStyle: 'medium', timeStyle: 'short' });
+}
+
+function showToast(msg, type = 'info', ms = 2400) {
+  toastEl.textContent = msg;
+  toastEl.className = 'toast show ' + type;
+  clearTimeout(showToast._t);
+  showToast._t = setTimeout(() => toastEl.classList.remove('show'), ms);
+}
+
+// ---------- Filtering & rendering ----------
+function getVisibleCards() {
+  let list = CARDS;
+  if (CURRENT_FILTER === 'owned') list = list.filter(c => OWNED.has(c.id));
+  else if (CURRENT_FILTER === 'missing') list = list.filter(c => !OWNED.has(c.id));
+  if (CURRENT_TYPE !== 'all') {
+    list = list.filter(c => c.type === CURRENT_TYPE);
+  }
+  if (CURRENT_QUERY) {
+    const q = CURRENT_QUERY.toLowerCase();
+    list = list.filter(c => buildSearchHaystack(c).includes(q));
+  }
+  return list;
+}
+
+// In-memory only — never persisted. Keyed by card id.
+const HAYSTACK_CACHE = new Map();
+
+function buildSearchHaystack(c) {
+  const cached = HAYSTACK_CACHE.get(c.id);
+  if (cached !== undefined) return cached;
+  const parts = [];
+  if (c.name) {
+    parts.push(c.name);
+    const en = translateThai(c.name);
+    if (en) parts.push(en);
+  }
+  if (c.nameEn)   parts.push(c.nameEn);
+  if (c.code)     parts.push(c.code);
+  if (c.setId)    parts.push(c.setId);
+  if (c.type)     parts.push(c.type);
+  if (c.rarity)   parts.push(c.rarity);
+  if (Array.isArray(c.colors)) parts.push(...c.colors);
+  if (c.traits) {
+    parts.push(c.traits);
+    const en = translateThai(c.traits);
+    if (en) parts.push(en);
+  }
+  if (c.traitsEn) parts.push(c.traitsEn);
+  if (c.origin)   parts.push(c.origin);
+  parts.push(String(c.id));
+  if (c.h)        parts.push(c.h);
+  const h = parts.join(' \u241F ').toLowerCase();
+  HAYSTACK_CACHE.set(c.id, h);
+  return h;
+}
+
+function invalidateHaystacks() {
+  HAYSTACK_CACHE.clear();
+}
+
+function renderGrid() {
+  const cards = getVisibleCards();
+  if (!cards.length) {
+    // Diagnose why there are no results
+    const total = CARDS.length;
+    const detailedCount = CARDS.filter(c => c.code).length;
+    const translatedCount = CARDS.filter(c => c.nameEn).length;
+    let title, sub;
+    if (total === 0) {
+      title = 'No cards loaded';
+      sub = 'Open Sync & Settings → Auto-Sync now';
+    } else if (CURRENT_QUERY && detailedCount === 0) {
+      title = 'No card details fetched yet';
+      sub = 'Sync & Settings → Fetch all details, then search by name';
+    } else if (CURRENT_QUERY && CURRENT_QUERY.length > 1 && /[A-Za-z]/.test(CURRENT_QUERY) && translatedCount < detailedCount * 0.5) {
+      title = 'No matches in this view';
+      sub = 'Try Sync & Settings → Translate remaining names for broader coverage';
+    } else {
+      title = 'No cards in this view';
+      sub = CURRENT_QUERY ? `No match for "${CURRENT_QUERY}"` : 'Adjust filters or resync the dossier';
+    }
+    grid.innerHTML = `
+      <div class="empty">
+        <div class="empty-mark">∅</div>
+        <div class="empty-title">${escapeHtml(title)}</div>
+        <div class="empty-sub">${escapeHtml(sub)}</div>
+      </div>`;
+    return;
+  }
+  const frag = document.createDocumentFragment();
+  cards.forEach((card, i) => {
+    const owned = OWNED.has(card.id);
+    const el = document.createElement('button');
+    el.className = 'card ' + (owned ? 'owned' : 'unowned');
+    el.dataset.id = card.id;
+    const label = card.code || ('№ ' + card.id);
+    const enName = card.nameEn || (card.name ? translateThai(card.name) : null);
+    const tooltip = card.name
+      ? `${label} — ${card.name}${enName && enName !== card.name ? ' / ' + enName : ''}`
+      : label;
+    el.title = tooltip;
+    el.setAttribute('aria-label', `${tooltip}${owned ? ', owned' : ''}`);
+    el.style.animationDelay = (Math.min(i, 30) * 12) + 'ms';
+    const numCls = card.code ? 'card-num has-code' : 'card-num';
+    const nameOverlay = card.name
+      ? `<span class="card-name">${escapeHtml(card.name)}</span>`
+      : '';
+    el.innerHTML = `
+      <span class="${numCls}">${escapeHtml(label)}</span>
+      <span class="owned-stamp" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      </span>
+      <img loading="lazy" decoding="async" src="${imgUrl(card)}" alt="${escapeHtml(tooltip)}">
+      ${nameOverlay}
+    `;
+    frag.appendChild(el);
+  });
+  grid.replaceChildren(frag);
+}
+
+function escapeHtml(s) {
+  if (s == null) return '';
+  return String(s)
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+}
+
+function refreshTypeFilters() {
+  const hasTypes = CARDS.some(c => c.type);
+  $('#typeFilters').style.display = hasTypes ? 'flex' : 'none';
+}
+
+function updateStats() {
+  const total = CARDS.length;
+  const owned = CARDS.reduce((n, c) => n + (OWNED.has(c.id) ? 1 : 0), 0);
+  const missing = total - owned;
+  ownedCountEl.textContent = owned;
+  totalCountEl.textContent = total;
+  cAllEl.textContent = total;
+  cOwnedEl.textContent = owned;
+  cMissingEl.textContent = missing;
+  const pct = total ? Math.round((owned / total) * 100) : 0;
+  progressFill.style.width = pct + '%';
+  progressPct.textContent = pct + '%';
+}
+
+// ---------- Card modal ----------
+function openCard(id) {
+  const card = CARDS.find(c => c.id === id);
+  if (!card) return;
+  openCardId = id;
+
+  $('#modalImg').src = imgUrl(card);
+  $('#modalImg').alt = card.name || `Card ${card.id}`;
+
+  // Name + code (graceful when details missing)
+  $('#modalName').textContent = card.name || (card.code || `Card № ${card.id}`);
+  // English name from cached server translation OR dictionary
+  const enName = card.nameEn || (card.name ? translateThai(card.name) : null);
+  const enEl = $('#modalNameEn');
+  if (enName && enName !== card.name) {
+    enEl.textContent = enName;
+    enEl.classList.add('visible');
+  } else {
+    enEl.textContent = '';
+    enEl.classList.remove('visible');
+  }
+  $('#modalCode').textContent = card.code
+    ? `${card.code}${card.setId && card.setId !== card.code ? ' · ' + card.setId : ''}`
+    : `Database ID ${card.id}`;
+
+  // Badges row: type, rarity, colors
+  const badges = [];
+  if (card.type)   badges.push(`<span class="badge type">${escapeHtml(card.type)}</span>`);
+  if (card.rarity) badges.push(`<span class="badge rarity">${escapeHtml(card.rarity)}</span>`);
+  if (Array.isArray(card.colors)) {
+    card.colors.forEach(col => {
+      const safeKey = String(col).replace(/[^A-Za-z]/g, '');
+      badges.push(`<span class="badge color-${safeKey}">${escapeHtml(col)}</span>`);
+    });
+  }
+  $('#modalBadges').innerHTML = badges.join('');
+  $('#modalBadges').style.display = badges.length ? 'flex' : 'none';
+
+  // Stats grid
+  $('#modalNum').textContent = '№ ' + card.id;
+  $('#modalOrigin').textContent = card.origin || '—';
+  $('#modalOrigin').classList.toggle('dim', !card.origin);
+
+  const apLpEl = $('#modalStatAP');
+  if (card.ap != null || card.lp != null) {
+    apLpEl.style.display = '';
+    $('#modalAPLP').textContent = `${card.ap ?? '—'} / ${card.lp ?? '—'}`;
+  } else {
+    apLpEl.style.display = 'none';
+  }
+
+  const lvlEl = $('#modalStatLevel');
+  if (card.level != null) {
+    lvlEl.style.display = '';
+    $('#modalLevel').textContent = card.level;
+  } else {
+    lvlEl.style.display = 'none';
+  }
+
+  const traitsEl = $('#modalStatTraits');
+  if (card.traits && card.traits.trim()) {
+    traitsEl.style.display = '';
+    const enTraits = card.traitsEn || translateThai(card.traits);
+    $('#modalTraits').textContent = enTraits && enTraits !== card.traits
+      ? `${card.traits}  ·  ${enTraits}`
+      : card.traits;
+  } else {
+    traitsEl.style.display = 'none';
+  }
+
+  // Ability text — render the HTML the source provides (sanitized lightly)
+  const abilityWrap = $('#modalAbility');
+  const abilityEmpty = $('#modalAbilityEmpty');
+  if (card.ability && card.ability.trim()) {
+    abilityWrap.style.display = '';
+    abilityEmpty.style.display = 'none';
+    $('#modalAbilityText').innerHTML = sanitizeAbilityHtml(card.ability);
+  } else {
+    abilityWrap.style.display = 'none';
+    abilityEmpty.style.display = card.detailFetchedAt || card.code ? 'none' : '';
+    // (If we have code but no ability, still treat as fetched — some cards have empty ability)
+    if (card.code) abilityEmpty.style.display = 'none';
+  }
+
+  refreshModalStatus();
+  cardModal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+// Allow only specific tags from the source's ability HTML
+function sanitizeAbilityHtml(html) {
+  if (!html) return '';
+  // Drop scripts/styles outright
+  html = String(html).replace(/<script[\s\S]*?<\/script>/gi, '').replace(/<style[\s\S]*?<\/style>/gi, '');
+  // Render in a detached element, then strip non-allowlisted nodes
+  const tmp = document.createElement('div');
+  tmp.innerHTML = html;
+  const ALLOWED_TAGS = new Set(['SPAN','BR','B','I','EM','STRONG','U','SMALL','SUP','SUB','DIV','P']);
+  const ALLOWED_CLASSES = new Set(['cc-info-sys','cc-info-sleep']);
+  const walk = (node) => {
+    const kids = Array.from(node.childNodes);
+    for (const child of kids) {
+      if (child.nodeType === 1) {
+        if (!ALLOWED_TAGS.has(child.tagName)) {
+          // Replace element with its text content
+          child.replaceWith(document.createTextNode(child.textContent || ''));
+          continue;
+        }
+        // Strip non-allowlisted classes
+        if (child.className) {
+          const keep = String(child.className).split(/\s+/).filter(c => ALLOWED_CLASSES.has(c));
+          if (keep.length) child.className = keep.join(' ');
+          else child.removeAttribute('class');
+        }
+        // Strip all attributes except class
+        for (const attr of Array.from(child.attributes)) {
+          if (attr.name !== 'class') child.removeAttribute(attr.name);
+        }
+        walk(child);
+      }
+    }
+  };
+  walk(tmp);
+  return tmp.innerHTML;
+}
+function closeCard() {
+  cardModal.classList.remove('open');
+  openCardId = null;
+  document.body.style.overflow = '';
+}
+function refreshModalStatus() {
+  if (openCardId == null) return;
+  const owned = OWNED.has(openCardId);
+  $('#modalStatus').textContent = owned ? 'In Evidence' : 'Outstanding';
+  $('#modalStatus').style.color = owned ? 'var(--gold)' : 'var(--ink-faded)';
+  const btn = $('#toggleOwned');
+  btn.textContent = owned ? 'Remove from Evidence' : 'Mark as Owned';
+  btn.classList.toggle('btn-primary', !owned);
+  btn.classList.toggle('btn-danger', owned);
+}
+function toggleOwned() {
+  if (openCardId == null) return;
+  if (OWNED.has(openCardId)) OWNED.delete(openCardId);
+  else OWNED.add(openCardId);
+  saveOwned();
+  // Update only the affected card in grid
+  const cardEl = grid.querySelector(`.card[data-id="${openCardId}"]`);
+  if (cardEl) {
+    cardEl.classList.toggle('owned', OWNED.has(openCardId));
+    cardEl.classList.toggle('unowned', !OWNED.has(openCardId));
+  }
+  refreshModalStatus();
+  updateStats();
+  // If filter is owned/missing, the card may need to leave the view
+  if (CURRENT_FILTER !== 'all') renderGrid();
+}
+
+// ---------- Settings modal ----------
+function openSettings() {
+  $('#lastSyncTxt').textContent = formatDate(localStorage.getItem(LS_LAST_SYNC));
+  refreshDetailsStatus();
+  refreshTranslateStatus();
+  settingsModal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function refreshDetailsStatus() {
+  const total = CARDS.length;
+  const fetched = CARDS.filter(c => c.code).length;
+  const last = localStorage.getItem(LS_LAST_DETAIL);
+  const txt = total === 0
+    ? 'no cards yet'
+    : fetched === 0
+      ? 'none yet'
+      : fetched === total
+        ? `all ${total} fetched · ${formatDate(last)}`
+        : `${fetched} / ${total} fetched · ${formatDate(last)}`;
+  $('#detailsStatus').textContent = txt;
+  $('#fetchDetailsBtn').textContent = fetched < total
+    ? `Fetch ${total - fetched} missing`
+    : 'Re-fetch all details';
+}
+
+function refreshTranslateStatus() {
+  // Count how many cards still need an English alias (and have a Thai name to translate)
+  const needsTranslate = CARDS.filter(c => {
+    if (!c.name || c.nameEn) return false;
+    const dictHit = translateThai(c.name);
+    if (dictHit && !/[\u0E00-\u0E7F]/.test(dictHit)) return false; // dict is enough
+    return true;
+  }).length;
+  const last = localStorage.getItem(LS_LAST_TRANSLATE);
+  let txt;
+  if (CARDS.length === 0) {
+    txt = 'no cards yet';
+  } else if (needsTranslate === 0) {
+    txt = last ? `up to date · ${formatDate(last)}` : 'dictionary covers everything';
+  } else {
+    txt = `${needsTranslate} card${needsTranslate === 1 ? '' : 's'} could use translation`;
+    if (last) txt += ` · last run ${formatDate(last)}`;
+  }
+  $('#translateStatus').textContent = txt;
+  $('#translateBtn').disabled = needsTranslate === 0;
+  $('#translateBtn').textContent = needsTranslate === 0
+    ? 'Nothing to translate'
+    : `Translate ${needsTranslate} name${needsTranslate === 1 ? '' : 's'}`;
+}
+function closeSettings() {
+  settingsModal.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// ---------- Sync logic ----------
+function parseCards(text) {
+  // Accept either JSON {data:"<html>"} or raw HTML
+  let html = text;
+  try {
+    const parsed = JSON.parse(text);
+    if (parsed && typeof parsed.data === 'string') html = parsed.data;
+  } catch {}
+  // Extract every img with src + data-card-id (order matters; src first then id)
+  // Tolerate whitespace and attribute order.
+  const out = [];
+  const seen = new Set();
+  // Pattern A: src then data-card-id
+  const re1 = /src=["']\/media\/conan_card\/([0-9a-f]+)\.webp["'][^>]*data-card-id=["'](\d+)["']/gi;
+  // Pattern B: data-card-id then src
+  const re2 = /data-card-id=["'](\d+)["'][^>]*src=["']\/media\/conan_card\/([0-9a-f]+)\.webp["']/gi;
+  let m;
+  while ((m = re1.exec(html))) {
+    const h = m[1], id = parseInt(m[2], 10);
+    if (!seen.has(h)) { seen.add(h); out.push({ h, id }); }
+  }
+  while ((m = re2.exec(html))) {
+    const h = m[2], id = parseInt(m[1], 10);
+    if (!seen.has(h)) { seen.add(h); out.push({ h, id }); }
+  }
+  return out;
+}
+
+async function fetchSearchEndpoint() {
+  const errors = [];
+  // 1) Direct
+  try {
+    const res = await fetch(SEARCH_URL, { credentials: 'omit' });
+    if (res.ok) {
+      const txt = await res.text();
+      return { text: txt, via: 'direct' };
+    }
+    errors.push(`direct: HTTP ${res.status}`);
+  } catch (e) {
+    errors.push('direct: ' + e.message);
+  }
+  // 2) CORS proxies
+  for (const wrap of CORS_PROXIES) {
+    try {
+      const res = await fetch(wrap(SEARCH_URL));
+      if (res.ok) {
+        const txt = await res.text();
+        return { text: txt, via: 'proxy' };
+      }
+      errors.push(`proxy: HTTP ${res.status}`);
+    } catch (e) {
+      errors.push('proxy: ' + e.message);
+    }
+  }
+  throw new Error(errors.join(' | '));
+}
+
+// ---------- Card-detail (cc_info) ----------
+function parseCardDetail(text) {
+  let obj;
+  try { obj = JSON.parse(text); } catch { return null; }
+  if (!obj || typeof obj !== 'object') return null;
+  // Some proxies wrap in {contents: "..."} — handle that
+  if (typeof obj.contents === 'string' && obj.cc_pic == null) {
+    try { obj = JSON.parse(obj.contents); } catch { return null; }
+  }
+  if (!obj.cc_pic && !obj.cc_id) return null;
+  let h = null;
+  if (typeof obj.cc_pic === 'string') {
+    const m = obj.cc_pic.match(/\/conan_card\/([0-9a-f]+)\.webp/);
+    if (m) h = m[1];
+  }
+  return {
+    h,
+    code: obj.cc_id || null,
+    setId: obj.cc_set_id || null,
+    name: obj.cc_name || null,
+    type: obj.cc_type || null,
+    rarity: obj.cc_rarity || null,
+    colors: Array.isArray(obj.cc_colors) ? obj.cc_colors : [],
+    origin: obj.cc_origin || null,
+    traits: typeof obj.cc_traits === 'string' ? obj.cc_traits : '',
+    level: obj.cc_level ?? null,
+    ap: obj.cc_ap ?? null,
+    lp: obj.cc_lp ?? null,
+    cutin: obj.cc_cutin ?? null,
+    hirameki: obj.cc_hirameki ?? null,
+    disguise: obj.cc_disguise ?? null,
+    ability: typeof obj.cc_ability === 'string' ? obj.cc_ability : '',
+    faq: typeof obj.cc_faq === 'string' ? obj.cc_faq : ''
+  };
+}
+
+async function fetchOneDetail(id) {
+  const url = DETAIL_URL(id);
+  // 1) Direct
+  try {
+    const r = await fetch(url, { credentials: 'omit' });
+    if (r.ok) return await r.text();
+  } catch {}
+  // 2) Proxies
+  for (const wrap of CORS_PROXIES) {
+    try {
+      const r = await fetch(wrap(url));
+      if (r.ok) return await r.text();
+    } catch {}
+  }
+  throw new Error('All fetch attempts failed for ' + id);
+}
+
+async function fetchCardDetails(onProgress) {
+  detailFetchAbort = false;
+  // Re-fetch all if user clicked the re-fetch button (we treat by checking if all already have code)
+  const allFetched = CARDS.every(c => c.code);
+  const needIdxs = [];
+  CARDS.forEach((c, i) => {
+    if (!allFetched && !c.code) needIdxs.push(i);
+    else if (allFetched) needIdxs.push(i);
+  });
+  const total = needIdxs.length;
+  if (!total) {
+    if (onProgress) onProgress({ done: 0, total: 0, ok: 0, failed: 0, complete: true });
+    return { done: 0, total: 0, ok: 0, failed: 0 };
+  }
+
+  let done = 0, ok = 0, failed = 0;
+  const CONCURRENCY = 4;
+  let cursor = 0;
+  // Persist progress periodically so a closed tab doesn't lose work
+  let lastSave = 0;
+  const persist = () => {
+    if (Date.now() - lastSave > 1500) {
+      saveCards(CARDS);
+      lastSave = Date.now();
+    }
+  };
+
+  async function worker() {
+    while (cursor < needIdxs.length && !detailFetchAbort) {
+      const idx = needIdxs[cursor++];
+      const card = CARDS[idx];
+      try {
+        const text = await fetchOneDetail(card.id);
+        const detail = parseCardDetail(text);
+        if (detail) {
+          // Don't overwrite hash if parser couldn't extract one
+          const merged = { ...card, ...detail };
+          if (!detail.h) merged.h = card.h;
+          CARDS[idx] = merged;
+          ok++;
+        } else {
+          failed++;
+        }
+      } catch (e) {
+        failed++;
+      }
+      done++;
+      persist();
+      if (onProgress) onProgress({ done, total, ok, failed, complete: false });
+    }
+  }
+  const pool = Math.min(CONCURRENCY, total);
+  await Promise.all(Array.from({ length: pool }, () => worker()));
+  invalidateHaystacks();
+  saveCards(CARDS);
+  if (ok > 0) localStorage.setItem(LS_LAST_DETAIL, new Date().toISOString());
+  if (onProgress) onProgress({ done, total, ok, failed, complete: true });
+  return { done, total, ok, failed };
+}
+
+// ---------- Online translation via MyMemory ----------
+// Free API, CORS-friendly, ~50K chars/day per IP with the de= parameter.
+// Used for cards whose names aren't in the built-in TH_EN_DICT.
+const MYMEMORY = (text) =>
+  `https://api.mymemory.translated.net/get?q=${encodeURIComponent(text)}&langpair=th|en&de=conantcg.user@example.com`;
+let translateAbort = false;
+
+async function translateOne(text) {
+  if (!text) return null;
+  const url = MYMEMORY(text);
+  try {
+    const r = await fetch(url, { credentials: 'omit' });
+    if (!r.ok) return null;
+    const data = await r.json();
+    const status = (data && (data.responseStatus || data.responseDetails)) || '';
+    if (data && data.responseData && typeof data.responseData.translatedText === 'string') {
+      const t = data.responseData.translatedText.trim();
+      // MyMemory occasionally echoes the source or returns "INVALID …" markers
+      if (!t) return null;
+      if (t === text) return null;
+      if (/^MYMEMORY WARNING|^INVALID/i.test(t)) return null;
+      return t;
+    }
+    return null;
+  } catch {
+    return null;
+  }
+}
+
+async function translateNamesOnline(onProgress) {
+  translateAbort = false;
+  // Fields to translate: card.name → card.nameEn, card.traits → card.traitsEn
+  // Skip cards already covered by the dictionary (translateThai returns non-null and looks fully translated)
+  const targets = [];
+  for (const c of CARDS) {
+    if (!c.nameEn && c.name) {
+      // If dict can fully translate (no Thai chars left), skip the API call — dict result is good enough.
+      const dictHit = translateThai(c.name);
+      if (!dictHit || /[\u0E00-\u0E7F]/.test(dictHit)) {
+        targets.push({ card: c, field: 'name', en: 'nameEn', text: c.name });
+      }
+    }
+    if (!c.traitsEn && c.traits && c.traits.trim()) {
+      const dictHit = translateThai(c.traits);
+      if (!dictHit || /[\u0E00-\u0E7F]/.test(dictHit)) {
+        targets.push({ card: c, field: 'traits', en: 'traitsEn', text: c.traits });
+      }
+    }
+  }
+  const total = targets.length;
+  if (!total) {
+    if (onProgress) onProgress({ done: 0, total: 0, ok: 0, failed: 0, complete: true });
+    return { done: 0, total: 0, ok: 0, failed: 0 };
+  }
+
+  let done = 0, ok = 0, failed = 0;
+  const CONCURRENCY = 3;       // be polite to the free API
+  const DELAY_MS = 120;        // gentle pacing
+  let cursor = 0;
+  let lastSave = 0;
+  const persist = () => {
+    if (Date.now() - lastSave > 1500) {
+      saveCards(CARDS);
+      lastSave = Date.now();
+    }
+  };
+
+  async function worker() {
+    while (cursor < targets.length && !translateAbort) {
+      const t = targets[cursor++];
+      const en = await translateOne(t.text);
+      if (en) {
+        t.card[t.en] = en;
+        ok++;
+      } else {
+        failed++;
+      }
+      done++;
+      persist();
+      if (onProgress) onProgress({ done, total, ok, failed, complete: false });
+      if (DELAY_MS) await new Promise(r => setTimeout(r, DELAY_MS));
+    }
+  }
+  await Promise.all(Array.from({ length: Math.min(CONCURRENCY, total) }, () => worker()));
+  invalidateHaystacks();
+  saveCards(CARDS);
+  localStorage.setItem(LS_LAST_TRANSLATE, new Date().toISOString());
+  if (onProgress) onProgress({ done, total, ok, failed, complete: true });
+  return { done, total, ok, failed };
+}
+
+async function autoSync() {
+  const fab = $('#syncFab');
+  const btn = $('#autoSyncBtn');
+  fab.classList.add('syncing');
+  btn.disabled = true;
+  showToast('Syncing dossier…', 'info', 8000);
+  try {
+    const { text, via } = await fetchSearchEndpoint();
+    const parsed = parseCards(text);
+    if (!parsed.length) throw new Error('No cards found in response');
+    applyNewCards(parsed);
+    showToast(`Synced ${parsed.length} cards (${via})`, 'info');
+  } catch (e) {
+    console.error('Sync failed:', e);
+    showToast('Auto-sync blocked. Try manual paste below.', 'error', 4000);
+  } finally {
+    fab.classList.remove('syncing');
+    btn.disabled = false;
+  }
+}
+
+function manualSync() {
+  const text = $('#manualHtml').value.trim();
+  if (!text) { showToast('Paste content first', 'error'); return; }
+  const parsed = parseCards(text);
+  if (!parsed.length) {
+    showToast('Could not find cards in pasted text', 'error');
+    return;
+  }
+  applyNewCards(parsed);
+  $('#manualHtml').value = '';
+  showToast(`Imported ${parsed.length} cards`, 'info');
+}
+
+function applyNewCards(parsed) {
+  // Preserve existing detail data when the same id reappears in the new list
+  const detailById = new Map();
+  CARDS.forEach(c => {
+    if (c.code || c.name) detailById.set(c.id, c);
+  });
+  const newIds = new Set(parsed.map(c => c.id));
+  const merged = parsed.map(p => {
+    const existing = detailById.get(p.id);
+    return existing ? { ...existing, h: p.h, id: p.id } : p;
+  });
+  // Keep orphans (cards no longer in source but user may own)
+  const orphans = CARDS.filter(c => !newIds.has(c.id));
+  CARDS = merged.concat(orphans);
+  invalidateHaystacks();
+  saveCards(CARDS);
+  localStorage.setItem(LS_LAST_SYNC, new Date().toISOString());
+  $('#lastSyncTxt').textContent = formatDate(localStorage.getItem(LS_LAST_SYNC));
+  refreshTypeFilters();
+  renderGrid();
+  updateStats();
+}
+
+// ---------- Image cache warming ----------
+function warmCache() {
+  if (!('serviceWorker' in navigator) || !navigator.serviceWorker.controller) {
+    showToast('Service worker not active. Host on HTTPS to enable.', 'error', 3500);
+    return;
+  }
+  const urls = CARDS.map(imgUrl);
+  const wp = $('#warmProgress');
+  const wt = $('#warmTxt');
+  const wb = $('#warmBar');
+  wp.classList.add('visible');
+  wt.textContent = `Caching… 0 / ${urls.length}`;
+  wb.style.width = '0%';
+  $('#warmCacheBtn').disabled = true;
+  navigator.serviceWorker.controller.postMessage({ type: 'WARM_IMAGE_CACHE', urls });
+}
+
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.addEventListener('message', (e) => {
+    const m = e.data || {};
+    if (m.type === 'WARM_PROGRESS' || m.type === 'WARM_DONE') {
+      const wt = $('#warmTxt');
+      const wb = $('#warmBar');
+      const pct = m.total ? Math.round((m.done / m.total) * 100) : 0;
+      wt.textContent = `${m.type === 'WARM_DONE' ? 'Done' : 'Caching'}… ${m.done} / ${m.total}`;
+      wb.style.width = pct + '%';
+      if (m.type === 'WARM_DONE') {
+        $('#warmCacheBtn').disabled = false;
+        showToast(`${m.done} images cached for offline`, 'info', 3000);
+      }
+    }
+  });
+}
+
+// ---------- Export / Import ----------
+function exportData() {
+  const data = {
+    version: 1,
+    exportedAt: new Date().toISOString(),
+    cards: CARDS.map(c => [c.h, c.id]),
+    owned: Array.from(OWNED),
+    lastSync: localStorage.getItem(LS_LAST_SYNC) || null
+  };
+  const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `conan-tcg-collection-${new Date().toISOString().slice(0, 10)}.json`;
+  a.click();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+  showToast('Collection exported', 'info');
+}
+
+function importData() { $('#importFile').click(); }
+
+$('#importFile').addEventListener('change', (e) => {
+  const file = e.target.files && e.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = () => {
+    try {
+      const data = JSON.parse(reader.result);
+      if (Array.isArray(data.cards)) {
+        CARDS = data.cards.map(([h, id]) => ({ h, id }));
+        saveCards(CARDS);
+      }
+      if (Array.isArray(data.owned)) {
+        OWNED = new Set(data.owned.map(Number));
+        saveOwned();
+      }
+      if (data.lastSync) localStorage.setItem(LS_LAST_SYNC, data.lastSync);
+      $('#lastSyncTxt').textContent = formatDate(localStorage.getItem(LS_LAST_SYNC));
+      renderGrid();
+      updateStats();
+      showToast('Collection imported', 'info');
+    } catch (err) {
+      showToast('Import failed: not a valid backup', 'error');
+    } finally {
+      e.target.value = '';
+    }
+  };
+  reader.readAsText(file);
+});
+
+function reset() {
+  if (!confirm('Wipe all owned records? This will not affect the card list.')) return;
+  OWNED.clear();
+  saveOwned();
+  renderGrid();
+  updateStats();
+  showToast('Owned records wiped', 'info');
+}
+
+// ---------- Service worker & install ----------
+if ('serviceWorker' in navigator && location.protocol !== 'file:') {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('sw.js').catch(() => {/* ignore */});
+  });
+}
+
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  installEvent = e;
+  if (localStorage.getItem(LS_DISMISS_INSTALL)) return;
+  $('#installBanner').classList.add('visible');
+});
+$('#installBtn').addEventListener('click', async () => {
+  if (!installEvent) return;
+  installEvent.prompt();
+  const { outcome } = await installEvent.userChoice;
+  installEvent = null;
+  $('#installBanner').classList.remove('visible');
+  if (outcome === 'accepted') showToast('App installed', 'info');
+});
+$('#installDismiss').addEventListener('click', () => {
+  $('#installBanner').classList.remove('visible');
+  localStorage.setItem(LS_DISMISS_INSTALL, '1');
+});
+
+// ---------- Wire up events ----------
+grid.addEventListener('click', (e) => {
+  const card = e.target.closest('.card');
+  if (!card) return;
+  openCard(parseInt(card.dataset.id, 10));
+});
+
+$('#modalClose').addEventListener('click', closeCard);
+cardModal.addEventListener('click', (e) => { if (e.target === cardModal) closeCard(); });
+$('#toggleOwned').addEventListener('click', toggleOwned);
+
+$('#syncFab').addEventListener('click', openSettings);
+$('#settingsClose').addEventListener('click', closeSettings);
+settingsModal.addEventListener('click', (e) => { if (e.target === settingsModal) closeSettings(); });
+$('#autoSyncBtn').addEventListener('click', autoSync);
+$('#manualSyncBtn').addEventListener('click', manualSync);
+$('#warmCacheBtn').addEventListener('click', warmCache);
+$('#exportBtn').addEventListener('click', exportData);
+$('#importBtn').addEventListener('click', importData);
+$('#resetBtn').addEventListener('click', reset);
+
+// Detail fetch button
+$('#fetchDetailsBtn').addEventListener('click', async () => {
+  const btn = $('#fetchDetailsBtn');
+  const wp = $('#detailsProgress');
+  const wt = $('#detailsTxt');
+  const wb = $('#detailsBar');
+  btn.disabled = true;
+  wp.classList.add('visible');
+  wt.textContent = 'Starting…';
+  wb.style.width = '0%';
+  showToast('Fetching card details…', 'info', 4000);
+  try {
+    const result = await fetchCardDetails(({ done, total, ok, failed, complete }) => {
+      const pct = total ? Math.round((done / total) * 100) : 0;
+      wt.textContent = `${complete ? 'Done' : 'Fetching'}… ${done} / ${total}` +
+        (failed > 0 ? ` · ${failed} failed` : '');
+      wb.style.width = pct + '%';
+    });
+    showToast(
+      result.ok > 0
+        ? `Fetched ${result.ok}${result.failed ? `, ${result.failed} failed` : ''}`
+        : 'Could not fetch any details (CORS / proxy blocked)',
+      result.ok > 0 ? 'info' : 'error',
+      4000
+    );
+    refreshTypeFilters();
+    refreshDetailsStatus();
+    renderGrid();
+    updateStats();
+  } catch (e) {
+    showToast('Detail fetch failed: ' + e.message, 'error', 4000);
+  } finally {
+    btn.disabled = false;
+  }
+});
+
+// Translate button
+$('#translateBtn').addEventListener('click', async () => {
+  const btn = $('#translateBtn');
+  const wp = $('#translateProgress');
+  const wt = $('#translateTxt');
+  const wb = $('#translateBar');
+  btn.disabled = true;
+  wp.classList.add('visible');
+  wt.textContent = 'Starting…';
+  wb.style.width = '0%';
+  showToast('Translating names…', 'info', 4000);
+  try {
+    const result = await translateNamesOnline(({ done, total, ok, failed, complete }) => {
+      const pct = total ? Math.round((done / total) * 100) : 0;
+      wt.textContent = `${complete ? 'Done' : 'Translating'}… ${done} / ${total}` +
+        (failed > 0 ? ` · ${failed} failed` : '');
+      wb.style.width = pct + '%';
+    });
+    if (result.total === 0) {
+      showToast('Nothing to translate — every name is already covered', 'info', 3000);
+    } else {
+      showToast(
+        result.ok > 0
+          ? `Translated ${result.ok}${result.failed ? `, ${result.failed} failed` : ''}`
+          : 'Translation failed — API may be rate-limited',
+        result.ok > 0 ? 'info' : 'error',
+        4000
+      );
+    }
+    refreshTranslateStatus();
+    renderGrid();
+  } catch (e) {
+    showToast('Translation failed: ' + e.message, 'error', 4000);
+  } finally {
+    btn.disabled = false;
+  }
+});
+
+// Filters — status
+document.querySelectorAll('.filter-row:not(.types) .chip').forEach(chip => {
+  chip.addEventListener('click', () => {
+    document.querySelectorAll('.filter-row:not(.types) .chip').forEach(c => c.classList.remove('active'));
+    chip.classList.add('active');
+    CURRENT_FILTER = chip.dataset.filter;
+    renderGrid();
+  });
+});
+
+// Filters — type
+document.querySelectorAll('#typeFilters .chip').forEach(chip => {
+  chip.addEventListener('click', () => {
+    document.querySelectorAll('#typeFilters .chip').forEach(c => c.classList.remove('active'));
+    chip.classList.add('active');
+    CURRENT_TYPE = chip.dataset.type;
+    renderGrid();
+  });
+});
+
+// Search (debounced)
+let searchTimer = null;
+searchInput.addEventListener('input', () => {
+  searchClear.classList.toggle('visible', !!searchInput.value);
+  clearTimeout(searchTimer);
+  searchTimer = setTimeout(() => {
+    CURRENT_QUERY = searchInput.value.trim();
+    renderGrid();
+  }, 120);
+});
+searchClear.addEventListener('click', () => {
+  searchInput.value = '';
+  searchClear.classList.remove('visible');
+  CURRENT_QUERY = '';
+  renderGrid();
+  searchInput.focus();
+});
+
+// ESC closes modals
+document.addEventListener('keydown', (e) => {
+  if (e.key !== 'Escape') return;
+  if (cardModal.classList.contains('open')) closeCard();
+  else if (settingsModal.classList.contains('open')) closeSettings();
+});
+
+// ---------- Init ----------
+function init() {
+  CARDS = loadCards();
+  OWNED = loadOwned();
+  CARDS.sort((a, b) => a.id - b.id);
+  const ls = localStorage.getItem(LS_LAST_SYNC);
+  $('#caseDate').textContent = ls
+    ? new Date(ls).toLocaleDateString(undefined, { year: '2-digit', month: '2-digit', day: '2-digit' }).replace(/\//g, '·')
+    : new Date().toLocaleDateString(undefined, { year: '2-digit', month: '2-digit', day: '2-digit' }).replace(/\//g, '·');
+  refreshTypeFilters();
+  renderGrid();
+  updateStats();
+  setTimeout(() => {
+    const splash = $('#splash');
+    splash.classList.add('fading');
+    setTimeout(() => splash.remove(), 500);
+  }, 350);
+}
+init();
+})();
+</script>
+</body>
+</html>

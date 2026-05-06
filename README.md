@@ -29,6 +29,43 @@ A mobile-first PWA for browsing, searching, and tracking your Detective Conan TC
 | `favicon-32.png` | Browser tab icon |
 | `cards.json` | Standalone seed data (also embedded in `index.html`) |
 
+## Hosting (pick one)
+
+The PWA needs to be served over HTTPS (or `localhost`) for the service worker, install prompt, and offline cache to work. `file://` won't enable those features.
+
+### Option 1 — GitHub Pages (free, recommended)
+
+1. Create a new public repo (e.g. `conan-tcg`).
+2. Upload all the files in this bundle to the repo root.
+3. Settings → Pages → Source: `main` branch, `/ (root)`.
+4. Wait ~1 minute, then open `https://<your-username>.github.io/conan-tcg/`.
+5. On your phone: open in Chrome (Android) or Safari (iOS) → install/Add to Home Screen.
+
+### Option 2 — Netlify Drop (free, drag-and-drop)
+
+1. Visit [app.netlify.com/drop](https://app.netlify.com/drop).
+2. Drag the entire folder onto the page.
+3. Open the URL it gives you on your phone, install.
+
+### Option 3 — Cloudflare Pages
+
+Similar to Netlify; create a project, upload, deploy.
+
+### Option 4 — Local network (one-off testing)
+
+```bash
+cd path/to/conan-tcg
+python3 -m http.server 8080
+```
+
+Then on your phone, on the same Wi-Fi, visit `http://<your-laptop-ip>:8080/`. **Note:** service workers and install prompts require HTTPS, so this is only good for quick UI testing — not for true offline use.
+
+## Installing on your phone
+
+**Android / Chrome:** the app shows an Install banner after a few visits, or use the browser menu → "Install app".
+
+**iOS / Safari:** tap the Share button → "Add to Home Screen". (iOS doesn't support the install banner spec yet, but the manifest still configures the icon, name, and standalone display mode.)
+
 ## Resync — how it works
 
 The app's source of truth is two endpoints:
@@ -94,3 +131,10 @@ Search matches against everything: original Thai + dictionary translation + MyMe
 - **Filters / sort:** the `getVisibleCards()` function in the script block is a small pure function — easy to extend for new filters.
 - **Translation dictionary:** the `TH_EN_DICT` constant near the top of the script holds the Thai → English aliases that power bilingual search and modal display. Roughly 150 entries covering main Detective Conan characters (Conan, Shinichi, Ran, Kogoro, Heiji, Kid, Akai, Amuro, Haibara, etc.), the trait categories from the source site's filter list (Detective, Police, Black Organization, the Detective Boys, prefectural police forces, professions, etc.), and core game terms (Investigation Phase, Sleep, Assist, etc.). Keys are sorted longest-first so multi-word phrases are matched before their components, which means `เอโดงาวะ โคนัน` resolves to `Edogawa Conan` rather than `Edogawa` + `Conan` separately. Add more entries to extend coverage; typos and contributions welcome.
 - **Image cache strategy:** `sw.js` is straightforward, with cache-first for images and network-first for the search endpoint. Tweak as needed.
+
+## Browser support
+
+- Chrome / Edge / Samsung Internet (Android): full PWA support, install prompt, offline.
+- Safari (iOS 16+): "Add to Home Screen" works; service worker caches; no install prompt UI.
+- Firefox (Android): works but no install prompt.
+- Desktop browsers: works as a regular web app; install support varies.
