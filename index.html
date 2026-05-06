@@ -969,17 +969,6 @@ const CONAN_TCG_APP_API = 'https://conan-tcg-app.com/api/card_list';
 const SRC_TYPE_MAP  = { 'パートナー':'Partner', 'キャラ':'Character', 'イベント':'Event', '事件':'Case' };
 const SRC_COLOR_MAP = { '青':'blue', '緑':'green', '白':'white', '赤':'red', '黄':'yellow', '黒':'black' };
 
-function srcDeriveSet(cardNum) {
-  if (!cardNum) return null;
-  const s = String(cardNum).trim();
-  if (s.includes('-')) {
-    const i = s.lastIndexOf('-');
-    const head = s.slice(0, i), tail = s.slice(i + 1);
-    if (/^\d+$/.test(tail)) return head;
-  }
-  return s.replace(/\d+$/, '') || s;
-}
-
 function srcCombineAbilities(src) {
   const parts = [];
   for (const k of ['disguise', 'cut_in', 'hirameki', 'feature', 'difficulty_txt']) {
@@ -1005,7 +994,8 @@ function srcToInt(v) {
 function convertConanTcgAppCard(src) {
   const nameJa = (src.name || '').trim();
   return {
-    id:          src.card_num || src.card_id,
+    id:          src.card_id || src.card_num,
+    cardNum:     src.card_num || null,
     name:        nameJa,
     nameJa:      nameJa,
     kana:        src.kana || null,
@@ -1015,7 +1005,7 @@ function convertConanTcgAppCard(src) {
     level:       srcToInt(src.cost),
     ap:          srcToInt(src.ap),
     lp:          srcToInt(src.lp),
-    set:         srcDeriveSet(src.card_num),
+    set:         src.package || null,
     features:    srcSplitFeatures(src.category),
     effect:      srcCombineAbilities(src),
     effectJa:    srcCombineAbilities(src),
