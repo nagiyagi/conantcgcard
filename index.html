@@ -937,6 +937,9 @@ const state = {
   filters: {
     q: '', color: '', type: '', rarity: '', set: '',
   },
+  collectionFilters: {
+    q: '', color: '', type: '', rarity: '', set: '',
+  },
   // detail context
   activeCollection: null,
   activeDeck: null,
@@ -1121,17 +1124,28 @@ function setView(v) {
 }
 
 /* ===== Filters ===== */
-function applyFilters(cards) {
-  const f = state.filters;
-  const q = f.q.trim().toLowerCase();
+function filterCards(cards, f) {
+  const q = (f.q || '').trim().toLowerCase();
   return cards.filter(c => {
-    if (q && !(`${c.name||''} ${c.nameJa||''} ${c.id||''} ${c.effect||''}`.toLowerCase().includes(q))) return false;
+    if (q && !(`${c.name||''} ${c.nameJa||''} ${c.kana||''} ${c.id||''} ${c.cardNum||''} ${c.effect||''}`.toLowerCase().includes(q))) return false;
     if (f.color && (c.color || '').toLowerCase() !== f.color) return false;
     if (f.type && c.type !== f.type) return false;
     if (f.rarity && c.rarity !== f.rarity) return false;
     if (f.set && c.set !== f.set) return false;
     return true;
   });
+}
+
+function applyFilters(cards) {
+  return filterCards(cards, state.filters);
+}
+
+function emptyFilters() {
+  return { q: '', color: '', type: '', rarity: '', set: '' };
+}
+
+function anyFilterActive(f) {
+  return !!(f.q || f.color || f.type || f.rarity || f.set);
 }
 
 /* ===== Renderers ===== */
@@ -1373,9 +1387,17 @@ async function renderCollectionDetail(id) {
   const filled = entries.map(([id, qty]) => ({ card: cardMap.get(id), qty })).filter(x => x.card);
   const total = entries.reduce((s,[,n])=>s+n, 0);
 
-  // Color breakdown
+  // Color breakdown (always reflects the FULL collection, not the current filter)
   const byColor = {};
   filled.forEach(({card, qty}) => { const c = (card.color||'?').toLowerCase(); byColor[c] = (byColor[c]||0)+qty; });
+
+  // Filter dropdown options come from this collection's cards only,
+  // so the menus never show choices that produce zero results.
+  const collCards = filled.map(x => x.card);
+  const sets = [...new Set(collCards.map(c => c.set).filter(Boolean))].sort();
+  const types = [...new Set(collCards.map(c => c.type).filter(Boolean))];
+  const rarities = [...new Set(collCards.map(c => c.rarity).filter(Boolean))];
+  const cf = state.collectionFilters;
 
   $('#main').innerHTML = `
     <div class="detail-header">
@@ -1396,21 +1418,82 @@ async function renderCollectionDetail(id) {
         <div class="breakdown">${Object.entries(byColor).map(([c,n])=>`<span><span class="color-dot ${c}"></span>${n}</span>`).join('')}</div>
       </div></div>
     </div>
+
+    ${filled.length > 0 ? `
+    <div class="toolbar">
+      <div class="search-box">
+        <input type="search" id="coll-q" placeholder="Search this collection..." value="${cf.q}">
+      </div>
+      <select class="btn" id="coll-filter-set">
+        <option value="">All Sets</option>
+        ${sets.map(s => `<option value="${s}" ${cf.set===s?'selected':''}>${s}</option>`).join('')}
+      </select>
+      <select class="btn" id="coll-filter-type">
+        <option value="">All Types</option>
+        ${types.map(t => `<option value="${t}" ${cf.type===t?'selected':''}>${t}</option>`).join('')}
+      </select>
+      <select class="btn" id="coll-filter-rarity">
+        <option value="">All Rarities</option>
+        ${rarities.map(r => `<option value="${r}" ${cf.rarity===r?'selected':''}>${r}</option>`).join('')}
+      </select>
+    </div>
+    <div class="filter-row">
+      <div class="filter-group">
+        <span class="filter-label">Color</span>
+        ${COLORS.map(c => `<button class="chip color-${c} ${cf.color===c?'active':''}" data-coll-color="${c}">${c}</button>`).join('')}
+        ${anyFilterActive(cf) ? `<button class="chip" id="coll-clear-filters">clear all</button>` : ''}
+      </div>
+    </div>
+    <div class="result-count" id="coll-result-count"></div>
+    ` : ''}
     <div id="coll-cards"></div>
   `;
   $('#back').addEventListener('click', () => { state.activeCollection = null; render(); });
   $('#rename').addEventListener('click', () => promptRenameCollection(coll));
   $('#del').addEventListener('click', () => promptDeleteCollection(coll));
 
-  const container = $('#coll-cards');
   if (filled.length === 0) {
-    container.innerHTML = `<div class="empty"><div class="icon">📭</div><h3>No cards yet</h3><p>Browse the Cards tab and use "Add to Collection".</p></div>`;
-  } else {
-    container.innerHTML = `<div class="card-grid">${filled.map(({card, qty}) => renderCardTile(card, qty)).join('')}</div>`;
-    $$('.card[data-card-id]').forEach(el => {
-      el.addEventListener('click', () => openCollectionCardEditor(coll, el.dataset.cardId));
-    });
+    $('#coll-cards').innerHTML = `<div class="empty"><div class="icon">📭</div><h3>No cards yet</h3><p>Browse the Cards tab and use "Add to Collection".</p></div>`;
+    return;
   }
+
+  // Wire up filter inputs. Search-box and dropdowns just re-render the list
+  // (so the input keeps focus while typing). Color chips and "clear" do a
+  // full re-render so the active state and clear-button visibility update.
+  $('#coll-q').addEventListener('input', e => { cf.q = e.target.value; renderCollectionList(coll, filled); });
+  $('#coll-filter-set').addEventListener('change', e => { cf.set = e.target.value; renderCollectionList(coll, filled); });
+  $('#coll-filter-type').addEventListener('change', e => { cf.type = e.target.value; renderCollectionList(coll, filled); });
+  $('#coll-filter-rarity').addEventListener('change', e => { cf.rarity = e.target.value; renderCollectionList(coll, filled); });
+  $$('.chip[data-coll-color]').forEach(b => b.addEventListener('click', () => {
+    cf.color = b.dataset.collColor;
+    renderCollectionDetail(coll.id);
+  }));
+  const clearBtn = $('#coll-clear-filters');
+  if (clearBtn) clearBtn.addEventListener('click', () => {
+    state.collectionFilters = emptyFilters();
+    renderCollectionDetail(coll.id);
+  });
+
+  renderCollectionList(coll, filled);
+}
+
+function renderCollectionList(coll, filled) {
+  const cf = state.collectionFilters;
+  const matchedIds = new Set(filterCards(filled.map(x => x.card), cf).map(c => c.id));
+  const visible = filled.filter(x => matchedIds.has(x.card.id));
+
+  const countEl = $('#coll-result-count');
+  if (countEl) countEl.textContent = `${visible.length} of ${filled.length} cards`;
+
+  const container = $('#coll-cards');
+  if (visible.length === 0) {
+    container.innerHTML = `<div class="empty"><div class="icon">🔍</div><h3>No cards match</h3><p>Try clearing filters or check your search.</p></div>`;
+    return;
+  }
+  container.innerHTML = `<div class="card-grid">${visible.map(({card, qty}) => renderCardTile(card, qty)).join('')}</div>`;
+  $$('.card[data-card-id]', container).forEach(el => {
+    el.addEventListener('click', () => openCollectionCardEditor(coll, el.dataset.cardId));
+  });
 }
 
 function openCollectionCardEditor(coll, cardId) {
